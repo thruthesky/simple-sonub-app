@@ -1,0 +1,3 @@
+[submodule "sonub-app-library"]
+	path = sonub-app-library
+	url = https://github.com/thruthesky/sonub-app-library
