@@ -4,30 +4,35 @@ import { ToolbarMenu, SideMenu } from 'sonub-app-library/sonub-app-library-inter
 @Injectable()
 export class AppService {
     toolbarMenus: ToolbarMenu[] = [
-        {
-            title: '홈',
-            icon: 'home',
-            url: '/'
-        },
+        // {
+        //     title: '홈',
+        //     icon: 'home',
+        //     url: '/'
+        // },
         {
             title: '갤러리',
             icon: 'photos',
-            url: '/'
+            url: '/gallery'
         },
         {
             title: '게시판',
             icon: 'chatboxes',
-            url: '/'
+            url: '/forum'
+        },
+        {
+            title: '연락처',
+            icon: 'contact',
+            url: '/contact'
         },
         {
             title: '오시는길',
             icon: 'map',
-            url: '/'
+            url: '/map'
         },
         {
             title: '메뉴',
             icon: 'menu',
-            showSideMenu: true
+            openSideMenu: true
         }
     ];
     sideMenus: SideMenu[] = [
@@ -39,10 +44,11 @@ export class AppService {
         {
             title: '페이스북',
             icon: 'logo-facebook',
-            url: '/'
+            url: 'https://web.facebook.com/thruthesky',
+            openWindow: true
         },
         {
-            title: '홈',
+            title: '닫기',
             icon: 'close',
             close: true
         }
