@@ -37,9 +37,10 @@ export class AppService {
     ];
     sideMenus: SideMenu[] = [
         {
-            title: '홈',
+            title: '홈페이지',
             icon: 'home',
-            url: '/'
+            url: 'https://evieco.shop',
+            openWindow: true
         },
         {
             title: '페이스북',
