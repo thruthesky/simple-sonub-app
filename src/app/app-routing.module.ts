@@ -5,6 +5,7 @@ import { GalleryComponent } from './pages/gallery/gallery.component';
 import { ForumComponent } from './pages/forum/forum.component';
 import { MapComponent } from './pages/map/map.component';
 import { ContactComponent } from './pages/contact/contact.component';
+import { SettingComponent } from './pages/setting/setting.component';
 
 
 const routes: Routes = [
@@ -14,6 +15,7 @@ const routes: Routes = [
   { path: 'forum', component: ForumComponent },
   { path: 'map', component: MapComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'setting', component: SettingComponent },
 ];
 
 @NgModule({

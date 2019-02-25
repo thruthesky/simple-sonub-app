@@ -1,0 +1,43 @@
+<ion-header>
+  <app-header-toolbar [title]=" a.t({
+    en: 'English',
+    ko: '설정',
+    ch: '设置',
+    jp: '設定'
+  }) "></app-header-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-radio-group>
+      <ion-list-header>
+        <ion-label>{{ a.t( 'select display language') }}</ion-label>
+      </ion-list-header>
+
+      <ion-item (click)=" lang = 'en' ">
+        <ion-label>English</ion-label>
+        <ion-radio slot="start" value="en" [checked]=" lang == 'en' "></ion-radio>
+      </ion-item>
+
+      <ion-item (click)=" lang = 'ko' ">
+        <ion-label>Korean (한국어)</ion-label>
+        <ion-radio slot="start" value="ko" [checked]=" lang == 'ko' "></ion-radio>
+      </ion-item>
+
+      <ion-item (click)=" lang = 'ch' ">
+        <ion-label>Chinese (中文)</ion-label>
+        <ion-radio slot="start" value="ch" [checked]=" lang == 'ch' "></ion-radio>
+      </ion-item>
+
+
+      <ion-item (click)=" lang = 'jp' ">
+        <ion-label>Japanese (日语)</ion-label>
+        <ion-radio slot="start" value="jp" [checked]=" lang == 'jp' "></ion-radio>
+      </ion-item>
+
+    </ion-radio-group>
+  </ion-list>
+
+
+</ion-content>
