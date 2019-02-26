@@ -95,15 +95,15 @@ export class MapComponent implements OnInit, AfterViewInit {
       // do tracking load to get there.
 
       // add a marker
-      // const marker: Marker = this.map.addMarkerSync({
-      //   title: '@ionic-native/google-maps plugin!',
-      //   snippet: 'This plugin is awesome!',
-      //   position: location.latLng,
-      //   animation: GoogleMapsAnimation.BOUNCE
-      // });
+      const marker: Marker = this.map.addMarkerSync({
+        title: '@ionic-native/google-maps plugin!',
+        snippet: 'This plugin is awesome!',
+        position: location.latLng,
+        animation: GoogleMapsAnimation.BOUNCE
+      });
 
-      // // show the infoWindow
-      // marker.showInfoWindow();
+      // show the infoWindow
+      marker.showInfoWindow();
 
       // If clicked it, display the alert
       // marker.on(GoogleMapsEvent.MARKER_CLICK).subscribe(() => {
