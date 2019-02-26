@@ -1,48 +1,9 @@
 <ion-header>
-    <app-header-toolbar [title]=" 'Map' "></app-header-toolbar>
-  </ion-header>
-  
-  <ion-content padding>
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be
-      your guide.</p>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-    <h1>h1</h1>
-  
-  
-  
-  </ion-content>
-  
+  <app-header-toolbar [title]=" a.t('map') "></app-header-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <div #map_canvas id="map_canvas" style="height: 90%;">
+    <ion-button (click)="onButtonClick()">{{ a.t('get directions') }}</ion-button>
+  </div>
+</ion-content>
