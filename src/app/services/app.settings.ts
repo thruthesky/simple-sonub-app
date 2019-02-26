@@ -3,7 +3,7 @@ import { ToolbarMenu, SideMenu } from 'sonub-app-library/sonub-app-library-inter
 
 const texts = basicTexts;
 export class AppSettings {
-    domain = 'evieco.shop';
+    siteIdx = 'evieco.shop';
     mapPhone = '0956-871-2485';
     mapLat = 14.5894;
     mapLng = 120.981;

@@ -19,6 +19,8 @@ export class AppService {
         public s: SonubAppLibraryService
     ) {
 
+        s.postGet('evieco.shop-gallery-1');
+
         // close side menu if it is opened
         this.platform.ready().then(() => {
             this.platform.backButton.subscribe(() => {
