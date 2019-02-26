@@ -50,8 +50,8 @@ export class MapComponent implements OnInit, AfterViewInit {
     this.map = GoogleMaps.create(this.map_canvas.nativeElement, {
       camera: {
         target: {
-          lat: this.a.mapLat,
-          lng: this.a.mapLng
+          lat: this.a.settings.mapLat,
+          lng: this.a.settings.mapLng
         },
         zoom: 18,
         tilt: 30
@@ -60,11 +60,11 @@ export class MapComponent implements OnInit, AfterViewInit {
 
     // add a marker
     const marker: Marker = this.map.addMarkerSync({
-      title: this.a.t(this.a.mapTitle),
-      snippet: this.a.t(this.a.mapSnippet),
+      title: this.a.t(this.a.settings.mapTitle),
+      snippet: this.a.t(this.a.settings.mapSnippet),
       position: {
-        lat: this.a.mapLat,
-        lng: this.a.mapLng
+        lat: this.a.settings.mapLat,
+        lng: this.a.settings.mapLng
       },
       animation: GoogleMapsAnimation.BOUNCE
     });
