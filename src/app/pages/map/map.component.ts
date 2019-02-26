@@ -11,9 +11,15 @@ import {
   GoogleMapsEvent,
   Marker,
   GoogleMapsAnimation,
-  MyLocation
+  MyLocation,
+  MarkerCluster
 } from '@ionic-native/google-maps';
 
+
+interface ILatLng {
+  lat: number;
+  lng: number;
+}
 
 @Component({
   selector: 'app-map',
@@ -24,6 +30,7 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   map: GoogleMap;
   loading: any;
+  destination: ILatLng = null;
 
   @ViewChild('map_canvas') map_canvas: ElementRef;
   constructor(
@@ -31,7 +38,9 @@ export class MapComponent implements OnInit, AfterViewInit {
     public toastCtrl: ToastController,
     private platform: Platform,
     public a: AppService
-  ) { }
+  ) {
+    this.destination = { lat: a.mapLat, lng: a.mapLng };
+  }
 
   ngOnInit() {
   }
@@ -46,13 +55,10 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   loadMap() {
-    console.log('canvas: ', this.map_canvas);
+    // console.log('canvas: ', this.map_canvas);
     this.map = GoogleMaps.create(this.map_canvas.nativeElement, {
       camera: {
-        target: {
-          lat: this.a.mapLat,
-          lng: this.a.mapLng
-        },
+        target: this.destination,
         zoom: 18,
         tilt: 30
       }
@@ -62,10 +68,7 @@ export class MapComponent implements OnInit, AfterViewInit {
     const marker: Marker = this.map.addMarkerSync({
       title: this.a.t(this.a.mapTitle),
       snippet: this.a.t(this.a.mapSnippet),
-      position: {
-        lat: this.a.mapLat,
-        lng: this.a.mapLng
-      },
+      position: this.destination,
       animation: GoogleMapsAnimation.BOUNCE
     });
     marker.showInfoWindow();
@@ -73,23 +76,48 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   async onButtonClick() {
-    this.map.clear();
+    // this.map.clear();
 
     this.loading = await this.loadingCtrl.create({
       message: this.a.t('wait to find my position')
     });
     await this.loading.present();
 
-    // Get the location of you
+    /**
+     * get device current location
+     */
     this.map.getMyLocation().then((location: MyLocation) => {
       this.loading.dismiss();
-      console.log(JSON.stringify(location, null, 2));
+      // console.log(JSON.stringify(location, null, 2));
 
-      // Move the map camera to the location with animation
+      /**
+       * locations
+       */
+      const locations = [
+        location.latLng,
+        this.destination
+      ];
+
+      /**
+       * add both location markers and click event listeners
+       */
+      const markerCluster: MarkerCluster = this.map.addMarkerClusterSync({
+        boundsDraw: false,
+        markers: this.dummyData(locations),
+        icons: [] // error when removed
+      });
+
+      markerCluster.on(GoogleMapsEvent.MARKER_CLICK).subscribe(loc => {
+        // show details and zoom in too
+        console.log(loc);
+      });
+
+      /**
+       * Zoom out camera to show both location
+       */
       this.map.animateCamera({
-        target: location.latLng,
-        zoom: 17,
-        tilt: 30
+        target: locations,
+        padding: 75
       });
 
       // do tracking load to get there.
@@ -123,6 +151,19 @@ export class MapComponent implements OnInit, AfterViewInit {
       position: 'middle'
     });
     toast.present();
+  }
+
+  dummyData(locations: ILatLng[]) {
+    return [
+      {
+        'position': { 'lat': locations[0].lat, 'lng': locations[0].lng },
+        'name': 'You Are Here'
+      },
+      {
+        'position': { 'lat': locations[1].lat, 'lng': locations[1].lng },
+        'name': 'Destination'
+      }
+    ];
   }
 
 }
