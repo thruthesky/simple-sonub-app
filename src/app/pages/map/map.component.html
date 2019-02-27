@@ -7,9 +7,11 @@
 
     <ion-item>
       <ion-label>Navigate With :</ion-label>
-      <ion-select [(ngModel)]="options.app">
+      <ion-select [(ngModel)]="options.app" (ngModelChange)=" consoletrans() ">
         <ion-select-option value="">Default App</ion-select-option>
-        <ion-select-option *ngFor="let app of apps" value="app">{{ app }}</ion-select-option>
+        <ion-select-option *ngFor="let app of apps" [value]="app.app_name">
+          {{ launchNavigator.getAppDisplayName(app.app_name) }}
+        </ion-select-option>
       </ion-select>
     </ion-item>
 

@@ -2,12 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/services/app.service';
 
 import {
-  Platform,
-  LoadingController
+  Platform
 } from '@ionic/angular';
 
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator/ngx';
-import { from } from 'rxjs';
 
 
 @Component({
@@ -17,8 +15,8 @@ import { from } from 'rxjs';
 })
 export class MapComponent implements OnInit {
 
-
-  apps: string[] = [];
+  apps = [];
+  modes = [];
 
   loading: any;
   destination: number[];
@@ -27,8 +25,7 @@ export class MapComponent implements OnInit {
   constructor(
     public a: AppService,
     private platform: Platform,
-    public loadingCtrl: LoadingController,
-    private launchNavigator: LaunchNavigator
+    public launchNavigator: LaunchNavigator
   ) {
     this.destination = [a.mapLat, a.mapLng];
   }
@@ -41,23 +38,56 @@ export class MapComponent implements OnInit {
   }
 
   init() {
-    from(this.launchNavigator.availableApps()).subscribe(apps => {
-      apps.forEach(app => {
-        if (app) {
-          this.apps = apps;
+
+    /**
+     * returns installed navigation app from the user's device
+     */
+    this.launchNavigator.availableApps().then(res => {
+      Object.keys(res).map((key) => {
+        if (res[key]) {
+          this.apps.push({ 'app_name': key, 'value': res[key] });
         }
       });
     });
   }
 
+  /**
+   * open third party navigation app by user choice
+   */
   navigate() {
     console.log(this.options);
-
     this.launchNavigator.navigate(this.destination, this.options)
       .then(
         success => alert('Launched navigator'),
         error => alert('Error launching navigator: ' + error)
       );
+  }
+
+  /**
+   * detect platform
+   */
+  get userPlatform() {
+    let platform = '';
+
+    if (this.platform.is('android')) {
+      platform = 'android';
+    } else if (this.platform.is('ios')) {
+      platform = 'ios';
+    }
+
+    return platform;
+  }
+
+  /**
+   * still working on this one
+   */
+  get transportModes() {
+    const modes = this.launchNavigator.getTransportModes(this.options.app, this.userPlatform);
+    return modes;
+  }
+
+  consoletrans() {
+    console.log(this.transportModes);
   }
 }
 
