@@ -40,12 +40,10 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   async ngOnInit() {
-    // await this.platform.ready();
-    // setTimeout(() => {
-    //   // this.init();
-    //   //
-    //   this.navigate();
-    // }, 300);
+    await this.platform.ready();
+    setTimeout(() => {
+      this.init();
+    }, 300);
   }
 
 
@@ -55,6 +53,8 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   init() {
+
+    console.log(this.launchNavigator.isAppAvailable(this.launchNavigator.APP.WAZE));
 
     /**
      * returns installed navigation app from the user's device
