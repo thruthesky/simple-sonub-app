@@ -21,6 +21,7 @@
     "@angular/platform-browser-dynamic": "^7.2.2",
     "@angular/router": "^7.2.2",
     "@ionic-native/core": "^5.0.0",
+    "@ionic-native/google-maps": "^5.0.0-beta.27",
     "@ionic-native/launch-navigator": "^5.2.0",
     "@ionic-native/splash-screen": "^5.0.0",
     "@ionic-native/status-bar": "^5.0.0",
@@ -78,6 +79,12 @@
       "cordova-plugin-ionic-keyboard": {},
       "uk.co.workingedge.phonegap.plugin.launchnavigator": {
         "GOOGLE_API_KEY_FOR_ANDROID": "AIzaSyAJBDbkflPiAS3Yvwq4X7tyqHtitb5uopY"
+      },
+      "cordova-plugin-googlemaps": {
+        "API_KEY_FOR_ANDROID": "AIzaSyAJBDbkflPiAS3Yvwq4X7tyqHtitb5uopY",
+        "API_KEY_FOR_IOS": "AIzaSyAJBDbkflPiAS3Yvwq4X7tyqHtitb5uopY",
+        "PLAY_SERVICES_VERSION": "15.0.1",
+        "ANDROID_SUPPORT_V4_VERSION": "27.+"
       }
     },
     "platforms": [

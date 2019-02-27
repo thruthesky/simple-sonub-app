@@ -1,21 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ElementRef, ViewChild, AfterViewInit } from '@angular/core';
 import { AppService } from 'src/app/services/app.service';
-
-import {
-  Platform
-} from '@ionic/angular';
-<<<<<<< HEAD
-
-import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator/ngx';
-=======
+import { Platform } from '@ionic/angular';
 import {
   GoogleMaps,
   GoogleMap,
   Marker,
-  GoogleMapsAnimation,
-  MyLocation
+  GoogleMapsAnimation
 } from '@ionic-native/google-maps';
->>>>>>> master
+import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator/ngx';
+
 
 
 @Component({
@@ -23,12 +16,14 @@ import {
   templateUrl: './map.component.html',
   styleUrls: ['./map.component.scss']
 })
-export class MapComponent implements OnInit {
+export class MapComponent implements OnInit, AfterViewInit {
+
+  @ViewChild('map_canvas') map_canvas: ElementRef;
+  map: GoogleMap;
+  loading: any;
 
   apps = [];
-  modes = [];
 
-  loading: any;
   destination: number[];
   options: LaunchNavigatorOptions = {
     app: this.launchNavigator.APP.WAZE,
@@ -39,32 +34,26 @@ export class MapComponent implements OnInit {
   constructor(
     public a: AppService,
     private platform: Platform,
-<<<<<<< HEAD
     public launchNavigator: LaunchNavigator
   ) {
-    this.destination = [a.mapLat, a.mapLng];
-=======
-    public a: AppService
-  ) { }
-
-  /**
-   * @todo see if waze is installed. or use google map for launching navigator.
-   * if both of them are not installed, let user to choose navigator.
-   */
-  ngOnInit() {
->>>>>>> master
+    this.destination = [a.settings.mapLat, a.settings.mapLng];
   }
 
   async ngOnInit() {
-    await this.platform.ready();
-    setTimeout(() => {
-      // this.init();
-      //
-      this.navigate();
-    }, 300);
+    // await this.platform.ready();
+    // setTimeout(() => {
+    //   // this.init();
+    //   //
+    //   this.navigate();
+    // }, 300);
   }
 
-<<<<<<< HEAD
+
+  async ngAfterViewInit() {
+    await this.platform.ready();
+    setTimeout(() => this.loadMap(), 300); // timeout is necessary here.
+  }
+
   init() {
 
     /**
@@ -76,7 +65,11 @@ export class MapComponent implements OnInit {
           this.apps.push({ 'app_name': key, 'value': res[key] });
         }
       });
-=======
+    });
+
+  }
+
+
   loadMap() {
     console.log('canvas: ', this.map_canvas);
     this.map = GoogleMaps.create(this.map_canvas.nativeElement, {
@@ -99,16 +92,12 @@ export class MapComponent implements OnInit {
         lng: this.a.settings.mapLng
       },
       animation: GoogleMapsAnimation.BOUNCE
->>>>>>> master
     });
 
+    marker.showInfoWindow();
   }
 
-<<<<<<< HEAD
-  /**
-   * open third party navigation app by user choice
-   */
-  navigate() {
+  onClickDirections() {
     console.log(this.options);
     this.launchNavigator.navigate(this.destination, this.options)
       .then(
@@ -117,37 +106,5 @@ export class MapComponent implements OnInit {
       );
   }
 
-  /**
-   * detect platform
-   */
-  get userPlatform() {
-    let platform = '';
-
-    if (this.platform.is('android')) {
-      platform = 'android';
-    } else if (this.platform.is('ios')) {
-      platform = 'ios';
-    }
-
-    return platform;
-  }
-
-  /**
-   * still working on this one
-   */
-  get transportModes() {
-    const modes = this.launchNavigator.getTransportModes(this.options.app, this.userPlatform);
-    return modes;
-=======
-  async onClickDirections() {
-    this.map.clear();
-
-    alert('show directions');
->>>>>>> master
-  }
-
-  consoletrans() {
-    console.log(this.transportModes);
-  }
 }
 
