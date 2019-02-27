@@ -20,7 +20,11 @@ export class MapComponent implements OnInit {
 
   loading: any;
   destination: number[];
-  options: LaunchNavigatorOptions = {};
+  options: LaunchNavigatorOptions = {
+    app: this.launchNavigator.APP.WAZE,
+    transportMode: ''
+  };
+
 
   constructor(
     public a: AppService,
@@ -33,7 +37,9 @@ export class MapComponent implements OnInit {
   async ngOnInit() {
     await this.platform.ready();
     setTimeout(() => {
-      this.init();
+      // this.init();
+      //
+      this.navigate();
     }, 300);
   }
 
@@ -49,6 +55,7 @@ export class MapComponent implements OnInit {
         }
       });
     });
+
   }
 
   /**
