@@ -65,7 +65,7 @@ export class MapComponent implements OnInit, AfterViewInit {
           if (key === this.launchNavigator.APP.WAZE) {
             this.options.app = this.launchNavigator.APP.WAZE;
           } else if (key === this.launchNavigator.APP.GOOGLE_MAPS) {
-            this.options.app = '';
+            this.options.app = this.launchNavigator.APP.GOOGLE_MAPS;
           } else {
             this.options.app = '';
           }
@@ -104,7 +104,9 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   onClickDirections() {
-    // console.log(this.options);
+    // for testing purposes
+    // this.options.app = '';
+
     this.launchNavigator.navigate(this.destination, this.options)
       .then(
         success => alert('Launched navigator'),
