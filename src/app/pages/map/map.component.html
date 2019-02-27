@@ -6,6 +6,14 @@
   <ion-list>
 
     <ion-item>
+      <ion-label>Navigate With :</ion-label>
+      <ion-select [(ngModel)]="options.app">
+        <ion-select-option value="">Default App</ion-select-option>
+        <ion-select-option *ngFor="let app of apps" value="app">{{ app }}</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
       <ion-label>Transportation</ion-label>
       <ion-select [(ngModel)]="options.transportMode">
         <ion-select-option value="">Driving</ion-select-option>

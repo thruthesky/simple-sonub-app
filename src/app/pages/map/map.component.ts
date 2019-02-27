@@ -7,6 +7,7 @@ import {
 } from '@ionic/angular';
 
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator/ngx';
+import { from } from 'rxjs';
 
 
 @Component({
@@ -40,7 +41,13 @@ export class MapComponent implements OnInit {
   }
 
   init() {
-
+    from(this.launchNavigator.availableApps()).subscribe(apps => {
+      apps.forEach(app => {
+        if (app) {
+          this.apps = apps;
+        }
+      });
+    });
   }
 
   navigate() {
