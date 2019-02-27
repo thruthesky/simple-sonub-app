@@ -17,6 +17,7 @@ import { ForumComponent } from './pages/forum/forum.component';
 import { MapComponent } from './pages/map/map.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { SettingComponent } from './pages/setting/setting.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { SettingComponent } from './pages/setting/setting.component';
   entryComponents: [],
   imports: [
     BrowserModule,
+    FormsModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     SonubAppLibraryModule
@@ -43,5 +45,5 @@ import { SettingComponent } from './pages/setting/setting.component';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
 

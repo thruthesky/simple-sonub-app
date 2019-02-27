@@ -3,7 +3,19 @@
 </ion-header>
 
 <ion-content padding>
-  <div #map_canvas id="map_canvas" style="height: 90%;">
-    <ion-button (click)="onButtonClick()">{{ a.t('get directions') }}</ion-button>
-  </div>
+  <ion-list>
+
+    <ion-item>
+      <ion-label>Transportation</ion-label>
+      <ion-select [(ngModel)]="options.transportMode">
+        <ion-select-option value="">Driving</ion-select-option>
+        <ion-select-option value="walking">Walking</ion-select-option>
+        <ion-select-option value="transit">Transit</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <button ion-button (click)="navigate()">Navigate</button>
+    </ion-item>
+  </ion-list>
 </ion-content>
