@@ -4,8 +4,18 @@ import { AppService } from 'src/app/services/app.service';
 import {
   Platform
 } from '@ionic/angular';
+<<<<<<< HEAD
 
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator/ngx';
+=======
+import {
+  GoogleMaps,
+  GoogleMap,
+  Marker,
+  GoogleMapsAnimation,
+  MyLocation
+} from '@ionic-native/google-maps';
+>>>>>>> master
 
 
 @Component({
@@ -29,9 +39,20 @@ export class MapComponent implements OnInit {
   constructor(
     public a: AppService,
     private platform: Platform,
+<<<<<<< HEAD
     public launchNavigator: LaunchNavigator
   ) {
     this.destination = [a.mapLat, a.mapLng];
+=======
+    public a: AppService
+  ) { }
+
+  /**
+   * @todo see if waze is installed. or use google map for launching navigator.
+   * if both of them are not installed, let user to choose navigator.
+   */
+  ngOnInit() {
+>>>>>>> master
   }
 
   async ngOnInit() {
@@ -43,6 +64,7 @@ export class MapComponent implements OnInit {
     }, 300);
   }
 
+<<<<<<< HEAD
   init() {
 
     /**
@@ -54,10 +76,35 @@ export class MapComponent implements OnInit {
           this.apps.push({ 'app_name': key, 'value': res[key] });
         }
       });
+=======
+  loadMap() {
+    console.log('canvas: ', this.map_canvas);
+    this.map = GoogleMaps.create(this.map_canvas.nativeElement, {
+      camera: {
+        target: {
+          lat: this.a.settings.mapLat,
+          lng: this.a.settings.mapLng
+        },
+        zoom: 18,
+        tilt: 30
+      }
+    });
+
+    // add a marker
+    const marker: Marker = this.map.addMarkerSync({
+      title: this.a.t(this.a.settings.mapTitle),
+      snippet: this.a.t(this.a.settings.mapSnippet),
+      position: {
+        lat: this.a.settings.mapLat,
+        lng: this.a.settings.mapLng
+      },
+      animation: GoogleMapsAnimation.BOUNCE
+>>>>>>> master
     });
 
   }
 
+<<<<<<< HEAD
   /**
    * open third party navigation app by user choice
    */
@@ -91,6 +138,12 @@ export class MapComponent implements OnInit {
   get transportModes() {
     const modes = this.launchNavigator.getTransportModes(this.options.app, this.userPlatform);
     return modes;
+=======
+  async onClickDirections() {
+    this.map.clear();
+
+    alert('show directions');
+>>>>>>> master
   }
 
   consoletrans() {

@@ -89,4 +89,9 @@
         <variable name="PLAY_SERVICES_VERSION" value="15.0.1" />
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
     </plugin>
+    <allow-navigation href="http://192.168.0.67:8100" sessionid="e5a9d283" />
+    <engine name="android" spec="7.0.0" />
+    <plugin name="uk.co.workingedge.phonegap.plugin.launchnavigator" spec="^5.0.4">
+        <variable name="GOOGLE_API_KEY_FOR_ANDROID" value="AIzaSyAJBDbkflPiAS3Yvwq4X7tyqHtitb5uopY" />
+    </plugin>
 </widget>
