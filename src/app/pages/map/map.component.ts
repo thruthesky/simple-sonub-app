@@ -26,8 +26,8 @@ export class MapComponent implements OnInit, AfterViewInit {
 
   destination: number[];
   options: LaunchNavigatorOptions = {
-    app: this.launchNavigator.APP.WAZE,
-    transportMode: ''
+    // app: will be user selection if waze and google maps are not available
+    // transportMode: will be `driving` in defauld if not specified
   };
 
 
@@ -53,25 +53,31 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   init() {
-
-    console.log(this.launchNavigator.isAppAvailable(this.launchNavigator.APP.WAZE));
-
     /**
      * returns installed navigation app from the user's device
      */
     this.launchNavigator.availableApps().then(res => {
       Object.keys(res).map((key) => {
+        /**
+         * check if waze is available then options.app will be waze if not, google maps
+         */
         if (res[key]) {
-          this.apps.push({ 'app_name': key, 'value': res[key] });
+          if (key === this.launchNavigator.APP.WAZE) {
+            this.options.app = this.launchNavigator.APP.WAZE;
+          } else if (key === this.launchNavigator.APP.GOOGLE_MAPS) {
+            this.options.app = '';
+          } else {
+            this.options.app = '';
+          }
         }
       });
+      console.log(this.options);
     });
-
   }
 
 
   loadMap() {
-    console.log('canvas: ', this.map_canvas);
+    // console.log('canvas: ', this.map_canvas);
     this.map = GoogleMaps.create(this.map_canvas.nativeElement, {
       camera: {
         target: {
@@ -98,7 +104,7 @@ export class MapComponent implements OnInit, AfterViewInit {
   }
 
   onClickDirections() {
-    console.log(this.options);
+    // console.log(this.options);
     this.launchNavigator.navigate(this.destination, this.options)
       .then(
         success => alert('Launched navigator'),
