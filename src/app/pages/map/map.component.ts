@@ -36,12 +36,12 @@ export class MapComponent implements OnInit {
   async ngOnInit() {
     await this.platform.ready();
     setTimeout(() => {
+      this.initApps();
       this.loadMap();
-      console.log('OnInit');
     }, 300); // timeout is necessary here.
   }
 
-  loadMap() {
+  initApps() {
     /**
      * @description
      *  `launchNavigator.availableApps` returns a list of supported apps for the current user's device with a boolean value
@@ -74,7 +74,9 @@ export class MapComponent implements OnInit {
         this.options.app = this.launchNavigator.APP.USER_SELECT;
       }
     });
+  }
 
+  loadMap() {
     // plot map to canvas
     this.map = GoogleMaps.create(this.map_canvas.nativeElement, {
       camera: {
@@ -103,9 +105,6 @@ export class MapComponent implements OnInit {
   }
 
   onClickDirections() {
-
-    console.log(this.installedNavigationApps, this.options);
-
     if (!this.installedNavigationApps.length) {
       return alert('Please install a navigation app to continue');
     }
