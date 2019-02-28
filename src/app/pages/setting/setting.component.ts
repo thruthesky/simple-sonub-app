@@ -16,10 +16,10 @@ export class SettingComponent implements OnInit {
   }
 
   get lang(): string {
-    return this.a.s.getUserLanguage();
+    return this.a.lib.getUserLanguage();
   }
   set lang( code ) {
-    this.a.s.setUserLanguage(code);
+    this.a.lib.setUserLanguage(code);
   }
 
 }

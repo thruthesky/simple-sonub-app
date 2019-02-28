@@ -19,6 +19,8 @@ import { MapComponent } from './pages/map/map.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { SettingComponent } from './pages/setting/setting.component';
 import { FormsModule } from '@angular/forms';
+import { SimplestModule } from 'modules/ng-simplest/simplest.module';
+import { environment } from 'src/environments/environment';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    SonubAppLibraryModule
+    SonubAppLibraryModule,
+    SimplestModule.forRoot(environment.simplest)
   ],
   providers: [
     StatusBar,

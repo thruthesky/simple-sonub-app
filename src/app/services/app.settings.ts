@@ -83,7 +83,8 @@ export class AppSettings {
                 en: `Keep close to Nature's heart...
                         and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.`,
                 ko: `반영구 화장에 대한 설명과 내용입니다. 오늘의 멋진 일상을 반영구 화장으로 시작해 보세요. 누구든지 생활의 활력소를 불어넣어 드립니다.`
-            }
+            },
+            photoUrl: '/assets/img/gallery-card-1-img.jpg'
         },
         {
             header: {
@@ -98,7 +99,8 @@ export class AppSettings {
                 en: `Keep close to Nature's heart...
                     and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.`,
                 ko: `반영구 화장에 대한 설명과 내용입니다. 오늘의 멋진 일상을 반영구 화장으로 시작해 보세요. 누구든지 생활의 활력소를 불어넣어 드립니다.`
-            }
+            },
+            photoUrl: '/assets/img/gallery-card-1-img.jpg'
         }
     ];
 }

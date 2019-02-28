@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
 import { ToolbarMenu, SideMenu } from 'sonub-app-library/sonub-app-library-interfaces';
-import { SonubAppLibraryService } from 'sonub-app-library/services/sonub-app-library.service';
 import { Platform, MenuController } from '@ionic/angular';
 import { AppSettings } from './app.settings';
-import * as yaml from 'js-yaml';
+import { SimplestService } from 'modules/ng-simplest/simplest.service';
+import { LibraryService } from 'sonub-app-library/services/library.service';
 
 
 @Injectable()
@@ -18,27 +18,9 @@ export class AppService {
     constructor(
         private platform: Platform,
         private menuController: MenuController,
-        public s: SonubAppLibraryService
+        public lib: LibraryService,
+        public sp: SimplestService
     ) {
-
-        s.postQuery({
-            fields: '*',
-            where: `taxonomy='sites' AND relation=${this.settings.siteIdx} AND access_code LIKE 'gallery-%'`,
-            limit: '10',
-            orderby: 'access_code asc'
-        }).subscribe(res => {
-            console.log('post.query: ', res);
-            this.settings.gallery = [];
-            for (const p of res) {
-                try {
-                    const doc = yaml.safeLoad(p['content']);
-                    console.log('doc: ', doc);
-                    this.settings.gallery.push( doc );
-                } catch (e) {
-                    console.error(e);
-                }
-            }
-        }, e => console.error(e));
 
         // close side menu if it is opened
         this.platform.ready().then(() => {
@@ -54,9 +36,9 @@ export class AppService {
 
     }
     t(code: any, info?: any): string {
-        return this.s.t(code, info);
+        return this.lib.t(code, info);
     }
     texts(code: string) {
-        return this.s.texts[code];
+        return this.lib.texts[code];
     }
 }
