@@ -11,14 +11,18 @@ export class ForumComponent implements OnInit {
   constructor(
     public a: AppService
   ) {
-    this.a.sp.postQuery({
-      fields: '*',
-      where: `taxonomy='sites' AND relation=${this.a.settings.siteIdx} AND access_code IS NULL`,
-      limit: '10',
-      orderby: 'idx desc'
-    }).subscribe(res => {
-      console.log('forum: post.query: ', res);
-    }, e => console.error(e));
+    // this.a.sp.postQuery({
+    //   fields: '*',
+    //   where: `taxonomy='sites' AND relation=${this.a.settings.siteIdx} AND access_code IS NULL`,
+    //   limit: '10',
+    //   orderby: 'idx desc'
+    // }).subscribe(res => {
+    //   console.log('forum: post.query: ', res);
+    // }, e => console.error(e));
+
+    this.a.sp.postList({ idx_category: this.a.settings.forumCategoryIdx }, {}).subscribe(res => {
+      console.log('postList: ', res);
+    });
   }
 
   ngOnInit() {

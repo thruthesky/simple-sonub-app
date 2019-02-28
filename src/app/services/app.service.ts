@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { ToolbarMenu, SideMenu } from 'sonub-app-library/sonub-app-library-interfaces';
+import { ToolbarMenu, SideMenu } from 'modules/sonub-app-library/sonub-app-library-interfaces';
 import { Platform, MenuController } from '@ionic/angular';
 import { AppSettings } from './app.settings';
 import { SimplestService } from 'modules/ng-simplest/simplest.service';
-import { LibraryService } from 'sonub-app-library/services/library.service';
+import { LibraryService } from 'modules/sonub-app-library/services/library.service';
 
 
 @Injectable()

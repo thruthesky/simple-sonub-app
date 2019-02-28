@@ -1,9 +1,20 @@
-import { basicTexts } from 'sonub-app-library/locales/basic';
-import { ToolbarMenu, SideMenu } from 'sonub-app-library/sonub-app-library-interfaces';
+import { basicTexts } from 'modules/sonub-app-library/locales/basic';
+import { ToolbarMenu, SideMenu } from 'modules/sonub-app-library/sonub-app-library-interfaces';
 
 const texts = basicTexts;
 export class AppSettings {
+    /**
+     * Site.idx
+     */
     siteIdx = '21';
+    /**
+     * category.idx of a site.
+     * We only support sonub forum. ( Not philgo forum ).
+     */
+    forumCategoryIdx = '80';
+    /**
+     * Phone number to be appear on map.
+     */
     mapPhone = '0956-871-2485';
     mapLat = 14.5894;
     mapLng = 120.981;

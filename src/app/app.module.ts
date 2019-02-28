@@ -10,7 +10,7 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { SonubAppLibraryModule } from 'sonub-app-library/sonub-app-library.module';
+import { SonubAppLibraryModule } from 'modules/sonub-app-library/sonub-app-library.module';
 import { AppService } from './services/app.service';
 import { HomePage } from './pages/home/home.page';
 import { GalleryComponent } from './pages/gallery/gallery.component';
