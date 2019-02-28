@@ -3,7 +3,7 @@ import { ToolbarMenu, SideMenu } from 'sonub-app-library/sonub-app-library-inter
 
 const texts = basicTexts;
 export class AppSettings {
-    siteIdx = 'evieco.shop';
+    siteIdx = '21';
     mapPhone = '0956-871-2485';
     mapLat = 14.5894;
     mapLng = 120.981;
@@ -66,6 +66,39 @@ export class AppSettings {
             title: texts['close'],
             icon: 'close',
             close: true
+        }
+    ];
+
+    gallery = [
+        {
+            header: {
+                en: 'header',
+                ko: '반영구 화장이란?'
+            },
+            title: {
+                en: 'title',
+                ko: '나 자신을 빛나게하는 최고의 선물!'
+            },
+            content: {
+                en: `Keep close to Nature's heart...
+                        and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.`,
+                ko: `반영구 화장에 대한 설명과 내용입니다. 오늘의 멋진 일상을 반영구 화장으로 시작해 보세요. 누구든지 생활의 활력소를 불어넣어 드립니다.`
+            }
+        },
+        {
+            header: {
+                en: 'header 2',
+                ko: '반영구 화장이란? 2'
+            },
+            title: {
+                en: 'title 2',
+                ko: '나 자신을 빛나게하는 최고의 선물! 2'
+            },
+            content: {
+                en: `Keep close to Nature's heart...
+                    and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.`,
+                ko: `반영구 화장에 대한 설명과 내용입니다. 오늘의 멋진 일상을 반영구 화장으로 시작해 보세요. 누구든지 생활의 활력소를 불어넣어 드립니다.`
+            }
         }
     ];
 }
