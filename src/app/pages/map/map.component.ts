@@ -21,10 +21,7 @@ export class MapComponent implements OnInit {
   loading: any;
 
   destination: number[];
-  options: LaunchNavigatorOptions = {
-    // app: will be user selection if waze and google maps are not available
-    // transportMode: will be `driving` in defauld if not specified
-  };
+  options: LaunchNavigatorOptions = {};
   installedNavigationApps: Array<string> = [];
 
 
