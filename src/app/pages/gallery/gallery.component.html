@@ -7,18 +7,15 @@
 
 <ion-content>
 
-  <ion-card>
+
+  <ion-card *ngFor="let gallery of a.settings.gallery">
     <ion-card-header>
-      <ion-card-subtitle>반영구 화장이란?</ion-card-subtitle>
-      <ion-card-title>나 자신을 빛나게하는 최고의 선물!</ion-card-title>
+      <ion-card-subtitle>{{ a.t( gallery.header ) }}</ion-card-subtitle>
+      <ion-card-title>{{ a.t( gallery.title ) }}</ion-card-title>
     </ion-card-header>
 
     <ion-img src="/assets/img/gallery-card-1-img.jpg"></ion-img>
-    <ion-card-content>
-
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
-    </ion-card-content>
+    <ion-card-content>{{ a.t( gallery.content ) }}</ion-card-content>
 
     <ion-item>
       <ion-avatar item-start>
@@ -31,53 +28,6 @@
     </ion-item>
   </ion-card>
 
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>반영구 화장이란?</ion-card-subtitle>
-      <ion-card-title>나 자신을 빛나게하는 최고의 선물!</ion-card-title>
-    </ion-card-header>
-
-    <ion-img src="/assets/img/gallery-card-1-img.jpg"></ion-img>
-    <ion-card-content>
-
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
-    </ion-card-content>
-
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="/assets/img/avatar.jpg">
-      </ion-avatar>
-      <div class="ml-3">
-        <h2 class="m-0 p-0 fw-light fs-md">Evie & Co</h2>
-        <p class="m-0 p-0 fw-light fs-xs">November 5, 1955</p>
-      </div>
-    </ion-item>
-  </ion-card>
-
-  <ion-card>
-    <ion-card-header>
-      <ion-card-subtitle>반영구 화장이란?</ion-card-subtitle>
-      <ion-card-title>나 자신을 빛나게하는 최고의 선물!</ion-card-title>
-    </ion-card-header>
-
-    <ion-img src="/assets/img/gallery-card-1-img.jpg"></ion-img>
-    <ion-card-content>
-
-      Keep close to Nature's heart... and break clear away, once in awhile,
-      and climb a mountain or spend a week in the woods. Wash your spirit clean.
-    </ion-card-content>
-
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="/assets/img/avatar.jpg">
-      </ion-avatar>
-      <div class="ml-3">
-        <h2 class="m-0 p-0 fw-light fs-md">Evie & Co</h2>
-        <p class="m-0 p-0 fw-light fs-xs">November 5, 1955</p>
-      </div>
-    </ion-item>
-  </ion-card>
 
 
 </ion-content>
