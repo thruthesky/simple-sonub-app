@@ -65,19 +65,14 @@ export class MapComponent implements OnInit {
      * @see https://github.com/dpa99c/phonegap-launch-navigator#app
      */
     this.launchNavigator.availableApps().then(apps => {
-      Object.keys(apps).forEach(app => {
-        if (apps[app]) {
-          this.installedNavigationApps.push(app);
-
-          if (app === this.launchNavigator.APP.GOOGLE_MAPS) {
-            this.options.app = this.launchNavigator.APP.GOOGLE_MAPS;
-          } else if (app === this.launchNavigator.APP.WAZE) {
-            this.options.app = this.launchNavigator.APP.WAZE;
-          } else {
-            this.options.app = this.launchNavigator.APP.USER_SELECT;
-          }
-        }
-      });
+      this.installedNavigationApps = Object.keys(apps).filter(v => apps[v]);
+      if (this.installedNavigationApps.includes(this.launchNavigator.APP.WAZE)) {
+        this.options.app = this.launchNavigator.APP.WAZE;
+      } else if (this.installedNavigationApps.includes(this.launchNavigator.APP.GOOGLE_MAPS)) {
+        this.options.app = this.launchNavigator.APP.GOOGLE_MAPS;
+      } else {
+        this.options.app = this.launchNavigator.APP.USER_SELECT;
+      }
     });
 
     // plot map to canvas
