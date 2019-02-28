@@ -1,6 +1,6 @@
-[submodule "sonub-app-library"]
-	path = sonub-app-library
-	url = https://github.com/thruthesky/sonub-app-library
 [submodule "modules/ng-simplest"]
 	path = modules/ng-simplest
 	url = https://github.com/thruthesky/ng-simplest
+[submodule "modules/sonub-app-library"]
+	path = modules/sonub-app-library
+	url = https://github.com/thruthesky/sonub-app-library
