@@ -13,7 +13,6 @@ export class GalleryComponent implements OnInit {
   constructor(
     public a: AppService
   ) {
-    a.postList( a.settings.site.gallery, 1);
   }
 
   ngOnInit() {

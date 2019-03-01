@@ -22,6 +22,7 @@ import { SimplestModule } from 'modules/ng-simplest/simplest.module';
 import { environment } from 'src/environments/environment';
 import { AppSettings } from './services/app.settings';
 import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
+import { PostListComponent } from './components/post-list/post-list.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
     ForumComponent,
     MapComponent,
     ContactComponent,
-    SettingComponent
+    SettingComponent,
+    PostListComponent
   ],
   entryComponents: [],
   imports: [
