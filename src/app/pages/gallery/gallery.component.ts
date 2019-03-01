@@ -16,7 +16,7 @@ export class GalleryComponent implements OnInit {
 
     a.sp.postQuery({
       fields: '*',
-      where: `taxonomy='sites' AND relation=${a.settings.siteIdx} AND access_code LIKE 'gallery-%'`,
+      where: `taxonomy='sites' AND relation=${a.settings.site.idx} AND access_code LIKE 'gallery-%'`,
       limit: '10',
       orderby: 'access_code asc'
     }).subscribe(res => {

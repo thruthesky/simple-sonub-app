@@ -4,29 +4,28 @@
 
 <ion-content padding>
 
-  <ion-list>
+  <ion-list *ngIf=" a.settings.noOfSites > 1 ">
     <ion-radio-group>
       <ion-list-header>
         <ion-label>{{ a.t( 'select display language') }}</ion-label>
       </ion-list-header>
 
-      <ion-item (click)=" lang = 'en' ">
+      <ion-item (click)=" lang = 'en' " *ngIf=" a.settings.sites['en']?.idx ">
         <ion-label>English</ion-label>
         <ion-radio slot="start" value="en" [checked]=" lang == 'en' "></ion-radio>
       </ion-item>
 
-      <ion-item (click)=" lang = 'ko' ">
+      <ion-item (click)=" lang = 'ko' " *ngIf=" a.settings.sites['ko']?.idx ">
         <ion-label>Korean (한국어)</ion-label>
         <ion-radio slot="start" value="ko" [checked]=" lang == 'ko' "></ion-radio>
       </ion-item>
 
-      <ion-item (click)=" lang = 'ch' ">
+      <ion-item (click)=" lang = 'ch' " *ngIf=" a.settings.sites['ch']?.idx ">
         <ion-label>Chinese (中文)</ion-label>
         <ion-radio slot="start" value="ch" [checked]=" lang == 'ch' "></ion-radio>
       </ion-item>
 
-
-      <ion-item (click)=" lang = 'jp' ">
+      <ion-item (click)=" lang = 'jp' " *ngIf=" a.settings.sites['jp']?.idx ">
         <ion-label>Japanese (日语)</ion-label>
         <ion-radio slot="start" value="jp" [checked]=" lang == 'jp' "></ion-radio>
       </ion-item>

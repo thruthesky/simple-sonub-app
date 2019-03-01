@@ -4,3 +4,6 @@
 [submodule "modules/sonub-app-library"]
 	path = modules/sonub-app-library
 	url = https://github.com/thruthesky/sonub-app-library
+[submodule "modules/philgo-api"]
+	path = modules/philgo-api
+	url = https://github.com/thruthesky/philgo-api

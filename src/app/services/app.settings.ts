@@ -1,12 +1,38 @@
 import { basicTexts } from 'modules/sonub-app-library/locales/basic';
 import { ToolbarMenu, SideMenu } from 'modules/sonub-app-library/sonub-app-library-interfaces';
+import { Injectable } from '@angular/core';
+import { LibraryService } from 'modules/sonub-app-library/services/library.service';
 
 const texts = basicTexts;
+
+interface AppSettingSite {
+    idx: string;
+    galleryCategoryIdx?: string;
+    forumCategoryIdx?: string;
+}
+
+@Injectable()
 export class AppSettings {
     /**
-     * Site.idx
+     * Site settings.
+     * @see README
      */
-    siteIdx = '21';
+    sites: {
+        [index: string]: AppSettingSite
+    } = {
+            en: {
+                idx: '24',
+                forumCategoryIdx: '',
+                galleryCategoryIdx: ''
+            },
+            ko: {
+                idx: '21',
+                forumCategoryIdx: '80',
+                galleryCategoryIdx: '80'
+            }
+        };
+
+
     /**
      * category.idx of a site.
      * We only support sonub forum. ( Not philgo forum ).
@@ -114,4 +140,21 @@ export class AppSettings {
             photoUrl: '/assets/img/gallery-card-1-img.jpg'
         }
     ];
+
+    constructor(
+        private lib: LibraryService
+    ) {
+        console.log('sites', this.sites);
+    }
+    get site(): AppSettingSite {
+        const ln = this.lib.languageCode;
+        return this.sites[ln];
+    }
+    /**
+     * Returns no of sites.
+     * How many langauge site are configured.
+     */
+    get noOfSites(): number {
+        return Object.keys(this.sites).length;
+    }
 }

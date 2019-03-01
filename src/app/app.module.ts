@@ -18,9 +18,9 @@ import { ForumComponent } from './pages/forum/forum.component';
 import { MapComponent } from './pages/map/map.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { SettingComponent } from './pages/setting/setting.component';
-import { FormsModule } from '@angular/forms';
 import { SimplestModule } from 'modules/ng-simplest/simplest.module';
 import { environment } from 'src/environments/environment';
+import { AppSettings } from './services/app.settings';
 
 @NgModule({
   declarations: [
@@ -45,7 +45,8 @@ import { environment } from 'src/environments/environment';
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
-    AppService
+    AppService,
+    AppSettings
   ],
   bootstrap: [AppComponent]
 })

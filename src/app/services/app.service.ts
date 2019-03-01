@@ -12,15 +12,22 @@ export class AppService {
     toolbarMenus: ToolbarMenu[];
     sideMenus: SideMenu[];
 
-    settings = new AppSettings();
-
-
     constructor(
         private platform: Platform,
         private menuController: MenuController,
         public lib: LibraryService,
-        public sp: SimplestService
+        public sp: SimplestService,
+        public settings: AppSettings
     ) {
+
+        /**
+         * If there is only one site for one language, then set that language.
+         */
+        if ( settings.noOfSites === 1 ) {
+            const ln = Object.keys(settings.sites).pop();
+            console.log('one siet: ', ln);
+            lib.languageCode = ln;
+        }
 
         // close side menu if it is opened
         this.platform.ready().then(() => {
