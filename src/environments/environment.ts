@@ -8,6 +8,15 @@ export const environment = {
     backendUrl: 'https://api.sonub.com/api.php',
     enableLoginToAllSubdomains: false
   },
+  philgo: {
+    url: {
+      // webServer: 'https://local.philgo.com/api.php', // local server
+      // fileServer: 'https://local.philgo.com/api.php' // local server
+
+      webServer: 'https://philgo.com/api.php', // remote server
+      fileServer: 'https://file.philgo.com/api.php' // remote server
+    }
+  }
 };
 
 /*

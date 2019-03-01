@@ -5,10 +5,16 @@ import { LibraryService } from 'modules/sonub-app-library/services/library.servi
 
 const texts = basicTexts;
 
-interface AppSettingSite {
+export interface AppSettingForum {
+    type: 'sonub' | 'philgo';
+    idx_category?: string; // sonub only
+    post_id?: string; // philgo only.
+    category?: string; // philgo only
+}
+export interface AppSettingSite {
     idx: string;
-    galleryCategoryIdx?: string;
-    forumCategoryIdx?: string;
+    gallery?: AppSettingForum;
+    forum?: AppSettingForum;
 }
 
 @Injectable()
@@ -22,13 +28,26 @@ export class AppSettings {
     } = {
             en: {
                 idx: '24',
-                forumCategoryIdx: '',
-                galleryCategoryIdx: ''
+                gallery: {
+                    type: 'sonub',
+                    idx_category: '10'
+                },
+                forum: {
+                    type: 'sonub',
+                    idx_category: '12'
+                }
             },
             ko: {
                 idx: '21',
-                forumCategoryIdx: '80',
-                galleryCategoryIdx: '80'
+                gallery: {
+                    type: 'philgo',
+                    post_id: 'company_info',
+                    category: '21'
+                },
+                forum: {
+                    type: 'sonub',
+                    idx_category: '12'
+                }
             }
         };
 
@@ -106,46 +125,50 @@ export class AppSettings {
         }
     ];
 
-    gallery = [
-        {
-            header: {
-                en: 'header',
-                ko: '반영구 화장이란?'
-            },
-            title: {
-                en: 'title',
-                ko: '나 자신을 빛나게하는 최고의 선물!'
-            },
-            content: {
-                en: `Keep close to Nature's heart...
-                        and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.`,
-                ko: `반영구 화장에 대한 설명과 내용입니다. 오늘의 멋진 일상을 반영구 화장으로 시작해 보세요. 누구든지 생활의 활력소를 불어넣어 드립니다.`
-            },
-            photoUrl: '/assets/img/gallery-card-1-img.jpg'
-        },
-        {
-            header: {
-                en: 'header 2',
-                ko: '반영구 화장이란? 2'
-            },
-            title: {
-                en: 'title 2',
-                ko: '나 자신을 빛나게하는 최고의 선물! 2'
-            },
-            content: {
-                en: `Keep close to Nature's heart...
-                    and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.`,
-                ko: `반영구 화장에 대한 설명과 내용입니다. 오늘의 멋진 일상을 반영구 화장으로 시작해 보세요. 누구든지 생활의 활력소를 불어넣어 드립니다.`
-            },
-            photoUrl: '/assets/img/gallery-card-1-img.jpg'
-        }
-    ];
+    // gallery = [
+    //     {
+    //         header: {
+    //             en: 'header',
+    //             ko: '반영구 화장이란?'
+    //         },
+    //         title: {
+    //             en: 'title',
+    //             ko: '나 자신을 빛나게하는 최고의 선물!'
+    //         },
+    //         content: {
+    //             en: `Keep close to Nature's heart...
+    //                     and break clear away, once in awhile, and
+    //  climb a mountain or spend a week in the woods. Wash your spirit clean.`,
+    //             ko: `반영구 화장에 대한 설명과 내용입니다. 오늘의 멋진 일상을 반영구 화장으로 시작해 보세요. 누구든지 생활의 활력소를 불어넣어 드립니다.`
+    //         },
+    //         photoUrl: '/assets/img/gallery-card-1-img.jpg'
+    //     },
+    //     {
+    //         header: {
+    //             en: 'header 2',
+    //             ko: '반영구 화장이란? 2'
+    //         },
+    //         title: {
+    //             en: 'title 2',
+    //             ko: '나 자신을 빛나게하는 최고의 선물! 2'
+    //         },
+    //         content: {
+    //             en: `Keep close to Nature's heart...
+    //                 and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.`,
+    //             ko: `반영구 화장에 대한 설명과 내용입니다. 오늘의 멋진 일상을 반영구 화장으로 시작해 보세요. 누구든지 생활의 활력소를 불어넣어 드립니다.`
+    //         },
+    //         photoUrl: '/assets/img/gallery-card-1-img.jpg'
+    //     }
+    // ];
 
     constructor(
         private lib: LibraryService
     ) {
         console.log('sites', this.sites);
     }
+    /**
+     * Returns the site settings of current language.
+     */
     get site(): AppSettingSite {
         const ln = this.lib.languageCode;
         return this.sites[ln];

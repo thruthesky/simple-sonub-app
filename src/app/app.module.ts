@@ -21,6 +21,7 @@ import { SettingComponent } from './pages/setting/setting.component';
 import { SimplestModule } from 'modules/ng-simplest/simplest.module';
 import { environment } from 'src/environments/environment';
 import { AppSettings } from './services/app.settings';
+import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
 
 @NgModule({
   declarations: [
@@ -50,5 +51,10 @@ import { AppSettings } from './services/app.settings';
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private philgo: PhilGoApiService) {
+    philgo.setServerUrl(environment.philgo.url.webServer);
+    philgo.setFileServerUrl(environment.philgo.url.fileServer);
+  }
+}
 

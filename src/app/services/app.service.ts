@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { ToolbarMenu, SideMenu } from 'modules/sonub-app-library/sonub-app-library-interfaces';
 import { Platform, MenuController } from '@ionic/angular';
-import { AppSettings } from './app.settings';
+import { AppSettings, AppSettingForum } from './app.settings';
 import { SimplestService } from 'modules/ng-simplest/simplest.service';
 import { LibraryService } from 'modules/sonub-app-library/services/library.service';
+import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
 
 
 @Injectable()
@@ -17,13 +18,14 @@ export class AppService {
         private menuController: MenuController,
         public lib: LibraryService,
         public sp: SimplestService,
-        public settings: AppSettings
+        public settings: AppSettings,
+        public philgo: PhilGoApiService
     ) {
 
         /**
          * If there is only one site for one language, then set that language.
          */
-        if ( settings.noOfSites === 1 ) {
+        if (settings.noOfSites === 1) {
             const ln = Object.keys(settings.sites).pop();
             console.log('one siet: ', ln);
             lib.languageCode = ln;
@@ -47,5 +49,10 @@ export class AppService {
     }
     texts(code: string) {
         return this.lib.texts[code];
+    }
+
+
+    postList(forum: AppSettingForum, page_no: number) {
+        console.log('forum: setting:', forum);
     }
 }
