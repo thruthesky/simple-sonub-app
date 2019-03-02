@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/services/app.service';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-setting',
@@ -9,7 +10,8 @@ import { AppService } from 'src/app/services/app.service';
 export class SettingComponent implements OnInit {
 
   constructor(
-    public a: AppService
+    public a: AppService,
+    private navCtrl: NavController
   ) { }
 
   ngOnInit() {
@@ -20,6 +22,7 @@ export class SettingComponent implements OnInit {
   }
   set lang( code ) {
     this.a.lib.setUserLanguage(code);
+    this.navCtrl.navigateRoot('/setting/lang');
   }
 
 }

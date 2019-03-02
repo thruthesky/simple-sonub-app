@@ -15,6 +15,7 @@ const routes: Routes = [
   { path: 'forum', component: ForumComponent },
   { path: 'map', component: MapComponent },
   { path: 'contact', component: ContactComponent },
+  { path: 'setting/lang', component: SettingComponent },
   { path: 'setting', component: SettingComponent },
 ];
 
