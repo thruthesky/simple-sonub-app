@@ -30,7 +30,7 @@ export class MapComponent implements OnInit {
     private platform: Platform,
     public launchNavigator: LaunchNavigator
   ) {
-    this.destination = [a.settings.mapLat, a.settings.mapLng];
+    this.destination = [a.settings.map.lat, a.settings.map.lng];
   }
 
   async ngOnInit() {
@@ -81,8 +81,8 @@ export class MapComponent implements OnInit {
     this.map = GoogleMaps.create(this.map_canvas.nativeElement, {
       camera: {
         target: {
-          lat: this.a.settings.mapLat,
-          lng: this.a.settings.mapLng
+          lat: this.a.settings.map.lat,
+          lng: this.a.settings.map.lng
         },
         zoom: 18,
         tilt: 30
@@ -91,11 +91,11 @@ export class MapComponent implements OnInit {
 
     // add a marker to our destination
     const marker: Marker = this.map.addMarkerSync({
-      title: this.a.t(this.a.settings.mapTitle),
-      snippet: this.a.t(this.a.settings.mapSnippet),
+      title: this.a.t(this.a.settings.map.title),
+      snippet: this.a.t(this.a.settings.map.snippet),
       position: {
-        lat: this.a.settings.mapLat,
-        lng: this.a.settings.mapLng
+        lat: this.a.settings.map.lat,
+        lng: this.a.settings.map.lng
       },
       animation: GoogleMapsAnimation.BOUNCE
     });

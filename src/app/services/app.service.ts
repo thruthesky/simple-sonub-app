@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { ToolbarMenu, SideMenu } from 'modules/sonub-app-library/sonub-app-library-interfaces';
 import { Platform, MenuController } from '@ionic/angular';
-import { AppSettings, AppSettingForum } from './app.settings';
+import { AppSettings } from './app.settings';
 import { SimplestService } from 'modules/ng-simplest/simplest.service';
 import { LibraryService } from 'modules/sonub-app-library/services/library.service';
 import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
@@ -10,13 +9,11 @@ import { Post, PostList } from 'modules/ng-simplest/simplest.interface';
 import { map } from 'rxjs/operators';
 import { ApiPost } from 'modules/philgo-api/philgo-api-interface';
 import { DomSanitizer } from '@angular/platform-browser';
+import { AppSettingForum } from './interfaces';
 
 
 @Injectable()
 export class AppService {
-
-    toolbarMenus: ToolbarMenu[];
-    sideMenus: SideMenu[];
 
     constructor(
         private platform: Platform,
@@ -45,9 +42,6 @@ export class AppService {
                 }
             });
         });
-
-        this.toolbarMenus = this.settings.toolbarMenus;
-        this.sideMenus = this.settings.sideMenus;
 
     }
     t(code: any, info?: any): string {

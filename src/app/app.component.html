@@ -1,9 +1,9 @@
 <ion-app>
-  <app-side-menu [menus]=" a.sideMenus " [contentId]=" 'menu-content' "></app-side-menu>
+  <app-side-menu [menus]=" a.settings.sideMenus " [contentId]=" 'menu-content' "></app-side-menu>
   <ion-router-outlet id="menu-content"></ion-router-outlet>
 
   <ion-footer class="app-footer">
-    <app-footer-toolbar [menus]=" a.toolbarMenus "></app-footer-toolbar>
+    <app-footer-toolbar [menus]=" a.settings.toolbarMenus "></app-footer-toolbar>
   </ion-footer>
 
 </ion-app>
