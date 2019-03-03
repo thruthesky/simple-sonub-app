@@ -9,6 +9,7 @@ export interface AppSettingForum {
 
 export interface AppSettingSite {
     idx: string;
+    name: any;
     gallery?: AppSettingForum;
     forum?: AppSettingForum;
 }

@@ -1,13 +1,5 @@
 # simple-sonub-app
 
-## Settings
-
-* `siteIdx` is the site idx. It's important to set.
-* It gets front page gallery data based on the `siteIdx`.
-  * `gallery-1-[domain]` is the first opst gallery.
-  * `gallery-2-[domain]` is the second post of the gallery.
-  * `[domain]` is not very important. It is added to make the access code unique.
-
 ## Posts
 
 * Each gallery must be written in simple HTTP Query format
@@ -22,32 +14,67 @@
 * It can be be up to 10 posts.
 * Site admin may hide the category from menu.
 
-## Site Settings
+## Settings
 
-The app is connected to a site.
-It displays content of the site and crud.
+### App Settings
 
-* Example of site settings )
+#### Menu
+
+* There are 5 menus only. You can hide some of the menus but don't try to add more.
+  It must be simple to easy develop & maintain.
+
+* There are two forum menus.
+  * one is `gallery` for photo listing from a forum.
+  * the other is `forum` for free discussion.
+  * Try to hide `forum` menu to make it simple.
+
+#### Multi languages & Sites
+
+* It supports 4 languages.
+  * English, Korean, Chinese, Japanese.
+  * Languages could be optionally remove by the settings.
+  * Since we do not have man power of Chinese and Japanese, try to support Korean & English.
+
+* You can sites in its `environemnt.xxxx.ts`.
+  * Each langauge must have its own site.
+    * If you add only one lagnuage, then the language will be the default.
+  * `idx` is the site idx.
+  * `name` is the name of the app.
+  * `gallery` is a forum category (menu) idx of the site.
+  * `fourm` is a forum category (menu) idx of the site.
+    * `gallery` and `forum` could be sonub forum or philgo forum.
+
+Example of site settings )
 
 ```` ts
-    sites: {
-        [index: string]: AppSettingSite
-    } = {
-        ko: {
-            idx: ''
+sites: {
+    en: {
+        idx: '82',
+        name: 'Evie & Co Microblading',
+        gallery: {
+            type: 'sonub',
+            idx_category: '62'
         },
-        en: {
-            idx: '21'
+        forum: { ... }
+    },
+    ko: {
+        name: 'Evie & Co 반영구 화장',
+        idx: '21',
+        gallery: {
+            type: 'philgo',
+            post_id: 'company_info',
+            category: '21'
         },
-        ch: {
-            idx: ''
-        },
-        jp: {
-            idx: ''
-        }
-    };
+        forum: { ... }
+    },
+    ch: { ... },
+    jp: { ... }
+},
 ````
 
+### Site Settings
+
+* Each site should have a fourm to connect to menu.
 
 ### Multilingual
 
@@ -65,3 +92,19 @@ It displays content of the site and crud.
 * If there is only one language site is set on the `settigns.sites`,
   then it only use that lanage.
   Users will not have option to choose other language.
+
+## Run
+
+* You can run by configuration
+
+```` sh
+ionic s --configuration=lasema
+````
+
+## Publish
+
+* Each app must have its own branch.
+* Each app must have its own dev environment & prod environment.
+* Each app must have its own run script in `package.json`.
+  * For github push, `npm run APP_NAME:push` which will first copy its prod environment to `environment.prod.ts` and push it to git hub.
+  * For Cordova build, `npm run APP_NAME:build` which will first copy its prod env to `environment.prod.ts` and build the app with production env.

@@ -66,6 +66,22 @@
                 }
               ]
             },
+            "evieco": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.evieco.ts"
+                }
+              ]
+            },
+            "lasema": {
+              "fileReplacements": [
+                {
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.lasema.ts"
+                }
+              ]
+            },
             "ci": {
               "progress": false
             }
@@ -79,6 +95,12 @@
           "configurations": {
             "production": {
               "browserTarget": "app:build:production"
+            },
+            "evieco": {
+              "browserTarget": "app:build:evieco"
+            },
+            "lasema": {
+              "browserTarget": "app:build:lasema"
             },
             "ci": {
               "progress": false
@@ -135,6 +157,12 @@
           "configurations": {
             "production": {
               "browserTarget": "app:build:production"
+            },
+            "evieco": {
+              "browserTarget": "app:build:evieco"
+            },
+            "lasema": {
+              "browserTarget": "app:build:lasema"
             }
           }
         },
@@ -148,6 +176,14 @@
             "production": {
               "cordovaBuildTarget": "app:ionic-cordova-build:production",
               "devServerTarget": "app:serve:production"
+            },
+            "evieco": {
+              "cordovaBuildTarget": "app:ionic-cordova-build:evieco",
+              "devServerTarget": "app:serve:evieco"
+            },
+            "lasema": {
+              "cordovaBuildTarget": "app:ionic-cordova-build:lasema",
+              "devServerTarget": "app:serve:lasema"
             }
           }
         }

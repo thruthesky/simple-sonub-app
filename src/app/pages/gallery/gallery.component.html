@@ -1,17 +1,9 @@
 <ion-header>
-  <app-header-toolbar [title]="a.t({
-      en: 'Evie & Co Microblading',
-      ko: 'Evie & Co 반영구화장'
-    })"></app-header-toolbar>
+  <app-header-toolbar [title]="a.t( a.settings.site.name )"></app-header-toolbar>
 </ion-header>
 
 <ion-content>
-
-
   <app-post-list [forum]=" a.settings.site.gallery "></app-post-list>
-  
-
-
 </ion-content>
 
 
