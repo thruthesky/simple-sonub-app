@@ -104,7 +104,8 @@ ionic s --configuration=lasema
 ## Publish
 
 * Each app must have its own branch.
-* Each app must have its own dev environment & prod environment.
+* Each app must have its own dev environment.
 * Each app must have its own run script in `package.json`.
-  * For github push, `npm run APP_NAME:push` which will first copy its prod environment to `environment.prod.ts` and push it to git hub.
-  * For Cordova build, `npm run APP_NAME:build` which will first copy its prod env to `environment.prod.ts` and build the app with production env.
+  * When it serves, do `npm run APP_NAME` to serve. And It must copy its dev env to `environment.ts`
+  * For Cordova serve, do `npm run APP_NAME:android:serve` and it will copy dev env to `environment.ts`
+  * For Cordova build, `npm run APP_NAME:android:build` which will copy its prod env to `environment.prod.ts` with `production: true` and build the app with production env.
