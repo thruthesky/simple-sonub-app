@@ -10,7 +10,6 @@
     <ion-card-content>
       <div [innerHTML]="post['safe_content']"></div>
     </ion-card-content>
-
     <ion-item>
       <ion-avatar item-start>
         <img src="/assets/img/avatar.jpg">
@@ -20,5 +19,9 @@
         <p class="m-0 p-0 fw-light fs-xs">November 5, 1955</p>
       </div>
     </ion-item>
+
+    <app-post-buttons [parent]=" post "></app-post-buttons>
+
+    <app-comment-list [post]=" post "></app-comment-list>
   </ion-card>
 </section>

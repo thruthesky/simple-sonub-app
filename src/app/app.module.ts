@@ -23,6 +23,9 @@ import { environment } from 'src/environments/environment';
 import { AppSettings } from './services/app.settings';
 import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
 import { PostListComponent } from './components/post-list/post-list.component';
+import { CommentListComponent } from './components/comment-list/comment-list.component';
+import { PostButtonsComponent } from './components/post-buttons/post-buttons.component';
+import { CommentBoxComponent } from './components/comment-box/comment-box.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { PostListComponent } from './components/post-list/post-list.component';
     MapComponent,
     ContactComponent,
     SettingComponent,
-    PostListComponent
+    PostListComponent,
+    CommentListComponent,
+    PostButtonsComponent,
+    CommentBoxComponent
   ],
   entryComponents: [],
   imports: [
