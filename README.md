@@ -18,15 +18,33 @@
 
 ### App Settings
 
-#### Menu
+#### Domain
 
-* There are 5 menus only. You can hide some of the menus but don't try to add more.
-  It must be simple to easy develop & maintain.
+* You can set `domain` in environment which is not the Internet Domain.
+  It is a domain to distinguish each app.
+
+#### Menus
+
+* There are 6 menus only. You can hide some of the menus but don't try to add more. It will look urgly due to lack of space on app device with.
+  * It must be simple to develop & maintain. So, keep it simple.
+  * To hide menus, simple omit menus inside the environemnt.
+
+* 'home' page is for showing a customized front page.
+  * Do not put any dynamic content from server. So it can show content even if it's offline.
 
 * There are two forum menus.
   * one is `gallery` for photo listing from a forum.
   * the other is `forum` for free discussion.
   * Try to hide `forum` menu to make it simple.
+
+#### First page
+
+* You can set first page at `firstPageRoute`.
+    You can put 'home' or 'gallery' or etc...
+
+#### Header
+
+* Try to hide header since there are menus at bottom.
 
 #### Multi languages & Sites
 
@@ -93,7 +111,61 @@ sites: {
   then it only use that lanage.
   Users will not have option to choose other language.
 
-## Run
+## Customisation
+
+* Follow this instruction to do customisation.
+
+### Phone Number, Site, Facebook, etc
+
+* Input proper phone numbers, site, facebook on environment.
+
+### Page customisation
+
+* Header of each page could be removed by setting `false` to `header: { ...: ... }` in environment.
+
+* Consider to remove header toolbar for front page.
+  * Front page is a customised by each domain.
+
+#### Home page customisation
+
+* If you want to show home page ( you can omit it by setting menu on app settings )
+  * You must create a component under `src/pages/home/[domain]/home.component.xxx`.
+* If you want you can hide the header by setting `header: { home: false }` in environment which is true by default.
+
+### Contact page customisation
+
+* You can change
+  * title image - by adding image at `/src/assets/apps/[app-name]/contact-title-image.jpg`
+    * title image should be square and  be minimum of 520 pixels of width & height.
+    * should be dark on the top of the title image since the title text is white.
+  * person image - by adding image at `/src/assets/apps/[app-name]/contact-person-image.jpg`
+    * person image should be square and  be minimum of 128 pixels of width & height.
+  * texts - by setting in environemnt.
+
+### Side Menu customisation
+
+```` ts
+sideMenus: [
+    {
+        title: {
+            en: 'Lasema Spa Web Site', // You can input your own translation for menu.
+            ko: '라세마 찜질방 홈페이지', // You can input your own translation for menu.
+        },
+        icon: 'home',
+        url: 'https://evieco.shop',
+        openWindow: true
+    },
+    {
+        title: {
+            en: 'Lasema Facebook', // You can input your own translation for menu.
+            ko: '라세마 페이스북', // You can input your own translation for menu.
+        },
+    }
+    // ...
+];
+````
+
+## Serve & Run
 
 * You can run by configuration
 
@@ -101,11 +173,15 @@ sites: {
 ionic s --configuration=lasema
 ````
 
-## Publish
-
 * Each app must have its own branch.
 * Each app must have its own dev environment.
 * Each app must have its own run script in `package.json`.
   * When it serves, do `npm run APP_NAME` to serve. And It must copy its dev env to `environment.ts`
   * For Cordova serve, do `npm run APP_NAME:android:serve` and it will copy dev env to `environment.ts`
-  * For Cordova build, `npm run APP_NAME:android:build` which will copy its prod env to `environment.prod.ts` with `production: true` and build the app with production env.
+  
+* To build,
+  * run`npm run APP_NAME:android:build` which will
+    * copy its prod env to `environment.prod.ts`
+      * with `production: true`
+      * without `zone-error`
+    * build the app with production env.

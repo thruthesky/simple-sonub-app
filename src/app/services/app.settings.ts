@@ -20,6 +20,7 @@ export class AppSettings {
     }
     /**
      * Returns the site settings of current language.
+     * @example this.site.name
      */
     get site(): AppSettingSite {
         const ln = this.lib.languageCode;
@@ -31,7 +32,7 @@ export class AppSettings {
     }
 
     get sideMenus(): SideMenu[] {
-        return environment.sideMenus;
+        return this.site.sideMenus;
     }
 
     get map() {
