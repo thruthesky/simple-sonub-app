@@ -9,7 +9,7 @@ import { AppService } from 'src/app/services/app.service';
 })
 export class PostButtonsComponent implements OnInit {
 
-    @Input() parent: Post | Comment;
+    @Input() parent: Post & Comment;
     constructor(
         public a: AppService
     ) {
@@ -71,3 +71,4 @@ export class PostButtonsComponent implements OnInit {
         }, (e: ErrorObject) => alert(e.error_message));
     }
 }
+
