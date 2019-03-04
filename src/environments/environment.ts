@@ -2,13 +2,20 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { Environment } from 'src/app/services/interfaces';
 import { basicTexts } from 'modules/sonub-app-library/locales/basic';
 const texts = basicTexts;
 
 
 
 const phone = '0956-871-2485';
-export const environment = {
+const siteUrlEn = 'https://en.evieco.shop';
+const siteUrlEnShort = 'en.evieco.shop';
+const siteUrlKo = 'https://www.evieco.shop';
+const siteUrlKoShort = 'www.evieco.shop';
+const facebookUrl = 'https://web.facebook.com/thruthesky';
+
+export const environment: Environment = {
   production: false,
   simplest: {
     backendUrl: 'https://api.sonub.com/api.php',
@@ -24,6 +31,16 @@ export const environment = {
     }
   },
 
+  domain: 'default',
+  header: {
+    home: false
+  },
+  /**
+   * Which pages to show.
+   * it change be 'home', 'gallery', 'forum', 'contact', 'map'
+   * @note it cannot be set inside site settings since this is used before which site should be used.
+   */
+  firstPageRoute: 'home',
   /**
    * Site settings.
    * @see README
@@ -31,6 +48,8 @@ export const environment = {
   sites: {
     en: {
       idx: '24',
+      name: 'Main App - Developer App',
+      url: siteUrlEn,
       gallery: {
         type: 'sonub',
         idx_category: '62'
@@ -38,10 +57,52 @@ export const environment = {
       forum: {
         type: 'sonub',
         idx_category: '57'
-      }
+      },
+      contact: {
+        title: 'Web Developer',
+        name: 'Juana Leichelle',
+        contacts: [
+          {
+            label: 'Phone Number',
+            text: phone,
+            click_url: 'tel:' + phone
+          },
+          {
+            label: 'Website',
+            text: siteUrlEnShort,
+            click_url: siteUrlEn
+          }
+        ]
+      },
+      sideMenus: [
+        {
+          title: texts['website'],
+          icon: 'home',
+          url: siteUrlEn,
+          openWindow: true // open the url in new window
+        },
+        {
+          title: texts['facebook'],
+          icon: 'logo-facebook',
+          url: facebookUrl,
+          openWindow: true
+        },
+        {
+          title: texts['setting'],
+          icon: 'settings',
+          url: '/setting',
+        },
+        {
+          title: texts['close'],
+          icon: 'close',
+          close: true // close side menu
+        }
+      ],
     },
     ko: {
       idx: '21',
+      name: '메일 앱 - 개발 화면',
+      url: siteUrlKo,
       gallery: {
         type: 'philgo',
         post_id: 'company_info',
@@ -50,7 +111,47 @@ export const environment = {
       forum: {
         type: 'sonub',
         idx_category: '12'
-      }
+      },
+      contact: {
+        title: 'Web Developer',
+        name: 'Juana Leichelle',
+        contacts: [
+          {
+            label: '필리핀 전화',
+            text: phone,
+            click_url: 'tel:' + phone
+          },
+          {
+            label: '홈페이지',
+            text: siteUrlKoShort,
+            click_url: siteUrlKo
+          }
+        ]
+      },
+      sideMenus: [
+        {
+          title: texts['website'],
+          icon: 'home',
+          url: siteUrlKo,
+          openWindow: true // open the url in new window
+        },
+        {
+          title: texts['facebook'],
+          icon: 'logo-facebook',
+          url: facebookUrl,
+          openWindow: true
+        },
+        {
+          title: texts['setting'],
+          icon: 'settings',
+          url: '/setting',
+        },
+        {
+          title: texts['close'],
+          icon: 'close',
+          close: true // close side menu
+        }
+      ],
     }
   },
 
@@ -72,7 +173,16 @@ export const environment = {
       jp: 'ここへ行くには[道順を取得]ボタンをクリックしてください。.\nTel: ' + phone
     },
   },
+  /**
+   * Bottom toolbar menu.
+   * @todo @consider try to put the menu on each site settings, so each site ( of each langauge ) will have different menu.
+   */
   toolbarMenus: [
+    {
+      title: texts['home'],
+      icon: 'home',
+      url: '/home'
+    },
     {
       title: texts['gallery'],
       icon: 'photos',
@@ -126,6 +236,7 @@ export const environment = {
       title: texts['close'],
       icon: 'close',
       close: true
+      openSideMenu: true // open side menu
     }
   ]
 };
@@ -137,4 +248,5 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+import 'zone.js/dist/zone-error';  // Included with Angular CLI.import { AppSettings } from 'src/app/services/app.settings';
+

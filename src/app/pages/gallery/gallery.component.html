@@ -1,10 +1,14 @@
-<ion-header>
-  <app-header-toolbar [title]="a.t( a.settings.site.name )"></app-header-toolbar>
+<ion-header *ngIf=" a.env.header?.gallery !== false ">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{ a.t('gallery') }}
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
   <app-post-list [forum]=" a.settings.site.gallery "></app-post-list>
 </ion-content>
-
-
-

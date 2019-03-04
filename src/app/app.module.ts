@@ -12,7 +12,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { SonubAppLibraryModule } from 'modules/sonub-app-library/sonub-app-library.module';
 import { AppService } from './services/app.service';
-import { HomePage } from './pages/home/home.page';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { ForumComponent } from './pages/forum/forum.component';
 import { MapComponent } from './pages/map/map.component';
@@ -28,11 +27,11 @@ import { PostButtonsComponent } from './components/post-buttons/post-buttons.com
 import { CommentBoxComponent } from './components/comment-box/comment-box.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule } from '@angular/forms';
+import { HomeModule } from './pages/home/home.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePage,
     GalleryComponent,
     ForumComponent,
     MapComponent,
@@ -52,7 +51,8 @@ import { FormsModule } from '@angular/forms';
     IonicModule.forRoot(),
     AppRoutingModule,
     SonubAppLibraryModule,
-    SimplestModule.forRoot(environment.simplest)
+    SimplestModule.forRoot(environment.simplest),
+    HomeModule
   ],
   providers: [
     StatusBar,

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/services/app.service';
+import { AppContact } from 'src/app/services/interfaces';
 
 @Component({
   selector: 'app-contact',
@@ -13,6 +14,11 @@ export class ContactComponent implements OnInit {
   ) { }
 
   ngOnInit() {
+  }
+
+
+  onClickContact(item: AppContact) {
+    console.log('contact item: ', item);
   }
 
 }
