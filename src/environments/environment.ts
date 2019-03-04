@@ -206,39 +206,9 @@ export const environment: Environment = {
     {
       title: texts['menu'],
       icon: 'menu',
-      openSideMenu: true
-    }
-  ],
-  sideMenus: [
-    {
-      title: texts['website'],
-      icon: 'home',
-      url: 'https://evieco.shop',
-      openWindow: true
-    },
-    {
-      title: texts['facebook'],
-      icon: 'logo-facebook',
-      url: 'https://web.facebook.com/thruthesky',
-      openWindow: true
-    },
-    {
-      title: texts['setting'],
-      icon: 'settings',
-      url: '/setting',
-    },
-    {
-      title: texts['login'],
-      icon: 'log-in',
-      url: '/login',
-    },
-    {
-      title: texts['close'],
-      icon: 'close',
-      close: true
       openSideMenu: true // open side menu
     }
-  ]
+  ],
 };
 
 /*
