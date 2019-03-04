@@ -9,11 +9,14 @@ import { Post, PostList, VoteResponse, Comment } from 'modules/ng-simplest/simpl
 import { map } from 'rxjs/operators';
 import { ApiPost, ApiVoteResponse, ApiPostDelete, ApiComment } from 'modules/philgo-api/philgo-api-interface';
 import { DomSanitizer } from '@angular/platform-browser';
-import { AppSettingForum } from './interfaces';
+import { AppSettingForum, Environment } from './interfaces';
+import { environment } from 'src/environments/environment';
 
 
 @Injectable()
 export class AppService {
+
+    env: Environment = environment;
 
     constructor(
         private platform: Platform,
@@ -24,6 +27,8 @@ export class AppService {
         public settings: AppSettings,
         public philgo: PhilGoApiService
     ) {
+
+        // this.test();
 
         /**
          * If there is only one site for one language, then set that language.
@@ -44,13 +49,16 @@ export class AppService {
         });
 
     }
+
+    test() {
+        this.menuController.open();
+    }
     t(code: any, info?: any): string {
         return this.lib.t(code, info);
     }
     texts(code: string) {
         return this.lib.texts[code];
     }
-
 
     /**
      * Returns posts from sonub or philgo
