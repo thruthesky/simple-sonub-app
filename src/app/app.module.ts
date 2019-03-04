@@ -12,7 +12,6 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { SonubAppLibraryModule } from 'modules/sonub-app-library/sonub-app-library.module';
 import { AppService } from './services/app.service';
-import { HomePage } from './pages/home/home.page';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { ForumComponent } from './pages/forum/forum.component';
 import { MapComponent } from './pages/map/map.component';
@@ -23,11 +22,11 @@ import { environment } from 'src/environments/environment';
 import { AppSettings } from './services/app.settings';
 import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
 import { PostListComponent } from './components/post-list/post-list.component';
+import { HomeModule } from './pages/home/home.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomePage,
     GalleryComponent,
     ForumComponent,
     MapComponent,
@@ -42,7 +41,8 @@ import { PostListComponent } from './components/post-list/post-list.component';
     IonicModule.forRoot(),
     AppRoutingModule,
     SonubAppLibraryModule,
-    SimplestModule.forRoot(environment.simplest)
+    SimplestModule.forRoot(environment.simplest),
+    HomeModule
   ],
   providers: [
     StatusBar,

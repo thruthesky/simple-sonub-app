@@ -1,47 +1,19 @@
-<ion-header>
-    <app-header-toolbar [title]=" 'Home' "></app-header-toolbar>
+<ion-header *ngIf=" a.env.header?.home !== false ">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{ a.t( a.settings.site.name ) }}
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
 
+
 <ion-content padding>
-  The world is your oyster.
-  <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be
-    your guide.</p>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
-  <h1>h1</h1>
 
-
+  <app-default-home *ngIf=" a.env.domain == 'default' "></app-default-home>
+  <app-lasema-home *ngIf=" a.env.domain == 'lasema' "></app-lasema-home>
+  <app-evieco-home *ngIf=" a.env.domain == 'evieco' "></app-evieco-home>
 
 </ion-content>

@@ -6,10 +6,11 @@ import { ForumComponent } from './pages/forum/forum.component';
 import { MapComponent } from './pages/map/map.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { SettingComponent } from './pages/setting/setting.component';
+import { environment } from 'src/environments/environment';
 
 
 const routes: Routes = [
-  { path: '', redirectTo: 'gallery', pathMatch: 'full' },
+  { path: '', redirectTo: environment.firstPageRoute, pathMatch: 'full' },
   { path: 'home', component: HomePage },
   { path: 'gallery', component: GalleryComponent },
   { path: 'forum', component: ForumComponent },
@@ -28,4 +29,5 @@ const routes: Routes = [
   ]
 })
 export class AppRoutingModule { }
+
 

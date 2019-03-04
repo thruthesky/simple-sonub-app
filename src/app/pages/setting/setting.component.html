@@ -1,9 +1,17 @@
-<ion-header>
-  <app-header-toolbar [title]=" a.t( 'setting' ) "></app-header-toolbar>
+
+<ion-header class="setting" *ngIf=" a.env.header?.setting !== false ">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{ a.t( 'setting' ) }}
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-nav-set-root></ion-nav-set-root>
-<ion-content padding>
+<ion-content class="setting" padding>
 
   <ion-list *ngIf=" a.settings.noOfSites > 1 ">
     <ion-radio-group>

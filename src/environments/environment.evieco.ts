@@ -2,13 +2,23 @@
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+
+import { Environment } from 'src/app/services/interfaces';
+
+
 import { basicTexts } from 'modules/sonub-app-library/locales/basic';
 const texts = basicTexts;
 
 
-
 const phone = '0956-871-2485';
-export const environment = {
+const siteUrlEn = 'https://en.evieco.shop';
+const siteUrlEnShort = 'en.evieco.shop';
+const siteUrlKo = 'https://www.evieco.shop';
+const siteUrlKoShort = 'www.evieco.shop';
+const facebookUrl = 'https://web.facebook.com/thruthesky';
+
+
+export const environment: Environment = {
     production: false,
     simplest: {
         backendUrl: 'https://api.sonub.com/api.php',
@@ -24,6 +34,8 @@ export const environment = {
         }
     },
 
+    domain: 'evieco',
+    firstPageRoute: 'home',
     /**
      * Site settings.
      * @see README
@@ -32,20 +44,107 @@ export const environment = {
         en: {
             idx: '82',
             name: 'Evie & Co Microblading',
+            url: siteUrlEn,
             gallery: {
                 type: 'sonub',
                 idx_category: '62'
-            }
+            },
+            contact: {
+              title: 'Permanent Eyebrows Makeup' ,
+              name: 'Evie & Co',
+              contacts: [
+                {
+                  label: 'Phone Number',
+                  text: phone,
+                  click_url: 'tel:' + phone
+                },
+                {
+                  label: 'Website',
+                  text: siteUrlEnShort,
+                  click_url: siteUrlEn
+                }
+              ]
+            },
+            sideMenus: [
+              {
+                title: texts['website'],
+                icon: 'home',
+                url: siteUrlEn,
+                openWindow: true // open the url in new window
+              },
+              {
+                title: texts['facebook'],
+                icon: 'logo-facebook',
+                url: facebookUrl,
+                openWindow: true
+              },
+              {
+                title: texts['setting'],
+                icon: 'settings',
+                url: '/setting',
+              },
+              {
+                title: texts['close'],
+                icon: 'close',
+                close: true // close side menu
+              }
+            ],
         },
         ko: {
             name: 'Evie & Co 반영구 화장',
             idx: '21',
+            url: siteUrlKo,
             gallery: {
                 type: 'philgo',
                 post_id: 'company_info',
                 category: '21'
-            }
+            },
+            contact: {
+              title: '한국식 반영구 눈 화장' ,
+              name: 'Evie & Co',
+              contacts: [
+                {
+                  label: '필리핀 전화',
+                  text: phone,
+                  click_url: 'tel:' + phone
+                },
+                {
+                  label: '홈페이지',
+                  text: siteUrlKoShort,
+                  click_url: siteUrlKo
+                }
+              ]
+            },
+            sideMenus: [
+              {
+                title: texts['website'],
+                icon: 'home',
+                url: siteUrlKo,
+                openWindow: true // open the url in new window
+              },
+              {
+                title: texts['facebook'],
+                icon: 'logo-facebook',
+                url: facebookUrl,
+                openWindow: true
+              },
+              {
+                title: texts['setting'],
+                icon: 'settings',
+                url: '/setting',
+              },
+              {
+                title: texts['close'],
+                icon: 'close',
+                close: true // close side menu
+              }
+            ],
         }
+    },
+
+    header: {
+        home: true,
+        map: true
     },
 
     /**
@@ -67,6 +166,11 @@ export const environment = {
         },
     },
     toolbarMenus: [
+        {
+            title: texts['home'],
+            icon: 'home',
+            url: '/home'
+        },
         {
             title: texts['gallery'],
             icon: 'photos',
@@ -93,30 +197,6 @@ export const environment = {
             openSideMenu: true
         }
     ],
-    sideMenus: [
-        {
-            title: texts['website'],
-            icon: 'home',
-            url: 'https://evieco.shop',
-            openWindow: true
-        },
-        {
-            title: texts['facebook'],
-            icon: 'logo-facebook',
-            url: 'https://web.facebook.com/thruthesky',
-            openWindow: true
-        },
-        {
-            title: texts['setting'],
-            icon: 'settings',
-            url: '/setting',
-        },
-        {
-            title: texts['close'],
-            icon: 'close',
-            close: true
-        }
-    ]
 };
 
 /*
@@ -126,4 +206,4 @@ export const environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+import 'zone.js/dist/zone-error';  // Included with Angular CLI.import { Environment } from 'src/app/services/interfaces';
