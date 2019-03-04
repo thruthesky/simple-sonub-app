@@ -1,0 +1,24 @@
+<section *ngIf=" post.comments.length ">
+    <ion-card *ngFor="let comment of post.comments">
+        <ng-container *ngIf="comment.stamp_deleted == '0'">
+
+            <ion-item>
+                <ion-avatar slot="start">
+                    <img src="{{ comment.photo ? comment.photo : '/assets/img/avatar.jpg' }}">
+                </ion-avatar>
+                <ion-label>
+                    <h2 class="m-0 p-0 fw-light fs-md">{{ comment.user.name }}</h2>
+                    <p class="m-0 p-0 fw-light fs-xs">{{ comment.stamp_created }}</p>
+                </ion-label>
+            </ion-item>
+
+            <ion-item>
+                <div class="ml-3">
+                    <p class="m-0 p-0 fw-light fs-xs">{{ comment.content ? comment.content : '( Deleted )' }}</p>
+                </div>
+            </ion-item>
+            <app-post-buttons [parent]=" comment "></app-post-buttons>
+        </ng-container>
+    </ion-card>
+
+</section>

@@ -22,6 +22,9 @@ import { environment } from 'src/environments/environment';
 import { AppSettings } from './services/app.settings';
 import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
 import { PostListComponent } from './components/post-list/post-list.component';
+import { CommentListComponent } from './components/comment-list/comment-list.component';
+import { PostButtonsComponent } from './components/post-buttons/post-buttons.component';
+import { FormsModule } from '@angular/forms';
 import { HomeModule } from './pages/home/home.module';
 
 @NgModule({
@@ -32,11 +35,14 @@ import { HomeModule } from './pages/home/home.module';
     MapComponent,
     ContactComponent,
     SettingComponent,
-    PostListComponent
+    PostListComponent,
+    CommentListComponent,
+    PostButtonsComponent
   ],
   entryComponents: [],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     IonicModule.forRoot(),
     AppRoutingModule,

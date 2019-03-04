@@ -5,9 +5,9 @@ import { SimplestService } from 'modules/ng-simplest/simplest.service';
 import { LibraryService } from 'modules/sonub-app-library/services/library.service';
 import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
 import { Observable, throwError } from 'rxjs';
-import { Post, PostList } from 'modules/ng-simplest/simplest.interface';
+import { Post, PostList, VoteResponse, Comment } from 'modules/ng-simplest/simplest.interface';
 import { map } from 'rxjs/operators';
-import { ApiPost } from 'modules/philgo-api/philgo-api-interface';
+import { ApiPost, ApiVoteResponse, ApiPostDelete, ApiComment } from 'modules/philgo-api/philgo-api-interface';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AppSettingForum, Environment } from './interfaces';
 import { environment } from 'src/environments/environment';
@@ -152,6 +152,38 @@ export class AppService {
     }
 
     safeHtml(text: string) {
-        return this.domSanitizer.bypassSecurityTrustHtml( text );
+        return this.domSanitizer.bypassSecurityTrustHtml(text);
+    }
+
+    vote(idx: string, vote: 'G' | 'B'): Observable<VoteResponse | ApiVoteResponse> {
+        if (this.settings.site.forum.type === 'sonub') {
+            return this.sp.vote({ idx_post: idx, vote: vote });
+        } else {
+            return this.philgo.vote({ idx: idx, for: vote });
+        }
+    }
+
+    postDelete(idx: string | number): Observable<Post | ApiPostDelete> {
+        if (this.settings.site.forum.type === 'sonub') {
+            return this.sp.postDelete(idx);
+        } else {
+            return this.philgo.postDelete({ idx: idx });
+        }
+    }
+
+    postEdit(post: Post | ApiPost): Observable<Post | ApiPost> {
+        if (this.settings.site.forum.type === 'sonub') {
+            return this.sp.postUpdate(<any>post);
+        } else {
+            return this.philgo.postEdit(<any>post);
+        }
+    }
+
+    commentEdit(comment: Comment | ApiComment): Observable<Comment | ApiComment> {
+        if (this.settings.site.forum.type === 'sonub') {
+            return this.sp.commentUpdate(<any>comment);
+        } else {
+            return this.philgo.query('post.update', comment);
+        }
     }
 }

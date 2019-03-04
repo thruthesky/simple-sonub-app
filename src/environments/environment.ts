@@ -32,6 +32,12 @@ export const environment: Environment = {
   },
 
   domain: 'default',
+  configXml: {
+    id: 'com.sonub.simple',
+    version: '0.0.2',
+    name: 'Default',
+    description: ''
+  },
   header: {
     home: false
   },
@@ -208,7 +214,7 @@ export const environment: Environment = {
       icon: 'menu',
       openSideMenu: true // open side menu
     }
-  ]
+  ],
 };
 
 /*
