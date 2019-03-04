@@ -24,8 +24,6 @@ import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { CommentListComponent } from './components/comment-list/comment-list.component';
 import { PostButtonsComponent } from './components/post-buttons/post-buttons.component';
-import { CommentBoxComponent } from './components/comment-box/comment-box.component';
-import { LoginComponent } from './pages/login/login.component';
 import { FormsModule } from '@angular/forms';
 import { HomeModule } from './pages/home/home.module';
 
@@ -39,9 +37,7 @@ import { HomeModule } from './pages/home/home.module';
     SettingComponent,
     PostListComponent,
     CommentListComponent,
-    PostButtonsComponent,
-    CommentBoxComponent,
-    LoginComponent
+    PostButtonsComponent
   ],
   entryComponents: [],
   imports: [
