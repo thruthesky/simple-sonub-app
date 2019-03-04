@@ -57,21 +57,21 @@ export const environment = {
   /**
   * Phone number to be appear on map.
   */
- map: {
-  phone: phone,
-  lat: 14.5894,
-  lng: 120.981,
-  title: {
-    en: 'Evie & Co Microblading!',
-    ko: 'Even & Co 반영구화장'
+  map: {
+    phone: phone,
+    lat: 14.5894,
+    lng: 120.981,
+    title: {
+      en: 'Evie & Co Microblading!',
+      ko: 'Even & Co 반영구화장'
+    },
+    snippet: {
+      en: 'Please click [Get Directions] button to get here.\nTel: ' + phone,
+      ko: 'Evie & Co 를 방문하시려면 길찾기를 클릭해주세요.\n전화: ' + phone,
+      ch: '请点击[获取路线]按钮进入此处.\nTel: ' + phone,
+      jp: 'ここへ行くには[道順を取得]ボタンをクリックしてください。.\nTel: ' + phone
+    },
   },
-  snippet: {
-    en: 'Please click [Get Directions] button to get here.\nTel: ' + phone,
-    ko: 'Evie & Co 를 방문하시려면 길찾기를 클릭해주세요.\n전화: ' + phone,
-    ch: '请点击[获取路线]按钮进入此处.\nTel: ' + phone,
-    jp: 'ここへ行くには[道順を取得]ボタンをクリックしてください。.\nTel: ' + phone
-  },
- },
   toolbarMenus: [
     {
       title: texts['gallery'],
@@ -116,6 +116,11 @@ export const environment = {
       title: texts['setting'],
       icon: 'settings',
       url: '/setting',
+    },
+    {
+      title: texts['login'],
+      icon: 'log-in',
+      url: '/login',
     },
     {
       title: texts['close'],

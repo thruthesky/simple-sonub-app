@@ -16,5 +16,6 @@ export class CommentListComponent implements OnInit {
     }
 
     ngOnInit() {
+
     }
 }

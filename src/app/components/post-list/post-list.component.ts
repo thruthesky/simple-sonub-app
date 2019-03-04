@@ -20,9 +20,9 @@ export class PostListComponent implements OnInit {
 
   ngOnInit() {
     this.a.postList(this.forum, 1).subscribe(res => {
-      console.log('PostListComponent::ngOnInit() res:', res);
+      // console.log('PostListComponent::ngOnInit() res:', res);
       this.posts = res;
-      this.posts.forEach( post => post['safe_content'] = this.a.safeHtml( post.content ));
+      this.posts.forEach(post => post['safe_content'] = this.a.safeHtml(post.content));
     });
   }
 

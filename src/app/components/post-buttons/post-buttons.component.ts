@@ -16,9 +16,9 @@ export class PostButtonsComponent implements OnInit {
     }
 
     ngOnInit() {
-        if (this.parent) {
-            console.log(this.parent);
-        }
+        // if (this.parent) {
+        //     console.log(this.parent);
+        // }
     }
 
     get mine() {
@@ -56,6 +56,10 @@ export class PostButtonsComponent implements OnInit {
 
     onClickDelete() {
         this.a.postDelete(this.parent.idx).subscribe(res => {
+            this.parent.content = `( ${this.a.t('deleted')} )`;
+            this.parent.content_stripped = `( ${this.a.t('deleted')} )`;
+            this.parent.stamp_deleted = '1';
+            this.parent.files = [];
             alert('Post has been deleted!');
         }, (e: ErrorObject) => alert(e.error_message));
     }

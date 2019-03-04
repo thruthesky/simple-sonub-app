@@ -26,6 +26,8 @@ import { PostListComponent } from './components/post-list/post-list.component';
 import { CommentListComponent } from './components/comment-list/comment-list.component';
 import { PostButtonsComponent } from './components/post-buttons/post-buttons.component';
 import { CommentBoxComponent } from './components/comment-box/comment-box.component';
+import { LoginComponent } from './pages/login/login.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,11 +41,13 @@ import { CommentBoxComponent } from './components/comment-box/comment-box.compon
     PostListComponent,
     CommentListComponent,
     PostButtonsComponent,
-    CommentBoxComponent
+    CommentBoxComponent,
+    LoginComponent
   ],
   entryComponents: [],
   imports: [
     BrowserModule,
+    FormsModule,
     HttpClientModule,
     IonicModule.forRoot(),
     AppRoutingModule,

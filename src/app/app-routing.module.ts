@@ -6,6 +6,7 @@ import { ForumComponent } from './pages/forum/forum.component';
 import { MapComponent } from './pages/map/map.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { SettingComponent } from './pages/setting/setting.component';
+import { LoginComponent } from './pages/login/login.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,7 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'setting/lang', component: SettingComponent },
   { path: 'setting', component: SettingComponent },
+  { path: 'login', component: LoginComponent },
 ];
 
 @NgModule({
