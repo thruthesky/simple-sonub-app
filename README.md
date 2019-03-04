@@ -185,3 +185,15 @@ ionic s --configuration=lasema
       * with `production: true`
       * without `zone-error`
     * build the app with production env.
+
+## Utilities
+
+### patch.ts
+
+* It patches the `config.xml` to build android app with `environment`.
+
+```` sh
+ts-node patch.ts            ; this will patch `config.xml` with `environment.ts`
+ts-node patch.ts evieco     ; this will patch `config.xml` with `environment.evieco.ts`
+ts-node patch.ts lasema     ; this will patch `config.xml` with `environment.lasema.ts`
+````

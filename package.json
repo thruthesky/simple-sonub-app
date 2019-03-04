@@ -11,7 +11,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "cordova:run:default": "ts-node patch.ts && ionic cordova run android -l",
+    "cordova:run:evieco": "ts-node patch.ts evieco && ionic cordova run android -l --configuration=evieco",
+    "cordova:run:lasema": "ts-node patch.ts lasema && ionic cordova run android -l --configuration=lasema"
   },
   "private": true,
   "dependencies": {
@@ -69,7 +72,8 @@
     "protractor": "~5.4.0",
     "ts-node": "~8.0.0",
     "tslint": "~5.12.0",
-    "typescript": "~3.1.6"
+    "typescript": "~3.1.6",
+    "yargs": "^13.2.1"
   },
   "description": "An Ionic project",
   "cordova": {

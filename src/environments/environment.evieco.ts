@@ -19,184 +19,190 @@ const facebookUrl = 'https://web.facebook.com/thruthesky';
 
 
 export const environment: Environment = {
-    production: false,
-    simplest: {
-        backendUrl: 'https://api.sonub.com/api.php',
-        enableLoginToAllSubdomains: false
-    },
-    philgo: {
-        url: {
-            // webServer: 'https://local.philgo.com/api.php', // local server
-            // fileServer: 'https://local.philgo.com/api.php' // local server
+  production: false,
+  simplest: {
+    backendUrl: 'https://api.sonub.com/api.php',
+    enableLoginToAllSubdomains: false
+  },
+  philgo: {
+    url: {
+      // webServer: 'https://local.philgo.com/api.php', // local server
+      // fileServer: 'https://local.philgo.com/api.php' // local server
 
-            webServer: 'https://philgo.com/api.php', // remote server
-            fileServer: 'https://file.philgo.com/api.php' // remote server
+      webServer: 'https://philgo.com/api.php', // remote server
+      fileServer: 'https://file.philgo.com/api.php' // remote server
+    }
+  },
+
+  domain: 'evieco',
+  configXml: {
+    id: 'com.sonub.evieco',
+    version: '0.0.3',
+    name: 'Evie & Co',
+    description: 'Evie & Co App'
+  },
+  firstPageRoute: 'home',
+  /**
+   * Site settings.
+   * @see README
+   */
+  sites: {
+    en: {
+      idx: '82',
+      name: 'Evie & Co Microblading',
+      url: siteUrlEn,
+      gallery: {
+        type: 'sonub',
+        idx_category: '62'
+      },
+      contact: {
+        title: 'Permanent Eyebrows Makeup',
+        name: 'Evie & Co',
+        contacts: [
+          {
+            label: 'Phone Number',
+            text: phone,
+            click_url: 'tel:' + phone
+          },
+          {
+            label: 'Website',
+            text: siteUrlEnShort,
+            click_url: siteUrlEn
+          }
+        ]
+      },
+      sideMenus: [
+        {
+          title: texts['website'],
+          icon: 'home',
+          url: siteUrlEn,
+          openWindow: true // open the url in new window
+        },
+        {
+          title: texts['facebook'],
+          icon: 'logo-facebook',
+          url: facebookUrl,
+          openWindow: true
+        },
+        {
+          title: texts['setting'],
+          icon: 'settings',
+          url: '/setting',
+        },
+        {
+          title: texts['close'],
+          icon: 'close',
+          close: true // close side menu
         }
+      ],
     },
-
-    domain: 'evieco',
-    firstPageRoute: 'home',
-    /**
-     * Site settings.
-     * @see README
-     */
-    sites: {
-        en: {
-            idx: '82',
-            name: 'Evie & Co Microblading',
-            url: siteUrlEn,
-            gallery: {
-                type: 'sonub',
-                idx_category: '62'
-            },
-            contact: {
-              title: 'Permanent Eyebrows Makeup' ,
-              name: 'Evie & Co',
-              contacts: [
-                {
-                  label: 'Phone Number',
-                  text: phone,
-                  click_url: 'tel:' + phone
-                },
-                {
-                  label: 'Website',
-                  text: siteUrlEnShort,
-                  click_url: siteUrlEn
-                }
-              ]
-            },
-            sideMenus: [
-              {
-                title: texts['website'],
-                icon: 'home',
-                url: siteUrlEn,
-                openWindow: true // open the url in new window
-              },
-              {
-                title: texts['facebook'],
-                icon: 'logo-facebook',
-                url: facebookUrl,
-                openWindow: true
-              },
-              {
-                title: texts['setting'],
-                icon: 'settings',
-                url: '/setting',
-              },
-              {
-                title: texts['close'],
-                icon: 'close',
-                close: true // close side menu
-              }
-            ],
+    ko: {
+      name: 'Evie & Co 반영구 화장',
+      idx: '21',
+      url: siteUrlKo,
+      gallery: {
+        type: 'philgo',
+        post_id: 'company_info',
+        category: '21'
+      },
+      contact: {
+        title: '한국식 반영구 눈 화장',
+        name: 'Evie & Co',
+        contacts: [
+          {
+            label: '필리핀 전화',
+            text: phone,
+            click_url: 'tel:' + phone
+          },
+          {
+            label: '홈페이지',
+            text: siteUrlKoShort,
+            click_url: siteUrlKo
+          }
+        ]
+      },
+      sideMenus: [
+        {
+          title: texts['website'],
+          icon: 'home',
+          url: siteUrlKo,
+          openWindow: true // open the url in new window
         },
-        ko: {
-            name: 'Evie & Co 반영구 화장',
-            idx: '21',
-            url: siteUrlKo,
-            gallery: {
-                type: 'philgo',
-                post_id: 'company_info',
-                category: '21'
-            },
-            contact: {
-              title: '한국식 반영구 눈 화장' ,
-              name: 'Evie & Co',
-              contacts: [
-                {
-                  label: '필리핀 전화',
-                  text: phone,
-                  click_url: 'tel:' + phone
-                },
-                {
-                  label: '홈페이지',
-                  text: siteUrlKoShort,
-                  click_url: siteUrlKo
-                }
-              ]
-            },
-            sideMenus: [
-              {
-                title: texts['website'],
-                icon: 'home',
-                url: siteUrlKo,
-                openWindow: true // open the url in new window
-              },
-              {
-                title: texts['facebook'],
-                icon: 'logo-facebook',
-                url: facebookUrl,
-                openWindow: true
-              },
-              {
-                title: texts['setting'],
-                icon: 'settings',
-                url: '/setting',
-              },
-              {
-                title: texts['close'],
-                icon: 'close',
-                close: true // close side menu
-              }
-            ],
+        {
+          title: texts['facebook'],
+          icon: 'logo-facebook',
+          url: facebookUrl,
+          openWindow: true
+        },
+        {
+          title: texts['setting'],
+          icon: 'settings',
+          url: '/setting',
+        },
+        {
+          title: texts['close'],
+          icon: 'close',
+          close: true // close side menu
         }
-    },
+      ],
+    }
+  },
 
-    header: {
-        home: true,
-        map: true
-    },
+  header: {
+    home: true,
+    map: true
+  },
 
-    /**
-    * Phone number to be appear on map.
-    */
-    map: {
-        phone: phone,
-        lat: 14.5894,
-        lng: 120.981,
-        title: {
-            en: 'Evie & Co Microblading!',
-            ko: 'Even & Co 반영구화장'
-        },
-        snippet: {
-            en: 'Please click [Get Directions] button to get here.\nTel: ' + phone,
-            ko: 'Evie & Co 를 방문하시려면 길찾기를 클릭해주세요.\n전화: ' + phone,
-            ch: '请点击[获取路线]按钮进入此处.\nTel: ' + phone,
-            jp: 'ここへ行くには[道順を取得]ボタンをクリックしてください。.\nTel: ' + phone
-        },
+  /**
+  * Phone number to be appear on map.
+  */
+  map: {
+    phone: phone,
+    lat: 14.5894,
+    lng: 120.981,
+    title: {
+      en: 'Evie & Co Microblading!',
+      ko: 'Even & Co 반영구화장'
     },
-    toolbarMenus: [
-        {
-            title: texts['home'],
-            icon: 'home',
-            url: '/home'
-        },
-        {
-            title: texts['gallery'],
-            icon: 'photos',
-            url: '/gallery'
-        },
-        // {
-        //     title: texts['forum'],
-        //     icon: 'chatboxes',
-        //     url: '/forum'
-        // },
-        {
-            title: texts['contact'],
-            icon: 'contact',
-            url: '/contact'
-        },
-        {
-            title: texts['map'],
-            icon: 'map',
-            url: '/map'
-        },
-        {
-            title: texts['menu'],
-            icon: 'menu',
-            openSideMenu: true
-        }
-    ],
+    snippet: {
+      en: 'Please click [Get Directions] button to get here.\nTel: ' + phone,
+      ko: 'Evie & Co 를 방문하시려면 길찾기를 클릭해주세요.\n전화: ' + phone,
+      ch: '请点击[获取路线]按钮进入此处.\nTel: ' + phone,
+      jp: 'ここへ行くには[道順を取得]ボタンをクリックしてください。.\nTel: ' + phone
+    },
+  },
+  toolbarMenus: [
+    {
+      title: texts['home'],
+      icon: 'home',
+      url: '/home'
+    },
+    {
+      title: texts['gallery'],
+      icon: 'photos',
+      url: '/gallery'
+    },
+    // {
+    //     title: texts['forum'],
+    //     icon: 'chatboxes',
+    //     url: '/forum'
+    // },
+    {
+      title: texts['contact'],
+      icon: 'contact',
+      url: '/contact'
+    },
+    {
+      title: texts['map'],
+      icon: 'map',
+      url: '/map'
+    },
+    {
+      title: texts['menu'],
+      icon: 'menu',
+      openSideMenu: true
+    }
+  ],
 };
 
 /*
