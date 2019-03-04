@@ -18,11 +18,14 @@
                     <ion-badge color="light" *ngIf=" parent.bad != '0' ">{{ parent.bad }}</ion-badge>
                 </ion-button>
 
-                <ion-button *ngIf=" mine " (click)=" onClickEdit( ) ">
+            </ion-buttons>
+
+            <ion-buttons *ngIf=" mine ">
+                <ion-button (click)=" onClickEdit( ) ">
                     <ion-icon slot="icon-only" name="create"></ion-icon>
                 </ion-button>
                 <ion-button (click)=" onClickDelete( ) ">
-                    <ion-icon *ngIf=" mine " slot="icon-only" name="trash"></ion-icon>
+                    <ion-icon slot="icon-only" name="trash"></ion-icon>
                 </ion-button>
             </ion-buttons>
         </ion-row>

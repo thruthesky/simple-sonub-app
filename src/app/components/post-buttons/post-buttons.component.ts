@@ -25,7 +25,7 @@ export class PostButtonsComponent implements OnInit {
         if (this.parent && this.parent.idx_user === this.a.sp.myIdx) {
             return true;
         }
-        return true;
+        return false;
     }
 
     onClickEdit() {
