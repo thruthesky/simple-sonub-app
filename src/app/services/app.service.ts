@@ -60,7 +60,6 @@ export class AppService {
         return this.lib.texts[code];
     }
 
-
     /**
      * Returns posts from sonub or philgo
      * @param forum forum settings
