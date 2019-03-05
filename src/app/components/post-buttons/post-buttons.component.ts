@@ -18,26 +18,55 @@ export class PostButtonsComponent implements OnInit {
     ngOnInit() {
     }
 
-    get mine() {
+    /**
+     * returns this.parent type
+     *
+     * @return 'post' | 'comment'
+     */
+    get type(): string {
+        if (this.parent.idx_parent === '0') {
+            return 'post';
+        } else {
+            return 'comment';
+        }
+    }
+
+    /**
+     * return forum type - 'sonub' | 'philgo'
+     */
+    get forum(): string {
+        return this.a.settings.site.forum.type;
+    }
+
+
+    /**
+     * return current host url
+     */
+    get hostUrl(): string {
+        return this.a.settings.site.url;
+    }
+
+    get mine(): boolean {
         if (this.parent && this.parent.idx_user === this.a.sp.myIdx) {
             return true;
         }
         return false;
     }
 
-    onClickEdit() {
-        if (this.parent.idx_parent === '0') {
-
-        } else {
-
+    /**
+     * @param action like | dislike | create | update | delete
+     * @param type post | comment
+     * @param idx category_idx | post_idx | comment_idx
+     */
+    openExternal(action: string) {
+        let idx = this.parent.idx;
+        /**
+         * if comment, append idx_parent
+         */
+        if (this.type === 'comment') {
+            idx = `${this.parent.idx_parent}.${idx}`;
         }
-    }
 
-    onClickDelete() {
-
-    }
-
-    onClickVote(vote: 'G' | 'B') {
-
+        window.open(`${this.hostUrl}/login-first/${this.forum}/${action}/${this.type}/${idx}`);
     }
 }

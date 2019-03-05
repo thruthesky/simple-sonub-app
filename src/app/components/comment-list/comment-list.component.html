@@ -1,7 +1,6 @@
-<section *ngIf=" post.comments.length ">
-    <ion-card *ngFor="let comment of post.comments">
+<section *ngIf=" comments.length ">
+    <ion-card *ngFor="let comment of comments">
         <ng-container *ngIf="comment.stamp_deleted == '0'">
-
             <ion-item>
                 <ion-avatar slot="start">
                     <img src="{{ comment.photo ? comment.photo : '/assets/img/avatar.jpg' }}">
