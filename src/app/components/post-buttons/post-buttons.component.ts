@@ -70,3 +70,4 @@ export class PostButtonsComponent implements OnInit {
         window.open(`${this.hostUrl}/login-first/${this.forum}/${action}/${this.type}/${idx}`);
     }
 }
+

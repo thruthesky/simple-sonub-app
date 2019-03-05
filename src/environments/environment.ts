@@ -32,6 +32,12 @@ export const environment: Environment = {
   },
 
   domain: 'default',
+  configXml: {
+    id: 'com.sonub.app',
+    version: '0.0.2',
+    name: 'DefaultApp',
+    description: 'This is Description'
+  },
   header: {
     home: false
   },

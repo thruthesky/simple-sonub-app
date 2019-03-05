@@ -79,6 +79,12 @@ export interface Environment {
         };
     };
     domain: string;
+    configXml: {
+        id: string;
+        version: string;
+        name: string;
+        description: string
+    };
     firstPageRoute: 'home' | 'gallery' | 'forum' | 'contact' | 'map';
     sites: AppSettingSites;
     map: AppSettingMap;
