@@ -1,33 +1,34 @@
 <section>
     <ion-grid>
         <ion-row justify-content-center>
+
             <ion-buttons>
-                <ion-button>
+                <ion-button (click)=" openExternal( 'create' ) ">
                     <ion-icon slot="icon-only" name="chatboxes"></ion-icon>
-                    <ion-badge color="light" *ngIf=" parent.comments && parent.comments.length ">
+                    <!-- <ion-badge color="light" *ngIf=" parent.comments && parent.comments.length ">
                         {{ parent.comments.length }}
-                    </ion-badge>
+                    </ion-badge> -->
                 </ion-button>
 
-                <ion-button (click)=" onClickVote( 'G' ) ">
+                <ion-button (click)=" openExternal( 'like' ) ">
                     <ion-icon name="thumbs-up"></ion-icon>
                     <ion-badge color="light" *ngIf=" parent.good != '0' ">{{ parent.good }}</ion-badge>
                 </ion-button>
-                <ion-button (click)=" onClickVote( 'B' ) ">
+                <ion-button (click)=" openExternal( 'dislike' ) ">
                     <ion-icon name="thumbs-down"></ion-icon>
                     <ion-badge color="light" *ngIf=" parent.bad != '0' ">{{ parent.bad }}</ion-badge>
                 </ion-button>
-
             </ion-buttons>
 
             <ion-buttons *ngIf=" mine ">
-                <ion-button (click)=" onClickEdit( ) ">
+                <ion-button (click)=" openExternal( 'update' ) ">
                     <ion-icon slot="icon-only" name="create"></ion-icon>
                 </ion-button>
-                <ion-button (click)=" onClickDelete( ) ">
+                <ion-button (click)=" openExternal( 'delete' )">
                     <ion-icon slot="icon-only" name="trash"></ion-icon>
                 </ion-button>
             </ion-buttons>
+
         </ion-row>
     </ion-grid>
 </section>

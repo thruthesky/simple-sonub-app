@@ -186,4 +186,8 @@ export class AppService {
             return this.philgo.query('post.update', comment);
         }
     }
+
+    openExternal(link: string) {
+        window.open(link, '_blank');
+    }
 }

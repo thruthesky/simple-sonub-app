@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Post } from 'modules/ng-simplest/simplest.interface';
+import { Comments } from 'modules/ng-simplest/simplest.interface';
 
 @Component({
     selector: 'app-comment-list',
@@ -8,7 +8,7 @@ import { Post } from 'modules/ng-simplest/simplest.interface';
 })
 export class CommentListComponent implements OnInit {
 
-    @Input() post: Post;
+    @Input() comments: Comments;
     constructor(
         // public a: AppService
     ) {
@@ -16,6 +16,8 @@ export class CommentListComponent implements OnInit {
     }
 
     ngOnInit() {
-
+        // if (this.comments) {
+        //     console.log(this.comments);
+        // }
     }
 }
