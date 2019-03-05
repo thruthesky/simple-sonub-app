@@ -66,8 +66,7 @@ export class PostButtonsComponent implements OnInit {
         if (this.type === 'comment') {
             idx = `${this.parent.idx_parent}.${idx}`;
         }
-
-        window.open(`${this.hostUrl}/login-first/${this.forum}/${action}/${this.type}/${idx}`);
+        this.a.openExternal(`${this.hostUrl}/login-first/${this.forum}/${action}/${this.type}/${idx}`);
     }
 }
 
