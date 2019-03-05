@@ -57,12 +57,8 @@ export const environment: Environment = {
       name: 'Main App - Developer App',
       url: siteUrlEn,
       gallery: {
-        type: 'sonub',
-        idx_category: '62'
       },
       forum: {
-        type: 'sonub',
-        idx_category: '57'
       },
       contact: {
         title: 'Web Developer',
@@ -80,6 +76,42 @@ export const environment: Environment = {
           }
         ]
       },
+      footerMenus: [
+        {
+          title: texts['home'],
+          icon: 'home',
+          url: '/home'
+        },
+        {
+          title: texts['gallery'],
+          icon: 'photos',
+          url: '/gallery',
+          type: 'sonub',
+          idx_category: '62',
+        },
+        {
+          title: texts['forum'],
+          icon: 'chatboxes',
+          url: '/forum',
+          type: 'sonub',
+          idx_category: '57',
+        },
+        {
+          title: texts['contact'],
+          icon: 'contact',
+          url: '/contact'
+        },
+        {
+          title: texts['map'],
+          icon: 'map',
+          url: '/map'
+        },
+        {
+          title: texts['menu'],
+          icon: 'menu',
+          openSideMenu: true // open side menu
+        }
+      ],
       sideMenus: [
         {
           title: texts['website'],
@@ -110,13 +142,8 @@ export const environment: Environment = {
       name: '메일 앱 - 개발 화면',
       url: siteUrlKo,
       gallery: {
-        type: 'philgo',
-        post_id: 'company_info',
-        category: '21'
       },
       forum: {
-        type: 'sonub',
-        idx_category: '12'
       },
       contact: {
         title: 'Web Developer',
@@ -134,6 +161,43 @@ export const environment: Environment = {
           }
         ]
       },
+      footerMenus: [
+        {
+          title: texts['home'],
+          icon: 'home',
+          url: '/home'
+        },
+        {
+          title: texts['gallery'],
+          icon: 'photos',
+          url: '/gallery',
+          type: 'philgo',
+          post_id: 'company_info',
+          category: '21'
+        },
+        {
+          title: texts['forum'],
+          icon: 'chatboxes',
+          url: '/forum',
+          type: 'sonub',
+          idx_category: '12',
+        },
+        {
+          title: texts['contact'],
+          icon: 'contact',
+          url: '/contact'
+        },
+        {
+          title: texts['map'],
+          icon: 'map',
+          url: '/map'
+        },
+        {
+          title: texts['menu'],
+          icon: 'menu',
+          openSideMenu: true // open side menu
+        }
+      ],
       sideMenus: [
         {
           title: texts['website'],
@@ -178,43 +242,7 @@ export const environment: Environment = {
       ch: '请点击[获取路线]按钮进入此处.\nTel: ' + phone,
       jp: 'ここへ行くには[道順を取得]ボタンをクリックしてください。.\nTel: ' + phone
     },
-  },
-  /**
-   * Bottom toolbar menu.
-   * @todo @consider try to put the menu on each site settings, so each site ( of each langauge ) will have different menu.
-   */
-  toolbarMenus: [
-    {
-      title: texts['home'],
-      icon: 'home',
-      url: '/home'
-    },
-    {
-      title: texts['gallery'],
-      icon: 'photos',
-      url: '/gallery'
-    },
-    {
-      title: texts['forum'],
-      icon: 'chatboxes',
-      url: '/forum'
-    },
-    {
-      title: texts['contact'],
-      icon: 'contact',
-      url: '/contact'
-    },
-    {
-      title: texts['map'],
-      icon: 'map',
-      url: '/map'
-    },
-    {
-      title: texts['menu'],
-      icon: 'menu',
-      openSideMenu: true // open side menu
-    }
-  ],
+  }
 };
 
 /*

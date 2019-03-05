@@ -18,13 +18,14 @@ export interface AppSettingSite {
     idx: string;                    // Sonub site.idx
     name: any;                      // Website name
     url: string;                    // Website Url
-    gallery?: AppSettingForum;
-    forum?: AppSettingForum;
+    gallery?: {};
+    forum?: {};
     contact: {
         title: string;
         name: string;
         contacts: Array<AppContact>;
     };
+    footerMenus: AppSettingFooterMenu[];
     sideMenus: AppSettingSideMenu[];    // side menus of each site.
 }
 
@@ -50,11 +51,15 @@ export interface AppSettingMap {
     };
 }
 
-export interface AppSettingToolbarMenu {
+export interface AppSettingFooterMenu {
     title: any;
     icon: string;
     url?: string;
     openSideMenu?: boolean;
+    type?: 'philgo' | 'sonub';
+    idx_category?: string; // sonub only
+    post_id?: string; // philgo only
+    category?: string; // philgo only
 }
 
 export interface AppSettingSideMenu {
@@ -88,7 +93,6 @@ export interface Environment {
     firstPageRoute: 'home' | 'gallery' | 'forum' | 'contact' | 'map';
     sites: AppSettingSites;
     map: AppSettingMap;
-    toolbarMenus: AppSettingToolbarMenu[];
     header?: {
         home?: boolean;
         gallery?: boolean;

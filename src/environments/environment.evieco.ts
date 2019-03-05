@@ -38,8 +38,8 @@ export const environment: Environment = {
   configXml: {
     id: 'com.sonub.evieco',
     version: '0.0.3',
-    name: 'Evie & Co',
-    description: 'Evie & Co App'
+    name: 'Evie Co',
+    description: 'Evie Co App'
   },
   firstPageRoute: 'home',
   /**
@@ -52,8 +52,6 @@ export const environment: Environment = {
       name: 'Evie & Co Microblading',
       url: siteUrlEn,
       gallery: {
-        type: 'sonub',
-        idx_category: '62'
       },
       contact: {
         title: 'Permanent Eyebrows Makeup',
@@ -71,6 +69,40 @@ export const environment: Environment = {
           }
         ]
       },
+      footerMenus: [
+        {
+          title: texts['home'],
+          icon: 'home',
+          url: '/home'
+        },
+        {
+          title: texts['gallery'],
+          icon: 'photos',
+          url: '/gallery',
+          type: 'sonub',
+          idx_category: '62'
+        },
+        // {
+        //     title: texts['forum'],
+        //     icon: 'chatboxes',
+        //     url: '/forum'
+        // },
+        {
+          title: texts['contact'],
+          icon: 'contact',
+          url: '/contact'
+        },
+        {
+          title: texts['map'],
+          icon: 'map',
+          url: '/map'
+        },
+        {
+          title: texts['menu'],
+          icon: 'menu',
+          openSideMenu: true
+        }
+      ],
       sideMenus: [
         {
           title: texts['website'],
@@ -101,9 +133,6 @@ export const environment: Environment = {
       idx: '21',
       url: siteUrlKo,
       gallery: {
-        type: 'philgo',
-        post_id: 'company_info',
-        category: '21'
       },
       contact: {
         title: '한국식 반영구 눈 화장',
@@ -121,6 +150,41 @@ export const environment: Environment = {
           }
         ]
       },
+      footerMenus: [
+        {
+          title: texts['home'],
+          icon: 'home',
+          url: '/home'
+        },
+        {
+          title: texts['gallery'],
+          icon: 'photos',
+          url: '/gallery',
+          type: 'philgo',
+          post_id: 'company_info',
+          category: '21'
+        },
+        // {
+        //     title: texts['forum'],
+        //     icon: 'chatboxes',
+        //     url: '/forum'
+        // },
+        {
+          title: texts['contact'],
+          icon: 'contact',
+          url: '/contact'
+        },
+        {
+          title: texts['map'],
+          icon: 'map',
+          url: '/map'
+        },
+        {
+          title: texts['menu'],
+          icon: 'menu',
+          openSideMenu: true
+        }
+      ],
       sideMenus: [
         {
           title: texts['website'],
@@ -170,39 +234,7 @@ export const environment: Environment = {
       ch: '请点击[获取路线]按钮进入此处.\nTel: ' + phone,
       jp: 'ここへ行くには[道順を取得]ボタンをクリックしてください。.\nTel: ' + phone
     },
-  },
-  toolbarMenus: [
-    {
-      title: texts['home'],
-      icon: 'home',
-      url: '/home'
-    },
-    {
-      title: texts['gallery'],
-      icon: 'photos',
-      url: '/gallery'
-    },
-    // {
-    //     title: texts['forum'],
-    //     icon: 'chatboxes',
-    //     url: '/forum'
-    // },
-    {
-      title: texts['contact'],
-      icon: 'contact',
-      url: '/contact'
-    },
-    {
-      title: texts['map'],
-      icon: 'map',
-      url: '/map'
-    },
-    {
-      title: texts['menu'],
-      icon: 'menu',
-      openSideMenu: true
-    }
-  ],
+  }
 };
 
 /*

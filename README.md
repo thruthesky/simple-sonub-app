@@ -142,6 +142,17 @@ sites: {
     * person image should be square and  be minimum of 128 pixels of width & height.
   * texts - by setting in environemnt.
 
+### Menu customisation
+
+* There are 6 menus by default.
+  * You can customize all the menu except `menu` menu.
+  * You can change home, contact, map to other forum menus like 'greetings', 'discussion', 'qna', 'buyandsell'. It totally upto you.
+  * For instance, you want to make a Philgo Travel App,
+    You can remove all menu except `home`, `menu`.
+    And add your own forums for other menus like '추천여행지', '여행준비', '게시판'
+
+  * You can also add more forum menus on side menus if you want.
+
 ### Side Menu customisation
 
 ```` ts
@@ -170,7 +181,13 @@ sideMenus: [
 * You can run by configuration
 
 ```` sh
-ionic s --configuration=lasema
+ionic s                             ; ionic serve with `environment.ts`
+ionic s --configuration=evieco      ; ionic serve with `environemnt.evieco.ts`
+ionic s --configuration=lasema      ; ionic serve with `environemnt.lasema.ts`
+
+npm run cordova:run                 ; cordova run with `environemnt.ts`
+npm run cordova:run:evieco          ; cordova run with `environemnt.evieco.ts`
+npm run cordova:run:lasema          ; cordova run with `environemnt.lasema.ts`
 ````
 
 * Each app must have its own branch.

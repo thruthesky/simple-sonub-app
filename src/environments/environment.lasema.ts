@@ -56,12 +56,8 @@ export const environment: Environment = {
       name: 'Lasema Spa & Jimjilbang',
       url: siteUrlEn,
       gallery: {
-        type: 'sonub',
-        idx_category: '62'
       },
       forum: {
-        type: 'sonub',
-        idx_category: '57'
       },
       contact: {
         title: 'Lasema Spa & JimJilBang',
@@ -79,6 +75,40 @@ export const environment: Environment = {
           }
         ]
       },
+      footerMenus: [
+        {
+          title: texts['home'],
+          icon: 'home',
+          url: '/home'
+        },
+        {
+          title: texts['gallery'],
+          icon: 'photos',
+          url: '/gallery',
+          type: 'sonub',
+          idx_category: '62'
+        },
+        // {
+        //     title: texts['forum'],
+        //     icon: 'chatboxes',
+        //     url: '/forum'
+        // },
+        {
+          title: texts['contact'],
+          icon: 'contact',
+          url: '/contact'
+        },
+        {
+          title: texts['map'],
+          icon: 'map',
+          url: '/map'
+        },
+        {
+          title: texts['menu'],
+          icon: 'menu',
+          openSideMenu: true
+        }
+      ],
       sideMenus: [
         {
           title: texts['website'],
@@ -133,6 +163,40 @@ export const environment: Environment = {
           }
         ]
       },
+      footerMenus: [
+        {
+          title: texts['home'],
+          icon: 'home',
+          url: '/home'
+        },
+        {
+          title: texts['gallery'],
+          icon: 'photos',
+          url: '/gallery',
+          type: 'sonub',
+          idx_category: '62'
+        },
+        // {
+        //     title: texts['forum'],
+        //     icon: 'chatboxes',
+        //     url: '/forum'
+        // },
+        {
+          title: texts['contact'],
+          icon: 'contact',
+          url: '/contact'
+        },
+        {
+          title: texts['map'],
+          icon: 'map',
+          url: '/map'
+        },
+        {
+          title: texts['menu'],
+          icon: 'menu',
+          openSideMenu: true
+        }
+      ],
       sideMenus: [
         {
           title: texts['website'],
@@ -177,39 +241,7 @@ export const environment: Environment = {
       ch: '请点击[获取路线]按钮进入此处.\nTel: ' + phone,
       jp: 'ここへ行くには[道順を取得]ボタンをクリックしてください。.\nTel: ' + phone
     },
-  },
-  toolbarMenus: [
-    {
-      title: texts['home'],
-      icon: 'home',
-      url: '/home'
-    },
-    {
-      title: texts['gallery'],
-      icon: 'photos',
-      url: '/gallery'
-    },
-    // {
-    //     title: texts['forum'],
-    //     icon: 'chatboxes',
-    //     url: '/forum'
-    // },
-    {
-      title: texts['contact'],
-      icon: 'contact',
-      url: '/contact'
-    },
-    {
-      title: texts['map'],
-      icon: 'map',
-      url: '/map'
-    },
-    {
-      title: texts['menu'],
-      icon: 'menu',
-      openSideMenu: true
-    }
-  ]
+  }
 };
 
 /*
