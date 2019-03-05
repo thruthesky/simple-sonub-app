@@ -61,10 +61,16 @@ export class PostButtonsComponent implements OnInit {
     openExternal(action: string) {
         let idx = this.parent.idx;
         /**
-         * if comment, append idx_parent
+         * if comment, append idx_parent or root
          */
         if (this.type === 'comment') {
-            idx = `${this.parent.idx_parent}.${idx}`;
+            if (this.parent.idx_root === this.parent.idx_parent && action === 'create') {
+                idx = `${this.parent.idx_parent}.${idx}`;
+                action = 'post-reply';
+            } else {
+                idx = `${this.parent.idx_root}.${idx}`;
+                action = 'comment-reply';
+            }
         }
         this.a.openExternal(`${this.hostUrl}/login-first/${this.forum}/${action}/${this.type}/${idx}`);
     }
