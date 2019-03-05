@@ -27,8 +27,8 @@ export class AppSettings {
         return this.sites[ln];
     }
 
-    get toolbarMenus(): ToolbarMenu[] {
-        return environment.toolbarMenus;
+    get footerMenus(): ToolbarMenu[] {
+        return this.site.footerMenus;
     }
 
     get sideMenus(): SideMenu[] {

@@ -34,9 +34,9 @@ export class PostButtonsComponent implements OnInit {
     /**
      * return forum type - 'sonub' | 'philgo'
      */
-    get forum(): string {
-        return this.a.settings.site.forum.type;
-    }
+    // get forum(): string {
+    //     return this.a.settings.site.forum.type;
+    // }
 
 
     /**
@@ -72,7 +72,7 @@ export class PostButtonsComponent implements OnInit {
                 action = 'comment-reply';
             }
         }
-        this.a.openExternal(`${this.hostUrl}/login-first/${this.forum}/${action}/${this.type}/${idx}`);
+        this.a.openExternal(`${this.hostUrl}/login-first/LoginFirst/Please%20Login%20first/You%20can%20login%20or%20register/help`);
     }
 }
 

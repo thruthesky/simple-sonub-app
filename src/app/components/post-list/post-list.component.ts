@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Posts } from 'modules/ng-simplest/simplest.interface';
 import { AppSettingForum } from 'src/app/services/interfaces';
 import { AppService } from 'src/app/services/app.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-post-list',
@@ -10,22 +11,29 @@ import { AppService } from 'src/app/services/app.service';
 })
 export class PostListComponent implements OnInit {
 
-  @Input() forum: AppSettingForum;
+  forum: AppSettingForum;
   posts: Posts = [];
   constructor(
+    activatedRoute: ActivatedRoute,
     public a: AppService
   ) {
-
+    activatedRoute.queryParamMap.subscribe(params => {
+      this.forum = this.a.settings.site.footerMenus[params.get('i')];
+      this.loadPage();
+    });
   }
 
   ngOnInit() {
+  }
+
+
+  loadPage() {
     this.a.postList(this.forum, 1).subscribe(res => {
       // console.log('PostListComponent::ngOnInit() res:', res);
       this.posts = res;
       this.posts.forEach(post => post['safe_content'] = this.a.safeHtml(post.content));
     });
   }
-
 
 
 }

@@ -3,7 +3,7 @@
     <name>Evie Co</name>
     <description>Evie Co App</description>
     <author email="thruthesky@gmail.com" href="https://www.philgo.com/">PhilGo Dev Team</author>
-    <content original-src="index.html" src="http://192.168.0.254:8100" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -92,6 +92,5 @@
         <variable name="PLAY_SERVICES_VERSION" value="15.0.1" />
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
     </plugin>
-    <allow-navigation href="http://192.168.0.254:8100" sessionid="9eaa4c98" />
-    <engine name="android" spec="7.1.4" />
+    <engine name="android" spec="~7.1.4" />
 </widget>
