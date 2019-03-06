@@ -51,8 +51,6 @@ export const environment: Environment = {
       idx: '82',
       name: 'Evie & Co Microblading',
       url: siteUrlEn,
-      gallery: {
-      },
       contact: {
         title: 'Permanent Eyebrows Makeup',
         name: 'Evie & Co',
@@ -132,8 +130,6 @@ export const environment: Environment = {
       name: 'Evie & Co 반영구 화장',
       idx: '21',
       url: siteUrlKo,
-      gallery: {
-      },
       contact: {
         title: '한국식 반영구 눈 화장',
         name: 'Evie & Co',

@@ -1,9 +1,10 @@
 import { basicTexts } from 'modules/sonub-app-library/locales/basic';
 import { Injectable } from '@angular/core';
 import { LibraryService } from 'modules/sonub-app-library/services/library.service';
-import { AppSettingSites, AppSettingSite } from './interfaces';
+import { AppSettingSites, AppSettingSite, AppSettingFooterMenu, AppSettingSideMenu } from './interfaces';
 import { environment } from 'src/environments/environment';
-import { ToolbarMenu, SideMenu } from 'modules/sonub-app-library/sonub-app-library-interfaces';
+import { SimplestService } from 'modules/ng-simplest/simplest.service';
+// import { ToolbarMenu, SideMenu } from 'modules/sonub-app-library/sonub-app-library-interfaces';
 
 const texts = basicTexts;
 
@@ -11,7 +12,8 @@ const texts = basicTexts;
 export class AppSettings {
 
     constructor(
-        private lib: LibraryService
+        private lib: LibraryService,
+        private sp: SimplestService
     ) {
         console.log('sites', this.sites);
     }
@@ -27,12 +29,32 @@ export class AppSettings {
         return this.sites[ln];
     }
 
-    get footerMenus(): ToolbarMenu[] {
+    get footerMenus(): AppSettingFooterMenu[] {
         return this.site.footerMenus;
     }
 
-    get sideMenus(): SideMenu[] {
+    get sideMenus(): AppSettingSideMenu[] {
         return this.site.sideMenus;
+    }
+
+    /**
+     * Returns side menus based on `when` condition.
+     * @see README
+     */
+    get whenSideMenus(): AppSettingSideMenu[] {
+        return this.sideMenus.filter(menu => {
+            if (menu.when) {
+                if ( menu.when === 'login' && this.sp.isLoggedIn ) {
+                    return true;
+                } else if ( menu.when === 'logout' && !this.sp.isLoggedIn ) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                return true;
+            }
+        });
     }
 
     get map() {

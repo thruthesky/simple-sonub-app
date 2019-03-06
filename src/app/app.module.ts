@@ -26,6 +26,9 @@ import { CommentListComponent } from './components/comment-list/comment-list.com
 import { PostButtonsComponent } from './components/post-buttons/post-buttons.component';
 import { FormsModule } from '@angular/forms';
 import { HomeModule } from './pages/home/home.module';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { LogoutComponent } from './pages/logout/logout.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { HomeModule } from './pages/home/home.module';
     SettingComponent,
     PostListComponent,
     CommentListComponent,
-    PostButtonsComponent
+    PostButtonsComponent,
+    LoginComponent,
+    RegisterComponent,
+    LogoutComponent
   ],
   entryComponents: [],
   imports: [

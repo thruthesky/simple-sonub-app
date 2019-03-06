@@ -18,8 +18,6 @@ export interface AppSettingSite {
     idx: string;                    // Sonub site.idx
     name: any;                      // Website name
     url: string;                    // Website Url
-    gallery?: {};
-    forum?: {};
     contact: {
         title: string;
         name: string;
@@ -63,6 +61,7 @@ export interface AppSettingFooterMenu {
 }
 
 export interface AppSettingSideMenu {
+    when?: 'login' | 'logout'; // # side menu when
     title: any;
     icon: string;
     url?: string;
@@ -100,6 +99,8 @@ export interface Environment {
         contact?: boolean;
         map?: boolean;
         setting?: boolean;
+        login?: boolean;
+        register?: boolean;
     };
 }
 

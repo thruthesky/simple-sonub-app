@@ -155,26 +155,14 @@ sites: {
 
 ### Side Menu customisation
 
-```` ts
-sideMenus: [
-    {
-        title: {
-            en: 'Lasema Spa Web Site', // You can input your own translation for menu.
-            ko: '라세마 찜질방 홈페이지', // You can input your own translation for menu.
-        },
-        icon: 'home',
-        url: 'https://evieco.shop',
-        openWindow: true
-    },
-    {
-        title: {
-            en: 'Lasema Facebook', // You can input your own translation for menu.
-            ko: '라세마 페이스북', // You can input your own translation for menu.
-        },
-    }
-    // ...
-];
-````
+* Each language has its own side menu settings.
+
+#### side menu when
+
+* `when` tells when to show the menu.
+  * if it is `login`, then the menu will be shown if the user logged in.
+  * if it is `logout`, then the menu will be shown if the user logged out.
+  * @see `environment.ts` for the sample of complete settigns.
 
 ## Serve & Run
 

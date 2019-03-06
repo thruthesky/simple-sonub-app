@@ -39,7 +39,8 @@ export const environment: Environment = {
     description: 'This is Description'
   },
   header: {
-    home: false
+    home: false,
+    register: true
   },
   /**
    * Which pages to show.
@@ -56,10 +57,6 @@ export const environment: Environment = {
       idx: '24',
       name: 'Main App - Developer App',
       url: siteUrlEn,
-      gallery: {
-      },
-      forum: {
-      },
       contact: {
         title: 'Web Developer',
         name: 'Juana Leichelle',
@@ -115,6 +112,24 @@ export const environment: Environment = {
       ],
       sideMenus: [
         {
+          when: 'logout',
+          title: texts['login'],
+          icon: 'log-in',
+          url: '/login',
+        },
+        {
+          when: 'logout',
+          title: texts['register'],
+          icon: 'person-add',
+          url: '/register'
+        },
+        {
+          when: 'login',
+          title: texts['profile'],
+          icon: 'contact',
+          url: '/profile'
+        },
+        {
           title: texts['website'],
           icon: 'home',
           url: siteUrlEn,
@@ -132,6 +147,12 @@ export const environment: Environment = {
           url: '/setting',
         },
         {
+          when: 'login',
+          title: texts['logout'],
+          icon: 'log-out',
+          url: '/logout',
+        },
+        {
           title: texts['close'],
           icon: 'close',
           close: true // close side menu
@@ -142,10 +163,6 @@ export const environment: Environment = {
       idx: '21',
       name: '메일 앱 - 개발 화면',
       url: siteUrlKo,
-      gallery: {
-      },
-      forum: {
-      },
       contact: {
         title: 'Web Developer',
         name: 'Juana Leichelle',
@@ -201,6 +218,24 @@ export const environment: Environment = {
       ],
       sideMenus: [
         {
+          when: 'logout',
+          title: texts['login'],
+          icon: 'log-in',
+          url: '/login',
+        },
+        {
+          when: 'logout',
+          title: texts['register'],
+          icon: 'person-add',
+          url: '/register',
+        },
+        {
+          when: 'login',
+          title: texts['profile'],
+          icon: 'contact',
+          url: '/profile'
+        },
+        {
           title: texts['website'],
           icon: 'home',
           url: siteUrlKo,
@@ -216,6 +251,12 @@ export const environment: Environment = {
           title: texts['setting'],
           icon: 'settings',
           url: '/setting',
+        },
+        {
+          when: 'login',
+          title: texts['logout'],
+          icon: 'log-out',
+          url: '/logout',
         },
         {
           title: texts['close'],

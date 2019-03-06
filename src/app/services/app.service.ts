@@ -7,10 +7,11 @@ import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
 import { Observable, throwError } from 'rxjs';
 import { Post, PostList, VoteResponse, Comment } from 'modules/ng-simplest/simplest.interface';
 import { map } from 'rxjs/operators';
-import { ApiPost, ApiVoteResponse, ApiPostDelete, ApiComment } from 'modules/philgo-api/philgo-api-interface';
+import { ApiPost } from 'modules/philgo-api/philgo-api-interface';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AppSettingForum, Environment } from './interfaces';
 import { environment } from 'src/environments/environment';
+import { Router } from '@angular/router';
 
 
 @Injectable()
@@ -20,6 +21,7 @@ export class AppService {
 
     constructor(
         private platform: Platform,
+        private router: Router,
         private domSanitizer: DomSanitizer,
         private menuController: MenuController,
         public lib: LibraryService,
@@ -51,7 +53,8 @@ export class AppService {
     }
 
     test() {
-        this.menuController.open();
+        this.open('/logout');
+        // this.menuController.open();
     }
     t(code: any, info?: any): string {
         return this.lib.t(code, info);
@@ -187,7 +190,20 @@ export class AppService {
     //     }
     // }
 
-    openExternal(link: string) {
-        window.open(link, '_blank');
+    // openExternal(link: string) {
+    //     window.open(link, '_blank');
+    // }
+
+
+    open(url: string) {
+        this.router.navigateByUrl(url);
+    }
+    openHome() {
+        this.open('/home');
+    }
+
+
+    error(obj) {
+        alert(obj);
     }
 }
