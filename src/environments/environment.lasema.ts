@@ -55,10 +55,6 @@ export const environment: Environment = {
       idx: '24',
       name: 'Lasema Spa & Jimjilbang',
       url: siteUrlEn,
-      gallery: {
-      },
-      forum: {
-      },
       contact: {
         title: 'Lasema Spa & JimJilBang',
         name: 'Makati',
@@ -138,15 +134,6 @@ export const environment: Environment = {
       idx: '21',
       name: '라세마 스파 & 찜질방',
       url: siteUrlEn,
-      gallery: {
-        type: 'philgo',
-        post_id: 'company_info',
-        category: '21'
-      },
-      forum: {
-        type: 'sonub',
-        idx_category: '12'
-      },
       contact: {
         title: '라세마 스파 & 찜질방',
         name: '마카티',

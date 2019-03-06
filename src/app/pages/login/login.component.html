@@ -1,29 +1,30 @@
-<ion-header>
-    <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-back-button></ion-back-button>
-        </ion-buttons>
-        <ion-title>
-          {{  a.t('login') }}
-        </ion-title>
-      </ion-toolbar>
+<ion-header *ngIf=" a.env.header?.login !== false ">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{ a.t( a.settings.site.name ) }}
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
+
 
 <ion-content padding>
 
+  <form (ngSubmit)="onSubmit()">
 
     <ion-item>
-        <ion-label position="floating">Email</ion-label>
-        <ion-input inputmode="email" name="email" [(ngModel)]=" email "></ion-input>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input name="email" [(ngModel)]="email"></ion-input>
     </ion-item>
-
     <ion-item>
-        <ion-label position="floating"> Password </ion-label>
-        <ion-input inputmode="password" [(ngModel)]=" password "></ion-input>
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" name="password" [(ngModel)]="password"></ion-input>
     </ion-item>
 
-    <ion-button class="fw-light" (click)=" onSubmit( ) " [disabled]=" email == '' || password == '' ">
-        LOGIN
-    </ion-button>
+    <ion-button type="submit" expand="full">Login</ion-button>
+
+  </form>
 
 </ion-content>

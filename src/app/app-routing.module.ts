@@ -7,11 +7,18 @@ import { MapComponent } from './pages/map/map.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { SettingComponent } from './pages/setting/setting.component';
 import { environment } from 'src/environments/environment';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/register/register.component';
+import { LogoutComponent } from './pages/logout/logout.component';
 
 
 const routes: Routes = [
   { path: '', redirectTo: environment.firstPageRoute, pathMatch: 'full' },
   { path: 'home', component: HomePage },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
+  { path: 'profile', component: RegisterComponent },
+  { path: 'logout', component: LogoutComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'forum', component: ForumComponent },
   { path: 'map', component: MapComponent },
