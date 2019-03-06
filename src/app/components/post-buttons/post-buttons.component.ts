@@ -51,11 +51,6 @@ export class PostButtonsComponent implements OnInit {
         }
     }
 
-    /**
-     * @param action like | dislike | create | update | delete
-     * @param type post | comment
-     * @param idx category_idx | post_idx | comment_idx
-     */
     openExternal(action: string) {
         let redirect_url = 'r=';
 
@@ -69,6 +64,8 @@ export class PostButtonsComponent implements OnInit {
              */
             if (action === 'update') {
                 redirect_url += `post/${this.parent.editor}/${action}/${this.postIdx}`;
+                // test
+                redirect_url += 'post/simple-editor/update/1';
             } else {
                 redirect_url += `post/${action}/${this.postIdx}/${this.parent.title}`;
             }
@@ -90,6 +87,8 @@ export class PostButtonsComponent implements OnInit {
             }
         }
 
+
+
         // this.a.openExternal(
         //     this.hostUrl
         //     + '/login-first/LoginFirst/Please%20Login%20first/You%20can%20login%20or%20register?'
@@ -97,7 +96,7 @@ export class PostButtonsComponent implements OnInit {
         // );
 
         // test
-        this.a.openExternal(`https://user.sonub.com:8443/login-first/LoginFirst/PleaseLoginFirst/LoginOrRegister?${redirect_url}`);
+        this.a.openExternal(`https://user.sonub.com:8443/login-first?${redirect_url}&idx=${this.a.sp.myIdx}`);
     }
 }
 
