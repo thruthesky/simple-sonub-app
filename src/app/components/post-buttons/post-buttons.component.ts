@@ -48,7 +48,10 @@ export class PostButtonsComponent implements OnInit {
         }
     }
 
-    openExternal(action: string) {
+    openExternal(action: string, method?: string) {
+        if (method === '') {
+            method = action;
+        }
         let redirect_url = 'r=';
 
         if (this.forumType === 'sonub') {
@@ -87,7 +90,7 @@ export class PostButtonsComponent implements OnInit {
             }
         }
 
-        this.a.openExternal(`${this.hostUrl}/login-first?${redirect_url}&idx=${this.a.sp.myIdx}`);
+        this.a.openExternal(`${this.hostUrl}/login-first?${redirect_url}&m=${method}&idx=${this.a.sp.myIdx}`);
     }
 }
 

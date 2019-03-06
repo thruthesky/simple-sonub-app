@@ -3,28 +3,28 @@
         <ion-row justify-content-center>
 
             <ion-buttons>
-                <ion-button (click)=" openExternal( 'view' ) ">
+                <ion-button (click)=" openExternal( 'view', 'reply' ) ">
                     <ion-icon slot="icon-only" name="chatboxes"></ion-icon>
                     <!-- <ion-badge color="light" *ngIf=" parent.comments && parent.comments.length ">
                         {{ parent.comments.length }}
                     </ion-badge> -->
                 </ion-button>
 
-                <ion-button (click)=" openExternal( 'view' ) ">
+                <ion-button (click)=" openExternal( 'view', 'like' ) ">
                     <ion-icon name="thumbs-up"></ion-icon>
                     <ion-badge color="light" *ngIf=" parent.good != '0' ">{{ parent.good }}</ion-badge>
                 </ion-button>
-                <ion-button (click)=" openExternal( 'view' ) ">
+                <ion-button (click)=" openExternal( 'view', 'dislike' ) ">
                     <ion-icon name="thumbs-down"></ion-icon>
                     <ion-badge color="light" *ngIf=" parent.bad != '0' ">{{ parent.bad }}</ion-badge>
                 </ion-button>
             </ion-buttons>
 
-            <ion-buttons *ngIf=" mine ">
-                <ion-button (click)=" openExternal( 'update' ) ">
+            <ion-buttons *ngIf=" !mine ">
+                <ion-button (click)=" openExternal( 'update', '' ) ">
                     <ion-icon slot="icon-only" name="create"></ion-icon>
                 </ion-button>
-                <ion-button (click)=" openExternal( 'view' )">
+                <ion-button (click)=" openExternal( 'view', 'delete' )">
                     <ion-icon slot="icon-only" name="trash"></ion-icon>
                 </ion-button>
             </ion-buttons>
