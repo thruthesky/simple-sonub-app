@@ -18,9 +18,6 @@ export class PostButtonsComponent implements OnInit {
     }
 
     ngOnInit() {
-        if (this.parent) {
-            console.log(this.parent);
-        }
     }
 
     /**
@@ -64,12 +61,14 @@ export class PostButtonsComponent implements OnInit {
              */
             if (action === 'update') {
                 redirect_url += `post/${this.parent.editor}/${action}/${this.postIdx}`;
-                // test
-                redirect_url += 'post/simple-editor/update/1';
             } else {
                 redirect_url += `post/${action}/${this.postIdx}/${this.parent.title}`;
             }
         } else {
+
+            // remove this, added this for reminder
+            return console.log('philgo forum type post redirect is not working yet');
+
             /**
              * @format
              * - update post `philgo/update/:category_id.sub_cat/:post_idx`;
@@ -78,6 +77,7 @@ export class PostButtonsComponent implements OnInit {
              * - view post `philgo/view/:category_id/:post_idx`
              *
              * @note
+             * - this is not working properly yet
              * - this need to be tests for philgo posts
              */
             if (action === 'update') {
@@ -87,16 +87,7 @@ export class PostButtonsComponent implements OnInit {
             }
         }
 
-
-
-        // this.a.openExternal(
-        //     this.hostUrl
-        //     + '/login-first/LoginFirst/Please%20Login%20first/You%20can%20login%20or%20register?'
-        //     + redirect_url
-        // );
-
-        // test
-        this.a.openExternal(`https://user.sonub.com:8443/login-first?${redirect_url}&idx=${this.a.sp.myIdx}`);
+        this.a.openExternal(`${this.hostUrl}/login-first?${redirect_url}&idx=${this.a.sp.myIdx}`);
     }
 }
 
