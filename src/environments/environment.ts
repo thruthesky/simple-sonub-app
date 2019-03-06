@@ -86,8 +86,9 @@ export const environment: Environment = {
           title: texts['gallery'],
           icon: 'photos',
           url: '/gallery',
-          type: 'sonub',
-          idx_category: '62',
+          type: 'philgo',
+          post_id: 'company_info',
+          category: '21'
         },
         {
           title: texts['forum'],
