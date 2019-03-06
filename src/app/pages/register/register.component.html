@@ -12,6 +12,52 @@
 
 <ion-content padding>
 
-  register / profile
+  <form (ngSubmit)="onSubmit()">
+
+    <ion-item>
+      <ion-label position="floating">Email</ion-label>
+      <ion-input type="text" name="email" [(ngModel)]="user.email"></ion-input>
+    </ion-item>
+
+    <ion-item *ngIf=" !a.sp.isLoggedIn ">
+      <ion-label position="floating">Password</ion-label>
+      <ion-input type="password" name="password" [(ngModel)]="user.password"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input type="text" name="name" [(ngModel)]="user.name"></ion-input>
+    </ion-item>
+
+    <div *ngIf=" a.sp.isLoggedIn ">
+      <ion-item>
+        <ion-label position="floating">Nickname</ion-label>
+        <ion-input type="text" name="nickname" [(ngModel)]="user.nickname"></ion-input>
+      </ion-item>
+
+      <ion-radio-group name=" gender " [(ngModel)]=" user.gender ">
+        <ion-list-header>
+          Gender
+        </ion-list-header>
+
+        <ion-item>
+          <ion-label>Male</ion-label>
+          <ion-radio value="M"></ion-radio>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Female</ion-label>
+          <ion-radio value="F"></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+
+      <ion-item>
+        <ion-label position="floating">Mobile</ion-label>
+        <ion-input type="text" name="mobile" [(ngModel)]="user.mobile"></ion-input>
+      </ion-item>
+    </div>
+
+    <ion-button type="submit" expand="full"> {{ a.sp.isLoggedIn ? 'Update' : 'Register' }} </ion-button>
+
+  </form>
 
 </ion-content>

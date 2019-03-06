@@ -5,7 +5,7 @@ import { SimplestService } from 'modules/ng-simplest/simplest.service';
 import { LibraryService } from 'modules/sonub-app-library/services/library.service';
 import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
 import { Observable, throwError } from 'rxjs';
-import { Post, PostList, VoteResponse, Comment } from 'modules/ng-simplest/simplest.interface';
+import { Post, PostList, VoteResponse, Comment, ErrorObject } from 'modules/ng-simplest/simplest.interface';
 import { map } from 'rxjs/operators';
 import { ApiPost } from 'modules/philgo-api/philgo-api-interface';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -190,20 +190,19 @@ export class AppService {
     //     }
     // }
 
-    // openExternal(link: string) {
-    //     window.open(link, '_blank');
-    // }
-
-
     open(url: string) {
         this.router.navigateByUrl(url);
     }
+
     openHome() {
         this.open('/home');
     }
 
+    openProfile() {
+        this.open('/profile');
+    }
 
-    error(obj) {
-        alert(obj);
+    error(e: ErrorObject) {
+        alert(`code: ${e.error_code}. message: ${e.error_message}`);
     }
 }
