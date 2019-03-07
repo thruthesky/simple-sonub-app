@@ -11,6 +11,10 @@ export class RegisterComponent implements OnInit {
 
   form: User = {};
 
+  thisYear = new Date().getFullYear().toString();
+  minSelectableDate = +this.thisYear - 70 + '-00-01';
+  maxSelectableDate = this.thisYear + '-00-01';
+
   constructor(
     public a: AppService
   ) {
