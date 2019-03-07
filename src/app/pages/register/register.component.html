@@ -16,25 +16,25 @@
 
     <ion-item>
       <ion-label position="floating">Email</ion-label>
-      <ion-input type="text" name="email" [(ngModel)]="user.email"></ion-input>
+      <ion-input type="text" name="email" [(ngModel)]="form.email" required></ion-input>
     </ion-item>
 
     <ion-item *ngIf=" !a.sp.isLoggedIn ">
       <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" name="password" [(ngModel)]="user.password"></ion-input>
+      <ion-input type="password" name="password" [(ngModel)]="form.password" required></ion-input>
     </ion-item>
     <ion-item>
       <ion-label position="floating">Name</ion-label>
-      <ion-input type="text" name="name" [(ngModel)]="user.name"></ion-input>
+      <ion-input type="text" name="name" [(ngModel)]="form.name" required></ion-input>
     </ion-item>
 
     <div *ngIf=" a.sp.isLoggedIn ">
       <ion-item>
         <ion-label position="floating">Nickname</ion-label>
-        <ion-input type="text" name="nickname" [(ngModel)]="user.nickname"></ion-input>
+        <ion-input type="text" name="nickname" [(ngModel)]="form.nickname" required></ion-input>
       </ion-item>
 
-      <ion-radio-group name=" gender " [(ngModel)]=" user.gender ">
+      <ion-radio-group name=" gender " [(ngModel)]=" form.gender ">
         <ion-list-header>
           Gender
         </ion-list-header>
@@ -51,8 +51,13 @@
       </ion-radio-group>
 
       <ion-item>
+        <ion-label position="floating">Birthday</ion-label>
+        <ion-input type="text" name="birthday" [(ngModel)]="form.birthday" required></ion-input>
+      </ion-item>
+
+      <ion-item>
         <ion-label position="floating">Mobile</ion-label>
-        <ion-input type="text" name="mobile" [(ngModel)]="user.mobile"></ion-input>
+        <ion-input type="text" name="mobile" [(ngModel)]="form.mobile" required></ion-input>
       </ion-item>
     </div>
 

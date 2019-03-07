@@ -9,14 +9,14 @@ import { User } from 'modules/ng-simplest/simplest.interface';
 })
 export class RegisterComponent implements OnInit {
 
-  user: User = <any>{};
+  form: User = {};
 
   constructor(
     public a: AppService
   ) {
     if (a.sp.isLoggedIn) {
       a.sp.profile().subscribe(res => {
-        Object.assign(this.user, res);
+        Object.assign(this.form, res);
       });
     }
   }
@@ -25,31 +25,47 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log(this.user);
 
-    if (this.user.idx) {
+    if (this.a.sp.isLoggedIn) {
 
       const data: User = {
-        email: this.user.email,
-        nickname: this.user.nickname,
-        name: this.user.name,
-        gender: this.user.gender,
-        birthday: this.user.birthday,
-        mobile: this.user.mobile
+        email: this.form.email,
+        nickname: this.form.nickname,
+        name: this.form.name,
+        gender: this.form.gender,
+        birthday: this.form.birthday,
+        mobile: this.form.mobile
       };
 
-      this.a.sp.profileUpdate(data).subscribe(res => {
-        console.log('update', res);
+      if (this.isIncomplete(data)) {
+        return alert('Form must be complete');
+      } else {
+        this.a.sp.profileUpdate(data).subscribe(res => {
+          console.log('update', res);
+          Object.assign(this.form, res);
+        }, e => this.a.error(e));
+      }
 
-        Object.assign(this.user, res);
-      }, e => this.a.error(e));
     } else {
-      this.a.sp.register(this.user).subscribe(res => {
-        console.log('register', res);
 
-        this.a.openProfile();
-      }, e => this.a.error(e));
+      const data: User = {
+        email: this.form.email,
+        password: this.form.password,
+        name: this.form.password
+      };
+
+      if (this.isIncomplete(data)) {
+        return alert('Form must be complete');
+      } else {
+        this.a.sp.register(this.form).subscribe(res => {
+          console.log('register', res);
+          this.a.openProfile();
+        }, e => this.a.error(e));
+      }
     }
   }
 
+  isIncomplete(data: Object) {
+    return Object.keys(data).filter(k => !data[k]);
+  }
 }
