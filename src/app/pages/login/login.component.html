@@ -15,15 +15,15 @@
   <form (ngSubmit)="onSubmit()">
 
     <ion-item class="mt-3">
-      <ion-label position="floating">Email</ion-label>
+      <ion-label position="floating">{{ a.t('email') }}</ion-label>
       <ion-input name="email" [(ngModel)]="email" required clearInput="true"></ion-input>
     </ion-item>
     <ion-item class="mt-3">
-      <ion-label position="floating">Password</ion-label>
+      <ion-label position="floating">{{ a.t('password') }}</ion-label>
       <ion-input type="password" name="password" [(ngModel)]="password" required clearInput="true"></ion-input>
     </ion-item>
 
-    <ion-button class="mt-4" type="submit" expand="full">Login</ion-button>
+    <ion-button class="mt-4" type="submit" expand="full">{{ a.t('login') }}</ion-button>
 
   </form>
 

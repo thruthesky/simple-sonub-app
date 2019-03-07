@@ -15,57 +15,58 @@
   <form class="mb-4" (ngSubmit)="onSubmit()">
 
     <ion-item>
-      <ion-label position="floating">Email</ion-label>
+      <ion-label position="floating">{{ a.t('email') }}</ion-label>
       <ion-input type="email" name="email" [(ngModel)]="form.email" required clearInput=" true "></ion-input>
     </ion-item>
 
     <ion-item class="mt-3" *ngIf=" !a.sp.isLoggedIn ">
-      <ion-label position="floating">Password</ion-label>
+      <ion-label position="floating">{{ a.t('password') }}</ion-label>
       <ion-input type="password" name="password" [(ngModel)]="form.password" required clearInput=" true "></ion-input>
     </ion-item>
 
     <ion-item class="mt-3">
-      <ion-label position="floating">Name</ion-label>
+      <ion-label position="floating">{{ a.t('name') }}</ion-label>
       <ion-input type="text" name="name" [(ngModel)]="form.name" required clearInput=" true "></ion-input>
     </ion-item>
 
     <ion-item class="mt-3">
-      <ion-label position="floating">Mobile</ion-label>
+      <ion-label position="floating">{{ a.t('mobile') }}</ion-label>
       <ion-input type="number" name="mobile" [(ngModel)]="form.mobile" required clearInput=" true "></ion-input>
     </ion-item>
 
     <div *ngIf=" a.sp.isLoggedIn ">
 
       <ion-item class="mt-3">
-        <ion-label position="floating">Nickname</ion-label>
+        <ion-label position="floating">{{ a.t('nickname') }}</ion-label>
         <ion-input type="text" name="nickname" [(ngModel)]="form.nickname" required clearInput=" true "></ion-input>
       </ion-item>
 
       <ion-radio-group class="mt-3" name=" gender " [(ngModel)]=" form.gender ">
         <ion-list-header class="mt-2">
-          Gender
+          {{ a.t('gender') }}
         </ion-list-header>
 
         <ion-item>
-          <ion-label>Male</ion-label>
+          <ion-label>{{ a.t('male') }}</ion-label>
           <ion-radio value="M"></ion-radio>
         </ion-item>
 
         <ion-item>
-          <ion-label>Female</ion-label>
+          <ion-label>{{ a.t('female') }}</ion-label>
           <ion-radio value="F"></ion-radio>
         </ion-item>
       </ion-radio-group>
 
       <ion-item class="mt-3">
-        <ion-label position="floating">Birthday</ion-label>
+        <ion-label position="floating">{{ a.t('birthday') }}</ion-label>
         <ion-datetime name="birthday" [(ngModel)]="form.birthday" display-format="MMM DD, YYYY" min="{{ minSelectableDate }}"
           max="{{ maxSelectableDate }}"></ion-datetime>
       </ion-item>
 
     </div>
 
-    <ion-button class="mt-4" type="submit" expand="full"> {{ a.sp.isLoggedIn ? 'Update' : 'Register' }} </ion-button>
+    <ion-button class="mt-4" type="submit" expand="full"> {{ a.sp.isLoggedIn ? a.t('update') : a.t('register') }}
+    </ion-button>
 
   </form>
 
