@@ -18,9 +18,9 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('submit');
-    this.a.sp.login( this.email, this.password ).subscribe( res => {
-      console.log('login success: ', res);
+    // console.log('submit');
+    this.a.sp.login(this.email, this.password).subscribe(res => {
+      // console.log('login success: ', res);
       this.a.openHome();
     }, e => this.a.error(e));
   }

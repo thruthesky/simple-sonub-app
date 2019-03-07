@@ -14,30 +14,38 @@ export class RegisterComponent implements OnInit {
   constructor(
     public a: AppService
   ) {
-    if (a.sp.isLoggedIn) {
-      a.sp.profile().subscribe(res => {
-        Object.assign(this.form, res);
 
-        console.log('form: ', this.form);
-      });
-    }
   }
 
   ngOnInit() {
   }
 
+  ionViewWillEnter() {
+    if (this.a.sp.isLoggedIn) {
+      this.a.sp.profile().subscribe(res => {
+        Object.assign(this.form, res);
+
+        // console.log('form: ', this.form);
+      });
+    }
+  }
+
   onSubmit() {
+
     if (this.a.sp.isLoggedIn) {
       const data: User = {
-        email: this.form.email.trim(),
-        nickname: this.form.nickname,
+        email: this.form.email,
         name: this.form.name,
+        mobile: this.form.mobile,
+        nickname: this.form.nickname,
         gender: this.form.gender,
-        birthday: this.form.birthday,
-        mobile: this.form.mobile
+        birthday: this.form.birthday
       };
-      if (this.isIncomplete(data)) {
-        return alert('Form must be complete');
+
+      const inc = this.isIncomplete(data);
+      if (inc) {
+        return this.a.error(inc);
+
       } else {
         this.a.sp.profileUpdate(data).subscribe(res => {
           console.log('update', res);
@@ -45,13 +53,18 @@ export class RegisterComponent implements OnInit {
         }, e => this.a.error(e));
       }
     } else {
+
       const data: User = {
         email: this.form.email,
         password: this.form.password,
-        name: this.form.password
+        name: this.form.name,
+        mobile: this.form.mobile
       };
-      if (this.isIncomplete(data)) {
-        return alert('Form must be complete');
+
+      const inc = this.isIncomplete(data);
+      if (inc) {
+        return this.a.error(inc);
+
       } else {
         this.a.sp.register(this.form).subscribe(res => {
           console.log('register', res);
@@ -62,10 +75,12 @@ export class RegisterComponent implements OnInit {
   }
 
   isIncomplete(data: Object) {
-    let ret = false;
-    if (Object.keys(data).filter(k => !data[k]).length) {
-      ret = true;
-    }
-    return ret;
+    let inc = '';
+    Object.keys(data).forEach(k => {
+      if (!data[k.trim()]) {
+        inc += inc ? `, ${k}` : `Please fill up ${k}`;
+      }
+    });
+    return inc ? `${inc}.` : false;
   }
 }

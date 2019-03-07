@@ -16,26 +16,33 @@
 
     <ion-item>
       <ion-label position="floating">Email</ion-label>
-      <ion-input type="email" name="email" [(ngModel)]="form.email" required></ion-input>
+      <ion-input type="email" name="email" [(ngModel)]="form.email" required clearInput=" true "></ion-input>
     </ion-item>
 
-    <ion-item *ngIf=" !a.sp.isLoggedIn ">
+    <ion-item class="mt-3" *ngIf=" !a.sp.isLoggedIn ">
       <ion-label position="floating">Password</ion-label>
-      <ion-input type="password" name="password" [(ngModel)]="form.password" required></ion-input>
+      <ion-input type="password" name="password" [(ngModel)]="form.password" required clearInput=" true "></ion-input>
     </ion-item>
-    <ion-item>
+
+    <ion-item class="mt-3">
       <ion-label position="floating">Name</ion-label>
-      <ion-input type="text" name="name" [(ngModel)]="form.name" required></ion-input>
+      <ion-input type="text" name="name" [(ngModel)]="form.name" required clearInput=" true "></ion-input>
+    </ion-item>
+
+    <ion-item class="mt-3">
+      <ion-label position="floating">Mobile</ion-label>
+      <ion-input type="number" name="mobile" [(ngModel)]="form.mobile" required clearInput=" true "></ion-input>
     </ion-item>
 
     <div *ngIf=" a.sp.isLoggedIn ">
-      <ion-item>
+
+      <ion-item class="mt-3">
         <ion-label position="floating">Nickname</ion-label>
-        <ion-input type="text" name="nickname" [(ngModel)]="form.nickname" required></ion-input>
+        <ion-input type="text" name="nickname" [(ngModel)]="form.nickname" required clearInput=" true "></ion-input>
       </ion-item>
 
-      <ion-radio-group name=" gender " [(ngModel)]=" form.gender ">
-        <ion-list-header>
+      <ion-radio-group class="mt-3" name=" gender " [(ngModel)]=" form.gender ">
+        <ion-list-header class="mt-2">
           Gender
         </ion-list-header>
 
@@ -50,24 +57,14 @@
         </ion-item>
       </ion-radio-group>
 
-      <!-- <ion-item>
+      <ion-item class="mt-3">
         <ion-label position="floating">Birthday</ion-label>
-        <ion-input type="text" name="birthday" [(ngModel)]="form.birthday" required></ion-input>
-      </ion-item> -->
-
-      <ion-item>
-        <ion-label>Birthday</ion-label>
-        <ion-datetime  name="birthday" [(ngModel)]="form.birthday" required display-format="MMM DD, YYYY"></ion-datetime>
+        <ion-datetime name="birthday" [(ngModel)]="form.birthday" display-format="MMM DD, YYYY"></ion-datetime>
       </ion-item>
 
-
-      <ion-item>
-        <ion-label position="floating">Mobile</ion-label>
-        <ion-input type="text" name="mobile" [(ngModel)]="form.mobile" required></ion-input>
-      </ion-item>
     </div>
 
-    <ion-button type="submit" expand="full"> {{ a.sp.isLoggedIn ? 'Update' : 'Register' }} </ion-button>
+    <ion-button class="mt-4" type="submit" expand="full"> {{ a.sp.isLoggedIn ? 'Update' : 'Register' }} </ion-button>
 
   </form>
 
