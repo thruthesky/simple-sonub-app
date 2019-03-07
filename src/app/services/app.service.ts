@@ -238,4 +238,14 @@ export class AppService {
 
         toast.present();
     }
+
+    isIncomplete(data: Object): any {
+        let inc = '';
+        Object.keys(data).forEach(k => {
+            if (!data[k.trim()]) {
+                inc += inc ? `, ${this.t(k)}` : `${this.t('required')} ${this.t(k)}`;
+            }
+        });
+        return inc ? `${inc}.` : false;
+    }
 }

@@ -8,8 +8,11 @@ import { AppService } from 'src/app/services/app.service';
 })
 export class LoginComponent implements OnInit {
 
-  email = '';
-  password = '';
+  data = {
+    email: '',
+    password: ''
+  };
+
   constructor(
     public a: AppService
   ) { }
@@ -18,10 +21,14 @@ export class LoginComponent implements OnInit {
   }
 
   onSubmit() {
-    // console.log('submit');
-    this.a.sp.login(this.email, this.password).subscribe(res => {
-      // console.log('login success: ', res);
-      this.a.openHome();
-    }, e => this.a.error(e));
+
+    const inc = this.a.isIncomplete(this.data);
+    if (inc) {
+      return this.a.error(inc);
+    } else {
+      this.a.sp.login(this.data.email, this.data.password).subscribe(res => {
+        this.a.openHome();
+      }, e => this.a.error(e));
+    }
   }
 }

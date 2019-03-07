@@ -46,7 +46,7 @@ export class RegisterComponent implements OnInit {
         birthday: this.form.birthday
       };
 
-      const inc = this.isIncomplete(data);
+      const inc = this.a.isIncomplete(data);
       if (inc) {
         return this.a.error(inc);
 
@@ -64,7 +64,7 @@ export class RegisterComponent implements OnInit {
         mobile: this.form.mobile
       };
 
-      const inc = this.isIncomplete(data);
+      const inc = this.a.isIncomplete(data);
       if (inc) {
         return this.a.error(inc);
 
@@ -76,13 +76,4 @@ export class RegisterComponent implements OnInit {
     }
   }
 
-  isIncomplete(data: Object) {
-    let inc = '';
-    Object.keys(data).forEach(k => {
-      if (!data[k.trim()]) {
-        inc += inc ? `, ${k}` : `Please fill up ${k}`;
-      }
-    });
-    return inc ? `${inc}.` : false;
-  }
 }

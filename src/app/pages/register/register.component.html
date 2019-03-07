@@ -12,7 +12,7 @@
 
 <ion-content padding>
 
-  <form class="mb-4" (ngSubmit)="onSubmit()">
+  <form class="mb-4 pb-4" (ngSubmit)="onSubmit()">
 
     <ion-item>
       <ion-label position="floating">{{ a.t('email') }}</ion-label>
@@ -65,7 +65,7 @@
 
     </div>
 
-    <ion-button class="mt-4" type="submit" expand="full"> {{ a.sp.isLoggedIn ? a.t('update') : a.t('register') }}
+    <ion-button class="mt-4 mb-4" type="submit" expand="full"> {{ a.sp.isLoggedIn ? a.t('update') : a.t('register') }}
     </ion-button>
 
   </form>

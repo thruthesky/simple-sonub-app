@@ -1,17 +1,14 @@
 <ion-header *ngIf=" a.env.header?.forum !== false ">
-    <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-back-button></ion-back-button>
-        </ion-buttons>
-        <ion-title>
-          {{  a.t('forum') }}
-        </ion-title>
-      </ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{ a.t('forum') }}
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-
   <app-post-list></app-post-list>
-
-
 </ion-content>
