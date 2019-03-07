@@ -25,9 +25,7 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit() {
-
     if (this.a.sp.isLoggedIn) {
-
       const data: User = {
         email: this.form.email,
         nickname: this.form.nickname,
@@ -36,7 +34,6 @@ export class RegisterComponent implements OnInit {
         birthday: this.form.birthday,
         mobile: this.form.mobile
       };
-
       if (this.isIncomplete(data)) {
         return alert('Form must be complete');
       } else {
@@ -45,15 +42,12 @@ export class RegisterComponent implements OnInit {
           Object.assign(this.form, res);
         }, e => this.a.error(e));
       }
-
     } else {
-
       const data: User = {
         email: this.form.email,
         password: this.form.password,
         name: this.form.password
       };
-
       if (this.isIncomplete(data)) {
         return alert('Form must be complete');
       } else {
@@ -66,6 +60,10 @@ export class RegisterComponent implements OnInit {
   }
 
   isIncomplete(data: Object) {
-    return Object.keys(data).filter(k => !data[k]);
+    let ret = false;
+    if (Object.keys(data).filter(k => !data[k]).length) {
+      ret = true;
+    }
+    return ret;
   }
 }
