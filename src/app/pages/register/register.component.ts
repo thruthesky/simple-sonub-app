@@ -52,7 +52,6 @@ export class RegisterComponent implements OnInit {
 
       } else {
         this.a.sp.profileUpdate(data).subscribe(res => {
-          console.log('update', res);
           Object.assign(this.form, res);
         }, e => this.a.error(e));
       }
@@ -71,7 +70,6 @@ export class RegisterComponent implements OnInit {
 
       } else {
         this.a.sp.register(this.form).subscribe(res => {
-          console.log('register', res);
           this.a.openProfile();
         }, e => this.a.error(e));
       }
