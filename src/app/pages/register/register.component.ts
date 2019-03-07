@@ -17,6 +17,8 @@ export class RegisterComponent implements OnInit {
     if (a.sp.isLoggedIn) {
       a.sp.profile().subscribe(res => {
         Object.assign(this.form, res);
+
+        console.log('form: ', this.form);
       });
     }
   }
@@ -27,7 +29,7 @@ export class RegisterComponent implements OnInit {
   onSubmit() {
     if (this.a.sp.isLoggedIn) {
       const data: User = {
-        email: this.form.email,
+        email: this.form.email.trim(),
         nickname: this.form.nickname,
         name: this.form.name,
         gender: this.form.gender,

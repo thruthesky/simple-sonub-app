@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
-import { Platform, MenuController } from '@ionic/angular';
+import { Platform, MenuController, ToastController } from '@ionic/angular';
 import { AppSettings } from './app.settings';
 import { SimplestService } from 'modules/ng-simplest/simplest.service';
 import { LibraryService } from 'modules/sonub-app-library/services/library.service';
 import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
 import { Observable, throwError } from 'rxjs';
-import { Post, PostList, VoteResponse, Comment, ErrorObject } from 'modules/ng-simplest/simplest.interface';
+import { Post, PostList, ErrorObject } from 'modules/ng-simplest/simplest.interface';
 import { map } from 'rxjs/operators';
 import { ApiPost } from 'modules/philgo-api/philgo-api-interface';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -23,6 +23,7 @@ export class AppService {
         private platform: Platform,
         private router: Router,
         private domSanitizer: DomSanitizer,
+        private toastController: ToastController,
         private menuController: MenuController,
         public lib: LibraryService,
         public sp: SimplestService,
@@ -202,7 +203,39 @@ export class AppService {
         this.open('/profile');
     }
 
-    error(e: ErrorObject) {
-        alert(`code: ${e.error_code}. message: ${e.error_message}`);
+    /**
+     * Display an error toast at the bottom.
+     *
+     * @param e error object. It can be an object or a string.
+     * @example
+     *      error({ error_code: '...', error_message: '...' })
+     *      error( 'Error string' );
+     */
+    async error(e: any) {
+        let message = '';
+        if ( typeof e === 'object' && e['error_code'] ) { // sonub error only
+            if ( e['error_code'] === 'email_in_use' ) {
+                message = this.t('email_in_use');
+            } else {
+                message = `Error: ${e['error_message']} (${e['error_code']})`;
+            }
+        } else if ( typeof e === 'string' ) { // error string
+            message = e;
+        } else {
+            message = 'Error happended! But the error cannot be understood. What kind of error is it? see console.log';
+            console.error(e);
+        }
+        // console.log(typeof e, e);
+        // alert(`code: ${e.error_code}. message: ${e.error_message}`);
+
+        const toast = await this.toastController.create({
+            message: message,
+            duration: 6000,
+            showCloseButton: true,
+            closeButtonText: 'Close',
+            cssClass: 'error-toast'
+        });
+
+        toast.present();
     }
 }
