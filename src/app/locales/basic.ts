@@ -22,6 +22,21 @@ export const basicTexts = {
     },
 
 
+    email: { en: 'Email', ko: '이메일', ch: '电子邮件', jp: 'Eメール' },
+    name: { en: 'Name', ko: '이름', ch: '名称', jp: '名' },
+    password: { en: 'Password', ko: '비밀번호', ch: '密码', jp: 'パスワード' },
+    nickname: { en: 'Nickname', ko: '닉네임', ch: '昵称', jp: 'ニックネーム' },
+    birthday: { en: 'Birthday', ko: '생일', ch: '生日', jp: 'お誕生日' },
+    mobile: { en: 'Mobile Number', ko: '휴대 전화 번호', ch: '手机号码', jp: 'お誕携帯電話番号生日' },
+    male: { en: 'Male', ko: '남자', ch: '男', jp: '男性' },
+    female: { en: 'Female', ko: '여자', ch: '女', jp: '女性' },
+    submit: { en: 'Submit', ko: '전송', ch: '提交', jp: '提出する' },
+    update: { en: 'Update', ko: '업데이트', ch: '更新', jp: '更新' },
+
+    // need check
+    gender: { en: 'Gender', ko: '성별', ch: '性别', jp: '性別' },
+    'required': { en: 'Required : ', ko: '필수: ', ch: '需要: ', jp: '必須: ' },
+
     /** Error */
     email_in_use: {
         en: 'The email you entered is already registered. If it is your email, then just login.',
