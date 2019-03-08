@@ -5,3 +5,21 @@
         border-radius: 50%;
     }
 }
+
+.articles {
+    padding-top: 1.5em;
+    padding-bottom: 3em;
+
+    div {
+
+        .title {
+            margin-left: .5em;
+            margin-bottom: .1em;
+            font-weight: bold;
+        }
+
+        .content {
+            margin-bottom: 1em;
+        }
+    }
+}
