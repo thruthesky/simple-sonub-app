@@ -21,7 +21,6 @@ export const basicTexts = {
         jp: 'お待ちください ...'
     },
 
-
     email: { en: 'Email', ko: '이메일', ch: '电子邮件', jp: 'Eメール' },
     name: { en: 'Name', ko: '이름', ch: '名称', jp: '名' },
     password: { en: 'Password', ko: '비밀번호', ch: '密码', jp: 'パスワード' },
