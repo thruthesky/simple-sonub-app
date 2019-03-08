@@ -34,7 +34,7 @@ export const environment: Environment = {
 
   configXml: {
     id: 'com.sonub.lasema',
-    version: '0.0.4',
+    version: '0.0.8',
     name: 'Lasema',
     description: 'Lasema App'
   },

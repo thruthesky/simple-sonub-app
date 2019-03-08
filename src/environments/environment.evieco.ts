@@ -37,7 +37,7 @@ export const environment: Environment = {
   domain: 'evieco',
   configXml: {
     id: 'com.sonub.evieco',
-    version: '0.0.3',
+    version: '0.0.8',
     name: 'Evie Co',
     description: 'Evie Co App'
   },
