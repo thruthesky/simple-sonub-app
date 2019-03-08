@@ -209,3 +209,8 @@ ts-node patch.ts            ; this will patch `config.xml` with `environment.ts`
 ts-node patch.ts evieco     ; this will patch `config.xml` with `environment.evieco.ts`
 ts-node patch.ts lasema     ; this will patch `config.xml` with `environment.lasema.ts`
 ````
+
+
+## App Signing
+
+https://stackoverflow.com/questions/26449512/how-to-create-a-signed-apk-file-using-cordova-command-line-interface
