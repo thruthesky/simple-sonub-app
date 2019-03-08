@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Platform, MenuController, ToastController } from '@ionic/angular';
-import { AppSettings } from './app.settings';
+import { AppSettings } from './app-settings.service';
 import { SimplestService } from 'modules/ng-simplest/simplest.service';
-import { LibraryService } from 'src/app/services/library.service';
 import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
 import { Observable, throwError } from 'rxjs';
-import { Post, PostList, ErrorObject } from 'modules/ng-simplest/simplest.interface';
+import { Post, PostList } from 'modules/ng-simplest/simplest.interface';
 import { map } from 'rxjs/operators';
 import { ApiPost } from 'modules/philgo-api/philgo-api-interface';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AppSettingForum, Environment } from './interfaces';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
+import { AppLibrary } from './app-library.service';
 
 
 @Injectable()
@@ -25,7 +25,7 @@ export class AppService {
         private domSanitizer: DomSanitizer,
         private toastController: ToastController,
         private menuController: MenuController,
-        public lib: LibraryService,
+        public lib: AppLibrary,
         public sp: SimplestService,
         public settings: AppSettings,
         public philgo: PhilGoApiService

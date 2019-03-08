@@ -3,7 +3,6 @@
 // The list of file replacements can be found in `angular.json`.
 
 import { Environment } from 'src/app/services/interfaces';
-import { basicTexts } from 'modules/sonub-app-library/locales/basic';
 const texts = basicTexts;
 
 
@@ -295,4 +294,5 @@ export const environment: Environment = {
  * on performance if an error is thrown.
  */
 import 'zone.js/dist/zone-error';  // Included with Angular CLI.import { AppSettings } from 'src/app/services/app.settings';
+import { basicTexts } from 'src/app/locales/basic';
 

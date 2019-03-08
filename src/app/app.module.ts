@@ -10,7 +10,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 
-import { SonubAppLibraryModule } from 'modules/sonub-app-library/sonub-app-library.module';
 import { AppService } from './services/app.service';
 import { GalleryComponent } from './pages/gallery/gallery.component';
 import { ForumComponent } from './pages/forum/forum.component';
@@ -19,7 +18,7 @@ import { ContactComponent } from './pages/contact/contact.component';
 import { SettingComponent } from './pages/setting/setting.component';
 import { SimplestModule } from 'modules/ng-simplest/simplest.module';
 import { environment } from 'src/environments/environment';
-import { AppSettings } from './services/app.settings';
+import { AppSettings } from './services/app-settings.service';
 import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
 import { PostListComponent } from './components/post-list/post-list.component';
 import { CommentListComponent } from './components/comment-list/comment-list.component';
@@ -31,6 +30,8 @@ import { RegisterComponent } from './pages/register/register.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { FooterToolbarComponent } from './components/footer-toolbar/footer-toolbar.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
+import { AppLibrary } from './services/app-library.service';
+
 
 @NgModule({
   declarations: [
@@ -56,7 +57,6 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
     HttpClientModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    SonubAppLibraryModule,
     SimplestModule.forRoot(environment.simplest),
     HomeModule
   ],
@@ -65,7 +65,8 @@ import { SideMenuComponent } from './components/side-menu/side-menu.component';
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AppService,
-    AppSettings
+    AppSettings,
+    AppLibrary
   ],
   bootstrap: [AppComponent]
 })

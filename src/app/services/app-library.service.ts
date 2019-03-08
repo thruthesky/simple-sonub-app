@@ -22,7 +22,7 @@ const LANGUAGE_CODE = 'language_code';
 type LanguageCode = string | 'ko' | 'en' | 'jp' | 'ch';
 
 @Injectable()
-export class LibraryService {
+export class AppLibrary {
 
     texts = {};
     /**

@@ -1,10 +1,10 @@
 
 import { Injectable } from '@angular/core';
-import { LibraryService } from 'src/app/services/library.service';
 import { AppSettingSites, AppSettingSite, AppSettingFooterMenu, AppSettingSideMenu } from './interfaces';
 import { environment } from 'src/environments/environment';
 import { SimplestService } from 'modules/ng-simplest/simplest.service';
 import { basicTexts } from '../locales/basic';
+import { AppLibrary } from './app-library.service';
 // import { ToolbarMenu, SideMenu } from 'modules/sonub-app-library/sonub-app-library-interfaces';
 
 const texts = basicTexts;
@@ -13,7 +13,7 @@ const texts = basicTexts;
 export class AppSettings {
 
     constructor(
-        private lib: LibraryService,
+        private lib: AppLibrary,
         private sp: SimplestService
     ) {
         console.log('sites', this.sites);
