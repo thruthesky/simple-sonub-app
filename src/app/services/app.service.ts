@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Platform, MenuController, ToastController } from '@ionic/angular';
 import { AppSettings } from './app.settings';
 import { SimplestService } from 'modules/ng-simplest/simplest.service';
-import { LibraryService } from 'modules/sonub-app-library/services/library.service';
+import { LibraryService } from 'src/app/services/library.service';
 import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
 import { Observable, throwError } from 'rxjs';
 import { Post, PostList, ErrorObject } from 'modules/ng-simplest/simplest.interface';

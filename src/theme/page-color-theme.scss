@@ -1,0 +1,21 @@
+// .contact {
+//     ion-toolbar {
+//         --background: #1A237E;
+//     }
+// }
+
+$contact-page-header-background: rgba(255, 255, 255, 0.5) !important;
+
+
+.contact {
+    ion-toolbar {
+        --background: $contact-page-header-background;
+    }
+}
+
+.setting {
+    ion-toolbar {
+        --background: #1A237E;
+        color: white;
+    }
+}

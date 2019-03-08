@@ -1,9 +1,10 @@
-import { basicTexts } from 'modules/sonub-app-library/locales/basic';
+
 import { Injectable } from '@angular/core';
-import { LibraryService } from 'modules/sonub-app-library/services/library.service';
+import { LibraryService } from 'src/app/services/library.service';
 import { AppSettingSites, AppSettingSite, AppSettingFooterMenu, AppSettingSideMenu } from './interfaces';
 import { environment } from 'src/environments/environment';
 import { SimplestService } from 'modules/ng-simplest/simplest.service';
+import { basicTexts } from '../locales/basic';
 // import { ToolbarMenu, SideMenu } from 'modules/sonub-app-library/sonub-app-library-interfaces';
 
 const texts = basicTexts;

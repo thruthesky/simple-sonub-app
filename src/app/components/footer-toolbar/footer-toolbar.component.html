@@ -1,0 +1,11 @@
+<ion-toolbar class="footer-toolbar">
+  <div class="menus flex-between">
+    <!-- <app-menu-button [menu]=" menu " *ngFor=" let menu of menus "></app-menu-button> -->
+    <div class="menu position-relative ion-activatable" (click)="onClick(menu, i)"  *ngFor=" let menu of menus; let i = index ">
+      <ion-ripple-effect></ion-ripple-effect>
+      <ion-icon name="{{ menu.icon }}"></ion-icon>
+      <div>{{ a.t( menu.title ) }}</div>
+    </div>
+    
+  </div>
+</ion-toolbar>

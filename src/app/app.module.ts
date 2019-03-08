@@ -29,6 +29,8 @@ import { HomeModule } from './pages/home/home.module';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LogoutComponent } from './pages/logout/logout.component';
+import { FooterToolbarComponent } from './components/footer-toolbar/footer-toolbar.component';
+import { SideMenuComponent } from './components/side-menu/side-menu.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { LogoutComponent } from './pages/logout/logout.component';
     PostButtonsComponent,
     LoginComponent,
     RegisterComponent,
-    LogoutComponent
+    LogoutComponent,
+    FooterToolbarComponent,
+    SideMenuComponent
   ],
   entryComponents: [],
   imports: [
