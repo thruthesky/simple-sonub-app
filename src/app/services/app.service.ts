@@ -8,7 +8,7 @@ import { Post, PostList } from 'modules/ng-simplest/simplest.interface';
 import { map } from 'rxjs/operators';
 import { ApiPost } from 'modules/philgo-api/philgo-api-interface';
 import { DomSanitizer } from '@angular/platform-browser';
-import { AppSettingForum, Environment } from './interfaces';
+import { AppSettingForum, Environment, AppSettingSite } from './interfaces';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { AppLibrary } from './app-library.service';
@@ -215,5 +215,10 @@ export class AppService {
             }
         });
         return inc ? `${inc}.` : false;
+    }
+
+
+    get site(): AppSettingSite {
+        return this.settings.site;
     }
 }

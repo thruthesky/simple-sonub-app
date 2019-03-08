@@ -56,6 +56,9 @@ export const environment: Environment = {
       idx: '24',
       name: 'Main App - Developer App',
       url: siteUrlEn,
+      home: {
+        title: 'Default English App'
+      },
       contact: {
         title: 'Web Developer',
         name: 'Juana Leichelle',
@@ -162,6 +165,9 @@ export const environment: Environment = {
       idx: '21',
       name: '메일 앱 - 개발 화면',
       url: siteUrlKo,
+      home: {
+        title: '기본 한국어 앱 화면'
+      },
       contact: {
         title: 'Web Developer',
         name: 'Juana Leichelle',
