@@ -3,7 +3,7 @@
 const fs = require('fs');
 const argv = require('yargs').argv;
 
-const env = './src/environments/environment' + ( argv._[0] ? '.' + argv._[0] : '' ) + '.ts';
+const env = './src/environments/environment' + (argv._[0] ? '.' + argv._[0] : '') + '.ts';
 
 // console.log('env: ', env);
 // process.exit(0);
@@ -36,3 +36,4 @@ config = config.replace(/<description>[^<]+<\/description>/, `<description>${des
 
 
 fs.writeFileSync('./config.xml', config);
+

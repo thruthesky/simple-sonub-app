@@ -214,3 +214,12 @@ ts-node patch.ts lasema     ; this will patch `config.xml` with `environment.las
 ## App Signing
 
 https://stackoverflow.com/questions/26449512/how-to-create-a-signed-apk-file-using-cordova-command-line-interface
+
+
+## App Keystores
+
+### default
+
+keystore file: default.keystore
+alias: default
+password: asdf99
