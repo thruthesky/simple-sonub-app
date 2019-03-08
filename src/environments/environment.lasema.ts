@@ -57,6 +57,9 @@ export const environment: Environment = {
       idx: '24',
       name: 'Lasema Spa & Jimjilbang',
       url: siteUrlEn,
+      home: {
+        title: 'Lasema Spa & JimJilBang'
+      },
       contact: {
         title: 'Lasema Spa & JimJilBang',
         name: 'Makati',
@@ -136,6 +139,9 @@ export const environment: Environment = {
       idx: '21',
       name: '라세마 스파 & 찜질방',
       url: siteUrlEn,
+      home: {
+        title: '라세마 스파 & 찜질방'
+      },
       contact: {
         title: '라세마 스파 & 찜질방',
         name: '마카티',

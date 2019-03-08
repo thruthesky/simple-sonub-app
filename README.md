@@ -1,5 +1,12 @@
 # simple-sonub-app
 
+## Developers Build Guideline
+
+* First(front/home) page shoud be static. So, even though there is no internet, the app can show something.
+
+* Bootsrap v4 (except Bootstrap Javascript) is installed.
+  You can use the whole bootstrap component But the component works with Bootstrap Javascript will not work.
+
 ## Posts
 
 * Each gallery must be written in simple HTTP Query format

@@ -18,6 +18,9 @@ export interface AppSettingSite {
     idx: string;                    // Sonub site.idx
     name: any;                      // Website name
     url: string;                    // Website Url
+    home: {
+        title: string;
+    };
     contact: {
         title: string;
         name: string;
