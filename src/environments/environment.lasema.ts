@@ -3,15 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 import { Environment } from 'src/app/services/interfaces';
-
-
-
 import { basicTexts } from 'src/app/locales/basic';
+
 const texts = basicTexts;
-
-
-
-
 const phone = '0956-871-2485';
 const siteUrlEn = 'https://www.lasema.shop';
 const siteUrlEnShort = 'www.lasema.shop';

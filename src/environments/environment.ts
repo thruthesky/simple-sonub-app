@@ -3,10 +3,10 @@
 // The list of file replacements can be found in `angular.json`.
 
 import { Environment } from 'src/app/services/interfaces';
+import { basicTexts } from 'src/app/locales/basic';
+
+
 const texts = basicTexts;
-
-
-
 const phone = '0956-871-2485';
 const siteUrlEn = 'https://en.evieco.shop';
 const siteUrlEnShort = 'en.evieco.shop';
@@ -47,6 +47,8 @@ export const environment: Environment = {
    * @note it cannot be set inside site settings since this is used before which site should be used.
    */
   firstPageRoute: 'home',
+  /** */
+
   /**
    * Site settings.
    * @see README
@@ -300,5 +302,4 @@ export const environment: Environment = {
  * on performance if an error is thrown.
  */
 import 'zone.js/dist/zone-error';  // Included with Angular CLI.import { AppSettings } from 'src/app/services/app.settings';
-import { basicTexts } from 'src/app/locales/basic';
 

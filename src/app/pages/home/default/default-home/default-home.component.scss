@@ -24,16 +24,18 @@
     padding-top: 1em;
     padding-bottom: 3em;
 
-    div {
+    .post {
+        padding: .3em 0;
 
         .title {
-            margin: .5em;
+            margin: 0;
+            padding: .5em;
             font-size: 18px;
             font-weight: bold;
         }
 
         .content {
-            margin-bottom: 1em;
+            margin: 0 1em;
         }
     }
 }
