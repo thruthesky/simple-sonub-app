@@ -1,12 +1,12 @@
-<section class="articles" *ngIf=" posts.length ">
+<section class="articles" *ngIf="posts.length">
   <ion-card *ngFor="let post of posts">
     <ion-card-header>
       <ion-card-title>
-        {{ a.t( post.title ) }}
+        {{ a.t(post.title) }}
         <ion-icon *ngIf="post.files.length" name="images"></ion-icon>
       </ion-card-title>
       <ion-card-subtitle>
-        {{ a.t( post.title ) }}
+        {{ a.t(post.title) }}
       </ion-card-subtitle>
     </ion-card-header>
 
@@ -17,7 +17,7 @@
     </ion-card-content>
     <ion-item>
       <ion-avatar item-start>
-        <img src="/assets/img/avatar.jpg">
+        <img src="/assets/img/avatar.jpg" />
       </ion-avatar>
       <div class="ml-3">
         <h2 class="m-0 p-0 fw-light fs-md">Evie & Co</h2>
@@ -25,8 +25,8 @@
       </div>
     </ion-item>
 
-    <app-post-buttons [parent]=" post " [forum]=" forum"></app-post-buttons>
+    <app-post-buttons [parent]="post" [forum]="forum"></app-post-buttons>
 
-    <app-comment-list [comments]=" post.comments "></app-comment-list>
+    <app-comment-list [comments]="post.comments"></app-comment-list>
   </ion-card>
 </section>
