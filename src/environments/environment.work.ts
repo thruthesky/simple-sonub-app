@@ -29,14 +29,13 @@ export const environment: Environment = {
       fileServer: 'https://file.philgo.com/api.php' // remote server
     }
   },
-
   domain: 'work',
   configXml: {
-    id: 'com.sonub.work',
-    version: '0.0.8',
-    name: 'WorkApp',
-    description: 'This is Description for Work App'
-  },
+    "id": "com.sonub.work",
+    "version": "0.0.8",
+    "name": {"en": "Work App", "ko": "작업 앱", "ch": "工作应用", "jp": "仕事用アプリ" },
+    "description": "This is Description for Work App"
+  }/**e*/,
   header: {
     home: false,
     register: true

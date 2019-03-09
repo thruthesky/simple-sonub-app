@@ -8,10 +8,17 @@ We may need to give the user manual to our clients. So we have [Sonub App User M
 
 ## Developers Build Guideline
 
+### Configuration
+
 * First(front/home) page shoud be static. So, even though there is no internet, the app can show something.
 
 * Bootsrap v4 (except Bootstrap Javascript) is installed.
   You can use the whole bootstrap component But the component works with Bootstrap Javascript will not work.
+
+### Warning
+
+* Some data property must in a specific format.
+  * The value of `environemnt.configXml.name` must be complete JSON format or there will be an error.
 
 ## Posts
 
@@ -75,7 +82,6 @@ We may need to give the user manual to our clients. So we have [Sonub App User M
       It's like that you do not actually create sites for Chinese & Japanese.
       You only support Chinese & Japanese for menus and static pages.
 
-
 * You can add many sites in its `environemnt.xxxx.ts`.
   * For instance, you can add 'en', 'ko', 'ch', 'jp' sites to the environemnt.
   * Each langauge must have its own site settings.
@@ -88,26 +94,14 @@ We may need to give the user manual to our clients. So we have [Sonub App User M
 
   * Example of site settings: @see `environment.work.ts`
 
+##### Mutilanguage on App name
+
+* App name below the app icon will be displayed as set in `xmlConfig` settings.
+* This is done by [cordova-plugin-localization-strings](https://github.com/kelvinhokk/cordova-plugin-localization-strings)
+
 ### Site Settings
 
 * Each site should have a fourm to connect to menu.
-
-### Multilingual
-
-* If a site has many languages, it can have many domains per each languages like
-  * ko.domain.com
-  * en.domain.com
-  * jp.domain.com
-  * ch.domain.com
-
-* You can those domains in `settings.sites`.
-* The language selection in `settings page` is based on `settings.sites`.
-  * If it has only one language, then it does not show language selection option.
-  * If it has many language site, then it shows those langauge to select.
-
-* If there is only one language site is set on the `settigns.sites`,
-  then it only use that lanage.
-  Users will not have option to choose other language.
 
 ## Customisation
 

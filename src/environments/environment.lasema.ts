@@ -30,12 +30,12 @@ export const environment: Environment = {
     }
   },
 
-  domain: 'lasema',
+  domain: "lasema",
 
   configXml: {
     id: 'com.sonub.lasema',
     version: '0.0.8',
-    name: 'Lasema',
+    name: {"en": "Lasema", ko: '라세마', "ch": "Lasema", "jp": "Lasema" },
     description: 'Lasema App'
   },
   firstPageRoute: 'home',

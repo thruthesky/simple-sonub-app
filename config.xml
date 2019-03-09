@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.sonub.work" version="0.0.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>WorkApp</name>
+<widget id="com.sonub.work" version="com.sonub.work" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Work App</name>
     <description>This is Description for Work App</description>
     <author email="thruthesky@gmail.com" href="https://www.philgo.com/">PhilGo Dev Team</author>
     <content src="index.html" />
@@ -92,5 +92,6 @@
         <variable name="PLAY_SERVICES_VERSION" value="15.0.1" />
         <variable name="ANDROID_SUPPORT_V4_VERSION" value="27.+" />
     </plugin>
+    <plugin name="cordova-plugin-localization-strings" spec="https://github.com/kelvinhokk/cordova-plugin-localization-strings.git" />
     <engine name="android" spec="7.1.4" />
 </widget>

@@ -1,0 +1,87 @@
+
+
+const fs = require('fs');
+const argv = require('yargs').argv;
+
+if (!argv._[0]) {
+    console.log('Error ==> patch-environment.ts ==> No parameter provied for environment name');
+    process.exit(-9);
+}
+
+const env = './src/environments/environment.' + argv._[0] + '.ts';
+
+// console.log('env: ', env);
+// process.exit(0);
+
+
+const text: string = fs.readFileSync(env).toString();
+
+// console.log('text: ', text);
+
+
+
+
+let obj = text.split('configXml:').pop().split('/**e*/').shift();
+
+// console.log('text: ', obj);
+
+
+// obj = obj.replace(/\s*\{/, '');
+
+let configXml = {};
+try {
+    configXml = JSON.parse(obj);
+} catch (e) {
+    console.log('Failed to JSON.parse() configXml. It must have a complete JSON format for multi language support.');
+    console.log('configXml: ', obj);
+    process.exit(-1);
+}
+
+// console.log('configXml: ', configXml);
+
+// const id = obj.match(/id:\s*\'([^\']+)/)[1];
+// const version = obj.match(/version:\s*\'([^\']+)/)[1];
+// const _name = obj.match(/name:(.*)/)[1];
+// const description = obj.match(/description:\s*\'([^\']+)/)[1];
+
+// let localeName = {};
+// try {
+//     localeName = JSON.parse(_name);
+// } catch (e) {
+//     console.log('Failed to JSON.parse() configXml.name. It must have a complete JSON format for multi language support.');
+//     console.log('name: ', _name);
+//     process.exit(-1);
+// }
+// console.log('name: ', localeName);
+
+
+let config: string = fs.readFileSync('./config.xml').toString();
+// console.log('config', config);
+
+
+
+config = config.replace(/widget id=\"[^\"]+\"/, `widget id="${configXml['id']}"`);
+config = config.replace(/version=\"[^\"]+\"/, `version="${configXml['id']}"`);
+config = config.replace(/<name>[^<]+<\/name>/, `<name>${configXml['name']['en']}</name>`);
+config = config.replace(/<description>[^<]+<\/description>/, `<description>${configXml['description']}</description>`);
+
+
+fs.writeFileSync('./config.xml', config);
+
+
+// console.log('name: ', configXml['name']);
+
+for (const ln of Object.keys(configXml['name'])) {
+    const name = configXml['name'][ln];
+    const locale = `{
+    "config_ios" : {
+      "CFBundleDisplayName": "${name}",
+      "CFBundleName": "${name}"
+    },
+    "config_android" : {
+      "app_name": "${name}"
+    }
+  }`;
+  fs.writeFileSync(`./translations/app/${ln}.json`, locale);
+}
+
