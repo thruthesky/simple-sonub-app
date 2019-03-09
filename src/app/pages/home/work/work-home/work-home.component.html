@@ -1,12 +1,23 @@
-<h1 class="display-4 p-3 fs-lg">
-    {{ a.site.home.title }}
-</h1>
+<ion-card>
+    <ion-card-subtitle>
+        <div class="pt-3 px-3">{{ a.t(text.title.subtitle) }}</div>
+    </ion-card-subtitle>
+    <ion-card-title>
+        <h1 class="display-4 px-3 fs-lg">{{ a.t(text.title.title) }}</h1>
+    </ion-card-title>
 
-<div class="icons ml-2 mr-2 d-flex justify-content-around">
-    <image-text class="d-block p-2" [src]=" '/assets/apps/' + a.env.domain + '/home/'+n+'.jpg' "
-        [title]="a.t( text ) "
-        *ngFor=" let text of imageTextTitles; let n = index"></image-text>
-</div>
+    <ion-img src="/assets/apps/{{ a.env.domain }}/home/title-image.jpg"></ion-img>
+
+    <ion-card-content>
+            {{ a.t( text.title.content ) }}
+    </ion-card-content>
+
+    <div class="icons ml-2 mr-2 d-flex justify-content-around">
+        <image-text class="d-block p-2" [src]=" '/assets/apps/' + a.env.domain + '/home/'+n+'.jpg' " [title]="a.t( text ) "
+            *ngFor=" let text of imageTextTitles; let n = index"></image-text>
+    </div>
+
+</ion-card>
 
 <ion-card *ngFor=" let n of [ 0, 1, 2 ] ">
     <ion-img src="/assets/apps/{{ a.env.domain }}/home/card-{{ n }}.jpg"></ion-img>
@@ -26,3 +37,4 @@
         </div>
     </ion-item>
 </ion-card>
+

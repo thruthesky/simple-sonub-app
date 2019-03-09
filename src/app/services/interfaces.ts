@@ -19,7 +19,6 @@ export interface AppSettingSite {
     name: any;                      // Website name
     url: string;                    // Website Url
     home: {
-        title: string;
     };
     contact: {
         title: string;

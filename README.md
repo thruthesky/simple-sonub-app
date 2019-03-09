@@ -1,5 +1,11 @@
 # simple-sonub-app
 
+## Reference
+
+### User Manual
+
+We may need to give the user manual to our clients. So we have [Sonub App User Manual](https://docs.google.com/document/d/1xvo8G5Gevk9DnIbbgYImge_s6c_5kXZp1yD9BY9rl5g/edit?usp=sharing)
+
 ## Developers Build Guideline
 
 * First(front/home) page shoud be static. So, even though there is no internet, the app can show something.
@@ -58,10 +64,17 @@
 
 #### Multi languages & Sites
 
-* It supports 4 languages.
+* It supports 4 languages by default.
   * English, Korean, Chinese, Japanese.
   * Languages could be optionally remove by the settings.
   * Since we do not have man power of Chinese and Japanese, try to support Korean & English.
+  * If you want to support Chinese & Japanese there might be two way.
+    * If you have manpower for Chinese & Japanese, then do it by Creating the language sites and customizing all the content.
+    * If you don't have man power, Use English site for Chinese & Japanese.
+      So, English fourms(gallery & discussion) will be shared to Chinese & Japanese settings.
+      It's like that you do not actually create sites for Chinese & Japanese.
+      You only support Chinese & Japanese for menus and static pages.
+
 
 * You can add many sites in its `environemnt.xxxx.ts`.
   * For instance, you can add 'en', 'ko', 'ch', 'jp' sites to the environemnt.

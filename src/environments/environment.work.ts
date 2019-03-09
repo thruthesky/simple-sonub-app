@@ -59,7 +59,6 @@ export const environment: Environment = {
       name: 'Main App - Developer App',
       url: siteUrlEn,
       home: {
-        title: 'Default English App'
       },
       contact: {
         title: 'Web Developer',
@@ -168,7 +167,6 @@ export const environment: Environment = {
       name: '메일 앱 - 개발 화면',
       url: siteUrlKo,
       home: {
-        title: '기본 한국어 앱 화면'
       },
       contact: {
         title: 'Web Developer',
@@ -271,7 +269,223 @@ export const environment: Environment = {
           close: true // close side menu
         }
       ],
-    }
+    },
+    ch: {
+      idx: '24',
+      name: '主应用程序 - 开发人员应用',
+      url: siteUrlEn,
+      home: {
+      },
+      contact: {
+        title: 'Web开发人员',
+        name: 'Juana Leichelle',
+        contacts: [
+          {
+            label: '电话号码',
+            text: phone,
+            click_url: 'tel:' + phone
+          },
+          {
+            label: texts['website'].ch,
+            text: siteUrlEnShort,
+            click_url: siteUrlEn
+          }
+        ]
+      },
+      footerMenus: [
+        {
+          title: texts['home'],
+          icon: 'home',
+          url: '/home'
+        },
+        {
+          title: texts['gallery'],
+          icon: 'photos',
+          url: '/gallery',
+          type: 'philgo',
+          post_id: 'company_info',
+          category: '21'
+        },
+        {
+          title: texts['forum'],
+          icon: 'chatboxes',
+          url: '/forum',
+          type: 'sonub',
+          idx_category: '57',
+        },
+        {
+          title: texts['contact'],
+          icon: 'contact',
+          url: '/contact'
+        },
+        {
+          title: texts['map'],
+          icon: 'map',
+          url: '/map'
+        },
+        {
+          title: texts['menu'],
+          icon: 'menu',
+          openSideMenu: true // open side menu
+        }
+      ],
+      sideMenus: [
+        {
+          when: 'logout',
+          title: texts['login'],
+          icon: 'log-in',
+          url: '/login',
+        },
+        {
+          when: 'logout',
+          title: texts['register'],
+          icon: 'person-add',
+          url: '/register'
+        },
+        {
+          when: 'login',
+          title: texts['profile'],
+          icon: 'contact',
+          url: '/profile'
+        },
+        {
+          title: texts['website'],
+          icon: 'home',
+          url: siteUrlEn,
+          openWindow: true // open the url in new window
+        },
+        {
+          title: texts['facebook'],
+          icon: 'logo-facebook',
+          url: facebookUrl,
+          openWindow: true
+        },
+        {
+          title: texts['setting'],
+          icon: 'settings',
+          url: '/setting',
+        },
+        {
+          when: 'login',
+          title: texts['logout'],
+          icon: 'log-out',
+          url: '/logout',
+        },
+        {
+          title: texts['close'],
+          icon: 'close',
+          close: true // close side menu
+        }
+      ],
+    },
+    jp: {
+      idx: '24',
+      name: 'メインアプリ - 開発者アプリ',
+      url: siteUrlEn,
+      home: {
+      },
+      contact: {
+        title: 'ウェブ開発者',
+        name: 'Juana Leichelle',
+        contacts: [
+          {
+            label: '電話番号',
+            text: phone,
+            click_url: 'tel:' + phone
+          },
+          {
+            label: texts['website'].jp,
+            text: siteUrlEnShort,
+            click_url: siteUrlEn
+          }
+        ]
+      },
+      footerMenus: [
+        {
+          title: texts['home'],
+          icon: 'home',
+          url: '/home'
+        },
+        {
+          title: texts['gallery'],
+          icon: 'photos',
+          url: '/gallery',
+          type: 'philgo',
+          post_id: 'company_info',
+          category: '21'
+        },
+        {
+          title: texts['forum'],
+          icon: 'chatboxes',
+          url: '/forum',
+          type: 'sonub',
+          idx_category: '57',
+        },
+        {
+          title: texts['contact'],
+          icon: 'contact',
+          url: '/contact'
+        },
+        {
+          title: texts['map'],
+          icon: 'map',
+          url: '/map'
+        },
+        {
+          title: texts['menu'],
+          icon: 'menu',
+          openSideMenu: true // open side menu
+        }
+      ],
+      sideMenus: [
+        {
+          when: 'logout',
+          title: texts['login'],
+          icon: 'log-in',
+          url: '/login',
+        },
+        {
+          when: 'logout',
+          title: texts['register'],
+          icon: 'person-add',
+          url: '/register'
+        },
+        {
+          when: 'login',
+          title: texts['profile'],
+          icon: 'contact',
+          url: '/profile'
+        },
+        {
+          title: texts['website'],
+          icon: 'home',
+          url: siteUrlEn,
+          openWindow: true // open the url in new window
+        },
+        {
+          title: texts['facebook'],
+          icon: 'logo-facebook',
+          url: facebookUrl,
+          openWindow: true
+        },
+        {
+          title: texts['setting'],
+          icon: 'settings',
+          url: '/setting',
+        },
+        {
+          when: 'login',
+          title: texts['logout'],
+          icon: 'log-out',
+          url: '/logout',
+        },
+        {
+          title: texts['close'],
+          icon: 'close',
+          close: true // close side menu
+        }
+      ],
+    },
   },
 
   /**

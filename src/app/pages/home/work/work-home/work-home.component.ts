@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/services/app.service';
-import { cards, imageTextTitles } from './work-home.locale';
+import { cards, imageTextTitles, text } from './work-home.locale';
 
 @Component({
   selector: 'app-work-home',
@@ -12,8 +12,8 @@ import { cards, imageTextTitles } from './work-home.locale';
 
 export class WorkHomeComponent implements OnInit {
 
+  text = text;
   imageTextTitles = imageTextTitles;
-
   cards = cards;
 
   constructor(
