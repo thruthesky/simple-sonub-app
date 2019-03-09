@@ -3,6 +3,8 @@
 
 *~
 *.apk
+resources/android/splash/*.png
+resources/android/icon/*.png
 *.sw[mnpcod]
 *.log
 *.tmp
