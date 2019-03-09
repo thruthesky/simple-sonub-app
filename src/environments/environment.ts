@@ -1,3 +1,5 @@
+import { Environment } from 'src/app/services/interfaces';
+
 // // This file can be replaced during build by using the `fileReplacements` array.
 // // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // // The list of file replacements can be found in `angular.json`.
@@ -5,7 +7,7 @@
 // import { Environment } from 'src/app/services/interfaces';
 // import { basicTexts } from 'src/app/locales/basic';
 
-export const environment = {
+export const environment: Environment = <any>{
   production: false
 };
 
