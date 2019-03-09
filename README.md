@@ -23,7 +23,10 @@
 
 ## Settings
 
-### App Settings
+### Environments
+
+* The default & development & test environment is `environment.work.ts`. Not `environmnt.ts`.
+  So, when you need to improve or develop new feature you should work on `environment.work.ts`.
 
 #### Domain
 
@@ -60,42 +63,17 @@
   * Languages could be optionally remove by the settings.
   * Since we do not have man power of Chinese and Japanese, try to support Korean & English.
 
-* You can sites in its `environemnt.xxxx.ts`.
-  * Each langauge must have its own site.
-    * If you add only one lagnuage, then the language will be the default.
+* You can add many sites in its `environemnt.xxxx.ts`.
+  * For instance, you can add 'en', 'ko', 'ch', 'jp' sites to the environemnt.
+  * Each langauge must have its own site settings.
+    * If you add only one lagnuage, then the language will be the site language by default. User cannot change language.
   * `idx` is the site idx.
   * `name` is the name of the app.
   * `gallery` is a forum category (menu) idx of the site.
   * `fourm` is a forum category (menu) idx of the site.
     * `gallery` and `forum` could be sonub forum or philgo forum.
 
-Example of site settings )
-
-```` ts
-sites: {
-    en: {
-        idx: '82',
-        name: 'Evie & Co Microblading',
-        gallery: {
-            type: 'sonub',
-            idx_category: '62'
-        },
-        forum: { ... }
-    },
-    ko: {
-        name: 'Evie & Co 반영구 화장',
-        idx: '21',
-        gallery: {
-            type: 'philgo',
-            post_id: 'company_info',
-            category: '21'
-        },
-        forum: { ... }
-    },
-    ch: { ... },
-    jp: { ... }
-},
-````
+  * Example of site settings: @see `environment.work.ts`
 
 ### Site Settings
 
@@ -171,32 +149,29 @@ sites: {
   * if it is `logout`, then the menu will be shown if the user logged out.
   * @see `environment.ts` for the sample of complete settigns.
 
-## Serve & Run
+## Serve & Run & Build
 
 * You can run by configuration
 
 ```` sh
-ionic s                             ; ionic serve with `environment.ts`
+ionic s --configuration=work        ; ionic serve with `environment.work.ts`
 ionic s --configuration=evieco      ; ionic serve with `environemnt.evieco.ts`
 ionic s --configuration=lasema      ; ionic serve with `environemnt.lasema.ts`
 
-npm run cordova:run                 ; cordova run with `environemnt.ts`
+npm run cordova:run:work            ; cordova run with `environemnt.work.ts`
 npm run cordova:run:evieco          ; cordova run with `environemnt.evieco.ts`
 npm run cordova:run:lasema          ; cordova run with `environemnt.lasema.ts`
+
+npm run cordova:build:work            ; cordova build realease APK with `environemnt.work.ts`
+npm run cordova:build:evieco          ; cordova build realease APK with `environemnt.evieco.ts`
+npm run cordova:build:lasema          ; cordova build realease APK with `environemnt.lasema.ts`
+
 ````
 
-* Each app must have its own branch.
-* Each app must have its own dev environment.
-* Each app must have its own run script in `package.json`.
-  * When it serves, do `npm run APP_NAME` to serve. And It must copy its dev env to `environment.ts`
-  * For Cordova serve, do `npm run APP_NAME:android:serve` and it will copy dev env to `environment.ts`
-  
+* Each app must have its own environment.
 * To build,
-  * run`npm run APP_NAME:android:build` which will
-    * copy its prod env to `environment.prod.ts`
-      * with `production: true`
-      * without `zone-error`
-    * build the app with production env.
+  * Each app needs an icon in `build-data/icons/{domain}.png`
+  * Each app needs a splash in `build-data/splashes/{domain}.png`
 
 ## Utilities
 
@@ -210,11 +185,9 @@ ts-node patch.ts evieco     ; this will patch `config.xml` with `environment.evi
 ts-node patch.ts lasema     ; this will patch `config.xml` with `environment.lasema.ts`
 ````
 
-
 ## App Signing
 
 https://stackoverflow.com/questions/26449512/how-to-create-a-signed-apk-file-using-cordova-command-line-interface
-
 
 ## App Keystores
 

@@ -1,0 +1,11 @@
+{
+    "android": {
+        "release": {
+            "keystore": "../keystores/evieco.keystore",
+            "storePassword": "asdf99",
+            "alias": "evieco",
+            "password" : "asdf99",
+            "keystoreType": ""
+        }
+    }
+}

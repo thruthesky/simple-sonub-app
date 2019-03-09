@@ -1,0 +1,11 @@
+{
+    "android": {
+        "release": {
+            "keystore": "../keystores/lasema.keystore",
+            "storePassword": "asdf99",
+            "alias": "lasema",
+            "password" : "asdf99",
+            "keystoreType": ""
+        }
+    }
+}
