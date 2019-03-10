@@ -9,6 +9,7 @@ import { imageTextTitles, cards, text } from './evieco-home.locale';
 })
 export class EviecoHomeComponent implements OnInit {
 
+  showIconLineNo = -1;
   text = text;
   imageTextTitles = imageTextTitles;
   cards = cards;

@@ -6,18 +6,49 @@
     <h1 class="display-4 px-3 fs-lg">{{ a.t(text.title.title) }}</h1>
   </ion-card-title>
 
-  <ion-img src="/assets/apps/{{ a.env.domain }}/home/title-image.jpg"></ion-img>
+  <img src="/assets/apps/{{ a.env.domain }}/home/title-image.jpg">
+
 
   <ion-card-content>
-    {{ a.t( text.title.content ) }}
+    <div (click)="text.title['showMore'] = true">
+        <span class="d-inline">{{ a.t( text.title.content ) }}</span>
+        <span class="d-inline" *ngIf=" ! text.title['showMore'] ">더 보기 ...</span>
+    </div>
+      
+      <div [innerHTML]="a.t( text.title.contentMore )" *ngIf="text.title['showMore']"></div>
   </ion-card-content>
 
   <div class="icon-line ml-2 mr-2 d-flex justify-content-around">
     <image-text class="d-block p-2" [src]=" '/assets/apps/' + a.env.domain + '/home/'+n+'.jpg' " [title]="a.t( text ) "
-      *ngFor=" let text of imageTextTitles; let n = index"></image-text>
+      *ngFor=" let text of imageTextTitles; let n = index" (click)="showIconLineNo = n"></image-text>
+  </div>
+
+
+  <div *ngIf=" showIconLineNo == 0 ">
+    <div>Text ... Translation, Text ... Translation, Text ... Translation, Text ... Translation</div>
+      <img src="/assets/apps/{{ a.env.domain }}/home/icon-line-image-0.jpg">
+  </div>
+  <div *ngIf=" showIconLineNo == 1 ">
+      <div>Text ... Translation, Text ... Translation, Text ... Translation, Text ... Translation</div>
+      <img src="/assets/apps/{{ a.env.domain }}/home/icon-line-image-1.jpg">
+  </div>
+  <div *ngIf=" showIconLineNo == 2 ">
+      <div>Text ... Translation, Text ... Translation, Text ... Translation, Text ... Translation</div>
+      <img src="/assets/apps/{{ a.env.domain }}/home/icon-line-image-2.jpg">
+  </div>
+  <div *ngIf=" showIconLineNo == 3 ">
+      <div>Text ... Translation, Text ... Translation, Text ... Translation, Text ... Translation</div>
+      <img src="/assets/apps/{{ a.env.domain }}/home/icon-line-image-3.jpg">
   </div>
 
 </ion-card>
+
+
+
+
+
+
+
 
 <ion-card *ngFor=" let n of [ 0, 1, 2 ] ">
   <ion-img src="/assets/apps/{{ a.env.domain }}/home/card-{{ n }}.jpg"></ion-img>

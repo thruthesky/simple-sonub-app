@@ -19,6 +19,16 @@ We may need to give the user manual to our clients. So we have [Sonub App User M
 
 * Some data property must in a specific format.
   * The value of `environemnt.configXml.name` must be complete JSON format or there will be an error.
+  * Closure of `configXml:` which is `},` must be on a single line and content of `configXml` must not have `},` on a single line.
+
+```` ts
+  configXml: {
+    "id": "com.sonub.work",
+    "version": "0.0.8",
+    "name": {"en": "Work App", "ko": "작업 앱", "ch": "工作应用", "jp": "仕事用アプリ" }, // }, must not be on a single line here.
+    "description": "This is Description for Work App"
+  }, // <<== closing of configXml must be on a single line.
+````
 
 * Language code is different from standard.
   * `zh-***` are `ch` in the app.

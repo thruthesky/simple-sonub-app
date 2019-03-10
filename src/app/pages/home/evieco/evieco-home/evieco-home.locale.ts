@@ -4,9 +4,22 @@ export const text = {
         subtitle: { en: 'Subtitle of home', ko: '당신의 하루를 바꾸는', ch: '家的副标题', jp: '家の字幕' },
         content: {
             en: `Helmed by Rei Masuda, Jiro Ono's 36-year-old protege and master of seasoning, Sushi Wakon at The Four Seasons Kyoto promises diners a "quintessential Ginza sushi experience."`,
-            ko: `오노 지로 (36 세)의 양조장 겸 마스다 레이 (Ryou Masuda)가 지휘하는 사계절 교토의 스시와 콘 (Sushi Wakon)은 "전형적인 긴자 스시 경험"을 약속합니다.`,
+            ko: `
+눈과 함께 눈썹은 사람의 인상을 좌우하는 큰 요소 중 하나입니다.
+눈썹 화장을 하는 이유는 예뻐 보이기 위해서거나 좋은 인상을 주기 위해서이죠.
+
+`,
             ch: `日本四季酒店的寿司Wakon由36岁的Jiro Masuda和大调调味品主持人Rei Masuda主持，为食客提供“典型的银座寿司体验”。`,
             jp: `小野次郎さんの36歳の抗議者で調味料の達人である増田玲氏の協力のもと、フォーシーズンズ京都のSushi Wakonは「典型的な銀座寿司体験」をお約束します。`
+        },
+        contentMore: {
+
+            ko: `
+            <div class="mt-3">드라마나 영화를 보면 모든 남녀가 눈썹 화장을 하는 이유이기도 한데
+            이외에도 눈썹 화장을 해야하는 이유는 다양합니다. 개인에게 가장 잘 어울리는 눈썹을 찾지 못하고 계시거나 나이가 들어 눈썹 숱이 적어진 경우 또는 원래 부터 눈썹이 얕거나 빈곳이 있는 경우 등.
+            눈썹 반영구 화장은 눈썹 문신이라고도 하며 한번 시술을 하면 최소 몇 년간 유지가 됩니다.</div>
+            <div class="mt-3">에비코 Evie&Co 에서는 숙련된 한국인이 눈썹 반영구 화장을 시술하여 여러분들의 얼굴형에 맞는 가장 알맞은 눈썹을 찾아 드릴 것입니다.</div>`
+
         }
     }
 
@@ -41,10 +54,10 @@ export const cards = [
             jp: 'Default Name'
         },
         date: {
-            en: 'November 15, 2018',
-            ko: 'November 15, 2018',
-            ch: 'November 15, 2018',
-            jp: 'November 15, 2018'
+            en: '0956 871 2485',
+            ko: '0956 871 2485',
+            ch: '0956 871 2485',
+            jp: '0956 871 2485'
         },
         content: {
             en: `Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.`,
@@ -74,10 +87,10 @@ export const cards = [
             jp: 'Default Name'
         },
         date: {
-            en: 'November 15, 2018',
-            ko: 'November 15, 2018',
-            ch: 'November 15, 2018',
-            jp: 'November 15, 2018'
+            en: '0956 871 2485',
+            ko: '0956 871 2485',
+            ch: '0956 871 2485',
+            jp: '0956 871 2485'
         },
         content: {
             en: `Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.`,
@@ -107,10 +120,10 @@ export const cards = [
             jp: 'Default Name'
         },
         date: {
-            en: 'November 15, 2018',
-            ko: 'November 15, 2018',
-            ch: 'November 15, 2018',
-            jp: 'November 15, 2018'
+            en: '0956 871 2485',
+            ko: '0956 871 2485',
+            ch: '0956 871 2485',
+            jp: '0956 871 2485'
         },
         content: {
             en: `Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.`,

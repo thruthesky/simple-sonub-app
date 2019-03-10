@@ -1,6 +1,5 @@
-// This file can be replaced during build by using the `fileReplacements` array.
-// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
-// The list of file replacements can be found in `angular.json`.
+
+
 
 import { Environment } from 'src/app/services/interfaces';
 import { basicTexts } from 'src/app/locales/basic';
@@ -35,7 +34,7 @@ export const environment: Environment = {
     "version": "0.0.8",
     "name": {"en": "Work App", "ko": "작업 앱", "ch": "工作应用", "jp": "仕事用アプリ" },
     "description": "This is Description for Work App"
-  }/**e*/,
+  },
   header: {
     home: false,
     register: true

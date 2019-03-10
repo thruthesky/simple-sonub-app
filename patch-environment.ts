@@ -1,4 +1,10 @@
 
+/**
+ * @example how to run & test
+ *  $ ts-node patch-environment.ts [name]
+ *  $ ts-node patch-environment.ts work
+ *  $ ts-node patch-environment.ts evieco
+ */
 
 const fs = require('fs');
 const argv = require('yargs').argv;
@@ -21,9 +27,11 @@ const text: string = fs.readFileSync(env).toString();
 
 
 
-let obj = text.split('configXml:').pop().split('/**e*/').shift();
+let obj = text.split('configXml:').pop().split(/^\s+\},/m).shift() + '}';
 
-// console.log('text: ', obj);
+// console.log('text: ', obj); process.exit(-1);
+
+
 
 
 // obj = obj.replace(/\s*\{/, '');
