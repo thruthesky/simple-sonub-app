@@ -1,3 +1,41 @@
-<p>
-  evieco-home works!
-</p>
+<ion-card>
+  <ion-card-subtitle>
+    <div class="pt-3 px-3">{{ a.t(text.title.subtitle) }}</div>
+  </ion-card-subtitle>
+  <ion-card-title>
+    <h1 class="display-4 px-3 fs-lg">{{ a.t(text.title.title) }}</h1>
+  </ion-card-title>
+
+  <ion-img src="/assets/apps/{{ a.env.domain }}/home/title-image.jpg"></ion-img>
+
+  <ion-card-content>
+    {{ a.t( text.title.content ) }}
+  </ion-card-content>
+
+  <div class="icon-line ml-2 mr-2 d-flex justify-content-around">
+    <image-text class="d-block p-2" [src]=" '/assets/apps/' + a.env.domain + '/home/'+n+'.jpg' " [title]="a.t( text ) "
+      *ngFor=" let text of imageTextTitles; let n = index"></image-text>
+  </div>
+
+</ion-card>
+
+<ion-card *ngFor=" let n of [ 0, 1, 2 ] ">
+  <ion-img src="/assets/apps/{{ a.env.domain }}/home/card-{{ n }}.jpg"></ion-img>
+  <ion-card-header>
+    <ion-card-subtitle>{{ a.t( cards[n].subtitle ) }}</ion-card-subtitle>
+    <ion-card-title>{{ a.t( cards[n].title ) }}</ion-card-title>
+  </ion-card-header>
+
+  <ion-card-content>{{ a.t( cards[n].content ) }}</ion-card-content>
+  <ion-item>
+    <ion-avatar item-start>
+      <img src="/assets/img/avatar.jpg" />
+    </ion-avatar>
+    <div class="ml-3">
+      <h2 class="m-0 p-0 fw-light fs-md">Evie & Co</h2>
+      <p class="m-0 p-0 fw-light fs-xs">November 5, 1955</p>
+    </div>
+  </ion-item>
+</ion-card>
+
+

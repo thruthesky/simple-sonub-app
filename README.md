@@ -20,6 +20,10 @@ We may need to give the user manual to our clients. So we have [Sonub App User M
 * Some data property must in a specific format.
   * The value of `environemnt.configXml.name` must be complete JSON format or there will be an error.
 
+* Language code is different from standard.
+  * `zh-***` are `ch` in the app.
+  * `ja` is `jp` in the app.
+
 ## Posts
 
 * Each gallery must be written in simple HTTP Query format
@@ -176,6 +180,8 @@ npm run cordova:build:lasema          ; cordova build realease APK with `environ
 ````
 
 * Each app must have its own environment.
+* Each app must have its keystore like in `build-data/keystores/[name].keysotre`.
+  * And the password of the keystore must be saved like in `build/data/keystores/[name].password`.
 * To build,
   * Each app needs an icon in `build-data/icons/{domain}.png`
   * Each app needs a splash in `build-data/splashes/{domain}.png`

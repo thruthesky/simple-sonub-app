@@ -69,19 +69,30 @@ config = config.replace(/<description>[^<]+<\/description>/, `<description>${con
 fs.writeFileSync('./config.xml', config);
 
 
-// console.log('name: ', configXml['name']);
-
 for (const ln of Object.keys(configXml['name'])) {
     const name = configXml['name'][ln];
-    const locale = `{
-    "config_ios" : {
-      "CFBundleDisplayName": "${name}",
-      "CFBundleName": "${name}"
-    },
-    "config_android" : {
-      "app_name": "${name}"
+    if (ln === 'ch') {
+        writeTranslation('zh-rCN', name);
+        writeTranslation('zh-rTW', name);
+        writeTranslation('zh-rHK', name);
+    } else if (ln === 'jp') {
+        writeTranslation('ja', name);
+    } else {
+        writeTranslation(ln, name);
     }
-  }`;
-  fs.writeFileSync(`./translations/app/${ln}.json`, locale);
+}
+
+function writeTranslation(ln: string, name: string) {
+
+    const locale = `{
+        "config_ios" : {
+          "CFBundleDisplayName": "${name}",
+          "CFBundleName": "${name}"
+        },
+        "config_android" : {
+          "app_name": "${name}"
+        }
+      }`;
+    fs.writeFileSync(`./translations/app/${ln}.json`, locale);
 }
 

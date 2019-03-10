@@ -31,6 +31,8 @@ export class AppService {
         public philgo: PhilGoApiService
     ) {
 
+        window['a'] = this;
+
         // this.test();
 
         /**

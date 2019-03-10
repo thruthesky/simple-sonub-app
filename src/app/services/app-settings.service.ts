@@ -24,13 +24,20 @@ export class AppSettings {
     /**
      * Returns the site settings of current language.
      * @example this.site.name
+     * @warning ...
      */
     get site(): AppSettingSite {
         const ln = this.lib.languageCode;
-        return this.sites[ln];
+        const site = this.sites[ln];
+        if ( site ) {
+            return site;
+        } else {
+            return this.sites['en'];
+        }
     }
 
     get footerMenus(): AppSettingFooterMenu[] {
+        // console.log('footerMenus: ', this.site.footerMenus);
         return this.site.footerMenus;
     }
 

@@ -42,6 +42,12 @@ export const environment: Environment = {
     description: 'Evie Co App'
   },
   firstPageRoute: 'home',
+
+  header: {
+    home: false,
+    map: true
+  },
+
   /**
    * Site settings.
    * @see README
@@ -212,11 +218,6 @@ export const environment: Environment = {
         }
       ],
     }
-  },
-
-  header: {
-    home: true,
-    map: true
   },
 
   /**

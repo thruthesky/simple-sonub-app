@@ -50,6 +50,10 @@ export class AppLibrary {
      * @returns
      *      - the browser language like 'en', 'en-US', 'ko', 'ko-KR'
      *      - null if it cannot detect a language.
+     *
+     * @warning it returns
+     *      - 'ch' if the language is like 'zh' or beigns with 'zh' like 'zh-rCN'.
+     *      - 'jp' if the language is 'ja'.
      */
     getBrowserLanguage(full = false): string {
         const nav: any = window.navigator;
@@ -77,6 +81,11 @@ export class AppLibrary {
             if (full === false) {
                 ln = ln.substring(0, 2);
             }
+        }
+        if ( ln === 'zh' ) {
+            ln = 'ch';
+        } else if ( ln === 'ja' ) {
+            ln = 'jp';
         }
         return ln;
     }

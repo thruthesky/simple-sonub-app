@@ -9,10 +9,10 @@
     <ion-img src="/assets/apps/{{ a.env.domain }}/home/title-image.jpg"></ion-img>
 
     <ion-card-content>
-            {{ a.t( text.title.content ) }}
+        {{ a.t( text.title.content ) }}
     </ion-card-content>
 
-    <div class="icons ml-2 mr-2 d-flex justify-content-around">
+    <div class="icon-line ml-2 mr-2 d-flex justify-content-around">
         <image-text class="d-block p-2" [src]=" '/assets/apps/' + a.env.domain + '/home/'+n+'.jpg' " [title]="a.t( text ) "
             *ngFor=" let text of imageTextTitles; let n = index"></image-text>
     </div>
@@ -37,4 +37,3 @@
         </div>
     </ion-item>
 </ion-card>
-
