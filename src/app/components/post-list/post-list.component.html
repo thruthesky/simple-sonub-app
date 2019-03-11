@@ -2,15 +2,13 @@
   <ion-card *ngFor="let post of posts">
     <ion-card-header (click)="post.view = !post.view">
       <ion-card-title>
-        {{ a.t(post.title) }}
+        {{ a.t( post.title ) }}
         <ion-icon *ngIf="post.files.length" name="images"></ion-icon>
       </ion-card-title>
-      <ion-card-subtitle>
-        {{ a.t(post.title) }}
+      <ion-card-subtitle *ngIf=" post.comments.length && !post.view ">
+        {{ a.t( post.comments[0].content ) }}
       </ion-card-subtitle>
     </ion-card-header>
-
-    <!-- <ion-img src="{{ file.url }}" *ngFor=" let file of post.files "></ion-img> -->
 
     <ng-container *ngIf=" post.view ">
       <ion-card-content>
@@ -26,9 +24,9 @@
         </div>
       </ion-item>
 
-      <app-post-buttons [parent]="post" [forum]="forum"></app-post-buttons>
-
-      <app-comment-list [comments]="post.comments"></app-comment-list>
+      <app-post-buttons [root]=" post " [parent]="post" [forum]="forum"></app-post-buttons>
+      <app-comment-list [post]=" post " [comments]="post.comments"></app-comment-list>
+      <app-comment-box [parent]=" post " *ngIf=" !post['replyTo'] "></app-comment-box>
     </ng-container>
 
   </ion-card>

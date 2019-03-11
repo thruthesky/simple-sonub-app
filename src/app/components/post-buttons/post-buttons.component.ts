@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Post, Comment } from 'modules/ng-simplest/simplest.interface';
 import { AppService } from 'src/app/services/app.service';
 import { AppSettingForum } from 'src/app/services/interfaces';
+import { PopoverController } from '@ionic/angular';
+import { PopupMenuComponent } from '../popup-menu/popup-menu.component';
 
 @Component({
     selector: 'app-post-buttons',
@@ -10,10 +12,12 @@ import { AppSettingForum } from 'src/app/services/interfaces';
 })
 export class PostButtonsComponent implements OnInit {
 
+    @Input() root: Post;
     @Input() parent: Post & Comment;
     @Input() forum: AppSettingForum;
     constructor(
-        public a: AppService
+        public a: AppService,
+        public popoverController: PopoverController
     ) {
     }
 
@@ -46,6 +50,57 @@ export class PostButtonsComponent implements OnInit {
         } else {
             return this.parent.idx;
         }
+    }
+
+    onClickReplyTo() {
+        return this.root['replyTo'] = this.parent.idx;
+    }
+
+    onClickVote() {
+        this.a.vote(this.parent.idx, 'G').subscribe(res => {
+            console.log(res);
+
+            this.parent.good = res.good;
+        });
+    }
+
+    onDelete() {
+        if (this.parent.idx_parent === '0') {
+            this.a.sp.postDelete(this.parent.idx).subscribe(res => {
+                this.parent.title = 'deleted';
+                this.parent.content = 'deleted';
+                this.parent.content_stripped = 'deleted';
+                this.parent.stamp_deleted = '1';
+            }, e => this.a.error(e));
+        } else {
+            this.a.sp.commentDelete(this.parent.idx).subscribe(res => {
+                this.parent.content = 'deleted';
+                this.parent.content_stripped = 'deleted';
+                this.parent.stamp_deleted = '1';
+                this.parent.files = [];
+            }, e => this.a.error(e));
+        }
+    }
+
+    async openPopupMenu(ev: any) {
+        const popover = await this.popoverController.create({
+            component: PopupMenuComponent,
+            event: ev,
+            componentProps: {
+                "title": 'Action'
+            },
+            translucent: true
+        });
+
+        popover.onDidDismiss().then(data => {
+            if (data && data.data === 'delete') {
+                this.onDelete();
+            } else {
+                console.log(data);
+            }
+        });
+
+        return await popover.present();
     }
 }
 

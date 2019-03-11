@@ -35,6 +35,8 @@ import { HomePage } from './pages/home/home.page';
 import { WorkHomeComponent } from './pages/home/work/work-home/work-home.component';
 import { EviecoHomeComponent } from './pages/home/evieco/evieco-home/evieco-home.component';
 import { LasemaHomeComponent } from './pages/home/lasema/lasema-home/lasema-home.component';
+import { CommentBoxComponent } from './components/comment-box/comment-box.component';
+import { PopupMenuComponentModule } from './components/popup-menu/popup-menu.component.module';
 
 
 @NgModule({
@@ -54,7 +56,7 @@ import { LasemaHomeComponent } from './pages/home/lasema/lasema-home/lasema-home
     FooterToolbarComponent,
     SideMenuComponent,
     ImageTextComponent,
-
+    CommentBoxComponent,
 
     HomePage,
     WorkHomeComponent,
@@ -68,6 +70,7 @@ import { LasemaHomeComponent } from './pages/home/lasema/lasema-home/lasema-home
     HttpClientModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    PopupMenuComponentModule,
     SimplestModule.forRoot(environment.simplest)
   ],
   providers: [

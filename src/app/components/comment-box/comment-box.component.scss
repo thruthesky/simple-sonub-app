@@ -1,0 +1,13 @@
+.comment-box {
+    margin: 1rem auto;
+    border: 1px solid gray;
+    width: 95%;
+
+    --padding-start: .5rem;
+    --inner-padding-end: .5rem;
+
+    ion-button {
+        --padding-end: 0;
+        --padding-start: 0;
+    }
+}

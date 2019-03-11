@@ -4,7 +4,7 @@ import { AppSettings } from './app-settings.service';
 import { SimplestService } from 'modules/ng-simplest/simplest.service';
 import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
 import { Observable, throwError } from 'rxjs';
-import { Post, PostList } from 'modules/ng-simplest/simplest.interface';
+import { Post, PostList, VoteResponse, Comment } from 'modules/ng-simplest/simplest.interface';
 import { map } from 'rxjs/operators';
 import { ApiPost } from 'modules/philgo-api/philgo-api-interface';
 import { DomSanitizer } from '@angular/platform-browser';
@@ -207,6 +207,14 @@ export class AppService {
         });
 
         toast.present();
+    }
+
+    vote(idx: string, vote: 'G' | 'B'): Observable<VoteResponse> {
+        return this.sp.vote({ idx_post: idx, vote: vote });
+    }
+
+    commentCreate(comment: Comment): Observable<Comment> {
+        return this.sp.commentCreate(comment);
     }
 
     isIncomplete(data: Object): any {

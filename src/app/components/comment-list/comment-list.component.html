@@ -1,22 +1,22 @@
-<section *ngIf=" comments.length ">
-    <ng-container *ngFor="let comment of comments">
+<section class="comment-list" *ngIf=" comments.length ">
+    <div [attr.depth]=" comment?.depth " *ngFor="let comment of comments">
 
-        <ion-item>
-            <ion-avatar slot="start">
-                <img src="{{ comment.photo ? comment.photo : '/assets/img/avatar.jpg' }}">
-            </ion-avatar>
-            <ion-label>
-                <h2 class="m-0 p-0 fw-light fs-md">{{ comment.user.name }}</h2>
-                <p class="m-0 p-0 fw-light fs-xs">{{ comment.stamp_created }}</p>
-            </ion-label>
-        </ion-item>
+        <ion-grid class="my-1">
+            <ion-row>
+                <ion-col size="2">
+                    <ion-thumbnail>
+                        <img class="circle" src="{{ comment.photo ? comment.photo : '/assets/img/avatar.jpg' }}">
+                    </ion-thumbnail>
+                    <h2 class="m-0 pt-1 fw-light fs-md text-center">{{ comment.user.name }}</h2>
+                </ion-col>
 
-        <ion-item>
-            <div class="ml-3">
-                <p class="m-0 p-0 fw-light fs-xs">{{ comment.content ? comment.content : '( Deleted )' }}</p>
-            </div>
-        </ion-item>
-        <app-post-buttons [parent]=" comment "></app-post-buttons>
+                <ion-col size="10">
+                    {{ comment.content ? comment.content : '( Deleted )' }}
+                </ion-col>
+            </ion-row>
+            <app-post-buttons [root]=" post " [parent]=" comment "></app-post-buttons>
+            <app-comment-box [post]=" post " [parent]=" comment " *ngIf=" post['replyTo'] === comment.idx "></app-comment-box>
+        </ion-grid>
 
-    </ng-container>
+    </div>
 </section>
