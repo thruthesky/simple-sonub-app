@@ -1,5 +1,9 @@
 # simple-sonub-app
 
+## Important
+
+@see [App Dev Must Do](https://docs.google.com/document/d/1BlLGC2bJr9VRFfItVxNgHiAWfuY-Ao15y9kt_ZeBsaw/edit#heading=h.9gbothfz8qtx) before releasing.
+
 ## Reference
 
 ### User Manual
