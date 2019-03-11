@@ -37,7 +37,6 @@ import { EviecoHomeComponent } from './pages/home/evieco/evieco-home/evieco-home
 import { LasemaHomeComponent } from './pages/home/lasema/lasema-home/lasema-home.component';
 import { CommentBoxComponent } from './components/comment-box/comment-box.component';
 import { PopupMenuComponentModule } from './components/popup-menu/popup-menu.component.module';
-import { PopupService } from './services/popup.service';
 
 
 @NgModule({
@@ -80,8 +79,7 @@ import { PopupService } from './services/popup.service';
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     AppService,
     AppSettings,
-    AppLibrary,
-    PopupService
+    AppLibrary
   ],
   bootstrap: [AppComponent]
 })
