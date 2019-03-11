@@ -7,11 +7,14 @@
                     <ion-thumbnail>
                         <img class="circle" src="{{ comment.photo ? comment.photo : '/assets/img/avatar.jpg' }}">
                     </ion-thumbnail>
-                    <h2 class="m-0 pt-1 fw-light fs-md text-center">{{ comment.user.name }}</h2>
                 </ion-col>
 
                 <ion-col size="10">
-                    {{ comment.content ? comment.content : '( Deleted )' }}
+                    <span>
+                        <h2 class="ml-1 m-0 pt-1 fw-light fs-md ">{{ comment.user.name }}</h2>
+                    </span>
+                    <div class="pl-1" [innerHTML]=" comment.content ? comment.content : '( Deleted )' ">
+                    </div>
                 </ion-col>
             </ion-row>
             <app-post-buttons [root]=" post " [parent]=" comment "></app-post-buttons>
