@@ -82,13 +82,10 @@ export class PostButtonsComponent implements OnInit {
         }
     }
 
-    async openPopupMenu(message: string, ev?: any): Promise<any> {
+    async openPopupMenu(ev: any): Promise<any> {
         const popover = await this.popoverController.create({
             component: PopupMenuComponent,
             event: ev,
-            componentProps: {
-                'message': message
-            },
             translucent: true
         });
         popover.onDidDismiss().then(ret => {
