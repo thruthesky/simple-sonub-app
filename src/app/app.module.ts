@@ -24,13 +24,19 @@ import { PostListComponent } from './components/post-list/post-list.component';
 import { CommentListComponent } from './components/comment-list/comment-list.component';
 import { PostButtonsComponent } from './components/post-buttons/post-buttons.component';
 import { FormsModule } from '@angular/forms';
-import { HomeModule } from './pages/home/home.module';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LogoutComponent } from './pages/logout/logout.component';
 import { FooterToolbarComponent } from './components/footer-toolbar/footer-toolbar.component';
 import { SideMenuComponent } from './components/side-menu/side-menu.component';
 import { AppLibrary } from './services/app-library.service';
+import { ImageTextComponent } from './components/image-text/image-text.component';
+import { HomePage } from './pages/home/home.page';
+import { WorkHomeComponent } from './pages/home/work/work-home/work-home.component';
+import { EviecoHomeComponent } from './pages/home/evieco/evieco-home/evieco-home.component';
+import { LasemaHomeComponent } from './pages/home/lasema/lasema-home/lasema-home.component';
+import { CommentBoxComponent } from './components/comment-box/comment-box.component';
+import { PopupMenuComponentModule } from './components/popup-menu/popup-menu.component.module';
 
 
 @NgModule({
@@ -48,7 +54,14 @@ import { AppLibrary } from './services/app-library.service';
     RegisterComponent,
     LogoutComponent,
     FooterToolbarComponent,
-    SideMenuComponent
+    SideMenuComponent,
+    ImageTextComponent,
+    CommentBoxComponent,
+
+    HomePage,
+    WorkHomeComponent,
+    EviecoHomeComponent,
+    LasemaHomeComponent
   ],
   entryComponents: [],
   imports: [
@@ -57,8 +70,8 @@ import { AppLibrary } from './services/app-library.service';
     HttpClientModule,
     IonicModule.forRoot(),
     AppRoutingModule,
-    SimplestModule.forRoot(environment.simplest),
-    HomeModule
+    PopupMenuComponentModule,
+    SimplestModule.forRoot(environment.simplest)
   ],
   providers: [
     StatusBar,

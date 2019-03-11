@@ -4,17 +4,23 @@
   "author": "Ionic Framework",
   "homepage": "https://ionicframework.com/",
   "scripts": {
-    "s": "ionic s",
-    "c": "ionic cordova run android -l",
+    "s": "npm run serve:work",
+    "c": "npm run cordova:run:work",
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "cordova:run": "ts-node patch.ts && ionic cordova run android -l",
-    "cordova:run:evieco": "ts-node patch.ts evieco && ionic cordova run android -l --configuration=evieco",
-    "cordova:run:lasema": "ts-node patch.ts lasema && ionic cordova run android -l --configuration=lasema"
+    "serve:work": "ionic s --configuration=work",
+    "serve:evieco": "ionic s --configuration=evieco",
+    "serve:lasema": "ionic s --configuration=lasema",
+    "cordova:run:work": "./run.sh work",
+    "cordova:run:evieco": "./run.sh evieco",
+    "cordova:run:lasema": "./run.sh lasema",
+    "cordova:build:work": "./build.sh work",
+    "cordova:build:evieco": "./build.sh evieco",
+    "cordova:build:lasema": "./build.sh lasema"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +45,7 @@
     "cordova-plugin-googlemaps": "^2.5.2",
     "cordova-plugin-ionic-keyboard": "^2.1.3",
     "cordova-plugin-ionic-webview": "^3.1.2",
+    "cordova-plugin-localization-strings": "git+https://github.com/kelvinhokk/cordova-plugin-localization-strings.git",
     "cordova-plugin-splashscreen": "^5.0.2",
     "cordova-plugin-statusbar": "^2.4.2",
     "cordova-plugin-whitelist": "^1.3.3",
@@ -96,7 +103,8 @@
         "API_KEY_FOR_IOS": "AIzaSyAJBDbkflPiAS3Yvwq4X7tyqHtitb5uopY",
         "PLAY_SERVICES_VERSION": "15.0.1",
         "ANDROID_SUPPORT_V4_VERSION": "27.+"
-      }
+      },
+      "cordova-plugin-localization-strings": {}
     },
     "platforms": [
       "android"

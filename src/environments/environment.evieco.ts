@@ -36,12 +36,18 @@ export const environment: Environment = {
 
   domain: 'evieco',
   configXml: {
-    id: 'com.sonub.evieco',
-    version: '0.0.3',
-    name: 'Evie Co',
-    description: 'Evie Co App'
+    "id": "com.sonub.evieco",
+    "version": "0.0.9",
+    "name": {"en": "Evie Co", "ko": "에비코 반영구화장", "ch": "Evie Co", "jp": "Evie Co" },
+    "description": "Evie Co App"
   },
   firstPageRoute: 'home',
+
+  header: {
+    home: false,
+    map: true
+  },
+
   /**
    * Site settings.
    * @see README
@@ -212,11 +218,6 @@ export const environment: Environment = {
         }
       ],
     }
-  },
-
-  header: {
-    home: true,
-    map: true
   },
 
   /**

@@ -3,15 +3,9 @@
 // The list of file replacements can be found in `angular.json`.
 
 import { Environment } from 'src/app/services/interfaces';
-
-
-
 import { basicTexts } from 'src/app/locales/basic';
+
 const texts = basicTexts;
-
-
-
-
 const phone = '0956-871-2485';
 const siteUrlEn = 'https://www.lasema.shop';
 const siteUrlEnShort = 'www.lasema.shop';
@@ -36,13 +30,13 @@ export const environment: Environment = {
     }
   },
 
-  domain: 'lasema',
+  domain: "lasema",
 
   configXml: {
-    id: 'com.sonub.lasema',
-    version: '0.0.4',
-    name: 'Lasema',
-    description: 'Lasema App'
+    "id": "com.sonub.lasema",
+    "version": "0.0.8",
+    "name": {"en": "Lasema", ko: '라세마', "ch": "Lasema", "jp": "Lasema" },
+    "description": "Lasema Spa and JimJilBang App"
   },
   firstPageRoute: 'home',
   header: {

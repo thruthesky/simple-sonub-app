@@ -19,7 +19,6 @@ export interface AppSettingSite {
     name: any;                      // Website name
     url: string;                    // Website Url
     home: {
-        title: string;
     };
     contact: {
         title: string;
@@ -89,7 +88,12 @@ export interface Environment {
     configXml: {
         id: string;
         version: string;
-        name: string;
+        name: {
+            en: string;
+            ko?: string;
+            ch?: string;
+            jp?: string;
+        }
         description: string
     };
     firstPageRoute: 'home' | 'gallery' | 'forum' | 'contact' | 'map';

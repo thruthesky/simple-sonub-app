@@ -1,34 +1,23 @@
-<section>
-    <ion-grid>
-        <ion-row justify-content-center>
+<ion-row justify-content-center>
 
-            <ion-buttons>
-                <ion-button (click)=" true ">
-                    <ion-icon slot="icon-only" name="chatboxes"></ion-icon>
-                    <ion-badge color="light" *ngIf=" parent.comments && parent.comments.length ">
-                        {{ parent.comments.length }}
-                    </ion-badge>
-                </ion-button>
+    <ion-buttons class="flex-around">
+        <ion-button expand="full" fill="clear" (click)=" onClickReplyTo() ">
+            <ion-icon name="chatboxes"></ion-icon>
+            <span class="ml-1"> {{ a.t('comment') }} </span>
+            <span class="ml-1" *ngIf=" parent.comments && parent.comments.length ">
+                ({{ parent.comments.length }})
+            </span>
+        </ion-button>
 
-                <ion-button (click)=" true ">
-                    <ion-icon name="thumbs-up"></ion-icon>
-                    <ion-badge color="light" *ngIf=" parent.good != '0' ">{{ parent.good }}</ion-badge>
-                </ion-button>
-                <ion-button (click)=" true ">
-                    <ion-icon name="thumbs-down"></ion-icon>
-                    <ion-badge color="light" *ngIf=" parent.bad != '0' ">{{ parent.bad }}</ion-badge>
-                </ion-button>
-            </ion-buttons>
+        <ion-button expand="full" fill="clear" (click)=" onClickVote() ">
+            <ion-icon name="thumbs-up"></ion-icon>
+            <span class="ml-1"> {{ a.t('like') }} </span>
+            <span class="ml-1" *ngIf=" parent.good != 0 "> ({{ parent.good }}) </span>
+        </ion-button>
 
-            <ion-buttons *ngIf=" !mine ">
-                <ion-button (click)=" true ">
-                    <ion-icon slot="icon-only" name="create"></ion-icon>
-                </ion-button>
-                <ion-button (click)=" true ">
-                    <ion-icon slot="icon-only" name="trash"></ion-icon>
-                </ion-button>
-            </ion-buttons>
+        <ion-button expand="full" fill="clear" (click)=" openPopupMenu( $event ) " *ngIf=" mine ">
+            <ion-icon name="menu"></ion-icon>
+        </ion-button>
+    </ion-buttons>
 
-        </ion-row>
-    </ion-grid>
-</section>
+</ion-row>

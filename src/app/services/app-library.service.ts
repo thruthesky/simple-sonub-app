@@ -33,14 +33,53 @@ export class AppLibrary {
     languageCode: LanguageCode = null;
     constructor(
     ) {
-        this.languageCode = <any> this.getBrowserLanguage();
-        const lc = <any> this.getUserLanguage();
+        this.languageCode = <any>this.getBrowserLanguage();
+        const lc = <any>this.getUserLanguage();
         if (lc) {
             this.languageCode = lc;
         }
         this.addLanguageText(basicTexts);
         this.addLanguageText(settingTexts);
     }
+
+    /**
+ * Compares Scalars, Arrays, Objects, string, number.
+ *
+ * Returns true if the input `a` and `b` are identical.
+ *
+ * @param a It can be an array, string, number, objects.
+ * @param b It can be an array, string, number, objects.
+ *
+ * @desc if a is string or nuber and b is string or number, then it converts into number first and compare.
+ *  It is a good practice to use this method to compare number and string.
+ */
+    static isEqual(a: any, b: any): boolean {
+        if (typeof a === 'object' && typeof b === 'object') {
+            const aKeys = Object.keys(a);
+            const bKeys = Object.keys(b);
+            if (aKeys.length !== bKeys.length) {
+                return false;
+            }
+            return aKeys.findIndex((v, i) => v !== bKeys[i]) === -1;
+        } else if (Array.isArray(a) && Array.isArray(b)) {
+            if (a.length !== b.length) {
+                return false;
+            } else {
+                for (let i = 0; i < a.length; i++) {
+                    if (a[i] !== b[i]) {
+                        return false;
+                    }
+                }
+                return true;
+            }
+        } else {
+            const A = parseInt(<any>a, 10);
+            const B = parseInt(<any>b, 10);
+            // console.log(A, B);
+            return A === B;
+        }
+    }
+
     /**
      * Returns browser language
      *
@@ -50,6 +89,10 @@ export class AppLibrary {
      * @returns
      *      - the browser language like 'en', 'en-US', 'ko', 'ko-KR'
      *      - null if it cannot detect a language.
+     *
+     * @warning it returns
+     *      - 'ch' if the language is like 'zh' or beigns with 'zh' like 'zh-rCN'.
+     *      - 'jp' if the language is 'ja'.
      */
     getBrowserLanguage(full = false): string {
         const nav: any = window.navigator;
@@ -77,6 +120,11 @@ export class AppLibrary {
             if (full === false) {
                 ln = ln.substring(0, 2);
             }
+        }
+        if (ln === 'zh') {
+            ln = 'ch';
+        } else if (ln === 'ja') {
+            ln = 'jp';
         }
         return ln;
     }
@@ -234,5 +282,7 @@ export class AppLibrary {
         this.set(LANGUAGE_CODE, code);
         this.languageCode = code;
     }
+
+
 
 }

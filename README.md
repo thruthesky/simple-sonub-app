@@ -1,11 +1,42 @@
 # simple-sonub-app
 
+## Important
+
+@see [App Dev Must Do](https://docs.google.com/document/d/1BlLGC2bJr9VRFfItVxNgHiAWfuY-Ao15y9kt_ZeBsaw/edit#heading=h.9gbothfz8qtx) before releasing.
+
+## Reference
+
+### User Manual
+
+We may need to give the user manual to our clients. So we have [Sonub App User Manual](https://docs.google.com/document/d/1xvo8G5Gevk9DnIbbgYImge_s6c_5kXZp1yD9BY9rl5g/edit?usp=sharing)
+
 ## Developers Build Guideline
+
+### Configuration
 
 * First(front/home) page shoud be static. So, even though there is no internet, the app can show something.
 
 * Bootsrap v4 (except Bootstrap Javascript) is installed.
   You can use the whole bootstrap component But the component works with Bootstrap Javascript will not work.
+
+### Warning
+
+* Some data property must in a specific format.
+  * The value of `environemnt.configXml.name` must be complete JSON format or there will be an error.
+  * Closure of `configXml:` which is `},` must be on a single line and content of `configXml` must not have `},` on a single line.
+
+```` ts
+  configXml: {
+    "id": "com.sonub.work",
+    "version": "0.0.8",
+    "name": {"en": "Work App", "ko": "작업 앱", "ch": "工作应用", "jp": "仕事用アプリ" }, // }, must not be on a single line here.
+    "description": "This is Description for Work App"
+  }, // <<== closing of configXml must be on a single line.
+````
+
+* Language code is different from standard.
+  * `zh-***` are `ch` in the app.
+  * `ja` is `jp` in the app.
 
 ## Posts
 
@@ -23,7 +54,10 @@
 
 ## Settings
 
-### App Settings
+### Environments
+
+* The default & development & test environment is `environment.work.ts`. Not `environmnt.ts`.
+  So, when you need to improve or develop new feature you should work on `environment.work.ts`.
 
 #### Domain
 
@@ -55,68 +89,37 @@
 
 #### Multi languages & Sites
 
-* It supports 4 languages.
+* It supports 4 languages by default.
   * English, Korean, Chinese, Japanese.
   * Languages could be optionally remove by the settings.
   * Since we do not have man power of Chinese and Japanese, try to support Korean & English.
+  * If you want to support Chinese & Japanese there might be two way.
+    * If you have manpower for Chinese & Japanese, then do it by Creating the language sites and customizing all the content.
+    * If you don't have man power, Use English site for Chinese & Japanese.
+      So, English fourms(gallery & discussion) will be shared to Chinese & Japanese settings.
+      It's like that you do not actually create sites for Chinese & Japanese.
+      You only support Chinese & Japanese for menus and static pages.
 
-* You can sites in its `environemnt.xxxx.ts`.
-  * Each langauge must have its own site.
-    * If you add only one lagnuage, then the language will be the default.
+* You can add many sites in its `environemnt.xxxx.ts`.
+  * For instance, you can add 'en', 'ko', 'ch', 'jp' sites to the environemnt.
+  * Each langauge must have its own site settings.
+    * If you add only one lagnuage, then the language will be the site language by default. User cannot change language.
   * `idx` is the site idx.
   * `name` is the name of the app.
   * `gallery` is a forum category (menu) idx of the site.
   * `fourm` is a forum category (menu) idx of the site.
     * `gallery` and `forum` could be sonub forum or philgo forum.
 
-Example of site settings )
+  * Example of site settings: @see `environment.work.ts`
 
-```` ts
-sites: {
-    en: {
-        idx: '82',
-        name: 'Evie & Co Microblading',
-        gallery: {
-            type: 'sonub',
-            idx_category: '62'
-        },
-        forum: { ... }
-    },
-    ko: {
-        name: 'Evie & Co 반영구 화장',
-        idx: '21',
-        gallery: {
-            type: 'philgo',
-            post_id: 'company_info',
-            category: '21'
-        },
-        forum: { ... }
-    },
-    ch: { ... },
-    jp: { ... }
-},
-````
+##### Mutilanguage on App name
+
+* App name below the app icon will be displayed as set in `xmlConfig` settings.
+* This is done by [cordova-plugin-localization-strings](https://github.com/kelvinhokk/cordova-plugin-localization-strings)
 
 ### Site Settings
 
 * Each site should have a fourm to connect to menu.
-
-### Multilingual
-
-* If a site has many languages, it can have many domains per each languages like
-  * ko.domain.com
-  * en.domain.com
-  * jp.domain.com
-  * ch.domain.com
-
-* You can those domains in `settings.sites`.
-* The language selection in `settings page` is based on `settings.sites`.
-  * If it has only one language, then it does not show language selection option.
-  * If it has many language site, then it shows those langauge to select.
-
-* If there is only one language site is set on the `settigns.sites`,
-  then it only use that lanage.
-  Users will not have option to choose other language.
 
 ## Customisation
 
@@ -171,32 +174,31 @@ sites: {
   * if it is `logout`, then the menu will be shown if the user logged out.
   * @see `environment.ts` for the sample of complete settigns.
 
-## Serve & Run
+## Serve & Run & Build
 
 * You can run by configuration
 
 ```` sh
-ionic s                             ; ionic serve with `environment.ts`
+ionic s --configuration=work        ; ionic serve with `environment.work.ts`
 ionic s --configuration=evieco      ; ionic serve with `environemnt.evieco.ts`
 ionic s --configuration=lasema      ; ionic serve with `environemnt.lasema.ts`
 
-npm run cordova:run                 ; cordova run with `environemnt.ts`
+npm run cordova:run:work            ; cordova run with `environemnt.work.ts`
 npm run cordova:run:evieco          ; cordova run with `environemnt.evieco.ts`
 npm run cordova:run:lasema          ; cordova run with `environemnt.lasema.ts`
+
+npm run cordova:build:work            ; cordova build realease APK with `environemnt.work.ts`
+npm run cordova:build:evieco          ; cordova build realease APK with `environemnt.evieco.ts`
+npm run cordova:build:lasema          ; cordova build realease APK with `environemnt.lasema.ts`
+
 ````
 
-* Each app must have its own branch.
-* Each app must have its own dev environment.
-* Each app must have its own run script in `package.json`.
-  * When it serves, do `npm run APP_NAME` to serve. And It must copy its dev env to `environment.ts`
-  * For Cordova serve, do `npm run APP_NAME:android:serve` and it will copy dev env to `environment.ts`
-  
+* Each app must have its own environment.
+* Each app must have its keystore like in `build-data/keystores/[name].keysotre`.
+  * And the password of the keystore must be saved like in `build/data/keystores/[name].password`.
 * To build,
-  * run`npm run APP_NAME:android:build` which will
-    * copy its prod env to `environment.prod.ts`
-      * with `production: true`
-      * without `zone-error`
-    * build the app with production env.
+  * Each app needs an icon in `build-data/icons/{domain}.png`
+  * Each app needs a splash in `build-data/splashes/{domain}.png`
 
 ## Utilities
 
@@ -209,3 +211,15 @@ ts-node patch.ts            ; this will patch `config.xml` with `environment.ts`
 ts-node patch.ts evieco     ; this will patch `config.xml` with `environment.evieco.ts`
 ts-node patch.ts lasema     ; this will patch `config.xml` with `environment.lasema.ts`
 ````
+
+## App Signing
+
+https://stackoverflow.com/questions/26449512/how-to-create-a-signed-apk-file-using-cordova-command-line-interface
+
+## App Keystores
+
+### default
+
+keystore file: default.keystore
+alias: default
+password: asdf99

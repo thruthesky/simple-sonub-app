@@ -1,0 +1,9 @@
+<ion-item class="comment-box">
+    <ion-input [(ngModel)]=" form.content " placeholder="Write a comment .."></ion-input>
+    <ion-button fill="clear" (click)="createComment()">
+        <ion-icon slot="icon-only" name="send"></ion-icon>
+    </ion-button>
+    <ion-button fill="clear" (click)="onCancel()" *ngIf=" parent.idx_parent !== '0' ">
+        <ion-icon slot="icon-only" name="close"></ion-icon>
+    </ion-button>
+</ion-item>

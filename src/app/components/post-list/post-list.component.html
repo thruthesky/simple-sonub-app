@@ -1,32 +1,33 @@
-<section class="articles" *ngIf="posts.length">
+<ion-content class="articles" *ngIf="posts.length">
   <ion-card *ngFor="let post of posts">
-    <ion-card-header>
+    <ion-card-header (click)="post.view = !post.view">
       <ion-card-title>
-        {{ a.t(post.title) }}
+        {{ a.t( post.title ) }}
         <ion-icon *ngIf="post.files.length" name="images"></ion-icon>
       </ion-card-title>
-      <ion-card-subtitle>
-        {{ a.t(post.title) }}
+      <ion-card-subtitle *ngIf=" post.comments.length && !post.view ">
+        {{ a.t( post.comments[0].content ) }}
       </ion-card-subtitle>
     </ion-card-header>
 
-    <!-- <ion-img src="{{ file.url }}" *ngFor=" let file of post.files "></ion-img> -->
+    <ng-container *ngIf=" post.view ">
+      <ion-card-content>
+        <div [innerHTML]="post['safe_content']"></div>
+      </ion-card-content>
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="/assets/img/avatar.jpg" />
+        </ion-avatar>
+        <div class="ml-3">
+          <h2 class="m-0 p-0 fw-light fs-md">Evie & Co</h2>
+          <p class="m-0 p-0 fw-light fs-xs">November 5, 1955</p>
+        </div>
+      </ion-item>
 
-    <ion-card-content>
-      <div [innerHTML]="post['safe_content']"></div>
-    </ion-card-content>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="/assets/img/avatar.jpg" />
-      </ion-avatar>
-      <div class="ml-3">
-        <h2 class="m-0 p-0 fw-light fs-md">Evie & Co</h2>
-        <p class="m-0 p-0 fw-light fs-xs">November 5, 1955</p>
-      </div>
-    </ion-item>
+      <app-post-buttons [root]=" post " [parent]="post" [forum]="forum"></app-post-buttons>
+      <app-comment-list [post]=" post " [comments]="post.comments"></app-comment-list>
+      <app-comment-box [parent]=" post " *ngIf=" !post['replyTo'] "></app-comment-box>
+    </ng-container>
 
-    <app-post-buttons [parent]="post" [forum]="forum"></app-post-buttons>
-
-    <app-comment-list [comments]="post.comments"></app-comment-list>
   </ion-card>
-</section>
+</ion-content>

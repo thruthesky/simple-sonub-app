@@ -36,3 +36,9 @@ input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+.icon-line image-text {
+    img {
+        border-radius: 50%;
+    }
+}

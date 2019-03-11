@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Comments } from 'modules/ng-simplest/simplest.interface';
+import { Comments, Post } from 'modules/ng-simplest/simplest.interface';
 
 @Component({
     selector: 'app-comment-list',
@@ -8,6 +8,7 @@ import { Comments } from 'modules/ng-simplest/simplest.interface';
 })
 export class CommentListComponent implements OnInit {
 
+    @Input() post: Post;
     @Input() comments: Comments;
     constructor(
         // public a: AppService

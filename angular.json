@@ -63,6 +63,12 @@
                 "maximumError": "5mb"
               }]
             },
+            "work": {
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.work.ts"
+              }]
+            },
             "evieco": {
               "fileReplacements": [{
                 "replace": "src/environments/environment.ts",
@@ -88,6 +94,9 @@
           "configurations": {
             "production": {
               "browserTarget": "app:build:production"
+            },
+            "work": {
+              "browserTarget": "app:build:work"
             },
             "evieco": {
               "browserTarget": "app:build:evieco"
@@ -150,6 +159,9 @@
             "production": {
               "browserTarget": "app:build:production"
             },
+            "work": {
+              "browserTarget": "app:build:work"
+            },
             "evieco": {
               "browserTarget": "app:build:evieco"
             },
@@ -168,6 +180,10 @@
             "production": {
               "cordovaBuildTarget": "app:ionic-cordova-build:production",
               "devServerTarget": "app:serve:production"
+            },
+            "work": {
+              "cordovaBuildTarget": "app:ionic-cordova-build:work",
+              "devServerTarget": "app:serve:work"
             },
             "evieco": {
               "cordovaBuildTarget": "app:ionic-cordova-build:evieco",
