@@ -1,8 +1,8 @@
 #!/bin/bash
 
-ts-node patch-environment.ts $1 && ts-node patch-prod-keystore.ts $1 && cp -f build-data/icons/${1}.png resources/icon.png && cp -f build-data/splashes/${1}.png resources/splash.png && ionic cordova resources android
+ts-node patch-environment.ts $1 && ts-node patch-environment-prod.ts $1 && cp -f build-data/icons/${1}.png resources/icon.png && cp -f build-data/splashes/${1}.png resources/splash.png && ionic cordova resources android
 
-ionic cordova build android --prod --release --configuration=$1
+ionic cordova build android --prod --release
 
 cat build-data/keystores/evieco.password | jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore build-data/keystores/${1}.keystore  platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk $1
 
