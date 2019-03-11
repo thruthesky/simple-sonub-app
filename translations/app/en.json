@@ -1,0 +1,9 @@
+{
+        "config_ios" : {
+          "CFBundleDisplayName": "Evie Co",
+          "CFBundleName": "Evie Co"
+        },
+        "config_android" : {
+          "app_name": "Evie Co"
+        }
+      }
