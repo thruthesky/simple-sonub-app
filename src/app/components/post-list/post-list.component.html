@@ -24,9 +24,9 @@
         </div>
       </ion-item>
 
-      <app-post-buttons [root]=" post " [parent]="post" [forum]="forum"></app-post-buttons>
-      <app-comment-list [post]=" post " [comments]="post.comments"></app-comment-list>
-      <app-comment-box [parent]=" post " *ngIf=" !post['replyTo'] "></app-comment-box>
+      <app-post-buttons [root]=" post " [parent]=" post " [forum]=" forum "></app-post-buttons>
+      <app-comment-list [post]=" post " [comments]=" post.comments "></app-comment-list>
+      <app-comment-box [parent]=" post " *ngIf=" !post['replyTo'] || post['replyTo'] === post.idx "></app-comment-box>
     </ng-container>
 
   </ion-card>
