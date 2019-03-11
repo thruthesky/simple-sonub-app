@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Posts } from 'modules/ng-simplest/simplest.interface';
 import { AppSettingForum } from 'src/app/services/interfaces';
 import { AppService } from 'src/app/services/app.service';
@@ -10,6 +10,16 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit {
+
+  /**
+   * gallery type will show post title content, images and comments.
+   *  - when title is clicked, it will hide content, images and comment ( if any ).
+   *
+   * text type will only show post title.
+   * - when title is clicked, it will show content, images and comment ( if any ).
+   */
+  @Input() designType: 'gallery' | 'text';
+
 
   forum: AppSettingForum;
   posts: Posts = [];
@@ -26,11 +36,17 @@ export class PostListComponent implements OnInit {
   ngOnInit() {
   }
 
-
   loadPage() {
     this.a.postList(this.forum, 1).subscribe(res => {
       this.posts = res;
-      this.posts.forEach(post => post['safe_content'] = this.a.safeHtml(post.content));
+      this.posts.forEach(post => {
+        post['safe_content'] = this.a.safeHtml(post.content);
+
+        if (this.designType === 'gallery') {
+          post.view = true;
+        }
+
+      });
     });
   }
 
