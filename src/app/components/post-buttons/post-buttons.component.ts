@@ -2,8 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Post, Comment } from 'modules/ng-simplest/simplest.interface';
 import { AppService } from 'src/app/services/app.service';
 import { AppSettingForum } from 'src/app/services/interfaces';
-import { PopoverController } from '@ionic/angular';
-import { PopupMenuComponent } from '../popup-menu/popup-menu.component';
+import { PopupService } from 'src/app/services/popup.service';
 
 @Component({
     selector: 'app-post-buttons',
@@ -17,7 +16,7 @@ export class PostButtonsComponent implements OnInit {
     @Input() forum: AppSettingForum;
     constructor(
         public a: AppService,
-        public popoverController: PopoverController
+        public popup: PopupService
     ) {
     }
 
@@ -82,25 +81,11 @@ export class PostButtonsComponent implements OnInit {
         }
     }
 
-    async openPopupMenu(ev: any) {
-        const popover = await this.popoverController.create({
-            component: PopupMenuComponent,
-            event: ev,
-            componentProps: {
-                "title": 'Action'
-            },
-            translucent: true
+    onClickMenu() {
+        this.popup.openPopupMenu('e', 'e').then(e => {
+            console.log(e);
         });
-
-        popover.onDidDismiss().then(data => {
-            if (data && data.data === 'delete') {
-                this.onDelete();
-            } else {
-                console.log(data);
-            }
-        });
-
-        return await popover.present();
     }
+
 }
 

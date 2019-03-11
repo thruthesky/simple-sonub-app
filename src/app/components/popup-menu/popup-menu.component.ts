@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { PopoverController, NavParams } from '@ionic/angular';
 import { AppService } from 'src/app/services/app.service';
 
@@ -7,15 +7,23 @@ import { AppService } from 'src/app/services/app.service';
     templateUrl: './popup-menu.component.html',
     styleUrls: ['./popup-menu.component.scss']
 })
-export class PopupMenuComponent implements OnInit {
+export class PopupMenuComponent implements OnInit, OnDestroy {
+
+
+    message = '';
 
     constructor(
-        public a: AppService,
-        private popoverController: PopoverController
-        // private navParams: NavParams
+        private popoverController: PopoverController,
+        private navParams: NavParams,
+        public a: AppService
     ) { }
 
     ngOnInit() {
+        this.message = this.navParams.data.message;
+    }
+
+    ngOnDestroy() {
+        this.message = '';
     }
 
     async dismiss(action: string) {
