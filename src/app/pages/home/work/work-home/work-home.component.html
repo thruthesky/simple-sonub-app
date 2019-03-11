@@ -9,13 +9,26 @@
     <ion-img src="/assets/apps/{{ a.env.domain }}/home/title-image.jpg"></ion-img>
 
     <ion-card-content>
-        {{ a.t( text.title.content ) }}
+        <div (click)="text.title['showMore'] = true">
+            <span class="d-inline">{{ a.t( text.title.content ) }}</span>
+            <span class="d-inline pl-2" *ngIf=" ! text.title['showMore'] ">{{ a.t('read more') }} ...</span>
+        </div>
+
+        <div [innerHTML]="a.t( text.title.contentMore )" *ngIf="text.title['showMore']"></div>
     </ion-card-content>
+
 
     <div class="icon-line ml-2 mr-2 d-flex justify-content-around">
         <image-text class="d-block p-2" [src]=" '/assets/apps/' + a.env.domain + '/home/'+n+'.jpg' " [title]="a.t( text ) "
-            *ngFor=" let text of imageTextTitles; let n = index"></image-text>
+            *ngFor=" let text of imageTextTitles; let n = index" (click)="showIconLineNo = n"></image-text>
     </div>
+
+    <ng-container *ngFor=" let n of [ 0, 1, 2, 3 ] ">
+        <div *ngIf=" showIconLineNo == n ">
+            <div class="ml-3 mb-2">{{ a.t( iconTexts[n] ) }}</div>
+            <img src="/assets/apps/{{ a.env.domain }}/home/icon-line-image-{{n}}.jpg">
+        </div>
+    </ng-container>
 
 </ion-card>
 
