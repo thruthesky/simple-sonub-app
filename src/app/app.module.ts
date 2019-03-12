@@ -38,6 +38,8 @@ import { LasemaHomeComponent } from './pages/home/lasema/lasema-home/lasema-home
 import { CommentBoxComponent } from './components/comment-box/comment-box.component';
 import { PopupMenuComponentModule } from './components/popup-menu/popup-menu.component.module';
 import { CommentContentComponent } from './components/comment/comment-content/comment-content.component';
+import { PostContentComponent } from './components/post/post-content/post-content.component';
+import { PostHeaderComponent } from './components/post/post-header/post-header.component';
 
 
 @NgModule({
@@ -48,17 +50,22 @@ import { CommentContentComponent } from './components/comment/comment-content/co
     MapComponent,
     ContactComponent,
     SettingComponent,
+
     PostListComponent,
+    PostHeaderComponent,
+    PostContentComponent,
     CommentListComponent,
     CommentContentComponent,
     PostButtonsComponent,
+    CommentBoxComponent,
+
     LoginComponent,
     RegisterComponent,
     LogoutComponent,
+
     FooterToolbarComponent,
     SideMenuComponent,
     ImageTextComponent,
-    CommentBoxComponent,
 
     HomePage,
     WorkHomeComponent,
