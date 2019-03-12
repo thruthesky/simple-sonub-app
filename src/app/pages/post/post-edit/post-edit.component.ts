@@ -59,7 +59,8 @@ export class PostEditComponent implements OnInit {
 
 
     onSubmit() {
-        if (this.post.idx) {
+
+        if (this.post.idx) { // update
 
             const data: Post = {
                 idx: this.post.idx,
@@ -72,10 +73,10 @@ export class PostEditComponent implements OnInit {
                 this.openPost();
             }, e => this.a.error(e));
 
-        } else {
 
-            // this.post.relation = this.a.settings.site.idx;
-            this.post.relation = '5';      // test only 
+        } else { // create
+
+            this.post.relation = this.a.settings.site.idx;
             this.post.taxonomy = 'sites';
             this.post.editor = 'text-editor';
             this.post.idx_category = this.idx_category;
