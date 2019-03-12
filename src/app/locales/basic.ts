@@ -33,6 +33,9 @@ export const basicTexts = {
     update: { en: 'Update', ko: '업데이트', ch: '更新', jp: '更新' },
     delete: { en: 'Delete', ko: '삭제', ch: '删除', jp: '削除する' },
     deleted: { en: 'Deleted', ko: '삭제됨', ch: '删除', jp: '削除済み' },
+    comment: { en: 'Comment', ko: '코멘트', ch: '评论', jp: 'コメント' },
+    edit: { en: 'Edit', ko: '수정', ch: '编辑', jp: '編集する' },
+    like: { en: 'Like', ko: '찬성', ch: '喜欢', jp: '好き' },
 
     // need check
     gender: { en: 'Gender', ko: '성별', ch: '性别', jp: '性別' },
