@@ -33,6 +33,14 @@ export const imageTextTitles = [
 ];
 
 
+export const iconTexts = [
+    {en: 'This is first icon text.', ko: '첫 번째 아이콘의 텍스트입니다.', ch: '这是第一个图标文字。', jp: 'これが最初のアイコンテキストです。'},
+    {en: 'This is second icon text.', ko: '두 번째 아이콘의 텍스트입니다.', ch: '这是第一个第二个文本。', jp: 'これは最初の2番目のテキストです。'},
+    {en: 'This is third icon text.', ko: '세 번째 아이콘의 텍스트입니다.', ch: '这是第一个第三个文本。', jp: 'これが最初の3分の1のテキストです。'},
+    {en: 'This is fourth icon text.', ko: '네 번째 아이콘의 텍스트입니다.', ch: '这是第四个文本。', jp: 'これは最初の4番目のテキストです。'}
+  ];
+
+
 export const cards = [
     {
         title: {

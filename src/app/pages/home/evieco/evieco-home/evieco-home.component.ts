@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/services/app.service';
-import { imageTextTitles, cards, text } from './evieco-home.locale';
+import { imageTextTitles, cards, text, iconTexts } from './evieco-home.locale';
 
 @Component({
   selector: 'app-evieco-home',
@@ -13,6 +13,8 @@ export class EviecoHomeComponent implements OnInit {
   text = text;
   imageTextTitles = imageTextTitles;
   cards = cards;
+
+  iconTexts = iconTexts;
 
   constructor(
     public a: AppService
