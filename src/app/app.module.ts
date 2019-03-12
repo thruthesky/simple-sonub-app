@@ -40,6 +40,7 @@ import { PopupMenuComponentModule } from './components/popup-menu/popup-menu.com
 import { CommentContentComponent } from './components/comment/comment-content/comment-content.component';
 import { PostContentComponent } from './components/post/post-content/post-content.component';
 import { PostHeaderComponent } from './components/post/post-header/post-header.component';
+import { PostUserProfileComponent } from './components/post-user-profile/post-user-profile.component';
 
 
 @NgModule({
@@ -58,6 +59,7 @@ import { PostHeaderComponent } from './components/post/post-header/post-header.c
     CommentContentComponent,
     PostButtonsComponent,
     CommentBoxComponent,
+    PostUserProfileComponent,
 
     LoginComponent,
     RegisterComponent,
