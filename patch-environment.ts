@@ -69,7 +69,7 @@ let config: string = fs.readFileSync('./config.xml').toString();
 
 
 config = config.replace(/widget id=\"[^\"]+\"/, `widget id="${configXml['id']}"`);
-config = config.replace(/version=\"[^\"]+\"/, `version="${configXml['id']}"`);
+config = config.replace(/version=\"[^\"]+\"/, `version="${configXml['version']}"`);
 config = config.replace(/<name>[^<]+<\/name>/, `<name>${configXml['name']['en']}</name>`);
 config = config.replace(/<description>[^<]+<\/description>/, `<description>${configXml['description']}</description>`);
 
@@ -91,7 +91,11 @@ for (const ln of Object.keys(configXml['name'])) {
 }
 
 function writeTranslation(ln: string, name: string) {
-
+    /**
+     * When there is `&amp;` in name, the translator convert it to `&amp;amp;` and the result text will include '&namp;'.
+     * So, it strips `&amp;` to `&` first.
+     */
+    name = name.replace('&amp;', '&');
     const locale = `{
         "config_ios" : {
           "CFBundleDisplayName": "${name}",
