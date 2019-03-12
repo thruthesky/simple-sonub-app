@@ -239,6 +239,9 @@ export class AppService {
         return inc ? `${inc}.` : false;
     }
 
+    shortDate(timestamp: any) {
+        return this.philgo.shortDate(timestamp);
+    }
 
     get site(): AppSettingSite {
         return this.settings.site;

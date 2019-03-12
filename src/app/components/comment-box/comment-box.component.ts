@@ -34,12 +34,13 @@ export class CommentBoxComponent implements OnInit {
     constructor(
         public a: AppService
     ) {
-        if (this.comment) {
-            this.form.content = this.comment.content;
-        }
+
     }
 
     ngOnInit() {
+        if (this.comment) {
+            this.form.content = this.comment.content;
+        }
     }
 
     onSubmit() {
@@ -88,6 +89,7 @@ export class CommentBoxComponent implements OnInit {
         this.a.sp.commentUpdate(this.form).subscribe(comment => {
 
             comment['update'] = null;
+            comment['safeContent'] = this.a.safeHtml(comment.content);
             Object.assign(this.comment, comment);
             this.a.success('Comment Updated!');
             this.reset();

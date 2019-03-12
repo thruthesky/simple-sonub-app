@@ -3,6 +3,7 @@ import { Post, Comment } from 'modules/ng-simplest/simplest.interface';
 import { AppService } from 'src/app/services/app.service';
 import { PopoverController } from '@ionic/angular';
 import { PopupMenuComponent } from '../popup-menu/popup-menu.component';
+import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-post-buttons',
@@ -15,6 +16,7 @@ export class PostButtonsComponent implements OnInit {
     @Input() parent: Post & Comment;
     constructor(
         public a: AppService,
+        private router: Router,
         private popoverController: PopoverController
     ) {
     }
@@ -69,8 +71,7 @@ export class PostButtonsComponent implements OnInit {
 
     onUpdate() {
         if (this.parent.idx_parent === '0') {
-            console.log('post update');
-            // redirect to post-edit/update page
+            this.router.navigate(['/post/edit'], { queryParams: { action: 'update', idx: this.parent.idx } });
         } else {
             if (this.root['replyTo']) {
                 this.root['replyTo'] = null;

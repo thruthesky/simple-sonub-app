@@ -12,7 +12,6 @@ export class CommentContentComponent implements OnInit {
     @Input() root: Post;
     @Input() comment: Comment;
 
-    safeContent = null;
     constructor(
         public a: AppService
     ) {
@@ -20,7 +19,7 @@ export class CommentContentComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.safeContent = this.a.safeHtml(this.comment.content);
+        this.comment['safeContent'] = this.a.safeHtml(this.comment.content);
     }
 
     get deleted() {

@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AppService } from 'src/app/services/app.service';
+import { PostUser } from 'modules/ng-simplest/simplest.interface';
 
 @Component({
   selector: 'app-post-user-profile',
@@ -8,7 +9,7 @@ import { AppService } from 'src/app/services/app.service';
 })
 export class PostUserProfileComponent implements OnInit {
 
-  @Input() post: any;
+  @Input() user: PostUser;
   constructor(
     public a: AppService
   ) { }

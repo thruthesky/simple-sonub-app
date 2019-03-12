@@ -41,6 +41,8 @@ import { CommentContentComponent } from './components/comment/comment-content/co
 import { PostContentComponent } from './components/post/post-content/post-content.component';
 import { PostHeaderComponent } from './components/post/post-header/post-header.component';
 import { PostUserProfileComponent } from './components/post-user-profile/post-user-profile.component';
+import { PostViewComponent } from './pages/post/post-view/post-view.component';
+import { PostEditComponent } from './pages/post/post-edit/post-edit.component';
 
 
 @NgModule({
@@ -51,19 +53,21 @@ import { PostUserProfileComponent } from './components/post-user-profile/post-us
     MapComponent,
     ContactComponent,
     SettingComponent,
+    LoginComponent,
+    RegisterComponent,
+    LogoutComponent,
 
     PostListComponent,
+    PostViewComponent,
+    PostEditComponent,
     PostHeaderComponent,
     PostContentComponent,
+    PostUserProfileComponent,
+
     CommentListComponent,
     CommentContentComponent,
     PostButtonsComponent,
     CommentBoxComponent,
-    PostUserProfileComponent,
-
-    LoginComponent,
-    RegisterComponent,
-    LogoutComponent,
 
     FooterToolbarComponent,
     SideMenuComponent,

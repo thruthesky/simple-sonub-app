@@ -1,0 +1,28 @@
+<ion-header *ngIf=" a.env.header?.register !== false ">
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-back-button></ion-back-button>
+        </ion-buttons>
+        <ion-title>
+            {{ a.t( 'register' ) }}
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <form (ngSubmit)=" true ">
+        <ion-item class="mt-3 border rounded">
+            <ion-input name="title" type="text" [placeholder]=" a.t('title') " [(ngModel)]=" post.title " required></ion-input>
+        </ion-item>
+
+        <ion-item class="mt-3 border rounded">
+            <ion-textarea name="content" type="text" rows="10" cols="20" [placeholder]=" a.t('content') " [(ngModel)]=" post.content "
+                required></ion-textarea>
+        </ion-item>
+
+        <ion-button class="mt-4 mb-4" type="submit" expand="full">
+            <!-- {{ post.idx ? a.t('update') : a.t('submit') }} -->
+            {{ post.idx ? 'update' : 'submit' }}
+        </ion-button>
+    </form>
+</ion-content>

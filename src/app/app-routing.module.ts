@@ -10,6 +10,8 @@ import { environment } from 'src/environments/environment';
 import { LoginComponent } from './pages/login/login.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { LogoutComponent } from './pages/logout/logout.component';
+import { PostViewComponent } from './pages/post/post-view/post-view.component';
+import { PostEditComponent } from './pages/post/post-edit/post-edit.component';
 
 
 const routes: Routes = [
@@ -25,6 +27,8 @@ const routes: Routes = [
   { path: 'contact', component: ContactComponent },
   { path: 'setting/lang', component: SettingComponent },
   { path: 'setting', component: SettingComponent },
+  { path: 'post/view', component: PostViewComponent },
+  { path: 'post/edit', component: PostEditComponent },
 ];
 
 @NgModule({

@@ -6,6 +6,12 @@
     <ion-title>
       {{ a.t("forum") }}
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)=" openPostCreate() ">
+        <ion-icon name="add"></ion-icon>
+        <span class="ml-1">new post</span>
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
