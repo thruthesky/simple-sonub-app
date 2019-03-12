@@ -11,11 +11,11 @@
 
   <ion-card-content>
     <div (click)="text.title['showMore'] = true">
-        <span class="d-inline">{{ a.t( text.title.content ) }}</span>
-        <span class="d-inline" *ngIf=" ! text.title['showMore'] ">더 보기 ...</span>
+      <span class="d-inline">{{ a.t( text.title.content ) }}</span>
+      <span class="d-inline pl-2" *ngIf=" ! text.title['showMore'] ">{{ a.t('read more') }} ...</span>
     </div>
-      
-      <div [innerHTML]="a.t( text.title.contentMore )" *ngIf="text.title['showMore']"></div>
+
+    <div [innerHTML]="a.t( text.title.contentMore )" *ngIf="text.title['showMore']"></div>
   </ion-card-content>
 
   <div class="icon-line ml-2 mr-2 d-flex justify-content-around">
@@ -24,22 +24,12 @@
   </div>
 
 
-  <div *ngIf=" showIconLineNo == 0 ">
-    <div>Text ... Translation, Text ... Translation, Text ... Translation, Text ... Translation</div>
-      <img src="/assets/apps/{{ a.env.domain }}/home/icon-line-image-0.jpg">
-  </div>
-  <div *ngIf=" showIconLineNo == 1 ">
-      <div>Text ... Translation, Text ... Translation, Text ... Translation, Text ... Translation</div>
-      <img src="/assets/apps/{{ a.env.domain }}/home/icon-line-image-1.jpg">
-  </div>
-  <div *ngIf=" showIconLineNo == 2 ">
-      <div>Text ... Translation, Text ... Translation, Text ... Translation, Text ... Translation</div>
-      <img src="/assets/apps/{{ a.env.domain }}/home/icon-line-image-2.jpg">
-  </div>
-  <div *ngIf=" showIconLineNo == 3 ">
-      <div>Text ... Translation, Text ... Translation, Text ... Translation, Text ... Translation</div>
-      <img src="/assets/apps/{{ a.env.domain }}/home/icon-line-image-3.jpg">
-  </div>
+  <ng-container *ngFor=" let n of [ 0, 1, 2, 3 ] ">
+    <div *ngIf=" showIconLineNo == n ">
+      <div class="ml-3 mb-2">{{ a.t( iconTexts[n] ) }}</div>
+      <img src="/assets/apps/{{ a.env.domain }}/home/icon-line-image-{{n}}.jpg">
+    </div>
+  </ng-container>
 
 </ion-card>
 
@@ -68,5 +58,3 @@
     </div>
   </ion-item>
 </ion-card>
-
-
