@@ -1,7 +1,15 @@
 <ion-card-header (click)="post.view = !post.view">
-    <ion-card-title>
-        {{ post.title }}
-        <ion-icon *ngIf="post.files.length" name="images"></ion-icon>
+    <ion-card-title class="d-flex">
+        <app-post-user-profile [post]="post"></app-post-user-profile>
+        <div class="ml-3">
+            <div>
+                {{ post.title }}
+                <ion-icon *ngIf="post.files.length" name="images"></ion-icon>
+            </div>
+            <div class="fs-sm">
+                2019.03.14 by JaeHo Song
+            </div>
+        </div>
     </ion-card-title>
     <ion-card-subtitle *ngIf=" post.comments.length && !post.view ">
         {{ post.comments[0].content }}
