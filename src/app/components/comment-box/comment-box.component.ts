@@ -10,49 +10,86 @@ import { AppLibrary as _ } from '../../services/app-library.service';
 })
 export class CommentBoxComponent implements OnInit {
 
-    @Input() post: Post;
-    @Input() parent: Comment;
+    /**
+     * this will always have a post value.
+     */
+    @Input() root: Post;
+
+    /**
+     * only available when replying to a post or comment.
+     */
+    @Input() parent: Post & Comment;
+
+    /**
+     * only available when updating comment.
+     * if this have value, the action is comment update
+     */
+    @Input() comment: Comment = null;
 
     loading = false;
-    form: Comment = <any>{
+    form: Comment = {
         content: ''
     };
 
     constructor(
         public a: AppService
-    ) { }
+    ) {
+        if (this.comment) {
+            this.form.content = this.comment.content;
+        }
+    }
 
     ngOnInit() {
     }
 
-    createComment() {
+    onSubmit() {
+        this.loading = true;
 
+        if (this.comment) {
+            return this.updateComment();
+        } else {
+            return this.createComment();
+        }
+    }
+
+    createComment() {
         if (!this.form.content.trim()) {
             return this.a.error('Please Input Comment');
         }
 
-        this.loading = true;
         this.form.idx_parent = this.parent.idx;
-
         this.a.sp.commentCreate(this.form).subscribe(comment => {
-            console.log('create', comment);
 
             if (this.parent.idx_parent === '0') {
                 comment['depth'] = '1';
-                this.post.comments.push(comment);
+                this.root.comments.push(comment);
             } else {
-
-                const i = this.post.comments.findIndex(c =>
+                const i = this.root.comments.findIndex(c =>
                     _.isEqual(c.idx, comment.idx_parent)
                 );
 
                 if (i !== -1) {
-                    comment['depth'] = '' + (parseInt(this.post.comments[i].depth, 10) + 1);
-                    this.post.comments.splice(i + 1, 0, comment);
+                    comment['depth'] = '' + (parseInt(this.root.comments[i].depth, 10) + 1);
+                    this.root.comments.splice(i + 1, 0, comment);
                 }
-
             }
+            this.a.success('Comment Created!');
+            this.reset();
 
+        }, e => this.a.error(e));
+    }
+
+    updateComment() {
+        if (!this.form.content.trim()) {
+            return this.a.error('Please Input Comment');
+        }
+
+        this.form.idx = this.comment.idx;
+        this.a.sp.commentUpdate(this.form).subscribe(comment => {
+
+            comment['update'] = null;
+            Object.assign(this.comment, comment);
+            this.a.success('Comment Updated!');
             this.reset();
 
         }, e => this.a.error(e));
@@ -62,11 +99,20 @@ export class CommentBoxComponent implements OnInit {
     reset() {
         this.form = {};
         this.loading = false;
+
+        if (this.root['replyTo']) {
+            this.root['replyTo'] = null;
+        }
+        if (this.root['commentInUpdate']) {
+            this.root['commentInUpdate'] = null;
+        }
     }
 
-    onCancel() {
-        if (this.post['replyTo']) {
-            this.post['replyTo'] = null;
+    get showReset(): boolean {
+        if (this.parent && this.parent.idx_parent === '0') {
+            return false;
         }
+
+        return true;
     }
 }

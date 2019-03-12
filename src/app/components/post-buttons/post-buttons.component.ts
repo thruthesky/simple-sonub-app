@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Post, Comment } from 'modules/ng-simplest/simplest.interface';
 import { AppService } from 'src/app/services/app.service';
-import { AppSettingForum } from 'src/app/services/interfaces';
 import { PopoverController } from '@ionic/angular';
 import { PopupMenuComponent } from '../popup-menu/popup-menu.component';
 
@@ -14,7 +13,6 @@ export class PostButtonsComponent implements OnInit {
 
     @Input() root: Post;
     @Input() parent: Post & Comment;
-    @Input() forum: AppSettingForum;
     constructor(
         public a: AppService,
         private popoverController: PopoverController
@@ -24,38 +22,16 @@ export class PostButtonsComponent implements OnInit {
     ngOnInit() {
     }
 
-    /**
-     * return current host url
-     */
-    get hostUrl(): string {
-        return this.a.settings.site.url;
-    }
-
-    get forumType(): string {
-        return this.forum.type;
-    }
-
-    get mine(): boolean {
-        if (this.parent && this.parent.idx_user === this.a.sp.myIdx) {
-            return true;
-        }
-        return false;
-    }
-
-    get postIdx() {
-        if (this.parent.idx_root !== '0') {
-            return this.parent.idx_root;
-        } else if (this.parent.idx_parent !== '0') {
-            return this.parent.idx_parent;
-        } else {
-            return this.parent.idx;
-        }
-    }
-
     onClickReplyTo() {
+        if (this.root['commentInUpdate']) {
+            this.root['commentInUpdate'] = null;
+        }
         return this.root['replyTo'] = this.parent.idx;
     }
 
+    /**
+     * apps will only support like or 'good' votes
+     */
     onClickVote() {
         this.a.vote(this.parent.idx, 'G').subscribe(res => {
             console.log(res);
@@ -65,20 +41,41 @@ export class PostButtonsComponent implements OnInit {
     }
 
     onDelete() {
+        const content_deleted = this.a.t('deleted');
+
         if (this.parent.idx_parent === '0') {
             this.a.sp.postDelete(this.parent.idx).subscribe(res => {
-                this.parent.title = 'deleted';
-                this.parent.content = 'deleted';
-                this.parent.content_stripped = 'deleted';
+                this.parent.title = `(${content_deleted})`;
+                this.parent.content = `(${content_deleted})`;
+                this.parent.content_stripped = `(${content_deleted})`;
                 this.parent.stamp_deleted = '1';
+
+                this.a.success('Post Deleted!');
+
             }, e => this.a.error(e));
         } else {
             this.a.sp.commentDelete(this.parent.idx).subscribe(res => {
-                this.parent.content = 'deleted';
-                this.parent.content_stripped = 'deleted';
+                this.parent.content = `(${content_deleted})`;
+                this.parent.content_stripped = `(${content_deleted})`;
                 this.parent.stamp_deleted = '1';
                 this.parent.files = [];
+
+                this.a.success('Comment Deleted!');
+
             }, e => this.a.error(e));
+        }
+    }
+
+
+    onUpdate() {
+        if (this.parent.idx_parent === '0') {
+            console.log('post update');
+            // redirect to post-edit/update page
+        } else {
+            if (this.root['replyTo']) {
+                this.root['replyTo'] = null;
+            }
+            this.root['commentInUpdate'] = this.parent.idx;
         }
     }
 
@@ -91,13 +88,36 @@ export class PostButtonsComponent implements OnInit {
         popover.onDidDismiss().then(ret => {
             if (ret.data === 'delete') {
                 this.onDelete();
-            } else if (ret.data === 'edit') {
-                console.log('edit');
+            } else if (ret.data === 'update') {
+                this.onUpdate();
             } else {
-                console.log(ret.data);
+                // console.log(ret.data); dismissed with no action
             }
         });
         return await popover.present();
+    }
+
+    /**
+     * return if post or comment belongs to the current logged user
+     */
+    get mine(): boolean {
+        if (this.isDeleted) {
+            return false;
+        }
+        if (this.parent && this.parent.idx_user === this.a.sp.myIdx) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * determines if the post is deleted
+     */
+    get isDeleted(): boolean {
+        if (this.parent.stamp_deleted === '0') {
+            return false;
+        }
+        return true;
     }
 }
 

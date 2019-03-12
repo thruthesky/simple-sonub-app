@@ -10,15 +10,12 @@
                 </ion-col>
 
                 <ion-col size="10">
-                    <span>
-                        <h2 class="ml-1 m-0 pt-1 fw-light fs-md ">{{ comment.user.name }}</h2>
-                    </span>
-                    <div class="pl-1" [innerHTML]=" comment.content ? comment.content : '( Deleted )' ">
-                    </div>
+                    <app-comment-content [root]=" post " [comment]=" comment "></app-comment-content>
                 </ion-col>
             </ion-row>
-            <app-post-buttons [root]=" post " [parent]=" comment "></app-post-buttons>
-            <app-comment-box [post]=" post " [parent]=" comment " *ngIf=" post['replyTo'] === comment.idx "></app-comment-box>
+
+            <app-post-buttons [root]=" post " [parent]=" comment " *ngIf=" post['commentInUpdate'] !== comment.idx "></app-post-buttons>
+            <app-comment-box [root]=" post " [parent]=" comment " *ngIf=" post['replyTo'] === comment.idx "></app-comment-box>
         </ion-grid>
 
     </div>

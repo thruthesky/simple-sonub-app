@@ -20,8 +20,8 @@ import { SimplestModule } from 'modules/ng-simplest/simplest.module';
 import { environment } from 'src/environments/environment';
 import { AppSettings } from './services/app-settings.service';
 import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
-import { PostListComponent } from './components/post-list/post-list.component';
-import { CommentListComponent } from './components/comment-list/comment-list.component';
+import { PostListComponent } from './components/post/post-list/post-list.component';
+import { CommentListComponent } from './components/comment/comment-list/comment-list.component';
 import { PostButtonsComponent } from './components/post-buttons/post-buttons.component';
 import { FormsModule } from '@angular/forms';
 import { LoginComponent } from './pages/login/login.component';
@@ -37,6 +37,7 @@ import { EviecoHomeComponent } from './pages/home/evieco/evieco-home/evieco-home
 import { LasemaHomeComponent } from './pages/home/lasema/lasema-home/lasema-home.component';
 import { CommentBoxComponent } from './components/comment-box/comment-box.component';
 import { PopupMenuComponentModule } from './components/popup-menu/popup-menu.component.module';
+import { CommentContentComponent } from './components/comment/comment-content/comment-content.component';
 
 
 @NgModule({
@@ -49,6 +50,7 @@ import { PopupMenuComponentModule } from './components/popup-menu/popup-menu.com
     SettingComponent,
     PostListComponent,
     CommentListComponent,
+    CommentContentComponent,
     PostButtonsComponent,
     LoginComponent,
     RegisterComponent,

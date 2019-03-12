@@ -1,0 +1,6 @@
+<ion-text>
+    <h2 class="ml-1 m-0 fs-md ">{{ comment.user.name }}</h2>
+</ion-text>
+<div class="ml-1 p-2 bg-gray rounded" [innerHTML]=" safeContent " *ngIf=" root['commentInUpdate'] !== comment.idx ">
+</div>
+<app-comment-box [root]=" root " [comment]=" comment " *ngIf=" root['commentInUpdate'] === comment.idx "></app-comment-box>

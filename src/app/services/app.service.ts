@@ -209,6 +209,18 @@ export class AppService {
         toast.present();
     }
 
+    async success(mssg: string) {
+        const toast = await this.toastController.create({
+            message: mssg,
+            duration: 3000,
+            showCloseButton: true,
+            closeButtonText: 'Close',
+            cssClass: 'success-toast'
+        });
+
+        toast.present();
+    }
+
     vote(idx: string, vote: 'G' | 'B'): Observable<VoteResponse> {
         return this.sp.vote({ idx_post: idx, vote: vote });
     }
