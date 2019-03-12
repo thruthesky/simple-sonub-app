@@ -14,7 +14,6 @@
                 </ion-col>
             </ion-row>
 
-            <app-post-buttons [root]=" post " [parent]=" comment " *ngIf=" post['commentInUpdate'] !== comment.idx "></app-post-buttons>
             <app-comment-box [root]=" post " [parent]=" comment " *ngIf=" post['replyTo'] === comment.idx "></app-comment-box>
         </ion-grid>
 

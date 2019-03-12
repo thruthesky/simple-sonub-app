@@ -16,12 +16,14 @@ export class CommentContentComponent implements OnInit {
     constructor(
         public a: AppService
     ) {
-        if (this.comment && this.comment.content) {
-            this.safeContent = this.a.safeHtml(this.comment.content);
-        }
-        this.safeContent = `(${this.a.t('deleted')})`;
+
     }
 
     ngOnInit() {
+        this.safeContent = this.a.safeHtml(this.comment.content);
+    }
+
+    get deleted() {
+        return `(${this.a.t('deleted')})`;
     }
 }
