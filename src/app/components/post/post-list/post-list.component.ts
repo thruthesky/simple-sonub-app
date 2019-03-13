@@ -21,14 +21,17 @@ export class PostListComponent implements OnInit {
   @Input() designType: 'gallery' | 'text';
 
 
-  forum: AppSettingForum;
+  /**
+   * Forum settings from environemnt.
+   */
+  forumSettings: AppSettingForum;
   posts: Posts = [];
   constructor(
     activatedRoute: ActivatedRoute,
     public a: AppService
   ) {
     activatedRoute.queryParamMap.subscribe(params => {
-      this.forum = this.a.settings.site.footerMenus[params.get('i')];
+      this.forumSettings = this.a.forumSetting( params.get('i') );
       this.loadPage();
     });
   }
@@ -37,7 +40,7 @@ export class PostListComponent implements OnInit {
   }
 
   loadPage() {
-    this.a.postList(this.forum, 1).subscribe(res => {
+    this.a.postList(this.forumSettings, 1).subscribe(res => {
       this.posts = res;
       this.posts.forEach(post => {
         post['safe_content'] = this.a.safeHtml(post.content);

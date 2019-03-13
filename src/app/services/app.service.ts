@@ -131,11 +131,24 @@ export class AppService {
             if (p.comments && p.comments.length) {
                 for (const c of p.comments) {
                     const nc = {
-                        content: c.content
+                        content: c.content,
+                        stamp_create: c.stamp,
+                        stamp_updated: c.stamp
                     };
+                    /**
+                     * Setting comemnt user's profile.
+                     */
+                    if (c.member && c.member.idx) {
+                        nc['name'] = c.member.name;
+                        nc['nickname'] = c.member.nickname;
+                        nc['photo'] = this.getPhilgoPhotoUrl(c.member.idx_primary_photo);
+                    }
                     np.comments.push(nc);
                 }
             }
+            /**
+             * Setting post user's name, photo_url.
+             */
             if (p.member && p.member.idx) {
                 np.user = {
                     name: p.member.nickname,
@@ -145,16 +158,18 @@ export class AppService {
                 };
 
                 if (p.member.idx_primary_photo) {
-                    const x = p.member.idx_primary_photo.split('').pop();
-                    const path = `../data/upload/${x}/${p.member.idx_primary_photo}`;
-                    np.user.photo_url =
-                        `https://file.philgo.com/etc/image_resize.php` +
-                        `?adaptive=1&w=24&h=24&path=${path}&qualty=80`;
+                    np.user.photo_url = this.getPhilgoPhotoUrl(p.member.idx_primary_photo);
                 }
             }
             posts.push(np);
         }
         return posts;
+    }
+
+    getPhilgoPhotoUrl(idx: string): string {
+        const x = idx.split('').pop();
+        const path = `../data/upload/${x}/${idx}`;
+        return `https://file.philgo.com/etc/image_resize.php?adaptive=1&w=24&h=24&path=${path}&qualty=80`;
     }
 
     safeHtml(text: string) {
@@ -246,4 +261,16 @@ export class AppService {
     get site(): AppSettingSite {
         return this.settings.site;
     }
+
+    /**
+     * Returns a forum setting
+     * @param i index of the forum settings array
+     */
+    forumSetting(i): AppSettingForum {
+        if ( !i ) {
+            return <any>{};
+        }
+        return this.settings.footerMenus[i];
+    }
 }
+

@@ -30,7 +30,7 @@ export class PostHeaderComponent implements OnInit {
         const nonDeletedComments = [];
         this.post.comments.forEach(comment => {
             if (comment.content.trim()) {
-                nonDeletedComments.push(`${comment.content} - <i>Comment by ${comment.user.name}</i>`);
+                nonDeletedComments.push(`${comment.content} - <i>Comment by ${comment.name}</i>`);
             }
         });
         return nonDeletedComments.length ? this.a.safeHtml(nonDeletedComments.shift()) : null;

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AppService } from 'src/app/services/app.service';
 import { Router, ActivatedRoute } from '@angular/router';
+import { AppSettingForum } from 'src/app/services/interfaces';
 
 @Component({
   selector: 'app-forum',
@@ -9,7 +10,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 })
 export class ForumComponent implements OnInit {
 
-  idx_category: string;
+  // idx_category: string;
+  forumSetting: AppSettingForum;
 
   constructor(
     public a: AppService,
@@ -17,7 +19,8 @@ export class ForumComponent implements OnInit {
     activatedRoute: ActivatedRoute
   ) {
     activatedRoute.queryParamMap.subscribe(params => {
-      this.idx_category = this.a.settings.site.footerMenus[params.get('i')].idx_category;
+      // this.idx_category = this.a.settings.site.footerMenus[params.get('i')].idx_category;
+      this.forumSetting = a.forumSetting(params.get('i'));
     });
   }
 
@@ -25,7 +28,7 @@ export class ForumComponent implements OnInit {
   }
 
   openPostCreate() {
-    this.router.navigate(['/post/edit'], { queryParams: { action: 'create', category: this.idx_category } });
+    this.router.navigate(['/post/edit'], { queryParams: { action: 'create', category: this.forumSetting.idx_category } });
   }
 
 }

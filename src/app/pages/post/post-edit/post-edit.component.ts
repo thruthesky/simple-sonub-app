@@ -65,8 +65,7 @@ export class PostEditComponent implements OnInit {
             const data: Post = {
                 idx: this.post.idx,
                 title: this.post.title,
-                content: this.post.content,
-                editor: 'simple-editor'
+                content: this.post.content
             };
 
             const inc = this.a.isIncomplete(data);
@@ -80,11 +79,10 @@ export class PostEditComponent implements OnInit {
 
         } else { // create
 
-            this.post.relation = '5';                           // used the value `5` to create new post. for testing purpose.
+            // this.post.relation = '5';                           // used the value `5` to create new post. for testing purpose.
 
-            // this.post.relation = this.a.settings.site.idx;   // please uncomment this and remove the one from above for production.
+            this.post.relation = this.a.settings.site.idx;   // please uncomment this and remove the one from above for production.
             this.post.taxonomy = 'sites';
-            this.post.editor = 'simple-editor';
             this.post.idx_category = this.idx_category;
 
             const inc = this.a.isIncomplete({ title: this.post.title, content: this.post.content });

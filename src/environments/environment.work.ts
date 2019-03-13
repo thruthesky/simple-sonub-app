@@ -53,7 +53,7 @@ export const environment: Environment = {
    */
   sites: {
     en: {
-      idx: '24',
+      idx: '29',
       name: 'Main App - Developer App',
       url: siteUrlEn,
       home: {
@@ -161,7 +161,7 @@ export const environment: Environment = {
       ],
     },
     ko: {
-      idx: '21',
+      idx: '29',
       name: '메일 앱 - 개발 화면',
       url: siteUrlKo,
       home: {

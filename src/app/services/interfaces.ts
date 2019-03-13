@@ -1,10 +1,26 @@
 
+
 export interface AppSettingForum {
-    type: 'sonub' | 'philgo';
+    type?: 'sonub' | 'philgo';
     idx_category?: string; // sonub only
     post_id?: string; // philgo only.
     category?: string; // philgo only
 }
+
+export interface AppSettingFooterMenu extends AppSettingForum {
+    title: any;
+    icon: string;
+    url?: string;
+    openSideMenu?: boolean;
+    // type?: 'philgo' | 'sonub';
+    // idx_category?: string; // sonub only
+    // post_id?: string; // philgo only
+    // category?: string; // philgo only
+}
+
+
+
+
 
 
 export interface AppContact {
@@ -51,16 +67,6 @@ export interface AppSettingMap {
     };
 }
 
-export interface AppSettingFooterMenu {
-    title: any;
-    icon: string;
-    url?: string;
-    openSideMenu?: boolean;
-    type?: 'philgo' | 'sonub';
-    idx_category?: string; // sonub only
-    post_id?: string; // philgo only
-    category?: string; // philgo only
-}
 
 export interface AppSettingSideMenu {
     when?: 'login' | 'logout'; // # side menu when
