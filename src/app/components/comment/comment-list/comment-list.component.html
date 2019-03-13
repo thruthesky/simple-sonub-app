@@ -1,11 +1,13 @@
 <section class="comment-list" *ngIf=" comments.length ">
-    <div class="my-2 pl-2 d-flex" [attr.depth]=" comment?.depth " *ngFor="let comment of comments">
-        <div>
-            <ion-thumbnail>
-                <img class="circle" src="{{ comment.user.photo_url ? comment.user.photo_url  : '/assets/img/avatar.jpg' }}">
-            </ion-thumbnail>
+    <div class="my-2 pl-2" [attr.depth]=" comment?.depth " *ngFor="let comment of comments">
+        <div class="w-100 d-flex">
+            <div>
+                <ion-thumbnail>
+                    <img class="circle" src="{{ comment.user.photo_url ? comment.user.photo_url  : '/assets/img/avatar.jpg' }}">
+                </ion-thumbnail>
+            </div>
+            <app-comment-content class="w-100" [root]=" post " [comment]=" comment "></app-comment-content>
         </div>
-        <app-comment-content class="w-100" [root]=" post " [comment]=" comment "></app-comment-content>
         <app-comment-box [root]=" post " [parent]=" comment " *ngIf=" post['replyTo'] === comment.idx "></app-comment-box>
     </div>
 </section>

@@ -5,7 +5,7 @@
 
     <ng-container *ngIf=" post.view ">
       <app-post-content [post]=" post "></app-post-content>
-      <app-post-buttons [root]=" post " [parent]=" post "></app-post-buttons>
+      <app-post-buttons [root]=" post " [parent]=" post " [forumIndex]=" forumIndex "></app-post-buttons>
       <app-comment-list [post]=" post " [comments]=" post.comments "></app-comment-list>
       <app-comment-box [root]=" post " [parent]=" post " *ngIf=" ( !post['replyTo'] || post['replyTo'] === post.idx ) && !post['commentInUpdate'] "></app-comment-box>
     </ng-container>

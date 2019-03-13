@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Router } from '@angular/router';
 import { AppService } from 'src/app/services/app.service';
 import { AppSettingSideMenu } from 'src/app/services/interfaces';
 
@@ -13,7 +12,6 @@ export class SideMenuComponent implements OnInit {
 
   @Input() contentId = '';
   constructor(
-    private router: Router,
     public a: AppService
   ) {
   }
@@ -26,7 +24,8 @@ export class SideMenuComponent implements OnInit {
     } else if (menu.openWindow) {
       window.open(menu.url, '_blank');
     } else {
-      this.router.navigateByUrl(menu.url);
+      // this.router.navigateByUrl(menu.url);
+      this.a.open(menu.url);
     }
 
   }

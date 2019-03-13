@@ -55,12 +55,13 @@ export class FooterToolbarComponent implements OnInit {
   ngOnInit() {
   }
 
-  onClick(menu: AppSettingFooterMenu, i: number) {
+  onClick(menu: AppSettingFooterMenu, i: string) {
     // console.log('menu click on', this.menu);
     if (menu.openSideMenu) {
       this.menuController.open();
     } else {
-      this.router.navigate([menu.url], { queryParams: { i: i } });
+      // this.router.navigate([menu.url], { queryParams: { i: i } });
+      this.a.openTab(menu.url, i);
     }
   }
 }

@@ -10,6 +10,7 @@ import { AppSettingForum } from 'src/app/services/interfaces';
 })
 export class ForumComponent implements OnInit {
 
+  forumIndex: string;
   forumSetting: AppSettingForum;
 
   constructor(
@@ -17,6 +18,7 @@ export class ForumComponent implements OnInit {
     activatedRoute: ActivatedRoute
   ) {
     activatedRoute.queryParamMap.subscribe(params => {
+      this.forumIndex = params.get('i');
       this.forumSetting = a.forumSetting(params.get('i'));
     });
   }

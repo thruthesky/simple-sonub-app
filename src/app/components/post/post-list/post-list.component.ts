@@ -24,25 +24,27 @@ export class PostListComponent implements OnInit {
   /**
    * Forum settings from environemnt.
    */
+  forumIndex: string;
   forumSettings: AppSettingForum;
   posts: Posts = [];
   constructor(
-    activatedRoute: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     public a: AppService
   ) {
-    activatedRoute.queryParamMap.subscribe(params => {
+  }
+
+  ngOnInit() {
+    console.log('Oninit');
+    this.activatedRoute.queryParamMap.subscribe(params => {
+      this.forumIndex = params.get('i');
       this.forumSettings = this.a.forumSetting(params.get('i'));
       this.loadPage();
     });
   }
 
-  ngOnInit() {
-  }
-
   loadPage() {
     this.a.postList(this.forumSettings, 1).subscribe(res => {
-      this.posts = res;
-      this.posts.forEach(post => {
+      res.forEach(post => {
         post['safe_content'] = this.a.safeHtml(post.content);
 
         if (this.designType === 'gallery') {
@@ -50,9 +52,9 @@ export class PostListComponent implements OnInit {
         }
 
       });
+      Object.assign(this.posts, res);
     });
   }
-
 
 }
 

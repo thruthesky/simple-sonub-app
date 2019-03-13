@@ -11,6 +11,7 @@ import { AppSettingForum } from 'src/app/services/interfaces';
 })
 export class GalleryComponent implements OnInit {
 
+  forumIndex: string;
   forumSetting: AppSettingForum;
 
   constructor(
@@ -18,6 +19,7 @@ export class GalleryComponent implements OnInit {
     public a: AppService
   ) {
     activatedRoute.queryParamMap.subscribe(params => {
+      this.forumIndex = params.get('i');
       this.forumSetting = a.forumSetting(params.get('i'));
     });
   }

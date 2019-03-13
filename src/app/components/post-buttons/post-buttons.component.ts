@@ -12,6 +12,7 @@ import { Router } from '@angular/router';
 })
 export class PostButtonsComponent implements OnInit {
 
+    @Input() forumIndex: string;
     @Input() root: Post;
     @Input() parent: Post & Comment;
     constructor(
@@ -39,7 +40,7 @@ export class PostButtonsComponent implements OnInit {
             console.log(res);
 
             this.parent.good = res.good;
-        });
+        }, e => this.a.error(e));
     }
 
     onDelete() {
@@ -71,7 +72,7 @@ export class PostButtonsComponent implements OnInit {
 
     onUpdate() {
         if (this.parent.idx_parent === '0') {
-            this.router.navigate(['/post/edit'], { queryParams: { action: 'update', idx: this.parent.idx } });
+            this.a.openPostEdit('update', this.forumIndex, this.parent.idx);
         } else {
             if (this.root['replyTo']) {
                 this.root['replyTo'] = null;

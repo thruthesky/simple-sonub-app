@@ -20,7 +20,7 @@ export class SettingComponent implements OnInit {
   get lang(): string {
     return this.a.lib.getUserLanguage();
   }
-  set lang( code ) {
+  set lang(code) {
     this.a.lib.setUserLanguage(code);
     this.navCtrl.navigateRoot('/setting/lang');
   }

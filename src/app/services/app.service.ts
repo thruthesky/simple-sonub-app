@@ -8,7 +8,7 @@ import { Post, PostList, VoteResponse, Comment } from 'modules/ng-simplest/simpl
 import { map } from 'rxjs/operators';
 import { ApiPost } from 'modules/philgo-api/philgo-api-interface';
 import { DomSanitizer } from '@angular/platform-browser';
-import { AppSettingForum, Environment, AppSettingSite } from './interfaces';
+import { AppSettingForum, Environment, AppSettingSite, AppSettingFooterMenu } from './interfaces';
 import { environment } from 'src/environments/environment';
 import { Router } from '@angular/router';
 import { AppLibrary } from './app-library.service';
@@ -191,8 +191,25 @@ export class AppService {
         this.open('/profile');
     }
 
-    openPostCreate(idx_category: string) {
-        this.router.navigate(['/post/edit'], { queryParams: { action: 'create', category: idx_category } });
+    /**
+     * redirect to post-edit view page.
+     *
+     * @param action 'create' | 'update'
+     * @param forumIndex forumindex
+     * @param post_or_category_idx
+     *  - if [action] is `create` then this is category_idx.
+     *  - if [action] is `update` then this is post_idx.
+     */
+    openPostEdit(action: string, forumIndex: string, post_or_category_idx?: string) {
+        if (action === 'create ') {
+            this.open(`/post/edit?action=${action}&category=${post_or_category_idx}&i=${forumIndex}`);
+        } else {
+            this.open(`/post/edit?action=${action}&idx=${post_or_category_idx}&i=${forumIndex}`);
+        }
+    }
+
+    openTab(url: string, forumIndex: string) {
+        this.open(`${url}?i=${forumIndex}`);
     }
 
     /**
@@ -273,7 +290,7 @@ export class AppService {
      * Returns a forum setting
      * @param i index of the forum settings array
      */
-    forumSetting(i): AppSettingForum {
+    forumSetting(i): AppSettingFooterMenu {
         if (!i) {
             return <any>{};
         }
