@@ -80,8 +80,9 @@ export class PostEditComponent implements OnInit {
 
         } else { // create
 
+            this.post.relation = '5'; // used the value `5` to create new post. for testing purpose.
+
             // this.post.relation = this.a.settings.site.idx;
-            this.post.relation = '5';
             this.post.taxonomy = 'sites';
             this.post.editor = 'simple-editor';
             this.post.idx_category = this.idx_category;
