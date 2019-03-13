@@ -63,10 +63,10 @@ export const cards = [
       jp: 'Default Name'
     },
     date: {
-      en: 'November 15, 2018',
-      ko: 'November 15, 2018',
-      ch: 'November 15, 2018',
-      jp: 'November 15, 2018'
+      en: '0917-111-2222 카톡: idAbcde8',
+      ko: '0917-111-2222 카톡: idAbcde8',
+      ch: '0917-111-2222 카톡: idAbcde8',
+      jp: '0917-111-2222 카톡: idAbcde8'
     },
     content: {
       en: `Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.`,
@@ -96,10 +96,10 @@ export const cards = [
       jp: 'Default Name'
     },
     date: {
-      en: 'November 15, 2018',
-      ko: 'November 15, 2018',
-      ch: 'November 15, 2018',
-      jp: 'November 15, 2018'
+      en: '0917-111-2222 카톡: idAbcde8',
+      ko: '0917-111-2222 카톡: idAbcde8',
+      ch: '0917-111-2222 카톡: idAbcde8',
+      jp: '0917-111-2222 카톡: idAbcde8'
     },
     content: {
       en: `Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.`,
@@ -129,10 +129,10 @@ export const cards = [
       jp: 'Default Name'
     },
     date: {
-      en: 'November 15, 2018',
-      ko: 'November 15, 2018',
-      ch: 'November 15, 2018',
-      jp: 'November 15, 2018'
+      en: '0917-111-2222 카톡: idAbcde8',
+      ko: '0917-111-2222 카톡: idAbcde8',
+      ch: '0917-111-2222 카톡: idAbcde8',
+      jp: '0917-111-2222 카톡: idAbcde8'
     },
     content: {
       en: `Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.`,
