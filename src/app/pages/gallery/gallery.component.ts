@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { AppService } from 'src/app/services/app.service';
 import { ActivatedRoute } from '@angular/router';
 import * as yaml from 'js-yaml';
 import { AppSettingForum } from 'src/app/services/interfaces';
+import { PostListComponent } from 'src/app/components/post/post-list/post-list.component';
 
 @Component({
   selector: 'app-gallery',
@@ -11,20 +12,26 @@ import { AppSettingForum } from 'src/app/services/interfaces';
 })
 export class GalleryComponent implements OnInit {
 
+
+  @ViewChild('appPostList') appPostList: PostListComponent;
   forumIndex: string;
   forumSetting: AppSettingForum;
 
   constructor(
-    activatedRoute: ActivatedRoute,
+    private activatedRoute: ActivatedRoute,
     public a: AppService
   ) {
-    activatedRoute.queryParamMap.subscribe(params => {
-      this.forumIndex = params.get('i');
-      this.forumSetting = a.forumSetting(params.get('i'));
-    });
   }
 
   ngOnInit() {
+  }
+
+  ionViewDidEnter() {
+    this.activatedRoute.queryParamMap.subscribe(params => {
+      this.forumIndex = params.get('i');
+      this.forumSetting = this.a.forumSetting(params.get('i'));
+      this.appPostList.doInit();
+    });
   }
 
 }

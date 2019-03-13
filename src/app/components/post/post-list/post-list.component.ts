@@ -34,7 +34,10 @@ export class PostListComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('Oninit');
+  }
+
+  doInit() {
+    console.log('PostListComponent::ionViewDidEnter()');
     this.activatedRoute.queryParamMap.subscribe(params => {
       this.forumIndex = params.get('i');
       this.forumSettings = this.a.forumSetting(params.get('i'));

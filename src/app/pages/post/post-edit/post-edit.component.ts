@@ -25,6 +25,10 @@ export class PostEditComponent implements OnInit {
     }
 
     ngOnInit() {
+    }
+
+    ionViewDidEnter() {
+        console.log('PostEditComponent: ionViewDidEnter()');
         this.doInit();
     }
 
