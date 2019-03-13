@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { AppService } from 'src/app/services/app.service';
-import { Post } from 'modules/ng-simplest/simplest.interface';
+import { Post, PostUser } from 'modules/ng-simplest/simplest.interface';
 
 @Component({
     selector: 'app-post-header',
@@ -23,6 +23,14 @@ export class PostHeaderComponent implements OnInit {
         // }
     }
 
+    user(user: PostUser): string {
+        if (user.name) {
+            return user.name;
+        } else {
+            return 'a User';
+        }
+    }
+
     get subtitleContent() {
         if (!this.post.comments.length) {
             return null;
@@ -30,7 +38,7 @@ export class PostHeaderComponent implements OnInit {
         const nonDeletedComments = [];
         this.post.comments.forEach(comment => {
             if (comment.content.trim()) {
-                nonDeletedComments.push(`${comment.content} - <i>Comment by ${comment.name}</i>`);
+                nonDeletedComments.push(`${comment.content} - <i>Comment by ${this.user(comment.user)}</i>`);
             }
         });
         return nonDeletedComments.length ? this.a.safeHtml(nonDeletedComments.shift()) : null;

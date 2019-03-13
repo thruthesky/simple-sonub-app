@@ -32,7 +32,7 @@ export const environment: Environment = {
   configXml: {
     "id": "com.sonub.work",
     "version": "0.0.8",
-    "name": {"en": "Work App", "ko": "작업 앱", "ch": "工作应用", "jp": "仕事用アプリ" },
+    "name": { "en": "Work App", "ko": "작업 앱", "ch": "工作应用", "jp": "仕事用アプリ" },
     "description": "This is Description for Work App"
   },
   header: {
@@ -93,7 +93,7 @@ export const environment: Environment = {
           icon: 'chatboxes',
           url: '/forum',
           type: 'sonub',
-          idx_category: '57',
+          idx_category: '96',
         },
         {
           title: texts['contact'],
@@ -201,7 +201,7 @@ export const environment: Environment = {
           icon: 'chatboxes',
           url: '/forum',
           type: 'sonub',
-          idx_category: '12',
+          idx_category: '96',
         },
         {
           title: texts['contact'],

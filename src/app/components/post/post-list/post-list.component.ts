@@ -31,7 +31,7 @@ export class PostListComponent implements OnInit {
     public a: AppService
   ) {
     activatedRoute.queryParamMap.subscribe(params => {
-      this.forumSettings = this.a.forumSetting( params.get('i') );
+      this.forumSettings = this.a.forumSetting(params.get('i'));
       this.loadPage();
     });
   }

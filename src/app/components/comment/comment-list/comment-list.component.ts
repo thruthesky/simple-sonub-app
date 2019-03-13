@@ -18,5 +18,8 @@ export class CommentListComponent implements OnInit {
     }
 
     ngOnInit() {
+        if (this.comments) {
+            console.log(this.comments);
+        }
     }
 }

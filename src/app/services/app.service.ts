@@ -130,18 +130,21 @@ export class AppService {
             np.comments = [];
             if (p.comments && p.comments.length) {
                 for (const c of p.comments) {
-                    const nc = {
+                    const nc: Comment = {
                         content: c.content,
-                        stamp_create: c.stamp,
+                        stamp_created: c.stamp,
                         stamp_updated: c.stamp
                     };
                     /**
                      * Setting comemnt user's profile.
                      */
                     if (c.member && c.member.idx) {
-                        nc['name'] = c.member.name;
-                        nc['nickname'] = c.member.nickname;
-                        nc['photo'] = this.getPhilgoPhotoUrl(c.member.idx_primary_photo);
+                        nc.user.idx = c.member.idx;
+                        nc.user.name = c.member.name;
+                        nc.user.photo_url = this.getPhilgoPhotoUrl(c.member.idx_primary_photo);
+                        // nc['name'] = c.member.name;
+                        // nc['nickname'] = c.member.nickname;
+                        // nc['photo'] = this.getPhilgoPhotoUrl(c.member.idx_primary_photo);
                     }
                     np.comments.push(nc);
                 }
@@ -267,7 +270,7 @@ export class AppService {
      * @param i index of the forum settings array
      */
     forumSetting(i): AppSettingForum {
-        if ( !i ) {
+        if (!i) {
             return <any>{};
         }
         return this.settings.footerMenus[i];
