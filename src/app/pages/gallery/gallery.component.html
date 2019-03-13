@@ -1,11 +1,21 @@
 <ion-header *ngIf=" a.env.header?.gallery !== false ">
   <ion-toolbar>
+
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
+
     <ion-title>
       {{ a.t('gallery') }}
     </ion-title>
+
+    <ion-buttons slot="end">
+      <ion-button (click)=" a.openPostCreate( forumSetting.idx_category ) ">
+        <ion-icon name="add"></ion-icon>
+        <span class="ml-1">new post</span>
+      </ion-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 

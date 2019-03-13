@@ -191,6 +191,10 @@ export class AppService {
         this.open('/profile');
     }
 
+    openPostCreate(idx_category: string) {
+        this.router.navigate(['/post/edit'], { queryParams: { action: 'create', category: idx_category } });
+    }
+
     /**
      * Display an error toast at the bottom.
      *

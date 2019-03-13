@@ -21,6 +21,7 @@ export const basicTexts = {
         jp: 'お待ちください ...'
     },
 
+    new_post: { en: 'New Post', ko: '글쓰기', ch: '最新帖子', jp: '新しい投稿' },
     email: { en: 'Email', ko: '이메일', ch: '电子邮件', jp: 'Eメール' },
     name: { en: 'Name', ko: '이름', ch: '名称', jp: '名' },
     password: { en: 'Password', ko: '비밀번호', ch: '密码', jp: 'パスワード' },
@@ -37,10 +38,6 @@ export const basicTexts = {
     edit: { en: 'Edit', ko: '수정', ch: '编辑', jp: '編集する' },
     like: { en: 'Like', ko: '찬성', ch: '喜欢', jp: '好き' },
 
-    // need check
-    gender: { en: 'Gender', ko: '성별', ch: '性别', jp: '性別' },
-    'required': { en: 'Required : ', ko: '필수: ', ch: '需要: ', jp: '必須: ' },
-
     /** Error */
     email_in_use: {
         en: 'The email you entered is already registered. If it is your email, then just login.',
@@ -48,10 +45,9 @@ export const basicTexts = {
         ch: '您输入的电子邮件已经注册。 如果是您的电子邮件，那么只需登录即可。',
         jp: '入力したメールアドレスは既に登録されています。 それがあなたのEメールの場合は、ログインしてください。'
     },
-    'read more': {
-        en: 'Read more',
-        ko: '더 보기',
-        ch: '阅读更多',
-        jp: '続きを読む'
-    }
+    read_more: { en: 'Read more', ko: '더 보기', ch: '阅读更多', jp: '続きを読む' },
+
+    // need check
+    gender: { en: 'Gender', ko: '성별', ch: '性别', jp: '性別' },
+    required: { en: 'Required : ', ko: '필수: ', ch: '需要: ', jp: '必須: ' }
 };

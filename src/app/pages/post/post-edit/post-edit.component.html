@@ -1,11 +1,8 @@
-<ion-header *ngIf=" a.env.header?.register !== false ">
+<ion-header>
     <ion-toolbar>
         <ion-buttons slot="start">
             <ion-back-button></ion-back-button>
         </ion-buttons>
-        <ion-title>
-            {{ a.t( 'register' ) }}
-        </ion-title>
     </ion-toolbar>
 </ion-header>
 
@@ -21,8 +18,7 @@
         </ion-item>
 
         <ion-button class="mt-4 mb-4" type="submit" expand="full">
-            <!-- {{ post.idx ? a.t('update') : a.t('submit') }} -->
-            {{ post.idx ? 'update' : 'submit' }}
+            {{ post.idx ? a.t('update') : a.t('submit') }}
         </ion-button>
     </form>
 </ion-content>

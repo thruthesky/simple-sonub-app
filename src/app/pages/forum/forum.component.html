@@ -1,17 +1,21 @@
 <ion-header *ngIf="a.env.header?.forum !== false">
   <ion-toolbar>
+
     <ion-buttons slot="start">
       <ion-back-button></ion-back-button>
     </ion-buttons>
+
     <ion-title>
       {{ a.t("forum") }}
     </ion-title>
+
     <ion-buttons slot="end">
-      <ion-button (click)=" openPostCreate() ">
+      <ion-button (click)=" a.openPostCreate( forumSetting.idx_category ) ">
         <ion-icon name="add"></ion-icon>
-        <span class="ml-1">new post</span>
+        <span class="ml-1">{{ a.t('new post') }}</span>
       </ion-button>
     </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
