@@ -38,7 +38,7 @@ export const environment: Environment = {
   configXml: {
     "id": "com.sonub.evieco",
     "version": "0.0.9",
-    "name": {"en": "Evie Co", "ko": "에비코 반영구화장", "ch": "Evie Co", "jp": "Evie Co" },
+    "name": { "en": "Evie Co", "ko": "에비코 반영구화장", "ch": "Evie Co", "jp": "Evie Co" },
     "description": "Evie Co App"
   },
   firstPageRoute: 'home',
@@ -65,12 +65,12 @@ export const environment: Environment = {
         name: 'Evie & Co',
         contacts: [
           {
-            label: 'Phone Number',
+            label: texts['phone number'].en,
             text: phone,
             click_url: 'tel:' + phone
           },
           {
-            label: 'Website',
+            label: texts['website'].en,
             text: siteUrlEnShort,
             click_url: siteUrlEn
           }
@@ -112,7 +112,7 @@ export const environment: Environment = {
       ],
       sideMenus: [
         {
-          title: texts['website'],
+          title: texts['website'].en,
           icon: 'home',
           url: siteUrlEn,
           openWindow: true // open the url in new window
@@ -217,7 +217,171 @@ export const environment: Environment = {
           close: true // close side menu
         }
       ],
-    }
+    },
+    ch: {
+      idx: '82',
+      name: 'Evie & Co Microblading',
+      url: siteUrlEn,
+      home: {
+        title: 'Evie & Co - Best Permanent Eyebrows Makeup Service'
+      },
+      contact: {
+        title: 'Permanent Eyebrows Makeup',
+        name: 'Evie & Co',
+        contacts: [
+          {
+            label: texts['phone number'].en,
+            text: phone,
+            click_url: 'tel:' + phone
+          },
+          {
+            label: texts['website'].en,
+            text: siteUrlEnShort,
+            click_url: siteUrlEn
+          }
+        ]
+      },
+      footerMenus: [
+        {
+          title: texts['home'],
+          icon: 'home',
+          url: '/home'
+        },
+        {
+          title: texts['gallery'],
+          icon: 'photos',
+          url: '/gallery',
+          type: 'sonub',
+          idx_category: '62'
+        },
+        // {
+        //     title: texts['forum'],
+        //     icon: 'chatboxes',
+        //     url: '/forum'
+        // },
+        {
+          title: texts['contact'],
+          icon: 'contact',
+          url: '/contact'
+        },
+        {
+          title: texts['map'],
+          icon: 'map',
+          url: '/map'
+        },
+        {
+          title: texts['menu'],
+          icon: 'menu',
+          openSideMenu: true
+        }
+      ],
+      sideMenus: [
+        {
+          title: texts['website'],
+          icon: 'home',
+          url: siteUrlEn,
+          openWindow: true // open the url in new window
+        },
+        {
+          title: texts['facebook'],
+          icon: 'logo-facebook',
+          url: facebookUrl,
+          openWindow: true
+        },
+        {
+          title: texts['setting'],
+          icon: 'settings',
+          url: '/setting',
+        },
+        {
+          title: texts['close'],
+          icon: 'close',
+          close: true // close side menu
+        }
+      ],
+    },
+    jp: {
+      idx: '82',
+      name: 'Evie & Co Microblading',
+      url: siteUrlEn,
+      home: {
+        title: 'Evie & Co - Best Permanent Eyebrows Makeup Service'
+      },
+      contact: {
+        title: 'Permanent Eyebrows Makeup',
+        name: 'Evie & Co',
+        contacts: [
+          {
+            label: texts['phone number'].jp,
+            text: phone,
+            click_url: 'tel:' + phone
+          },
+          {
+            label: texts['website'].jp,
+            text: siteUrlEnShort,
+            click_url: siteUrlEn
+          }
+        ]
+      },
+      footerMenus: [
+        {
+          title: texts['home'],
+          icon: 'home',
+          url: '/home'
+        },
+        {
+          title: texts['gallery'],
+          icon: 'photos',
+          url: '/gallery',
+          type: 'sonub',
+          idx_category: '62'
+        },
+        // {
+        //     title: texts['forum'],
+        //     icon: 'chatboxes',
+        //     url: '/forum'
+        // },
+        {
+          title: texts['contact'],
+          icon: 'contact',
+          url: '/contact'
+        },
+        {
+          title: texts['map'],
+          icon: 'map',
+          url: '/map'
+        },
+        {
+          title: texts['menu'],
+          icon: 'menu',
+          openSideMenu: true
+        }
+      ],
+      sideMenus: [
+        {
+          title: texts['website'],
+          icon: 'home',
+          url: siteUrlEn,
+          openWindow: true // open the url in new window
+        },
+        {
+          title: texts['facebook'],
+          icon: 'logo-facebook',
+          url: facebookUrl,
+          openWindow: true
+        },
+        {
+          title: texts['setting'],
+          icon: 'settings',
+          url: '/setting',
+        },
+        {
+          title: texts['close'],
+          icon: 'close',
+          close: true // close side menu
+        }
+      ],
+    },
   },
 
   /**

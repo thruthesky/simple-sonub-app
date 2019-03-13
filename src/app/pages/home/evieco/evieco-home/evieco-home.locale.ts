@@ -14,7 +14,25 @@ export const text = {
         },
         contentMore: {
 
+            en: `
+            <div class="mt-3">드라마나 영화를 보면 모든 남녀가 눈썹 화장을 하는 이유이기도 한데
+            이외에도 눈썹 화장을 해야하는 이유는 다양합니다. 개인에게 가장 잘 어울리는 눈썹을 찾지 못하고 계시거나 나이가 들어 눈썹 숱이 적어진 경우 또는 원래 부터 눈썹이 얕거나 빈곳이 있는 경우 등.
+            눈썹 반영구 화장은 눈썹 문신이라고도 하며 한번 시술을 하면 최소 몇 년간 유지가 됩니다.</div>
+            <div class="mt-3">에비코 Evie&Co 에서는 숙련된 한국인이 눈썹 반영구 화장을 시술하여 여러분들의 얼굴형에 맞는 가장 알맞은 눈썹을 찾아 드릴 것입니다.</div>`,
+
             ko: `
+            <div class="mt-3">드라마나 영화를 보면 모든 남녀가 눈썹 화장을 하는 이유이기도 한데
+            이외에도 눈썹 화장을 해야하는 이유는 다양합니다. 개인에게 가장 잘 어울리는 눈썹을 찾지 못하고 계시거나 나이가 들어 눈썹 숱이 적어진 경우 또는 원래 부터 눈썹이 얕거나 빈곳이 있는 경우 등.
+            눈썹 반영구 화장은 눈썹 문신이라고도 하며 한번 시술을 하면 최소 몇 년간 유지가 됩니다.</div>
+            <div class="mt-3">에비코 Evie&Co 에서는 숙련된 한국인이 눈썹 반영구 화장을 시술하여 여러분들의 얼굴형에 맞는 가장 알맞은 눈썹을 찾아 드릴 것입니다.</div>`,
+
+            ch: `
+            <div class="mt-3">드라마나 영화를 보면 모든 남녀가 눈썹 화장을 하는 이유이기도 한데
+            이외에도 눈썹 화장을 해야하는 이유는 다양합니다. 개인에게 가장 잘 어울리는 눈썹을 찾지 못하고 계시거나 나이가 들어 눈썹 숱이 적어진 경우 또는 원래 부터 눈썹이 얕거나 빈곳이 있는 경우 등.
+            눈썹 반영구 화장은 눈썹 문신이라고도 하며 한번 시술을 하면 최소 몇 년간 유지가 됩니다.</div>
+            <div class="mt-3">에비코 Evie&Co 에서는 숙련된 한국인이 눈썹 반영구 화장을 시술하여 여러분들의 얼굴형에 맞는 가장 알맞은 눈썹을 찾아 드릴 것입니다.</div>`,
+
+            jp: `
             <div class="mt-3">드라마나 영화를 보면 모든 남녀가 눈썹 화장을 하는 이유이기도 한데
             이외에도 눈썹 화장을 해야하는 이유는 다양합니다. 개인에게 가장 잘 어울리는 눈썹을 찾지 못하고 계시거나 나이가 들어 눈썹 숱이 적어진 경우 또는 원래 부터 눈썹이 얕거나 빈곳이 있는 경우 등.
             눈썹 반영구 화장은 눈썹 문신이라고도 하며 한번 시술을 하면 최소 몇 년간 유지가 됩니다.</div>
@@ -69,9 +87,15 @@ export const cards = [
         },
         content: {
             en: `Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.`,
-            ko: `자연의 마음과 가깝게 지내십시오. 한동안 잠시 쉬고 산을 오르거나 숲에서 일주일을 보내십시오. 정신을 깨끗이 씻으십시오.`,
+            ko: `자연의 마음과 가깝게 지내십시오. 한동안 잠시 쉬고 산을 오르거나 숲에서 일주일을 보내십시오. 내용 1...`,
             ch: `靠近大自然的心脏......偶尔打破一下，爬山或在树林里度过一个星期。 洗净你的精神。`,
             jp: `自然の心に近づけないでください…そして時々、立ち去り、山に登ったり、森の中で一週間過ごしたりしましょう。 あなたの精神をきれいに洗ってください。`
+        },
+        contentMore: {
+          en: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
+          ko: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
+          ch: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
+          jp: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
         }
     },
 
@@ -105,6 +129,12 @@ export const cards = [
             ko: `자연의 마음과 가깝게 지내십시오. 한동안 잠시 쉬고 산을 오르거나 숲에서 일주일을 보내십시오. 정신을 깨끗이 씻으십시오.`,
             ch: `靠近大自然的心脏......偶尔打破一下，爬山或在树林里度过一个星期。 洗净你的精神。`,
             jp: `自然の心に近づけないでください…そして時々、立ち去り、山に登ったり、森の中で一週間過ごしたりしましょう。 あなたの精神をきれいに洗ってください。`
+        },
+        contentMore: {
+          en: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
+          ko: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
+          ch: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
+          jp: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
         }
     },
 
@@ -138,6 +168,12 @@ export const cards = [
             ko: `자연의 마음과 가깝게 지내십시오. 한동안 잠시 쉬고 산을 오르거나 숲에서 일주일을 보내십시오. 정신을 깨끗이 씻으십시오.`,
             ch: `靠近大自然的心脏......偶尔打破一下，爬山或在树林里度过一个星期。 洗净你的精神。`,
             jp: `自然の心に近づけないでください…そして時々、立ち去り、山に登ったり、森の中で一週間過ごしたりしましょう。 あなたの精神をきれいに洗ってください。`
+        },
+        contentMore: {
+          en: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
+          ko: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
+          ch: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
+          jp: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
         }
     }
 ];
