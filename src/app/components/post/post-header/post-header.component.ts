@@ -18,9 +18,22 @@ export class PostHeaderComponent implements OnInit {
     }
 
     ngOnInit() {
-        if (this.post) {
-            console.log(this.post);
+        // if (this.post) {
+        //     console.log(this.post);
+        // }
+    }
+
+    get subtitleContent() {
+        if (!this.post.comments.length) {
+            return null;
         }
+        const nonDeletedComments = [];
+        this.post.comments.forEach(comment => {
+            if (comment.content.trim()) {
+                nonDeletedComments.push(`${comment.content} - <i>Comment by ${comment.user.name}</i>`);
+            }
+        });
+        return nonDeletedComments.length ? this.a.safeHtml(nonDeletedComments.shift()) : null;
     }
 }
 
