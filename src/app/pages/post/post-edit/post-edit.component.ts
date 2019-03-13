@@ -32,21 +32,21 @@ export class PostEditComponent implements OnInit {
     }
 
     ionViewWillEnter() {
-        this.load();
+        this.doInit();
     }
 
     ionViewWillLeave() {
         this.reset();
     }
 
-    load() {
+    doInit() {
         this.activatedRoute.queryParamMap.subscribe(params => {
             this.idx_category = params.get('category');
 
             // load post if update
             if (params.get('action') === 'update') {
                 this.a.sp.postGet(params.get('idx')).subscribe(post => {
-                    console.log(post);
+                    // console.log(post);
                     Object.assign(this.post, post);
                 }, e => this.a.error(e));
             }
@@ -69,27 +69,37 @@ export class PostEditComponent implements OnInit {
                 editor: 'simple-editor'
             };
 
-            this.a.sp.postUpdate(data).subscribe(post => {
-                this.openPost();
-            }, e => this.a.error(e));
-
+            const inc = this.a.isIncomplete(data);
+            if (inc) {
+                return this.a.error(inc);
+            } else {
+                this.a.sp.postUpdate(data).subscribe(post => {
+                    this.openPost();
+                }, e => this.a.error(e));
+            }
 
         } else { // create
 
-            this.post.relation = this.a.settings.site.idx;
+            // this.post.relation = this.a.settings.site.idx;
+            this.post.relation = '5';
             this.post.taxonomy = 'sites';
-            this.post.editor = 'text-editor';
+            this.post.editor = 'simple-editor';
             this.post.idx_category = this.idx_category;
 
-            this.a.sp.postCreate(this.post).subscribe(post => {
-                this.openPost();
-            }, e => this.a.error(e));
-
+            const inc = this.a.isIncomplete({ title: this.post.title, content: this.post.content });
+            if (inc) {
+                return this.a.error(inc);
+            } else {
+                this.a.sp.postCreate(this.post).subscribe(post => {
+                    console.log('create', post);
+                    this.openPost();
+                }, e => this.a.error(e));
+            }
         }
     }
 
     openPost() {
-        this.router.navigateByUrl('/post/view', { queryParams: { idx: this.post.idx } });
+        this.router.navigate(['/post/view'], { queryParams: { category: this.idx_category, idx: this.post.idx } });
     }
 
 }

@@ -1,8 +1,8 @@
-<ion-text>
+<ion-text class=" d-flex ">
     <h2 class="ml-1 m-0 fs-md ">
         {{ comment.user.name }}
-        <span class="ml-1 fs-sm">{{ a.shortDate(comment.stamp_created) }}</span>
     </h2>
+    <span class="ml-1 fs-sm">{{ a.shortDate(comment.stamp_created) }}</span>
 </ion-text>
 <div class="ml-1 p-2 bg-gray rounded" [innerHTML]=" comment.content ? comment['safeContent'] : deleted " *ngIf=" root['commentInUpdate'] !== comment.idx ">
 </div>

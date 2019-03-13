@@ -18,8 +18,10 @@ export class PostHeaderComponent implements OnInit {
     }
 
     ngOnInit() {
+        if (this.post) {
+            console.log(this.post);
+        }
     }
-
 }
 
 

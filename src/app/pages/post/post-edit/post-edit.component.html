@@ -10,7 +10,7 @@
 </ion-header>
 
 <ion-content padding>
-    <form (ngSubmit)=" true ">
+    <form (ngSubmit)=" onSubmit() ">
         <ion-item class="mt-3 border rounded">
             <ion-input name="title" type="text" [placeholder]=" a.t('title') " [(ngModel)]=" post.title " required></ion-input>
         </ion-item>

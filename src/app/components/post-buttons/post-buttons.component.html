@@ -15,7 +15,7 @@
             <span class="ml-1" *ngIf=" parent.good != 0 "> ({{ parent.good }}) </span>
         </ion-button>
 
-        <ion-button expand="full" fill="clear" (click)=" openPopupMenu( $event ) " *ngIf=" !mine ">
+        <ion-button expand="full" fill="clear" (click)=" openPopupMenu( $event ) " *ngIf=" mine ">
             <ion-icon name="more"></ion-icon>
         </ion-button>
     </ion-buttons>

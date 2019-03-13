@@ -1,7 +1,7 @@
 <ion-card-header (click)="post.view = !post.view">
     <ion-card-title class="d-flex">
-        <app-post-user-profile [user]=" post.user " *ngIf=" post.user.photo_url.length "></app-post-user-profile>
-        <div [class.ml-3]="post.user.photo_url.length ">
+        <app-post-user-profile [user]=" post.user " *ngIf=" post.user.photo_url && post.user.photo_url.length "></app-post-user-profile>
+        <div [class.ml-3]="  post.user.photo_url && post.user.photo_url.length ">
             <div>
                 {{ post.title }}
                 <ion-icon *ngIf="post.files.length" name="images"></ion-icon>
@@ -12,6 +12,6 @@
         </div>
     </ion-card-title>
     <ion-card-subtitle *ngIf=" post.comments.length && !post.view ">
-        {{ post.comments[0].content }}
+        <div [innerHTML]="  post.comments[0].content  "></div>
     </ion-card-subtitle>
 </ion-card-header>
