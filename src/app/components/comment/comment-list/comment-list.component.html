@@ -1,5 +1,5 @@
-<section class="comment-list" *ngIf=" comments.length ">
-    <div class="my-2 mx-3 d-flex" [attr.depth]=" comment?.depth " *ngFor="let comment of comments">
+<section class="comment-list px-3" *ngIf=" comments.length ">
+    <div class="my-2 d-flex" [attr.depth]=" comment?.depth " *ngFor="let comment of comments">
         <div>
             <ion-thumbnail>
                 <img class="circle" src="{{ comment.photo ? comment.photo : '/assets/img/avatar.jpg' }}">
