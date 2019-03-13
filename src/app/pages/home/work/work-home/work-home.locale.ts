@@ -73,6 +73,12 @@ export const cards = [
       ko: `자연의 마음과 가깝게 지내십시오. 한동안 잠시 쉬고 산을 오르거나 숲에서 일주일을 보내십시오. 정신을 깨끗이 씻으십시오.`,
       ch: `靠近大自然的心脏......偶尔打破一下，爬山或在树林里度过一个星期。 洗净你的精神。`,
       jp: `自然の心に近づけないでください…そして時々、立ち去り、山に登ったり、森の中で一週間過ごしたりしましょう。 あなたの精神をきれいに洗ってください。`
+    },
+    contentMore: {
+      en: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
+      ko: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
+      ch: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
+      jp: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
     }
   },
 
@@ -106,6 +112,12 @@ export const cards = [
       ko: `자연의 마음과 가깝게 지내십시오. 한동안 잠시 쉬고 산을 오르거나 숲에서 일주일을 보내십시오. 정신을 깨끗이 씻으십시오.`,
       ch: `靠近大自然的心脏......偶尔打破一下，爬山或在树林里度过一个星期。 洗净你的精神。`,
       jp: `自然の心に近づけないでください…そして時々、立ち去り、山に登ったり、森の中で一週間過ごしたりしましょう。 あなたの精神をきれいに洗ってください。`
+    },
+    contentMore: {
+      en: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
+      ko: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
+      ch: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
+      jp: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
     }
   },
 
@@ -139,6 +151,12 @@ export const cards = [
       ko: `자연의 마음과 가깝게 지내십시오. 한동안 잠시 쉬고 산을 오르거나 숲에서 일주일을 보내십시오. 정신을 깨끗이 씻으십시오.`,
       ch: `靠近大自然的心脏......偶尔打破一下，爬山或在树林里度过一个星期。 洗净你的精神。`,
       jp: `自然の心に近づけないでください…そして時々、立ち去り、山に登ったり、森の中で一週間過ごしたりしましょう。 あなたの精神をきれいに洗ってください。`
+    },
+    contentMore: {
+      en: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
+      ko: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
+      ch: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
+      jp: `<div class="mt-3">This is more content. This is more content. This is more content. This is more content. This is more content. This is more content. This is more content.</div>`,
     }
   }
 ];
