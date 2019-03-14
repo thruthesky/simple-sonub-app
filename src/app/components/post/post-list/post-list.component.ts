@@ -16,7 +16,7 @@ export class PostListComponent implements OnInit {
    *  - when title is clicked, it will hide content, images and comment ( if any ).
    *
    * text type will only show post title.
-   * - when title is clicked, it will show content, images and comment ( if any ).
+   * - when title is clicked, it will show content, images and comment ( if any )..
    */
   @Input() designType: 'gallery' | 'text';
 
