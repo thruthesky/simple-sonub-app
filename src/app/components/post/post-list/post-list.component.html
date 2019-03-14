@@ -1,4 +1,4 @@
-<ion-content class="articles" *ngIf="posts.length">
+<ion-content class="articles" *ngIf="posts.length; else skeleton">
   <ion-card *ngFor="let post of posts">
 
     <app-post-header [post]=" post "></app-post-header>
@@ -12,3 +12,23 @@
 
   </ion-card>
 </ion-content>
+
+<ng-template #skeleton>
+  <ion-card class="ion-padding" *ngFor="let n of [ 0, 1, 2, 3 ]">
+
+    <div class="d-flex">
+      <div>
+        <div class="skeleton-image"></div>
+      </div>
+      <ion-label class="ml-3 w-100">
+        <p>
+          <ion-skeleton-text animated style="width: 75%"></ion-skeleton-text>
+        </p>
+        <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+        <ion-skeleton-text animated style="width: 65%"></ion-skeleton-text>
+      </ion-label>
+    </div>
+    <ion-skeleton-text class=" mt-2 " animated style="width: 60%"></ion-skeleton-text>
+
+  </ion-card>
+</ng-template>

@@ -57,8 +57,12 @@ export class PostListComponent implements OnInit {
           arr.push(post);
         }
       });
+
+      // setTimeout(() => {
+
       Object.assign(this.posts, arr);
-      console.log(this.posts);
+      // }, 1000);
+
     });
   }
 
