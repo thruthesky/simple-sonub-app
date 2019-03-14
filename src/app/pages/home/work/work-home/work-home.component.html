@@ -32,7 +32,7 @@
 
 </ion-card>
 
-<ion-card *ngFor=" let n of [ 0, 1, 2 ] ">
+<ion-card class="post" *ngFor=" let n of [ 0, 1, 2 ] ">
     <ion-img src="/assets/apps/{{ a.env.domain }}/home/card-{{ n }}.jpg"></ion-img>
     <ion-card-header>
         <ion-card-subtitle>{{ a.t( cards[n].subtitle ) }}</ion-card-subtitle>
