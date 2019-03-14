@@ -3,6 +3,7 @@ import { Post, Comment } from 'modules/ng-simplest/simplest.interface';
 import { AppService } from 'src/app/services/app.service';
 import { PopoverController } from '@ionic/angular';
 import { PopupMenuComponent } from '../popup-menu/popup-menu.component';
+import { AppSettingForum } from 'src/app/services/interfaces';
 
 @Component({
     selector: 'app-post-buttons',
@@ -12,6 +13,7 @@ import { PopupMenuComponent } from '../popup-menu/popup-menu.component';
 export class PostButtonsComponent implements OnInit {
 
     @Input() forumIndex: string;
+    @Input() forumSettings: AppSettingForum;
     @Input() root: Post;
     @Input() parent: Post & Comment;
     constructor(
@@ -34,7 +36,7 @@ export class PostButtonsComponent implements OnInit {
      * apps will only support like or 'good' votes
      */
     onClickVote() {
-        this.a.vote(this.parent.idx, 'G').subscribe(res => {
+        this.a.vote(this.parent.idx, this.forumSettings.type, 'G').subscribe(res => {
             console.log(res);
 
             this.parent.good = res.good;

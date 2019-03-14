@@ -11,7 +11,6 @@ export class CommentContentComponent implements OnInit {
 
     @Input() root: Post;
     @Input() comment: Comment;
-
     constructor(
         public a: AppService
     ) {

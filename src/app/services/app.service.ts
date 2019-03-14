@@ -6,7 +6,7 @@ import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
 import { Observable, throwError } from 'rxjs';
 import { Post, PostList, VoteResponse, Comment } from 'modules/ng-simplest/simplest.interface';
 import { map } from 'rxjs/operators';
-import { ApiPost } from 'modules/philgo-api/philgo-api-interface';
+import { ApiPost, ApiVoteResponse } from 'modules/philgo-api/philgo-api-interface';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AppSettingForum, Environment, AppSettingSite, AppSettingFooterMenu } from './interfaces';
 import { environment } from 'src/environments/environment';
@@ -260,9 +260,18 @@ export class AppService {
         toast.present();
     }
 
-    vote(idx: string, vote: 'G' | 'B'): Observable<VoteResponse> {
-        return this.sp.vote({ idx_post: idx, vote: vote });
+    vote(idx: string, forum_type: string, vote: 'G' | 'B'): Observable<VoteResponse | ApiVoteResponse> {
+        if (forum_type === 'sonub') {
+            return this.sp.vote({ idx_post: idx, vote: vote });
+        } else {
+            return this.philgo.vote({ idx: idx, for: vote });
+        }
     }
+
+
+    // vote(idx: string, vote: 'G' | 'B'): Observable<VoteResponse> {
+    //     return this.sp.vote({ idx_post: idx, vote: vote });
+    // }
 
     commentCreate(comment: Comment): Observable<Comment> {
         return this.sp.commentCreate(comment);
