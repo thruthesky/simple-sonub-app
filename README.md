@@ -146,10 +146,10 @@ We may need to give the user manual to our clients. So we have [Sonub App User M
 
 * You can change
   * title image - by adding image at `/src/assets/apps/[app-name]/contact-title-image.jpg`
-    * title image should be square and  be minimum of 520 pixels of width & height.
+    * The best fit of title image is 500x500 pixels. It is best fit when it is squre. If it is rectangle, you may have to adjust the text position.
     * should be dark on the top of the title image since the title text is white.
   * person image - by adding image at `/src/assets/apps/[app-name]/contact-person-image.jpg`
-    * person image should be square and  be minimum of 128 pixels of width & height.
+    * person image should be also square and  be minimum of 128 pixels of width & height.
   * texts - by setting in environemnt.
 
 ### Menu customisation

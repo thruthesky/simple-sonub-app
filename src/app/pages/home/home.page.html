@@ -11,7 +11,9 @@
 
 
 <ion-content>
-  <app-work-home *ngIf=" a.env.domain == 'work' "></app-work-home>
-  <app-lasema-home *ngIf=" a.env.domain == 'lasema' "></app-lasema-home>
-  <app-evieco-home *ngIf=" a.env.domain == 'evieco' "></app-evieco-home>
+  <div class="mb-6">
+    <app-work-home *ngIf=" a.env.domain == 'work' "></app-work-home>
+    <app-lasema-home *ngIf=" a.env.domain == 'lasema' "></app-lasema-home>
+    <app-evieco-home *ngIf=" a.env.domain == 'evieco' "></app-evieco-home>
+  </div>
 </ion-content>

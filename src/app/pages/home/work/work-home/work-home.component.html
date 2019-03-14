@@ -39,14 +39,23 @@
         <ion-card-title>{{ a.t( cards[n].title ) }}</ion-card-title>
     </ion-card-header>
 
-    <ion-card-content>{{ a.t( cards[n].content ) }}</ion-card-content>
+    <ion-card-content>
+
+        <div (click)="cards[n]['showMore'] = true">
+            <span class="d-inline">{{ a.t( cards[n].content ) }}</span>
+            <span class="d-inline pl-2" *ngIf=" ! cards[n]['showMore'] ">{{ a.t('read more') }} ...</span>
+        </div>
+
+        <div [innerHTML]=" a.t( cards[n].contentMore ) " *ngIf="cards[n]['showMore']"></div>
+
+    </ion-card-content>
     <ion-item>
         <ion-avatar item-start>
             <img src="/assets/img/avatar.jpg" />
         </ion-avatar>
         <div class="ml-3">
-            <h2 class="m-0 p-0 fw-light fs-md">Evie & Co</h2>
-            <p class="m-0 p-0 fw-light fs-xs">November 5, 1955</p>
+            <h2 class="m-0 p-0 fw-light fs-md">{{ a.t( cards[n].name ) }}</h2>
+            <p class="m-0 p-0 fw-light fs-xs">{{ a.t( cards[n].date ) }}</p>
         </div>
     </ion-item>
 </ion-card>

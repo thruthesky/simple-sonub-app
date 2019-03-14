@@ -31,6 +31,7 @@ export const basicTexts = {
     female: { en: 'Female', ko: '여자', ch: '女', jp: '女性' },
     submit: { en: 'Submit', ko: '전송', ch: '提交', jp: '提出する' },
     update: { en: 'Update', ko: '업데이트', ch: '更新', jp: '更新' },
+    'phone number': { en: 'Phone Number', ko: '전화번호', ch: '电话号码', jp: '電話番号' },
 
     // need check
     gender: { en: 'Gender', ko: '성별', ch: '性别', jp: '性別' },
