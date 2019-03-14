@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Posts } from 'modules/ng-simplest/simplest.interface';
+import { Posts, Post } from 'modules/ng-simplest/simplest.interface';
 import { AppSettingForum } from 'src/app/services/interfaces';
 import { AppService } from 'src/app/services/app.service';
 import { ActivatedRoute } from '@angular/router';
@@ -19,6 +19,9 @@ export class PostListComponent implements OnInit {
    * - when title is clicked, it will show content, images and comment ( if any )..
    */
   @Input() designType: 'gallery' | 'text';
+
+  // loaded = false;
+  intval = 0;
 
 
   /**
@@ -47,23 +50,29 @@ export class PostListComponent implements OnInit {
 
   loadPage() {
     this.a.postList(this.forumSettings, 1).subscribe(res => {
-      const arr = [];
-      res.forEach(post => {
-        if (!post.stamp_deleted || post.stamp_deleted === '0') {
-          post['safe_content'] = this.a.safeHtml(post.content);
-          if (this.designType === 'gallery') {
-            post.view = true;
-          }
-          arr.push(post);
-        }
-      });
+      // const arr = [];
+      res.forEach(post => this.delayDisplay(post));
 
       // setTimeout(() => {
 
-      Object.assign(this.posts, arr);
+      // Object.assign(this.posts, arr);
       // }, 1000);
 
+
+      // setTimeout(() => this.loaded = true, 2000);
     });
+  }
+
+  delayDisplay(post: Post) {
+
+    if (!post.stamp_deleted || post.stamp_deleted === '0') {
+      post['safe_content'] = this.a.safeHtml(post.content);
+      if (this.designType === 'gallery') {
+        post.view = true;
+      }
+      // arr.push(post);
+      this.posts.push(post);
+    }
   }
 
 }

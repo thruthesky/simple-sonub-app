@@ -1,9 +1,9 @@
 {
         "config_ios" : {
-          "CFBundleDisplayName": "에비코 반영구화장",
-          "CFBundleName": "에비코 반영구화장"
+          "CFBundleDisplayName": "작업 앱",
+          "CFBundleName": "작업 앱"
         },
         "config_android" : {
-          "app_name": "에비코 반영구화장"
+          "app_name": "작업 앱"
         }
       }

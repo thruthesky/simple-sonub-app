@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="com.sonub.evieco" version="0.0.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Evie &amp; Co</name>
-    <description>Evie Co App</description>
+<widget id="com.sonub.work" version="0.0.8" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Work App</name>
+    <description>This is Description for Work App</description>
     <author email="thruthesky@gmail.com" href="https://www.philgo.com/">PhilGo Dev Team</author>
     <content src="index.html" />
     <access origin="*" />

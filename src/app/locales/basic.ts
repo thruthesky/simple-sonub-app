@@ -41,7 +41,7 @@ export const basicTexts = {
 
     // need check
     gender: { en: 'Gender', ko: '성별', ch: '性别', jp: '性別' },
-    'required': { en: 'Required : ', ko: '필수: ', ch: '需要: ', jp: '必須: ' },
+    required: { en: 'Required : ', ko: '필수: ', ch: '需要: ', jp: '必須: ' },
 
     /** Error */
     email_in_use: {
@@ -59,7 +59,4 @@ export const basicTexts = {
 
     read_more: { en: 'Read more', ko: '더 보기', ch: '阅读更多', jp: '続きを読む' },
 
-    // need check
-    gender: { en: 'Gender', ko: '성별', ch: '性别', jp: '性別' },
-    required: { en: 'Required : ', ko: '필수: ', ch: '需要: ', jp: '必須: ' }
 };
