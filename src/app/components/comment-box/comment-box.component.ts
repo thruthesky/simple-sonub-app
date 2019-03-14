@@ -89,7 +89,7 @@ export class CommentBoxComponent implements OnInit {
         this.a.sp.commentUpdate(this.form).subscribe(comment => {
 
             comment['update'] = null;
-            comment['safeContent'] = this.a.safeHtml(comment.content);
+            comment['safe_content'] = this.a.safeHtml(comment.content);
             Object.assign(this.comment, comment);
             this.a.success('Comment Updated!');
             this.reset();

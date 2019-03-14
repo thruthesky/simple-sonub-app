@@ -3,7 +3,6 @@ import { Post, Comment } from 'modules/ng-simplest/simplest.interface';
 import { AppService } from 'src/app/services/app.service';
 import { PopoverController } from '@ionic/angular';
 import { PopupMenuComponent } from '../popup-menu/popup-menu.component';
-import { Router } from '@angular/router';
 
 @Component({
     selector: 'app-post-buttons',
@@ -17,7 +16,6 @@ export class PostButtonsComponent implements OnInit {
     @Input() parent: Post & Comment;
     constructor(
         public a: AppService,
-        private router: Router,
         private popoverController: PopoverController
     ) {
     }
@@ -43,35 +41,8 @@ export class PostButtonsComponent implements OnInit {
         }, e => this.a.error(e));
     }
 
-    onDelete() {
-        const content_deleted = this.a.t('deleted');
-
-        if (this.parent.idx_parent === '0') {
-            this.a.sp.postDelete(this.parent.idx).subscribe(res => {
-                this.parent.title = `(${content_deleted})`;
-                this.parent.content = `(${content_deleted})`;
-                this.parent.content_stripped = `(${content_deleted})`;
-                this.parent.stamp_deleted = '1';
-
-                this.a.success('Post Deleted!');
-
-            }, e => this.a.error(e));
-        } else {
-            this.a.sp.commentDelete(this.parent.idx).subscribe(res => {
-                this.parent.content = `(${content_deleted})`;
-                this.parent.content_stripped = `(${content_deleted})`;
-                this.parent.stamp_deleted = '1';
-                this.parent.files = [];
-
-                this.a.success('Comment Deleted!');
-
-            }, e => this.a.error(e));
-        }
-    }
-
-
     onUpdate() {
-        if (this.parent.idx_parent === '0') {
+        if (this.isPost) {
             this.a.openPostEdit('update', this.forumIndex, this.parent.idx);
         } else {
             if (this.root['replyTo']) {
@@ -79,6 +50,42 @@ export class PostButtonsComponent implements OnInit {
             }
             this.root['commentInUpdate'] = this.parent.idx;
         }
+    }
+
+
+    onDelete() {
+
+        if (this.isPost) {
+            this.a.sp.postDelete(this.parent.idx).subscribe(res => {
+
+                this.commitDelete();
+                this.a.success('Post Deleted!');
+
+            }, e => this.a.error(e));
+        } else {
+            this.a.sp.commentDelete(this.parent.idx).subscribe(res => {
+
+                this.commitDelete();
+                this.a.success('Comment Deleted!');
+
+            }, e => this.a.error(e));
+        }
+    }
+
+    commitDelete() {
+        const content_deleted = `( ${this.a.t('deleted')} )`;
+
+        this.parent.content = content_deleted;
+        this.parent['safe_content'] = content_deleted;
+        this.parent.content_stripped = content_deleted;
+        this.parent.stamp_deleted = '1';
+        this.parent.files = [];
+
+        if (this.isPost) {
+            this.parent.title = content_deleted;
+        }
+
+        console.log(this.parent);
     }
 
     async openPopupMenu(ev: any): Promise<any> {
@@ -120,6 +127,13 @@ export class PostButtonsComponent implements OnInit {
             return false;
         }
         return true;
+    }
+
+    get isPost(): boolean {
+        if (this.parent.idx_parent === '0') {
+            return true;
+        }
+        return false;
     }
 }
 

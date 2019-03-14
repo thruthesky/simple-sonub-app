@@ -1,0 +1,7 @@
+<ion-grid *ngIf=" files.length > 1; else images ">
+    <ion-img [src]=" file.url " *ngFor=" let file of files "></ion-img>
+</ion-grid>
+
+<ng-template #images>
+    <ion-img [src]=" files[0].url "></ion-img>
+</ng-template>

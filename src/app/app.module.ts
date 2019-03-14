@@ -40,8 +40,11 @@ import { PopupMenuComponentModule } from './components/popup-menu/popup-menu.com
 import { CommentContentComponent } from './components/comment/comment-content/comment-content.component';
 import { PostContentComponent } from './components/post/post-content/post-content.component';
 import { PostHeaderComponent } from './components/post/post-header/post-header.component';
-import { PostUserProfileComponent } from './components/post-user-profile/post-user-profile.component';
+import { PostUserProfileComponent } from './components/post/post-user-profile/post-user-profile.component';
 import { PostEditComponent } from './pages/post/post-edit/post-edit.component';
+import { FileDisplayComponent } from './components/file-display/file-display.component';
+import { CommentUserProfileComponent } from './components/comment/comment-user-profile/comment-user-profile.component';
+import { CommentHeaderComponent } from './components/comment/comment-header/comment-header.component';
 
 
 @NgModule({
@@ -66,10 +69,13 @@ import { PostEditComponent } from './pages/post/post-edit/post-edit.component';
     CommentContentComponent,
     PostButtonsComponent,
     CommentBoxComponent,
+    CommentUserProfileComponent,
+    CommentHeaderComponent,
 
     FooterToolbarComponent,
     SideMenuComponent,
     ImageTextComponent,
+    FileDisplayComponent,
 
     HomePage,
     WorkHomeComponent,

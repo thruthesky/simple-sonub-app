@@ -24,8 +24,8 @@ export class PostListComponent implements OnInit {
   /**
    * Forum settings from environemnt.
    */
-  forumIndex: string;
   forumSettings: AppSettingForum;
+  forumIndex: string;
   posts: Posts = [];
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -37,7 +37,7 @@ export class PostListComponent implements OnInit {
   }
 
   doInit() {
-    console.log('PostListComponent::ionViewDidEnter()');
+    // console.log('PostListComponent::ionViewDidEnter()');
     this.activatedRoute.queryParamMap.subscribe(params => {
       this.forumIndex = params.get('i');
       this.forumSettings = this.a.forumSetting(params.get('i'));
@@ -47,15 +47,18 @@ export class PostListComponent implements OnInit {
 
   loadPage() {
     this.a.postList(this.forumSettings, 1).subscribe(res => {
+      const arr = [];
       res.forEach(post => {
-        post['safe_content'] = this.a.safeHtml(post.content);
-
-        if (this.designType === 'gallery') {
-          post.view = true;
+        if (!post.stamp_deleted || post.stamp_deleted === '0') {
+          post['safe_content'] = this.a.safeHtml(post.content);
+          if (this.designType === 'gallery') {
+            post.view = true;
+          }
+          arr.push(post);
         }
-
       });
-      Object.assign(this.posts, res);
+      Object.assign(this.posts, arr);
+      console.log(this.posts);
     });
   }
 

@@ -37,7 +37,7 @@ export class PostHeaderComponent implements OnInit {
         }
         const nonDeletedComments = [];
         this.post.comments.forEach(comment => {
-            if (comment.content.trim()) {
+            if (comment.stamp_deleted === '0') {
                 nonDeletedComments.push(`${comment.content} - <i>Comment by ${this.user(comment.user)}</i>`);
             }
         });

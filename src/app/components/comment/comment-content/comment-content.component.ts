@@ -19,10 +19,15 @@ export class CommentContentComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.comment['safeContent'] = this.a.safeHtml(this.comment.content);
+        this.comment['safe_content'] = this.a.safeHtml(this.comment.content);
+        // console.log(this.comment);
     }
 
-    get deleted() {
-        return `(${this.a.t('deleted')})`;
+    get content(): string {
+        if (this.comment.stamp_deleted !== '0') {
+            return `(${this.a.t('deleted')})`;
+        } else {
+            return this.comment['safe_content'];
+        }
     }
 }

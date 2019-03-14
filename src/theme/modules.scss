@@ -61,13 +61,14 @@
 }
 
 .comment-box {
+    display: flex;
     margin: 1rem auto;
     border: 1px solid gray;
     border-radius: .25rem;
     width: 95%;
 
-    --padding-start: .5rem;
-    --inner-padding-end: .5rem;
+    // --padding-start: .5rem;
+    // --inner-padding-end: .5rem;
 
     ion-button {
         --padding-end: 0;
