@@ -46,6 +46,10 @@ export class CommentBoxComponent implements OnInit {
     onSubmit() {
         this.loading = true;
 
+        if ((!this.form.content || !this.form.content.trim()) && !this.form.files) {
+            return this.a.error(this.a.t('no_image_and_content'));
+        }
+
         if (this.comment) {
             return this.updateComment();
         } else {
@@ -54,10 +58,6 @@ export class CommentBoxComponent implements OnInit {
     }
 
     createComment() {
-        if (!this.form.content.trim()) {
-            return this.a.error('Please Input Comment');
-        }
-
         this.form.idx_parent = this.parent.idx;
         this.a.sp.commentCreate(this.form).subscribe(comment => {
 
@@ -74,16 +74,15 @@ export class CommentBoxComponent implements OnInit {
                     this.root.comments.splice(i + 1, 0, comment);
                 }
             }
-            this.a.success('Comment Created!');
             this.reset();
 
         }, e => this.a.error(e));
     }
 
     updateComment() {
-        if (!this.form.content.trim()) {
-            return this.a.error('Please Input Comment');
-        }
+        // if (!this.form.content.trim()) {
+        //     return this.a.error('Please Input Comment');
+        // }
 
         this.form.idx = this.comment.idx;
         this.a.sp.commentUpdate(this.form).subscribe(comment => {
@@ -91,7 +90,6 @@ export class CommentBoxComponent implements OnInit {
             comment['update'] = null;
             comment['safe_content'] = this.a.safeHtml(comment.content);
             Object.assign(this.comment, comment);
-            this.a.success('Comment Updated!');
             this.reset();
 
         }, e => this.a.error(e));

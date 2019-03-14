@@ -1,8 +1,7 @@
 <app-comment-header [comment]=" comment "></app-comment-header>
 
-<div class="ml-1 p-2 mr-3 bg-gray rounded">
-    <div [innerHTML]=" content" *ngIf=" root['commentInUpdate'] !== comment.idx ">
-    </div>
+<div class="ml-1 p-2 mr-3 bg-gray rounded" *ngIf=" root['commentInUpdate'] !== comment.idx ">
+    <div [innerHTML]=" content"></div>
     <app-file-display *ngIf=" comment.files && comment.files.length " [files]=" comment.files "></app-file-display>
 </div>
 

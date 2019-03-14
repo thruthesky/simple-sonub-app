@@ -74,7 +74,11 @@ export class PostEditComponent implements OnInit {
             this.post.taxonomy = 'sites';
             this.post.idx_category = this.forumSetting.idx_category;
 
-            const inc = this.a.isIncomplete({ title: this.post.title, content: this.post.content });
+            if ((!this.post.content || !this.post.content.trim()) && !this.post.files) {
+                return this.a.error(this.a.t('no_image_and_content'));
+            }
+
+            const inc = this.a.isIncomplete({ title: this.post.title });
             if (inc) {
                 return this.a.error(inc);
             } else {

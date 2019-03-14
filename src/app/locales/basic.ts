@@ -45,6 +45,13 @@ export const basicTexts = {
         ch: '您输入的电子邮件已经注册。 如果是您的电子邮件，那么只需登录即可。',
         jp: '入力したメールアドレスは既に登録されています。 それがあなたのEメールの場合は、ログインしてください。'
     },
+    no_image_and_content: {
+        en: 'Please input content or upload images',
+        ko: '코멘트를 입력하거나 이미지를 업로드하십시오.',
+        ch: '请输入评论或上传图片',
+        jp: 'コメントを入力するか、画像をアップロードしてください'
+    },
+
     read_more: { en: 'Read more', ko: '더 보기', ch: '阅读更多', jp: '続きを読む' },
 
     // need check
