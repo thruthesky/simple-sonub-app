@@ -37,6 +37,11 @@ export const basicTexts = {
     comment: { en: 'Comment', ko: '코멘트', ch: '评论', jp: 'コメント' },
     edit: { en: 'Edit', ko: '수정', ch: '编辑', jp: '編集する' },
     like: { en: 'Like', ko: '찬성', ch: '喜欢', jp: '好き' },
+    'phone number': { en: 'Phone Number', ko: '전화번호', ch: '电话号码', jp: '電話番号' },
+
+    // need check
+    gender: { en: 'Gender', ko: '성별', ch: '性别', jp: '性別' },
+    'required': { en: 'Required : ', ko: '필수: ', ch: '需要: ', jp: '必須: ' },
 
     /** Error */
     email_in_use: {
