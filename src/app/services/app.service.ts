@@ -205,6 +205,52 @@ export class AppService {
     }
 
     /**
+     * 
+     */
+    philgoLoginOrRegister() {
+        if (this.isLoggedIn) {
+            this.philgo.loginOrRegister({
+                user_domain: 'sonub',
+                user_email: 'sonub-' + this.sp.myEmail,
+                user_password: 'sonub-' + this.sp.myIdx + this.sp.user.stamp_created,
+                user_name: this.sp.myName + '@sonub',
+                char_7: 'M'
+            }).subscribe(user => {
+            }, e => {
+                console.error(e);
+            });
+        }
+    }
+
+    /**
+     *
+     * @param idx post or comment idx
+     * @param forum_type 'philgo' | 'sonub'
+     * @param vote 'G' | 'B'
+     *
+     */
+    vote(idx: string, forum_type: string, vote: 'G' | 'B'): Observable<VoteResponse> {
+        if (forum_type === 'sonub') {
+            return this.sp.vote({ idx_post: idx, vote: vote });
+        } else {
+            return this.philgo.postLike({ idx: idx, mode: vote === 'G' ? 'good' : 'bad' }).pipe(
+                // return sample { idx: null, mode: "good", result: 1 }
+                map(res => {
+                    const v = <VoteResponse>{};
+                    if (res.mode === 'good') {
+                        v.good = res.result;
+                        v.bad = '0';
+                    } else {
+                        v.bad = res.result;
+                        v.good = '0';
+                    }
+                    return v;
+                })
+            );
+        }
+    }
+
+    /**
      * redirect to post-edit view page.
      *
      * @param action 'create' | 'update'
@@ -272,48 +318,6 @@ export class AppService {
 
         toast.present();
     }
-
-
-    philgoLoginOrRegister() {
-        if (this.isLoggedIn) {
-            this.philgo.loginOrRegister({
-                user_domain: 'sonub',
-                user_email: 'sonub-' + this.sp.myEmail,
-                user_password: 'sonub-' + this.sp.myIdx + this.sp.user.stamp_created,
-                user_name: this.sp.myName + '@sonub',
-                char_7: 'M'
-            }).subscribe(user => {
-            }, e => {
-                console.error(e);
-            });
-        }
-    }
-
-    vote(idx: string, forum_type: string, vote: 'G' | 'B'): Observable<VoteResponse> {
-        if (forum_type === 'sonub') {
-            return this.sp.vote({ idx_post: idx, vote: vote });
-        } else {
-            return this.philgo.postLike({ idx: idx, mode: vote === 'G' ? 'good' : 'bad' }).pipe(
-                // return sample { idx: null, mode: "good", result: 1 }
-                map(res => {
-                    const v = <VoteResponse>{};
-                    if (res.mode === 'good') {
-                        v.good = res.result;
-                        v.bad = '0';
-                    } else {
-                        v.bad = res.result;
-                        v.good = '0';
-                    }
-                    return v;
-                })
-            );
-        }
-    }
-
-
-    // vote(idx: string, vote: 'G' | 'B'): Observable<VoteResponse> {
-    //     return this.sp.vote({ idx_post: idx, vote: vote });
-    // }
 
     commentCreate(comment: Comment): Observable<Comment> {
         return this.sp.commentCreate(comment);
