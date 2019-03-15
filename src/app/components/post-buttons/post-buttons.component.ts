@@ -44,7 +44,11 @@ export class PostButtonsComponent implements OnInit {
 
     onUpdate() {
         if (this.isPost) {
-            this.a.openPostEdit('update', this.forumIndex, this.parent.idx);
+            this.a.openPostEdit(
+                'update',
+                this.forumIndex,
+                this.parent.idx,
+                this.forumSettings.post_id);
         } else {
             if (this.root['replyTo']) {
                 this.root['replyTo'] = null;
@@ -55,23 +59,14 @@ export class PostButtonsComponent implements OnInit {
 
 
     onDelete() {
-
-        if (this.isPost) {
-            this.a.postDelete(this.parent, this.forumSettings).subscribe(res => {
-                console.log(this.parent);
-
-                this.commitDelete();
-                this.a.success('Post Deleted!');
-
-            }, e => this.a.error(e));
-        } else {
-            this.a.sp.commentDelete(this.parent.idx).subscribe(res => {
-
-                this.commitDelete();
+        this.a.delete(this.parent, this.forumSettings).subscribe(res => {
+            this.commitDelete();
+            if (this.isPost) {
+                return this.a.success('Post Deleted!');
+            } else {
                 this.a.success('Comment Deleted!');
-
-            }, e => this.a.error(e));
-        }
+            }
+        }, e => this.a.error(e));
     }
 
     commitDelete() {

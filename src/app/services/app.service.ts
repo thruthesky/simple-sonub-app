@@ -317,6 +317,24 @@ export class AppService {
         }
     }
 
+    postUpdate(post: Post, forum: AppSettingForum): Observable<Post> {
+        if (forum.type === 'sonub') {
+            return this.sp.postUpdate(post);
+        } else {
+            const data = <ApiPostData>{
+                idx: post.idx,
+                content: post.content,
+                subject: post.title,
+            };
+            return this.philgo.postEdit(data).pipe(
+                map(res => {
+                    const p = this.transformPhilgoPostToSonubPost(res);
+                    return p;
+                })
+            );
+        }
+    }
+
     postGet(idx: string, forum_type: string): Observable<Post> {
         if (forum_type === 'sonub') {
             return this.sp.postGet(idx);
@@ -330,16 +348,22 @@ export class AppService {
         }
     }
 
-    postDelete(post: Post, forum: AppSettingForum) {
+    delete(data: Post & Comment, forum: AppSettingForum) {
         if (forum.type === 'sonub') {
-            return this.sp.postDelete(post.idx);
+            return this.sp.postDelete(data.idx);
         } else {
-            return this.philgo.postDelete({ idx: post.idx }).pipe(
+            return this.philgo.postDelete({ idx: data.idx }).pipe(
                 map(res => {
-                    post.content = '( Deleted )';
-                    post.content_stripped = '( Deleted )';
-                    post.stamp_deleted = '1';
-                    return post;
+                    const content_deleted = `( ${this.t('deleted')} )`;
+
+                    data.content = content_deleted;
+                    data.content_stripped = content_deleted;
+                    data.stamp_deleted = '1';
+
+                    if (data.title && data.title.length) {
+                        data.title = content_deleted;
+                    }
+                    return data;
                 })
             );
         }

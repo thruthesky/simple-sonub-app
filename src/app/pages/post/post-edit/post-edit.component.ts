@@ -63,7 +63,7 @@ export class PostEditComponent implements OnInit {
             if (inc) {
                 return this.a.error(inc);
             } else {
-                this.a.sp.postUpdate(data).subscribe(post => {
+                this.a.postUpdate(data, this.forumSetting).subscribe(post => {
                     this.a.openTab(this.forumSetting.url, this.forumIndex);
                     this.reset();
                 }, e => this.a.error(e));
