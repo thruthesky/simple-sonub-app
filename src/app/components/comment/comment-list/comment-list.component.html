@@ -1,4 +1,4 @@
-<section class="comment-list" *ngIf=" comments.length ">
+<section class="comment-list">
     <div class="my-2 pl-2" [attr.depth]=" comment?.depth " *ngFor="let comment of comments">
         <div class="w-100 d-flex">
             <app-comment-user-profile [user]=" comment.user "></app-comment-user-profile>
@@ -6,9 +6,10 @@
                 <app-comment-header [comment]=" comment "></app-comment-header>
                 <app-comment-content class="w-100" [root]=" post " [comment]=" comment "></app-comment-content>
                 <app-post-buttons [root]=" post " [parent]=" comment " [forumSettings]=" forumSettings " *ngIf=" post['commentInUpdate'] !== comment.idx && a.isLoggedIn "></app-post-buttons>
-                <app-comment-box [root]=" post " [comment]=" comment " *ngIf=" post['commentInUpdate'] === comment.idx "></app-comment-box>
+                <app-comment-box [root]=" post " [comment]=" comment " *ngIf=" post['commentInUpdate'] === comment.idx "
+                    [forumSettings]=" forumSettings "></app-comment-box>
             </div>
         </div>
-        <app-comment-box [root]=" post " [parent]=" comment " *ngIf=" post['replyTo'] === comment.idx "></app-comment-box>
+        <app-comment-box [root]=" post " [parent]=" comment " *ngIf=" post['replyTo'] === comment.idx " [forumSettings]=" forumSettings "></app-comment-box>
     </div>
 </section>

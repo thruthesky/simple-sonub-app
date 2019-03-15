@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Comment, Post } from 'modules/ng-simplest/simplest.interface';
 import { AppService } from 'src/app/services/app.service';
 import { AppLibrary as _ } from '../../services/app-library.service';
+import { AppSettingForum } from 'src/app/services/interfaces';
 
 @Component({
     selector: 'app-comment-box',
@@ -25,6 +26,8 @@ export class CommentBoxComponent implements OnInit {
      * if this have value, the action is comment update
      */
     @Input() comment: Comment = null;
+
+    @Input() forumSettings: AppSettingForum;
 
     loading = false;
     form: Comment = {
@@ -59,8 +62,9 @@ export class CommentBoxComponent implements OnInit {
 
     createComment() {
         this.form.idx_parent = this.parent.idx;
-        this.a.sp.commentCreate(this.form).subscribe(comment => {
+        this.a.commentCreate(this.form, this.forumSettings).subscribe(comment => {
 
+            console.log(comment);
             if (this.parent.idx_parent === '0') {
                 comment['depth'] = '1';
                 this.root.comments.push(comment);

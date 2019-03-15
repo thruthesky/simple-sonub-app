@@ -6,7 +6,7 @@ import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
 import { Observable, throwError } from 'rxjs';
 import { Post, PostList, VoteResponse, Comment, PostUser } from 'modules/ng-simplest/simplest.interface';
 import { map } from 'rxjs/operators';
-import { ApiPost, ApiVoteResponse, ApiVote } from 'modules/philgo-api/philgo-api-interface';
+import { ApiPost, ApiVoteResponse, ApiVote, ApiComment } from 'modules/philgo-api/philgo-api-interface';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AppSettingForum, Environment, AppSettingSite, AppSettingFooterMenu } from './interfaces';
 import { environment } from 'src/environments/environment';
@@ -86,7 +86,7 @@ export class AppService {
             return this.philgo.postSearch({ post_id: forum.post_id, category: forum.category }).pipe(
                 map(search => {
                     // console.log('search: ', search);
-                    const posts = this.transformPhilgoPostToSonubPost(search.posts);
+                    const posts = this.transformPhilgoPostsToSonubPosts(search.posts);
                     // console.log('posts', posts);
                     return posts;
                 })
@@ -96,90 +96,102 @@ export class AppService {
         }
     }
 
-    private transformPhilgoPostToSonubPost(philgo_posts: ApiPost[]) {
+    private transformPhilgoPostsToSonubPosts(philgo_posts: ApiPost[]) {
         const posts: Array<Post> = [];
         for (const p of philgo_posts) {
             // console.log('p: ', p);
-            const np: Post = {};
-
             if (p.deleted === '0') {
-                np.idx = p.idx;
-                np['post_id'] = p.post_id; // This is the mark that this post is philgo post.
-                np['category'] = p.category;
-                np.idx_user = '';
-                np.idx_category = '';
-                np.idx_parent = p.idx_parent;
-                np.taxonomy = '';
-                np.relation = '';
-                np.slug = '';
-                np.title = p.subject;
-                np.content = p.content;
-                np.content_stripped = p.content_stripped;
-                np.good = p.good ? p.good : '0';
-                np.bad = p.bad ? p.bad : '0';
-                // console.log(np.content_stripped );
-                np.stamp_created = <any>p.stamp;
-                np.stamp_updated = <any>p.stamp;
-                np.files = [];
-                if (p.files && p.files.length) {
-                    for (const f of p.files) {
-                        const aF = {
-                            idx: f.idx,
-                            url: f.src
-                        };
-                        np.files.push(<any>aF);
-                    }
-                }
-
-                np.comments = [];
-                if (p.comments && p.comments.length) {
-                    for (const c of p.comments) {
-                        const nc: Comment = {
-                            idx: c.idx,
-                            idx_root: c.idx_root,
-                            idx_parent: c.idx_parent,
-                            depth: c.depth,
-                            content: c.content,
-                            stamp_created: c.stamp,
-                            stamp_updated: c.stamp,
-                            stamp_deleted: c.deleted,
-                            good: c.good ? c.good : '0',
-                            bad: c.bad ? c.bad : '0',
-                            user: <PostUser>{}
-                        };
-                        /**
-                         * Setting comemnt user's profile.
-                         */
-                        if (c.member && c.member.idx) {
-                            nc.user.idx = c.member.idx;
-                            nc.user.name = c.member.name;
-                            nc.user.photo_url = c.member.idx_primary_photo ? this.getPhilgoPhotoUrl(c.member.idx_primary_photo) : '';
-                            // nc['name'] = c.member.name;
-                            // nc['nickname'] = c.member.nickname;
-                            // nc['photo'] = this.getPhilgoPhotoUrl(c.member.idx_primary_photo);
-                        }
-                        np.comments.push(nc);
-                    }
-                }
-                /**
-                 * Setting post user's name, photo_url.
-                 */
-                if (p.member && p.member.idx) {
-                    np.user = {
-                        name: p.member.nickname,
-                        idx: p.member.id,
-                        stamp_create: p.member.stamp,
-                        photo_url: ''
-                    };
-
-                    if (p.member.idx_primary_photo) {
-                        np.user.photo_url = this.getPhilgoPhotoUrl(p.member.idx_primary_photo);
-                    }
-                }
+                const np = this.transformPhilgoPostToSonubPost(p);
+                // console.log('np: ', np);
                 posts.push(np);
             }
+
         }
         return posts;
+    }
+
+    private transformPhilgoPostToSonubPost(p: ApiPost) {
+        const np: Post = {};
+
+        np.idx = p.idx;
+        np['post_id'] = p.post_id; // This is the mark that this post is philgo post.
+        np['category'] = p.category;
+        np.idx_user = '';
+        np.idx_category = '';
+        np.idx_parent = p.idx_parent;
+        np.taxonomy = '';
+        np.relation = '';
+        np.slug = '';
+        np.title = p.subject;
+        np.content = p.content;
+        np.content_stripped = p.content_stripped;
+        np.good = p.good ? p.good : '0';
+        np.bad = p.bad ? p.bad : '0';
+        // console.log(np.content_stripped );
+        np.stamp_created = <any>p.stamp;
+        np.stamp_updated = <any>p.stamp;
+        np.files = [];
+        if (p.files && p.files.length) {
+            for (const f of p.files) {
+                const aF = {
+                    idx: f.idx,
+                    url: f.src
+                };
+                np.files.push(<any>aF);
+            }
+        }
+
+        np.comments = [];
+        if (p.comments && p.comments.length) {
+            for (const c of p.comments) {
+                const nc = this.transformPhilgoCommentToSonubComment(c);
+                np.comments.push(nc);
+            }
+        }
+        /**
+         * Setting post user's name, photo_url.
+         */
+        if (p.member && p.member.idx) {
+            np.user = {
+                name: p.member.nickname,
+                idx: p.member.id,
+                stamp_create: p.member.stamp,
+                photo_url: ''
+            };
+
+            if (p.member.idx_primary_photo) {
+                np.user.photo_url = this.getPhilgoPhotoUrl(p.member.idx_primary_photo);
+            }
+        }
+        return np;
+    }
+
+    private transformPhilgoCommentToSonubComment(c: ApiComment) {
+        const nc: Comment = {
+            idx: c.idx,
+            idx_root: c.idx_root,
+            idx_parent: c.idx_parent,
+            depth: c.depth,
+            content: c.content,
+            stamp_created: c.stamp,
+            stamp_updated: c.stamp,
+            stamp_deleted: c.deleted ? c.deleted : '0',
+            good: c.good ? c.good : '0',
+            bad: c.bad ? c.bad : '0',
+            user: <PostUser>{}
+        };
+        /**
+         * Setting comemnt user's profile.
+         */
+        if (c.member && c.member.idx) {
+            nc.user.idx = c.member.idx;
+            nc.user.name = c.member.name;
+            nc.user.photo_url = c.member.idx_primary_photo ? this.getPhilgoPhotoUrl(c.member.idx_primary_photo) : '';
+            // nc['name'] = c.member.name;
+            // nc['nickname'] = c.member.nickname;
+            // nc['photo'] = this.getPhilgoPhotoUrl(c.member.idx_primary_photo);
+        }
+        return nc;
     }
 
     getPhilgoPhotoUrl(idx: string): string {
@@ -188,25 +200,6 @@ export class AppService {
         return `https://file.philgo.com/etc/image_resize.php?adaptive=1&w=24&h=24&path=${path}&qualty=80`;
     }
 
-    safeHtml(text: string) {
-        return this.domSanitizer.bypassSecurityTrustHtml(text);
-    }
-
-    open(url: string) {
-        this.router.navigateByUrl(url);
-    }
-
-    openHome() {
-        this.open('/home');
-    }
-
-    openProfile() {
-        this.open('/profile');
-    }
-
-    /**
-     * 
-     */
     philgoLoginOrRegister() {
         if (this.isLoggedIn) {
             this.philgo.loginOrRegister({
@@ -250,6 +243,47 @@ export class AppService {
         }
     }
 
+    commentCreate(comment: Comment, forum: AppSettingForum): Observable<Comment> {
+        if (forum.type === 'sonub') {
+            return this.sp.commentCreate(comment);
+        } else {
+
+            const data = <ApiComment>{
+                content: comment.content,
+                idx_parent: comment.idx_parent,
+                gid: this.philgo.generateGid(),
+            };
+
+            return this.philgo.commentCreate(data).pipe(
+                map(res => {
+                    const c = this.transformPhilgoCommentToSonubComment(res);
+                    return c;
+                })
+            );
+        }
+    }
+
+    safeHtml(text: string) {
+        return this.domSanitizer.bypassSecurityTrustHtml(text);
+    }
+
+    open(url: string) {
+        this.router.navigateByUrl(url);
+    }
+
+    openHome() {
+        this.open('/home');
+    }
+
+    openProfile() {
+        this.open('/profile');
+    }
+
+
+    openTab(url: string, forumIndex: string) {
+        this.open(`${url}?i=${forumIndex}`);
+    }
+
     /**
      * redirect to post-edit view page.
      *
@@ -265,10 +299,6 @@ export class AppService {
         } else {
             this.open(`/post/edit?action=${action}&idx=${post_or_category_idx}&i=${forumIndex}`);
         }
-    }
-
-    openTab(url: string, forumIndex: string) {
-        this.open(`${url}?i=${forumIndex}`);
     }
 
     /**
@@ -317,10 +347,6 @@ export class AppService {
         });
 
         toast.present();
-    }
-
-    commentCreate(comment: Comment): Observable<Comment> {
-        return this.sp.commentCreate(comment);
     }
 
     isIncomplete(data: Object): any {

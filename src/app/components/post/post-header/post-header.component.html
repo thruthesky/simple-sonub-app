@@ -1,10 +1,10 @@
 <ion-card-header (click)="post.view = !post.view">
     <ion-card-title class="d-flex">
-        <app-post-user-profile [user]=" post.user " *ngIf=" post.user.photo_url && post.user.photo_url.length "></app-post-user-profile>
-        <div [class.ml-3]="  post.user.photo_url && post.user.photo_url.length ">
+        <app-post-user-profile [user]=" post.user " *ngIf=" post.user && post.user.photo_url "></app-post-user-profile>
+        <div [class.ml-3]="  post.user && post.user.photo_url ">
             <div>
                 {{ post.title }}
-                <ion-icon *ngIf="post.files.length" name="images"></ion-icon>
+                <ion-icon *ngIf="post.files && post.files.length" name="images"></ion-icon>
             </div>
             <div class="fs-sm mt-1">
                 {{ a.shortDate(post.stamp_created) }} by {{ post.user.name }}
