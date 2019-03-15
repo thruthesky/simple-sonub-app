@@ -36,10 +36,14 @@ export class PostButtonsComponent implements OnInit {
      * apps will only support like or 'good' votes
      */
     onClickVote() {
-        this.a.vote(this.parent.idx, this.forumSettings.type, 'G').subscribe(res => {
-            // console.log(res);
-            this.parent.good = res.good;
-        }, e => this.a.error(e));
+        if (this.a.isLoggedIn) {
+            this.a.vote(this.parent.idx, this.forumSettings.type, 'G').subscribe(res => {
+                // console.log(res);
+                this.parent.good = res.good;
+            }, e => this.a.error(e));
+        } else {
+            this.a.error( this.a.t('login first') );
+        }
     }
 
     onUpdate() {

@@ -11,6 +11,7 @@ export class LogoutComponent implements OnInit, OnDestroy {
   timer = null;
   constructor(public a: AppService) {
     this.a.sp.logout();
+    this.a.philgo.logout();
   }
 
   ngOnInit() {

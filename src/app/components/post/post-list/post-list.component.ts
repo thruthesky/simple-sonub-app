@@ -36,6 +36,7 @@ export class PostListComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
     public a: AppService
   ) {
+    this.a.philgoLoginOrRegister();
   }
 
   ngOnInit() {
