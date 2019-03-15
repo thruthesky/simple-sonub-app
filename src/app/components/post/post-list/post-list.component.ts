@@ -72,6 +72,8 @@ export class PostListComponent implements OnInit {
   }
 
   delayDisplay(post: Post) {
+    // console.log(post);
+
     if (!post.stamp_deleted || post.stamp_deleted === '0') {
       post['commentInUpdate'] = null;
       post['replyTo'] = post.idx;

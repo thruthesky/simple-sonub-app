@@ -38,7 +38,7 @@ export class PostEditComponent implements OnInit {
             this.forumSetting = this.a.forumSetting(params.get('i'));
 
             if (params.get('action') === 'update') {
-                this.a.sp.postGet(params.get('idx')).subscribe(post => {
+                this.a.postGet(params.get('idx'), this.forumSetting.type).subscribe(post => {
                     Object.assign(this.post, post);
                 }, e => this.a.error(e));
             }
@@ -82,7 +82,8 @@ export class PostEditComponent implements OnInit {
             if (inc) {
                 return this.a.error(inc);
             } else {
-                this.a.sp.postCreate(this.post).subscribe(post => {
+                this.a.postCreate(this.post, this.forumSetting).subscribe(post => {
+                    console.log(post);
                     this.a.openTab(this.forumSetting.url, this.forumIndex);
                     this.reset();
                 }, e => this.a.error(e));

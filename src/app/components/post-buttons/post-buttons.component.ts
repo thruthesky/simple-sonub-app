@@ -57,7 +57,8 @@ export class PostButtonsComponent implements OnInit {
     onDelete() {
 
         if (this.isPost) {
-            this.a.sp.postDelete(this.parent.idx).subscribe(res => {
+            this.a.postDelete(this.parent, this.forumSettings).subscribe(res => {
+                console.log(this.parent);
 
                 this.commitDelete();
                 this.a.success('Post Deleted!');
@@ -85,8 +86,6 @@ export class PostButtonsComponent implements OnInit {
         if (this.isPost) {
             this.parent.title = content_deleted;
         }
-
-        console.log(this.parent);
     }
 
     async openPopupMenu(ev: any): Promise<any> {
@@ -114,7 +113,8 @@ export class PostButtonsComponent implements OnInit {
         if (this.isDeleted) {
             return false;
         }
-        if (this.parent && (this.parent.idx_user === this.a.sp.myIdx || this.parent.idx_user === this.a.myPhilgoIdx)) {
+
+        if (this.parent.idx_user === this.a.sp.myIdx || this.parent.idx_user === this.a.myPhilgoIdx) {
             return true;
         }
         return false;

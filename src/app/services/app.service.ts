@@ -4,9 +4,9 @@ import { AppSettings } from './app-settings.service';
 import { SimplestService } from 'modules/ng-simplest/simplest.service';
 import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
 import { Observable, throwError } from 'rxjs';
-import { Post, PostList, VoteResponse, Comment, PostUser } from 'modules/ng-simplest/simplest.interface';
+import { Post, PostList, VoteResponse, Comment, PostUser, File } from 'modules/ng-simplest/simplest.interface';
 import { map } from 'rxjs/operators';
-import { ApiPost, ApiVoteResponse, ApiVote, ApiComment } from 'modules/philgo-api/philgo-api-interface';
+import { ApiPost, ApiComment, ApiFile, ApiPostData } from 'modules/philgo-api/philgo-api-interface';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AppSettingForum, Environment, AppSettingSite, AppSettingFooterMenu } from './interfaces';
 import { environment } from 'src/environments/environment';
@@ -77,7 +77,7 @@ export class AppService {
         // console.log('forum: setting:', forum);
 
         if (forum.type === 'sonub') {
-            return this.sp.postList({ idx_category: forum.idx_category, page: page_no, limit: 10 }, {}).pipe(
+            return this.sp.postList({ idx_category: forum.idx_category, page: page_no }, {}).pipe(
                 map((postList: PostList) => {
                     return postList.posts;
                 })
@@ -110,40 +110,33 @@ export class AppService {
         return posts;
     }
 
-    private transformPhilgoPostToSonubPost(p: ApiPost) {
+    private transformPhilgoPostToSonubPost(post: ApiPost) {
         const np: Post = {};
 
-        np.idx = p.idx;
-        np['post_id'] = p.post_id; // This is the mark that this post is philgo post.
-        np['category'] = p.category;
+        np.idx = post.idx;
+        np['post_id'] = post.post_id; // This is the mark that this post is philgo post.
+        np['category'] = post.category;
         np.idx_user = '';
         np.idx_category = '';
-        np.idx_parent = p.idx_parent;
+        np.idx_parent = post.idx_parent;
+        np.idx_user = post.member.idx;
         np.taxonomy = '';
         np.relation = '';
         np.slug = '';
-        np.title = p.subject;
-        np.content = p.content;
-        np.content_stripped = p.content_stripped;
-        np.good = p.good ? p.good : '0';
-        np.bad = p.bad ? p.bad : '0';
+        np.title = post.subject;
+        np.content = post.content;
+        np.content_stripped = post.content_stripped;
+        np.good = post.good ? post.good : '0';
+        np.bad = post.bad ? post.bad : '0';
         // console.log(np.content_stripped );
-        np.stamp_created = <any>p.stamp;
-        np.stamp_updated = <any>p.stamp;
-        np.files = [];
-        if (p.files && p.files.length) {
-            for (const f of p.files) {
-                const aF = {
-                    idx: f.idx,
-                    url: f.src
-                };
-                np.files.push(<any>aF);
-            }
-        }
+        np.stamp_created = <any>post.stamp;
+        np.stamp_updated = <any>post.stamp;
+        np.stamp_deleted = post.deleted ? post.deleted : '0';
+        np.files = this.transformPhilgoFilesToSonubFiles(post.files);
 
         np.comments = [];
-        if (p.comments && p.comments.length) {
-            for (const c of p.comments) {
+        if (post.comments && post.comments.length) {
+            for (const c of post.comments) {
                 const nc = this.transformPhilgoCommentToSonubComment(c);
                 np.comments.push(nc);
             }
@@ -151,16 +144,16 @@ export class AppService {
         /**
          * Setting post user's name, photo_url.
          */
-        if (p.member && p.member.idx) {
+        if (post.member && post.member.idx) {
             np.user = {
-                name: p.member.nickname,
-                idx: p.member.id,
-                stamp_create: p.member.stamp,
+                name: post.member.nickname,
+                idx: post.member.id,
+                stamp_create: post.member.stamp,
                 photo_url: ''
             };
 
-            if (p.member.idx_primary_photo) {
-                np.user.photo_url = this.getPhilgoPhotoUrl(p.member.idx_primary_photo);
+            if (post.member.idx_primary_photo) {
+                np.user.photo_url = this.getPhilgoPhotoUrl(post.member.idx_primary_photo);
             }
         }
         return np;
@@ -182,6 +175,10 @@ export class AppService {
             bad: c.bad ? c.bad : '0',
             user: <PostUser>{}
         };
+
+        nc.files = this.transformPhilgoFilesToSonubFiles(c.files);
+
+
         /**
          * Setting comemnt user's profile.
          */
@@ -189,11 +186,22 @@ export class AppService {
             nc.user.idx = c.member.idx;
             nc.user.name = c.member.name;
             nc.user.photo_url = c.member.idx_primary_photo ? this.getPhilgoPhotoUrl(c.member.idx_primary_photo) : '';
-            // nc['name'] = c.member.name;
-            // nc['nickname'] = c.member.nickname;
-            // nc['photo'] = this.getPhilgoPhotoUrl(c.member.idx_primary_photo);
         }
         return nc;
+    }
+
+    private transformPhilgoFilesToSonubFiles(files: ApiFile[]) {
+        const arr: File[] = [];
+        if (files && files.length) {
+            for (const f of files) {
+                const aF = {
+                    idx: f.idx,
+                    url: f.src,
+                };
+                arr.push(<any>aF);
+            }
+        }
+        return arr;
     }
 
     getPhilgoPhotoUrl(idx: string): string {
@@ -284,6 +292,59 @@ export class AppService {
         }
     }
 
+    postCreate(post: Post, forum: AppSettingForum): Observable<Post> {
+        if (forum.type === 'sonub') {
+            return this.sp.postCreate(post);
+        } else {
+
+            console.log(post);
+
+            const data = <ApiPostData>{
+                subject: post.title,
+                content: post.content,
+                category: forum.category,
+                post_id: forum.post_id
+            };
+
+            console.log(data);
+
+            return this.philgo.postCreate(data).pipe(
+                map(res => {
+                    const p = this.transformPhilgoPostToSonubPost(res);
+                    return p;
+                })
+            );
+        }
+    }
+
+    postGet(idx: string, forum_type: string): Observable<Post> {
+        if (forum_type === 'sonub') {
+            return this.sp.postGet(idx);
+        } else {
+            return this.philgo.postGet(idx).pipe(
+                map(res => {
+                    const p = this.transformPhilgoPostToSonubPost(res);
+                    return p;
+                })
+            );
+        }
+    }
+
+    postDelete(post: Post, forum: AppSettingForum) {
+        if (forum.type === 'sonub') {
+            return this.sp.postDelete(post.idx);
+        } else {
+            return this.philgo.postDelete({ idx: post.idx }).pipe(
+                map(res => {
+                    post.content = '( Deleted )';
+                    post.content_stripped = '( Deleted )';
+                    post.stamp_deleted = '1';
+                    return post;
+                })
+            );
+        }
+    }
+
     safeHtml(text: string) {
         return this.domSanitizer.bypassSecurityTrustHtml(text);
     }
@@ -310,16 +371,25 @@ export class AppService {
      *
      * @param action 'create' | 'update'
      * @param forumIndex forumindex
-     * @param post_or_category_idx
+     * @param post_or_category_idx can be post idx, sonub category idx or philgo category idx
+     * @param post_id
      *  - if [action] is `create` then this is category_idx.
      *  - if [action] is `update` then this is post_idx.
      */
-    openPostEdit(action: string, forumIndex: string, post_or_category_idx?: string) {
-        if (action === 'create ') {
-            this.open(`/post/edit?action=${action}&category=${post_or_category_idx}&i=${forumIndex}`);
+    openPostEdit(action: string, forumIndex: string, post_or_category_idx?: string, post_id?: string) {
+        let url = '';
+
+        if (action === 'create') {
+            url = `/post/edit?action=${action}&category=${post_or_category_idx}&i=${forumIndex}`;
         } else {
-            this.open(`/post/edit?action=${action}&idx=${post_or_category_idx}&i=${forumIndex}`);
+            url = `/post/edit?action=${action}&idx=${post_or_category_idx}&i=${forumIndex}`;
         }
+
+        if (post_id !== '') {
+            url += `&post_id=${post_id}`;
+        }
+
+        this.open(url);
     }
 
     /**
