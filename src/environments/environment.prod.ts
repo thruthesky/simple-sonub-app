@@ -1,17 +1,22 @@
-
+// This file can be replaced during build by using the `fileReplacements` array.
+// `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
+// The list of file replacements can be found in `angular.json`.
 
 
 import { Environment } from 'src/app/services/interfaces';
+
+
 import { basicTexts } from 'src/app/locales/basic';
-
-
 const texts = basicTexts;
+
+
 const phone = '0956-871-2485';
 const siteUrlEn = 'https://en.evieco.shop';
 const siteUrlEnShort = 'en.evieco.shop';
 const siteUrlKo = 'https://www.evieco.shop';
 const siteUrlKoShort = 'www.evieco.shop';
 const facebookUrl = 'https://web.facebook.com/thruthesky';
+
 
 export const environment: Environment = {
   production: true,
@@ -28,24 +33,20 @@ export const environment: Environment = {
       fileServer: 'https://file.philgo.com/api.php' // remote server
     }
   },
-  domain: 'work',
+
+  domain: 'evieco',
   configXml: {
-    "id": "com.sonub.work",
-    "version": "0.0.8",
-    "name": { "en": "Work App", "ko": "작업 앱", "ch": "工作应用", "jp": "仕事用アプリ" },
-    "description": "This is Description for Work App"
+    "id": "com.sonub.evieco",
+    "version": "0.0.9",
+    "name": { "en": "Evie &amp; Co", "ko": "에비코 반영구화장", "ch": "Evie &amp; Co", "jp": "Evie &amp; Co" },
+    "description": "Evie Co App"
   },
+  firstPageRoute: 'home',
+
   header: {
     home: false,
-    register: true
+    map: true
   },
-  /**
-   * Which pages to show.
-   * it change be 'home', 'gallery', 'forum', 'contact', 'map'
-   * @note it cannot be set inside site settings since this is used before which site should be used.
-   */
-  firstPageRoute: 'home',
-  /** */
 
   /**
    * Site settings.
@@ -53,22 +54,23 @@ export const environment: Environment = {
    */
   sites: {
     en: {
-      idx: '29',
-      name: 'Main App - Developer App',
+      idx: '24',
+      name: 'Evie & Co Microblading',
       url: siteUrlEn,
       home: {
+        title: 'Evie & Co - Best Permanent Eyebrows Makeup Service'
       },
       contact: {
-        title: 'Web Developer',
-        name: 'Juana Leichelle',
+        title: 'Permanent Eyebrows Makeup',
+        name: 'Evie & Co',
         contacts: [
           {
-            label: 'Phone Number',
+            label: texts['phone number'].en,
             text: phone,
             click_url: 'tel:' + phone
           },
           {
-            label: 'Website',
+            label: texts['website'].en,
             text: siteUrlEnShort,
             click_url: siteUrlEn
           }
@@ -84,17 +86,14 @@ export const environment: Environment = {
           title: texts['gallery'],
           icon: 'photos',
           url: '/gallery',
-          type: 'philgo',
-          post_id: 'company_info',
-          category: '21'
-        },
-        {
-          title: texts['forum'],
-          icon: 'chatboxes',
-          url: '/forum',
           type: 'sonub',
-          idx_category: '96',
+          idx_category: '82'
         },
+        // {
+        //     title: texts['forum'],
+        //     icon: 'chatboxes',
+        //     url: '/forum'
+        // },
         {
           title: texts['contact'],
           icon: 'contact',
@@ -108,7 +107,7 @@ export const environment: Environment = {
         {
           title: texts['menu'],
           icon: 'menu',
-          openSideMenu: true // open side menu
+          openSideMenu: true
         }
       ],
       sideMenus: [
@@ -131,7 +130,7 @@ export const environment: Environment = {
           url: '/profile'
         },
         {
-          title: texts['website'],
+          title: texts['website'].en,
           icon: 'home',
           url: siteUrlEn,
           openWindow: true // open the url in new window
@@ -161,14 +160,15 @@ export const environment: Environment = {
       ],
     },
     ko: {
-      idx: '29',
-      name: '메일 앱 - 개발 화면',
+      name: 'Evie & Co 반영구 화장',
+      idx: '21',
       url: siteUrlKo,
       home: {
+        title: 'Evie & Co (에비코) - 반영구 눈썹 화장'
       },
       contact: {
-        title: 'Web Developer',
-        name: 'Juana Leichelle',
+        title: '한국식 반영구 눈 화장',
+        name: 'Evie & Co',
         contacts: [
           {
             label: '필리핀 전화',
@@ -196,13 +196,11 @@ export const environment: Environment = {
           post_id: 'company_info',
           category: '21'
         },
-        {
-          title: texts['forum'],
-          icon: 'chatboxes',
-          url: '/forum',
-          type: 'sonub',
-          idx_category: '96',
-        },
+        // {
+        //     title: texts['forum'],
+        //     icon: 'chatboxes',
+        //     url: '/forum'
+        // },
         {
           title: texts['contact'],
           icon: 'contact',
@@ -216,7 +214,7 @@ export const environment: Environment = {
         {
           title: texts['menu'],
           icon: 'menu',
-          openSideMenu: true // open side menu
+          openSideMenu: true
         }
       ],
       sideMenus: [
@@ -230,7 +228,7 @@ export const environment: Environment = {
           when: 'logout',
           title: texts['register'],
           icon: 'person-add',
-          url: '/register',
+          url: '/register'
         },
         {
           when: 'login',
@@ -270,16 +268,17 @@ export const environment: Environment = {
     },
     ch: {
       idx: '24',
-      name: '主应用程序 - 开发人员应用',
+      name: 'Evie & Co Microblading',
       url: siteUrlEn,
       home: {
+        title: 'Evie & Co - Best Permanent Eyebrows Makeup Service'
       },
       contact: {
-        title: 'Web开发人员',
-        name: 'Juana Leichelle',
+        title: 'Permanent Eyebrows Makeup',
+        name: 'Evie & Co',
         contacts: [
           {
-            label: '电话号码',
+            label: texts['phone number'].ch,
             text: phone,
             click_url: 'tel:' + phone
           },
@@ -300,17 +299,14 @@ export const environment: Environment = {
           title: texts['gallery'],
           icon: 'photos',
           url: '/gallery',
-          type: 'philgo',
-          post_id: 'company_info',
-          category: '21'
-        },
-        {
-          title: texts['forum'],
-          icon: 'chatboxes',
-          url: '/forum',
           type: 'sonub',
-          idx_category: '57',
+          idx_category: '82'
         },
+        // {
+        //     title: texts['forum'],
+        //     icon: 'chatboxes',
+        //     url: '/forum'
+        // },
         {
           title: texts['contact'],
           icon: 'contact',
@@ -324,7 +320,7 @@ export const environment: Environment = {
         {
           title: texts['menu'],
           icon: 'menu',
-          openSideMenu: true // open side menu
+          openSideMenu: true
         }
       ],
       sideMenus: [
@@ -377,17 +373,18 @@ export const environment: Environment = {
       ],
     },
     jp: {
-      idx: '24',
-      name: 'メインアプリ - 開発者アプリ',
+      idx: '82',
+      name: 'Evie & Co Microblading',
       url: siteUrlEn,
       home: {
+        title: 'Evie & Co - Best Permanent Eyebrows Makeup Service'
       },
       contact: {
-        title: 'ウェブ開発者',
-        name: 'Juana Leichelle',
+        title: 'Permanent Eyebrows Makeup',
+        name: 'Evie & Co',
         contacts: [
           {
-            label: '電話番号',
+            label: texts['phone number'].jp,
             text: phone,
             click_url: 'tel:' + phone
           },
@@ -408,17 +405,14 @@ export const environment: Environment = {
           title: texts['gallery'],
           icon: 'photos',
           url: '/gallery',
-          type: 'philgo',
-          post_id: 'company_info',
-          category: '21'
-        },
-        {
-          title: texts['forum'],
-          icon: 'chatboxes',
-          url: '/forum',
           type: 'sonub',
-          idx_category: '57',
+          idx_category: '82'
         },
+        // {
+        //     title: texts['forum'],
+        //     icon: 'chatboxes',
+        //     url: '/forum'
+        // },
         {
           title: texts['contact'],
           icon: 'contact',
@@ -432,7 +426,7 @@ export const environment: Environment = {
         {
           title: texts['menu'],
           icon: 'menu',
-          openSideMenu: true // open side menu
+          openSideMenu: true
         }
       ],
       sideMenus: [
@@ -513,5 +507,4 @@ export const environment: Environment = {
  * This import should be commented out in production mode because it will have a negative impact
  * on performance if an error is thrown.
  */
-  // Included with Angular CLI.import { AppSettings } from 'src/app/services/app.settings';
 

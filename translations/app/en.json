@@ -1,9 +1,9 @@
 {
         "config_ios" : {
-          "CFBundleDisplayName": "Work App",
-          "CFBundleName": "Work App"
+          "CFBundleDisplayName": "Evie & Co",
+          "CFBundleName": "Evie & Co"
         },
         "config_android" : {
-          "app_name": "Work App"
+          "app_name": "Evie & Co"
         }
       }

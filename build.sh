@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ts-node patch-environment.ts $1 && ts-node patch-environment-prod.ts $1 && cp -f build-data/icons/${1}.png resources/icon.png && cp -f build-data/splashes/${1}.png resources/splash.png && ionic cordova resources android
+ts-node patch-environment.ts $1 && ts-node patch-environment-prod.ts $1 && cp -f build-data/icons/${1}.png resources/icon.png && cp -f build-data/splashes/${1}.png resources/splash.png && ionic cordova resources android --force
 
 ionic cordova build android --prod --release
 
