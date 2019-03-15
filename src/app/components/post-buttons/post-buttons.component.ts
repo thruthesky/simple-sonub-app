@@ -114,7 +114,7 @@ export class PostButtonsComponent implements OnInit {
         if (this.isDeleted) {
             return false;
         }
-        if (this.parent && this.parent.idx_user === this.a.sp.myIdx) {
+        if (this.parent && (this.parent.idx_user === this.a.sp.myIdx || this.parent.idx_user === this.a.myPhilgoIdx)) {
             return true;
         }
         return false;

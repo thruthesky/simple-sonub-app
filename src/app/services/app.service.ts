@@ -171,8 +171,10 @@ export class AppService {
             idx: c.idx,
             idx_root: c.idx_root,
             idx_parent: c.idx_parent,
+            idx_user: c.member.idx,
             depth: c.depth,
             content: c.content,
+            content_stripped: c.content_stripped,
             stamp_created: c.stamp,
             stamp_updated: c.stamp,
             stamp_deleted: c.deleted ? c.deleted : '0',
@@ -216,11 +218,9 @@ export class AppService {
     }
 
     /**
-     *
      * @param idx post or comment idx
      * @param forum_type 'philgo' | 'sonub'
      * @param vote 'G' | 'B'
-     *
      */
     vote(idx: string, forum_type: string, vote: 'G' | 'B'): Observable<VoteResponse> {
         if (forum_type === 'sonub') {
@@ -243,6 +243,10 @@ export class AppService {
         }
     }
 
+    /**
+     * @param comment comment data
+     * @param forum forum setting
+     */
     commentCreate(comment: Comment, forum: AppSettingForum): Observable<Comment> {
         if (forum.type === 'sonub') {
             return this.sp.commentCreate(comment);
@@ -257,6 +261,23 @@ export class AppService {
             return this.philgo.commentCreate(data).pipe(
                 map(res => {
                     const c = this.transformPhilgoCommentToSonubComment(res);
+                    return c;
+                })
+            );
+        }
+    }
+
+    commentUpdate(comment: Comment, forum: AppSettingForum): Observable<Comment> {
+        if (forum.type === 'sonub') {
+            return this.sp.commentUpdate(comment);
+        } else {
+            const data = <ApiComment>{
+                idx: comment.idx,
+                content: comment.content
+            };
+            return <any>this.philgo.postEdit(<any>data).pipe(
+                map(res => {
+                    const c = this.transformPhilgoCommentToSonubComment(<any>res);
                     return c;
                 })
             );
@@ -380,6 +401,14 @@ export class AppService {
 
     get isLoggedIn(): boolean {
         return this.sp.isLoggedIn;
+    }
+
+    get myPhilgoIdx(): string {
+        return this.philgo.myIdx();
+    }
+
+    get mySonubIdx(): string {
+        return this.sp.myIdx;
     }
 }
 

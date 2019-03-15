@@ -63,8 +63,6 @@ export class CommentBoxComponent implements OnInit {
     createComment() {
         this.form.idx_parent = this.parent.idx;
         this.a.commentCreate(this.form, this.forumSettings).subscribe(comment => {
-
-            console.log(comment);
             if (this.parent.idx_parent === '0') {
                 comment['depth'] = '1';
                 this.root.comments.push(comment);
@@ -89,8 +87,10 @@ export class CommentBoxComponent implements OnInit {
         // }
 
         this.form.idx = this.comment.idx;
-        this.a.sp.commentUpdate(this.form).subscribe(comment => {
+        this.a.commentUpdate(this.form, this.forumSettings).subscribe(comment => {
 
+
+            console.log(comment);
             comment['update'] = null;
             comment['safe_content'] = this.a.safeHtml(comment.content);
             Object.assign(this.comment, comment);
