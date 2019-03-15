@@ -2,7 +2,7 @@
     <div class="my-2 pl-2" [attr.depth]=" comment?.depth " *ngFor="let comment of comments">
         <div class="w-100 d-flex">
             <app-comment-user-profile [user]=" comment.user "></app-comment-user-profile>
-            <div>
+            <div class="w-100">
                 <app-comment-header [comment]=" comment "></app-comment-header>
                 <app-comment-content class="w-100" [root]=" post " [comment]=" comment "></app-comment-content>
                 <app-post-buttons [root]=" post " [parent]=" comment " [forumSettings]=" forumSettings " *ngIf=" post['commentInUpdate'] !== comment.idx && a.isLoggedIn "></app-post-buttons>

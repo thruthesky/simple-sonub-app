@@ -82,20 +82,13 @@ export class CommentBoxComponent implements OnInit {
     }
 
     updateComment() {
-        // if (!this.form.content.trim()) {
-        //     return this.a.error('Please Input Comment');
-        // }
-
         this.form.idx = this.comment.idx;
         this.a.commentUpdate(this.form, this.forumSettings).subscribe(comment => {
-
-
-            console.log(comment);
+            // console.log(comment);
             comment['update'] = null;
             comment['safe_content'] = this.a.safeHtml(comment.content);
             Object.assign(this.comment, comment);
             this.reset();
-
         }, e => this.a.error(e));
     }
 

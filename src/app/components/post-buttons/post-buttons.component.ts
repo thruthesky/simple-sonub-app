@@ -37,7 +37,7 @@ export class PostButtonsComponent implements OnInit {
      */
     onClickVote() {
         this.a.vote(this.parent.idx, this.forumSettings.type, 'G').subscribe(res => {
-            console.log(res);
+            // console.log(res);
             this.parent.good = res.good;
         }, e => this.a.error(e));
     }

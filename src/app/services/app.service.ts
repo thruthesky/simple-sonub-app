@@ -296,18 +296,12 @@ export class AppService {
         if (forum.type === 'sonub') {
             return this.sp.postCreate(post);
         } else {
-
-            console.log(post);
-
             const data = <ApiPostData>{
                 subject: post.title,
                 content: post.content,
                 category: forum.category,
                 post_id: forum.post_id
             };
-
-            console.log(data);
-
             return this.philgo.postCreate(data).pipe(
                 map(res => {
                     const p = this.transformPhilgoPostToSonubPost(res);

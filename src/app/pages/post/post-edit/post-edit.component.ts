@@ -28,7 +28,7 @@ export class PostEditComponent implements OnInit {
     }
 
     ionViewDidEnter() {
-        console.log('PostEditComponent: ionViewDidEnter()');
+        // console.log('PostEditComponent: ionViewDidEnter()');
         this.doInit();
     }
 
@@ -83,7 +83,7 @@ export class PostEditComponent implements OnInit {
                 return this.a.error(inc);
             } else {
                 this.a.postCreate(this.post, this.forumSetting).subscribe(post => {
-                    console.log(post);
+                    // console.log(post);
                     this.a.openTab(this.forumSetting.url, this.forumIndex);
                     this.reset();
                 }, e => this.a.error(e));
