@@ -54,7 +54,7 @@ export const environment: Environment = {
    */
   sites: {
     en: {
-      idx: '82',
+      idx: '24',
       name: 'Evie & Co Microblading',
       url: siteUrlEn,
       home: {
@@ -87,7 +87,7 @@ export const environment: Environment = {
           icon: 'photos',
           url: '/gallery',
           type: 'sonub',
-          idx_category: '62'
+          idx_category: '82'
         },
         // {
         //     title: texts['forum'],
@@ -112,6 +112,24 @@ export const environment: Environment = {
       ],
       sideMenus: [
         {
+          when: 'logout',
+          title: texts['login'],
+          icon: 'log-in',
+          url: '/login',
+        },
+        {
+          when: 'logout',
+          title: texts['register'],
+          icon: 'person-add',
+          url: '/register'
+        },
+        {
+          when: 'login',
+          title: texts['profile'],
+          icon: 'contact',
+          url: '/profile'
+        },
+        {
           title: texts['website'].en,
           icon: 'home',
           url: siteUrlEn,
@@ -127,6 +145,12 @@ export const environment: Environment = {
           title: texts['setting'],
           icon: 'settings',
           url: '/setting',
+        },
+        {
+          when: 'login',
+          title: texts['logout'],
+          icon: 'log-out',
+          url: '/logout',
         },
         {
           title: texts['close'],
@@ -195,6 +219,24 @@ export const environment: Environment = {
       ],
       sideMenus: [
         {
+          when: 'logout',
+          title: texts['login'],
+          icon: 'log-in',
+          url: '/login',
+        },
+        {
+          when: 'logout',
+          title: texts['register'],
+          icon: 'person-add',
+          url: '/register'
+        },
+        {
+          when: 'login',
+          title: texts['profile'],
+          icon: 'contact',
+          url: '/profile'
+        },
+        {
           title: texts['website'],
           icon: 'home',
           url: siteUrlKo,
@@ -212,6 +254,12 @@ export const environment: Environment = {
           url: '/setting',
         },
         {
+          when: 'login',
+          title: texts['logout'],
+          icon: 'log-out',
+          url: '/logout',
+        },
+        {
           title: texts['close'],
           icon: 'close',
           close: true // close side menu
@@ -219,7 +267,7 @@ export const environment: Environment = {
       ],
     },
     ch: {
-      idx: '82',
+      idx: '24',
       name: 'Evie & Co Microblading',
       url: siteUrlEn,
       home: {
@@ -230,12 +278,12 @@ export const environment: Environment = {
         name: 'Evie & Co',
         contacts: [
           {
-            label: texts['phone number'].en,
+            label: texts['phone number'].ch,
             text: phone,
             click_url: 'tel:' + phone
           },
           {
-            label: texts['website'].en,
+            label: texts['website'].ch,
             text: siteUrlEnShort,
             click_url: siteUrlEn
           }
@@ -252,7 +300,7 @@ export const environment: Environment = {
           icon: 'photos',
           url: '/gallery',
           type: 'sonub',
-          idx_category: '62'
+          idx_category: '82'
         },
         // {
         //     title: texts['forum'],
@@ -277,6 +325,24 @@ export const environment: Environment = {
       ],
       sideMenus: [
         {
+          when: 'logout',
+          title: texts['login'],
+          icon: 'log-in',
+          url: '/login',
+        },
+        {
+          when: 'logout',
+          title: texts['register'],
+          icon: 'person-add',
+          url: '/register'
+        },
+        {
+          when: 'login',
+          title: texts['profile'],
+          icon: 'contact',
+          url: '/profile'
+        },
+        {
           title: texts['website'],
           icon: 'home',
           url: siteUrlEn,
@@ -292,6 +358,12 @@ export const environment: Environment = {
           title: texts['setting'],
           icon: 'settings',
           url: '/setting',
+        },
+        {
+          when: 'login',
+          title: texts['logout'],
+          icon: 'log-out',
+          url: '/logout',
         },
         {
           title: texts['close'],
@@ -334,7 +406,7 @@ export const environment: Environment = {
           icon: 'photos',
           url: '/gallery',
           type: 'sonub',
-          idx_category: '62'
+          idx_category: '82'
         },
         // {
         //     title: texts['forum'],
@@ -359,6 +431,24 @@ export const environment: Environment = {
       ],
       sideMenus: [
         {
+          when: 'logout',
+          title: texts['login'],
+          icon: 'log-in',
+          url: '/login',
+        },
+        {
+          when: 'logout',
+          title: texts['register'],
+          icon: 'person-add',
+          url: '/register'
+        },
+        {
+          when: 'login',
+          title: texts['profile'],
+          icon: 'contact',
+          url: '/profile'
+        },
+        {
           title: texts['website'],
           icon: 'home',
           url: siteUrlEn,
@@ -374,6 +464,12 @@ export const environment: Environment = {
           title: texts['setting'],
           icon: 'settings',
           url: '/setting',
+        },
+        {
+          when: 'login',
+          title: texts['logout'],
+          icon: 'log-out',
+          url: '/logout',
         },
         {
           title: texts['close'],
