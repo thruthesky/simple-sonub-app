@@ -5,7 +5,7 @@
             <div>
                 <app-comment-header [comment]=" comment "></app-comment-header>
                 <app-comment-content class="w-100" [root]=" post " [comment]=" comment "></app-comment-content>
-                <app-post-buttons [root]=" post " [parent]=" comment " [forumSettings]=" forumSettings " *ngIf=" post['commentInUpdate'] !== comment.idx "></app-post-buttons>
+                <app-post-buttons [root]=" post " [parent]=" comment " [forumSettings]=" forumSettings " *ngIf=" post['commentInUpdate'] !== comment.idx && a.isLoggedIn "></app-post-buttons>
                 <app-comment-box [root]=" post " [comment]=" comment " *ngIf=" post['commentInUpdate'] === comment.idx "></app-comment-box>
             </div>
         </div>

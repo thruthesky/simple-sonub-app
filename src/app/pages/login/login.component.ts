@@ -28,6 +28,7 @@ export class LoginComponent implements OnInit {
     } else {
       this.a.sp.login(this.data.email, this.data.password).subscribe(res => {
         this.a.openHome();
+        this.a.philgoLoginOrRegister();
       }, e => this.a.error(e));
     }
   }

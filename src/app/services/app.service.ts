@@ -4,9 +4,9 @@ import { AppSettings } from './app-settings.service';
 import { SimplestService } from 'modules/ng-simplest/simplest.service';
 import { PhilGoApiService } from 'modules/philgo-api/philgo-api.service';
 import { Observable, throwError } from 'rxjs';
-import { Post, PostList, VoteResponse, Comment } from 'modules/ng-simplest/simplest.interface';
+import { Post, PostList, VoteResponse, Comment, PostUser } from 'modules/ng-simplest/simplest.interface';
 import { map } from 'rxjs/operators';
-import { ApiPost, ApiVoteResponse } from 'modules/philgo-api/philgo-api-interface';
+import { ApiPost, ApiVoteResponse, ApiVote } from 'modules/philgo-api/philgo-api-interface';
 import { DomSanitizer } from '@angular/platform-browser';
 import { AppSettingForum, Environment, AppSettingSite, AppSettingFooterMenu } from './interfaces';
 import { environment } from 'src/environments/environment';
@@ -77,7 +77,7 @@ export class AppService {
         // console.log('forum: setting:', forum);
 
         if (forum.type === 'sonub') {
-            return this.sp.postList({ idx_category: forum.idx_category }, {}).pipe(
+            return this.sp.postList({ idx_category: forum.idx_category, page: page_no, limit: 10 }, {}).pipe(
                 map((postList: PostList) => {
                     return postList.posts;
                 })
@@ -101,70 +101,83 @@ export class AppService {
         for (const p of philgo_posts) {
             // console.log('p: ', p);
             const np: Post = {};
-            np.idx = p.idx;
-            np['post_id'] = p.post_id; // This is the mark that this post is philgo post.
-            np['category'] = p.category;
-            np.idx_user = '';
-            np.idx_category = '';
-            np.idx_parent = '';
-            np.taxonomy = '';
-            np.relation = '';
-            np.slug = '';
-            np.title = p.subject;
-            np.content = p.content;
-            np.content_stripped = p.content_stripped;
-            // console.log(np.content_stripped );
-            np.stamp_created = <any>p.stamp;
-            np.stamp_updated = <any>p.stamp;
-            np.files = [];
-            if (p.files && p.files.length) {
-                for (const f of p.files) {
-                    const aF = {
-                        idx: f.idx,
-                        url: f.src
-                    };
-                    np.files.push(<any>aF);
-                }
-            }
 
-            np.comments = [];
-            if (p.comments && p.comments.length) {
-                for (const c of p.comments) {
-                    const nc: Comment = {
-                        content: c.content,
-                        stamp_created: c.stamp,
-                        stamp_updated: c.stamp
-                    };
-                    /**
-                     * Setting comemnt user's profile.
-                     */
-                    if (c.member && c.member.idx) {
-                        nc.user.idx = c.member.idx;
-                        nc.user.name = c.member.name;
-                        nc.user.photo_url = this.getPhilgoPhotoUrl(c.member.idx_primary_photo);
-                        // nc['name'] = c.member.name;
-                        // nc['nickname'] = c.member.nickname;
-                        // nc['photo'] = this.getPhilgoPhotoUrl(c.member.idx_primary_photo);
+            if (p.deleted === '0') {
+                np.idx = p.idx;
+                np['post_id'] = p.post_id; // This is the mark that this post is philgo post.
+                np['category'] = p.category;
+                np.idx_user = '';
+                np.idx_category = '';
+                np.idx_parent = p.idx_parent;
+                np.taxonomy = '';
+                np.relation = '';
+                np.slug = '';
+                np.title = p.subject;
+                np.content = p.content;
+                np.content_stripped = p.content_stripped;
+                np.good = p.good ? p.good : '0';
+                np.bad = p.bad ? p.bad : '0';
+                // console.log(np.content_stripped );
+                np.stamp_created = <any>p.stamp;
+                np.stamp_updated = <any>p.stamp;
+                np.files = [];
+                if (p.files && p.files.length) {
+                    for (const f of p.files) {
+                        const aF = {
+                            idx: f.idx,
+                            url: f.src
+                        };
+                        np.files.push(<any>aF);
                     }
-                    np.comments.push(nc);
                 }
-            }
-            /**
-             * Setting post user's name, photo_url.
-             */
-            if (p.member && p.member.idx) {
-                np.user = {
-                    name: p.member.nickname,
-                    idx: p.member.id,
-                    stamp_create: p.member.stamp,
-                    photo_url: ''
-                };
 
-                if (p.member.idx_primary_photo) {
-                    np.user.photo_url = this.getPhilgoPhotoUrl(p.member.idx_primary_photo);
+                np.comments = [];
+                if (p.comments && p.comments.length) {
+                    for (const c of p.comments) {
+                        const nc: Comment = {
+                            idx: c.idx,
+                            idx_root: c.idx_root,
+                            idx_parent: c.idx_parent,
+                            depth: c.depth,
+                            content: c.content,
+                            stamp_created: c.stamp,
+                            stamp_updated: c.stamp,
+                            stamp_deleted: c.deleted,
+                            good: c.good ? c.good : '0',
+                            bad: c.bad ? c.bad : '0',
+                            user: <PostUser>{}
+                        };
+                        /**
+                         * Setting comemnt user's profile.
+                         */
+                        if (c.member && c.member.idx) {
+                            nc.user.idx = c.member.idx;
+                            nc.user.name = c.member.name;
+                            nc.user.photo_url = c.member.idx_primary_photo ? this.getPhilgoPhotoUrl(c.member.idx_primary_photo) : '';
+                            // nc['name'] = c.member.name;
+                            // nc['nickname'] = c.member.nickname;
+                            // nc['photo'] = this.getPhilgoPhotoUrl(c.member.idx_primary_photo);
+                        }
+                        np.comments.push(nc);
+                    }
                 }
+                /**
+                 * Setting post user's name, photo_url.
+                 */
+                if (p.member && p.member.idx) {
+                    np.user = {
+                        name: p.member.nickname,
+                        idx: p.member.id,
+                        stamp_create: p.member.stamp,
+                        photo_url: ''
+                    };
+
+                    if (p.member.idx_primary_photo) {
+                        np.user.photo_url = this.getPhilgoPhotoUrl(p.member.idx_primary_photo);
+                    }
+                }
+                posts.push(np);
             }
-            posts.push(np);
         }
         return posts;
     }
@@ -260,11 +273,40 @@ export class AppService {
         toast.present();
     }
 
-    vote(idx: string, forum_type: string, vote: 'G' | 'B'): Observable<VoteResponse | ApiVoteResponse> {
+
+    philgoLoginOrRegister() {
+        if (this.isLoggedIn) {
+            this.philgo.loginOrRegister({
+                user_domain: 'sonub',
+                user_email: 'sonub-' + this.sp.myEmail,
+                user_password: 'sonub-' + this.sp.myIdx + this.sp.user.stamp_created,
+                user_name: this.sp.myName + '@sonub',
+                char_7: 'M'
+            }).subscribe(user => {
+            }, e => {
+                console.error(e);
+            });
+        }
+    }
+
+    vote(idx: string, forum_type: string, vote: 'G' | 'B'): Observable<VoteResponse> {
         if (forum_type === 'sonub') {
             return this.sp.vote({ idx_post: idx, vote: vote });
         } else {
-            return this.philgo.vote({ idx: idx, for: vote });
+            return this.philgo.postLike({ idx: idx, mode: vote === 'G' ? 'good' : 'bad' }).pipe(
+                // return sample { idx: null, mode: "good", result: 1 }
+                map(res => {
+                    const v = <VoteResponse>{};
+                    if (res.mode === 'good') {
+                        v.good = res.result;
+                        v.bad = '0';
+                    } else {
+                        v.bad = res.result;
+                        v.good = '0';
+                    }
+                    return v;
+                })
+            );
         }
     }
 
@@ -291,10 +333,6 @@ export class AppService {
         return this.philgo.shortDate(timestamp);
     }
 
-    get site(): AppSettingSite {
-        return this.settings.site;
-    }
-
     /**
      * Returns a forum setting
      * @param i index of the forum settings array
@@ -304,6 +342,14 @@ export class AppService {
             return <any>{};
         }
         return this.settings.footerMenus[i];
+    }
+
+    get site(): AppSettingSite {
+        return this.settings.site;
+    }
+
+    get isLoggedIn(): boolean {
+        return this.sp.isLoggedIn;
     }
 }
 

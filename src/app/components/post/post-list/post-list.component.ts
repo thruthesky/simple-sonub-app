@@ -29,6 +29,8 @@ export class PostListComponent implements OnInit {
    */
   forumSettings: AppSettingForum;
   forumIndex: string;
+
+  page_no = 0;
   posts: Posts = [];
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -49,7 +51,13 @@ export class PostListComponent implements OnInit {
   }
 
   loadPage() {
-    this.a.postList(this.forumSettings, 1).subscribe(res => {
+    if (this.page_no === 1) {
+      return;
+    }
+
+    this.page_no = 1;
+
+    this.a.postList(this.forumSettings, this.page_no).subscribe(res => {
       // const arr = [];
       res.forEach(post => this.delayDisplay(post));
 
@@ -66,6 +74,8 @@ export class PostListComponent implements OnInit {
   delayDisplay(post: Post) {
 
     if (!post.stamp_deleted || post.stamp_deleted === '0') {
+      post['commentInUpdate'] = null;
+      post['replyTo'] = post.idx;
       post['safe_content'] = this.a.safeHtml(post.content);
       if (this.designType === 'gallery') {
         post.view = true;

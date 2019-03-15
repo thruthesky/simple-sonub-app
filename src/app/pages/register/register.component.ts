@@ -71,6 +71,7 @@ export class RegisterComponent implements OnInit {
       } else {
         this.a.sp.register(this.form).subscribe(res => {
           this.a.openProfile();
+          this.a.philgoLoginOrRegister();
         }, e => this.a.error(e));
       }
     }

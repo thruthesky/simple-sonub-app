@@ -85,8 +85,8 @@ export const environment: Environment = {
           icon: 'photos',
           url: '/gallery',
           type: 'philgo',
-          post_id: 'company_info',
-          category: '21'
+          post_id: 'trash',
+          category: 'xyz'
         },
         {
           title: texts['forum'],
@@ -193,8 +193,8 @@ export const environment: Environment = {
           icon: 'photos',
           url: '/gallery',
           type: 'philgo',
-          post_id: 'company_info',
-          category: '21'
+          post_id: 'trash',
+          category: 'xyz'
         },
         {
           title: texts['forum'],
