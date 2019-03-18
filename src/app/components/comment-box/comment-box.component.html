@@ -1,5 +1,5 @@
 <section class="comment-box">
-    <ion-input [(ngModel)]=" form.content " placeholder=" Write a comment .. "></ion-input>
+    <ion-input [(ngModel)]=" form.content " [placeholder]=" a.t('write a comment') "></ion-input>
     <ion-button fill="clear" (click)="onSubmit()">
         <ion-icon slot="icon-only" name="send"></ion-icon>
     </ion-button>
