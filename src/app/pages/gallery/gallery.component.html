@@ -9,7 +9,7 @@
       {{ a.t('gallery') }}
     </ion-title>
 
-    <ion-buttons slot="end">
+    <ion-buttons *ngIf=" a.isLoggedIn " slot="end">
       <ion-button (click)=" openPostEdit() ">
         <ion-icon name="add"></ion-icon>
         <span class="ml-1">{{ a.t('new post') }}</span>
