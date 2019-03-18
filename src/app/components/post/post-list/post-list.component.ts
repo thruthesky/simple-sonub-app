@@ -30,6 +30,7 @@ export class PostListComponent implements OnInit {
   forumIndex: string;
 
   page_no = 0;
+  limit = 10;
   no_more_post = false;
   posts: Posts = [];
 
@@ -64,16 +65,15 @@ export class PostListComponent implements OnInit {
     console.log('event:', event);
     console.log('page no:', this.page_no);
 
-    this.a.postList(this.forumSettings, this.page_no).subscribe(res => {
+    this.a.postList(this.forumSettings, this.page_no, this.limit).subscribe(res => {
       console.log(res);
 
-      if (!res.length) {
+      if (!res.length || res.length < this.limit) {
         this.no_more_post = true;
       }
 
       res.forEach(post => this.delayDisplay(post));
       if (event) {
-
         event.target.complete();
         event.target.disable = true;
       }

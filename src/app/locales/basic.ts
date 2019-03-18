@@ -38,6 +38,7 @@ export const basicTexts = {
     edit: { en: 'Edit', ko: '수정', ch: '编辑', jp: '編集する' },
     like: { en: 'Like', ko: '찬성', ch: '喜欢', jp: '好き' },
     'phone number': { en: 'Phone Number', ko: '전화번호', ch: '电话号码', jp: '電話番号' },
+    'no more post': { en: 'No more post ..', ko: '더 이상 게시물이 없습니다.', ch: '没有更多帖子..', jp: 'これ以上投稿はありません..' },
 
     // need check
     gender: { en: 'Gender', ko: '성별', ch: '性别', jp: '性別' },

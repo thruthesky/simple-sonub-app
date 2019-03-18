@@ -73,17 +73,17 @@ export class AppService {
      *
      * @todo cache
      */
-    postList(forum: AppSettingForum, page_no: number): Observable<Post[]> {
+    postList(forum: AppSettingForum, page_no: number, limit: number): Observable<Post[]> {
         // console.log('forum: setting:', forum);
 
         if (forum.type === 'sonub') {
-            return this.sp.postList({ idx_category: forum.idx_category, page: page_no, where: 'stamp_deleted=0' }, {}).pipe(
+            return this.sp.postList({ idx_category: forum.idx_category, page: page_no, where: 'stamp_deleted=0', limit: limit }, {}).pipe(
                 map((postList: PostList) => {
                     return postList.posts;
                 })
             );
         } else if (forum.type === 'philgo') {
-            return this.philgo.postSearch({ post_id: forum.post_id, category: forum.category, page_no: page_no, deleted: 0 }).pipe(
+            return this.philgo.postSearch({ post_id: forum.post_id, category: forum.category, page_no: page_no, deleted: 0, limit: limit }).pipe(
                 map(search => {
                     // console.log('search: ', search);
                     const posts = this.transformPhilgoPostsToSonubPosts(search.posts);

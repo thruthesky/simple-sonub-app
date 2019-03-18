@@ -16,8 +16,12 @@
     </ion-card>
 
     <!-- default height trigger '15%' -->
-    <ion-infinite-scroll class="pb-5" threshold=" 30% " (ionInfinite)="loadPage($event)">
-      <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="Loading more data...">
+    <div class=" fs-lighter gray pb-5 text-center " *ngIf=" no_more_post ">
+      <p> {{a.t('no more post')}} </p>
+    </div>
+
+    <ion-infinite-scroll class=" mt-1 pb-4 " *ngIf=" !no_more_post " threshold=" 30% " (ionInfinite)="loadPage($event)">
+      <ion-infinite-scroll-content loadingSpinner="bubbles">
       </ion-infinite-scroll-content>
     </ion-infinite-scroll>
 
