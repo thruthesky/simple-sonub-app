@@ -86,7 +86,7 @@ export const environment: Environment = {
           url: '/gallery',
           type: 'philgo',
           post_id: 'trash',
-          category: 'xyz'
+          category: ''
         },
         {
           title: texts['forum'],
@@ -194,7 +194,7 @@ export const environment: Environment = {
           url: '/gallery',
           type: 'philgo',
           post_id: 'trash',
-          category: 'xyz'
+          category: ''
         },
         {
           title: texts['forum'],
