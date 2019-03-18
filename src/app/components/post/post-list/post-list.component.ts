@@ -1,16 +1,15 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { Posts, Post } from 'modules/ng-simplest/simplest.interface';
 import { AppSettingForum } from 'src/app/services/interfaces';
 import { AppService } from 'src/app/services/app.service';
 import { ActivatedRoute } from '@angular/router';
-
+import { IonInfiniteScroll } from '@ionic/angular';
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit {
-
   /**
    * gallery type will show post title content, images and comments.
    *  - when title is clicked, it will hide content, images and comment ( if any ).
@@ -31,7 +30,11 @@ export class PostListComponent implements OnInit {
   forumIndex: string;
 
   page_no = 0;
+  limit = 10;
+  no_more_post = false;
   posts: Posts = [];
+
+  @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
   constructor(
     private activatedRoute: ActivatedRoute,
     public a: AppService
@@ -51,40 +54,41 @@ export class PostListComponent implements OnInit {
     });
   }
 
-  loadPage() {
-    if (this.page_no === 1) {
+  loadPage(event?: any) {
+
+    if (this.no_more_post) {
       return;
     }
 
-    this.page_no = 1;
+    this.page_no += 1;
 
-    this.a.postList(this.forumSettings, this.page_no).subscribe(res => {
-      // const arr = [];
+    // console.log('event:', event);
+    // console.log('page no:', this.page_no);
+
+    this.a.postList(this.forumSettings, this.page_no, this.limit).subscribe(res => {
+      // console.log(res);
+
+      if (!res.length || res.length < this.limit) {
+        this.no_more_post = true;
+      }
+
       res.forEach(post => this.delayDisplay(post));
-
-      // setTimeout(() => {
-
-      // Object.assign(this.posts, arr);
-      // }, 1000);
-
-
-      // setTimeout(() => this.loaded = true, 2000);
+      if (event) {
+        event.target.complete();
+        event.target.disable = true;
+      }
     });
   }
 
   delayDisplay(post: Post) {
     // console.log(post);
-
-    if (!post.stamp_deleted || post.stamp_deleted === '0') {
-      post['commentInUpdate'] = null;
-      post['replyTo'] = post.idx;
-      post['safe_content'] = this.a.safeHtml(post.content);
-      if (this.designType === 'gallery') {
-        post.view = true;
-      }
-      // arr.push(post);
-      this.posts.push(post);
+    post['commentInUpdate'] = null;
+    post['replyTo'] = post.idx;
+    post['safe_content'] = this.a.safeHtml(post.content);
+    if (this.designType === 'gallery') {
+      post.view = true;
     }
+    this.posts.push(post);
   }
 
 }

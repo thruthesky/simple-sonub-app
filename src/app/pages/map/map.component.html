@@ -1,16 +1,22 @@
 <ion-header *ngIf=" a.env.header?.map !== false ">
-    <ion-toolbar>
-        <ion-buttons slot="start">
-          <ion-back-button></ion-back-button>
-        </ion-buttons>
-        <ion-title>
-          {{ a.t( 'map' ) }}
-        </ion-title>
-      </ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      {{ a.t( 'map' ) }}
+    </ion-title>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <div #map_canvas id="map_canvas" style="height: 90%;">
-    <ion-button (click)="onClickDirections()">{{ a.t('get directions') }}</ion-button>
+
+    <div class="d-flex float-right m-2">
+      <ion-button (click)=" onClickDirections()">
+        <ion-icon name="open"></ion-icon>
+        <span class="ml-1"> {{ a.t('get directions') }} </span>
+      </ion-button>
+    </div>
   </div>
 </ion-content>

@@ -14,13 +14,9 @@ export const basicTexts = {
     map: { en: 'Map', ko: '오시는길', ch: '地图', jp: '地図' },
     menu: { en: 'Menu', ko: '메뉴', ch: '菜单', jp: 'メニュー' },
     'get directions': { en: 'Get Directions', ko: '길 찾기', ch: '获取路线', jp: '行き方を調べる' },
-    'wait to find my position': {
-        en: 'Please wait ...',
-        ko: '내 위치를 찾습니다. 잠시만 기다려 주세요.',
-        ch: '请耐心等待 ...',
-        jp: 'お待ちください ...'
-    },
+    'wait to find my position': { en: 'Please wait ...', ko: '내 위치를 찾습니다. 잠시만 기다려 주세요.', ch: '请耐心等待 ...', jp: 'お待ちください ...' },
 
+    'write a comment': { en: 'Write a comment ...', ko: '코멘트 쓰기 ...', ch: '留个评论 ...', jp: 'コメントを書く ...' },
     new_post: { en: 'New Post', ko: '글쓰기', ch: '最新帖子', jp: '新しい投稿' },
     email: { en: 'Email', ko: '이메일', ch: '电子邮件', jp: 'Eメール' },
     name: { en: 'Name', ko: '이름', ch: '名称', jp: '名' },
@@ -38,6 +34,10 @@ export const basicTexts = {
     edit: { en: 'Edit', ko: '수정', ch: '编辑', jp: '編集する' },
     like: { en: 'Like', ko: '찬성', ch: '喜欢', jp: '好き' },
     'phone number': { en: 'Phone Number', ko: '전화번호', ch: '电话号码', jp: '電話番号' },
+    'no more post': { en: 'No more post ..', ko: '더 이상 게시물이 없습니다.', ch: '没有更多帖子..', jp: 'これ以上投稿はありません..' },
+    'update post': { en: 'Update Post', ko: '글 수정', ch: '更新帖子', jp: '投稿を更新' },
+    'new post': { en: 'New Post', ko: '글쓰기', ch: '最新帖子', jp: '新しい投稿' },
+    'title': { en: 'Title', ko: '제목', ch: '标题', jp: 'タイトル' },
 
     // need check
     gender: { en: 'Gender', ko: '성별', ch: '性别', jp: '性別' },

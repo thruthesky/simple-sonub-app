@@ -34,10 +34,6 @@ export class GalleryComponent implements OnInit {
     });
   }
 
-
-  // post_id: 'trash',
-  //   category: 'xyz'
-
   openPostEdit() {
     return this.a.openPostEdit(
       'create',

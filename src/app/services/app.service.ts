@@ -73,17 +73,17 @@ export class AppService {
      *
      * @todo cache
      */
-    postList(forum: AppSettingForum, page_no: number): Observable<Post[]> {
+    postList(forum: AppSettingForum, page_no: number, limit: number): Observable<Post[]> {
         // console.log('forum: setting:', forum);
 
         if (forum.type === 'sonub') {
-            return this.sp.postList({ idx_category: forum.idx_category, page: page_no }, {}).pipe(
+            return this.sp.postList({ idx_category: forum.idx_category, page: page_no, where: 'stamp_deleted=0', limit: limit }, {}).pipe(
                 map((postList: PostList) => {
                     return postList.posts;
                 })
             );
         } else if (forum.type === 'philgo') {
-            return this.philgo.postSearch({ post_id: forum.post_id, category: forum.category }).pipe(
+            return this.philgo.postSearch({ post_id: forum.post_id, category: forum.category, page_no: page_no, deleted: 0, limit: limit }).pipe(
                 map(search => {
                     // console.log('search: ', search);
                     const posts = this.transformPhilgoPostsToSonubPosts(search.posts);
@@ -100,12 +100,9 @@ export class AppService {
         const posts: Array<Post> = [];
         for (const p of philgo_posts) {
             // console.log('p: ', p);
-            if (p.deleted === '0') {
-                const np = this.transformPhilgoPostToSonubPost(p);
-                // console.log('np: ', np);
-                posts.push(np);
-            }
-
+            const np = this.transformPhilgoPostToSonubPost(p);
+            // console.log('np: ', np);
+            posts.push(np);
         }
         return posts;
     }
@@ -132,7 +129,7 @@ export class AppService {
         np.stamp_created = <any>post.stamp;
         np.stamp_updated = <any>post.stamp;
         np.stamp_deleted = post.deleted ? post.deleted : '0';
-        np.files = this.transformPhilgoFilesToSonubFiles(post.files);
+        np.files = np.files ? this.transformPhilgoFilesToSonubFiles(post.files) : [];
 
         np.comments = [];
         if (post.comments && post.comments.length) {
@@ -192,14 +189,12 @@ export class AppService {
 
     private transformPhilgoFilesToSonubFiles(files: ApiFile[]) {
         const arr: File[] = [];
-        if (files && files.length) {
-            for (const f of files) {
-                const aF = {
-                    idx: f.idx,
-                    url: f.src,
-                };
-                arr.push(<any>aF);
-            }
+        for (const f of files) {
+            const aF = {
+                idx: f.idx,
+                url: f.src,
+            };
+            arr.push(<any>aF);
         }
         return arr;
     }
