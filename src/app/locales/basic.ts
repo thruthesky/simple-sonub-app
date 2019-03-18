@@ -39,6 +39,9 @@ export const basicTexts = {
     like: { en: 'Like', ko: '찬성', ch: '喜欢', jp: '好き' },
     'phone number': { en: 'Phone Number', ko: '전화번호', ch: '电话号码', jp: '電話番号' },
     'no more post': { en: 'No more post ..', ko: '더 이상 게시물이 없습니다.', ch: '没有更多帖子..', jp: 'これ以上投稿はありません..' },
+    'update post': { en: 'Update Post', ko: '글 수정', ch: '更新帖子', jp: '投稿を更新' },
+    'new post': { en: 'New Post', ko: '글쓰기', ch: '最新帖子', jp: '新しい投稿' },
+    'title': { en: 'Title', ko: '제목', ch: '标题', jp: 'タイトル' },
 
     // need check
     gender: { en: 'Gender', ko: '성별', ch: '性别', jp: '性別' },
