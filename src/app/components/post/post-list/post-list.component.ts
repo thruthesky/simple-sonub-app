@@ -62,8 +62,8 @@ export class PostListComponent implements OnInit {
 
     this.page_no += 1;
 
-    console.log('event:', event);
-    console.log('page no:', this.page_no);
+    // console.log('event:', event);
+    // console.log('page no:', this.page_no);
 
     this.a.postList(this.forumSettings, this.page_no, this.limit).subscribe(res => {
       console.log(res);
