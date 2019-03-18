@@ -1,4 +1,4 @@
 <ion-card-content class=" py-0 fs-md ">
-    <app-file-display *ngIf=" post.files && post.files.length " [files]=" post.files "></app-file-display>
+    <app-file-display *ngIf=" !imageInserted && post.files && post.files.length " [files]=" post.files "></app-file-display>
     <div class="border-bottom" [innerHTML]="post['safe_content']"></div>
 </ion-card-content>

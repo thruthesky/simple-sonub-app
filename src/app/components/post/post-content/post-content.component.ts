@@ -20,6 +20,13 @@ export class PostContentComponent implements OnInit {
     ngOnInit() {
     }
 
+    get imageInserted(): boolean {
+        if (this.post && this.post.content) {
+            if (this.post.content.indexOf(`/data/upload/`) > 0 || this.post.content.indexOf(`/files/uploads/`) > 0) {
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
-
-

@@ -3,14 +3,12 @@ import { Posts, Post } from 'modules/ng-simplest/simplest.interface';
 import { AppSettingForum } from 'src/app/services/interfaces';
 import { AppService } from 'src/app/services/app.service';
 import { ActivatedRoute } from '@angular/router';
-
 @Component({
   selector: 'app-post-list',
   templateUrl: './post-list.component.html',
   styleUrls: ['./post-list.component.scss']
 })
 export class PostListComponent implements OnInit {
-
   /**
    * gallery type will show post title content, images and comments.
    *  - when title is clicked, it will hide content, images and comment ( if any ).
@@ -52,39 +50,22 @@ export class PostListComponent implements OnInit {
   }
 
   loadPage() {
-    if (this.page_no === 1) {
-      return;
-    }
-
-    this.page_no = 1;
+    this.page_no += 1;
 
     this.a.postList(this.forumSettings, this.page_no).subscribe(res => {
-      // const arr = [];
       res.forEach(post => this.delayDisplay(post));
-
-      // setTimeout(() => {
-
-      // Object.assign(this.posts, arr);
-      // }, 1000);
-
-
-      // setTimeout(() => this.loaded = true, 2000);
     });
   }
 
   delayDisplay(post: Post) {
     // console.log(post);
-
-    if (!post.stamp_deleted || post.stamp_deleted === '0') {
-      post['commentInUpdate'] = null;
-      post['replyTo'] = post.idx;
-      post['safe_content'] = this.a.safeHtml(post.content);
-      if (this.designType === 'gallery') {
-        post.view = true;
-      }
-      // arr.push(post);
-      this.posts.push(post);
+    post['commentInUpdate'] = null;
+    post['replyTo'] = post.idx;
+    post['safe_content'] = this.a.safeHtml(post.content);
+    if (this.designType === 'gallery') {
+      post.view = true;
     }
+    this.posts.push(post);
   }
 
 }

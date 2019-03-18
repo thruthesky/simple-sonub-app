@@ -77,15 +77,15 @@ export class AppService {
         // console.log('forum: setting:', forum);
 
         if (forum.type === 'sonub') {
-            return this.sp.postList({ idx_category: forum.idx_category, page: page_no }, {}).pipe(
+            return this.sp.postList({ idx_category: forum.idx_category, page: page_no, where: 'stamp_deleted=0' }, {}).pipe(
                 map((postList: PostList) => {
                     return postList.posts;
                 })
             );
         } else if (forum.type === 'philgo') {
-            return this.philgo.postSearch({ post_id: forum.post_id, category: forum.category }).pipe(
+            return this.philgo.postSearch({ post_id: forum.post_id, category: forum.category, page_no: page_no }).pipe(
                 map(search => {
-                    // console.log('search: ', search);
+                    console.log('search: ', search);
                     const posts = this.transformPhilgoPostsToSonubPosts(search.posts);
                     // console.log('posts', posts);
                     return posts;
@@ -100,12 +100,12 @@ export class AppService {
         const posts: Array<Post> = [];
         for (const p of philgo_posts) {
             // console.log('p: ', p);
-            if (p.deleted === '0') {
+            if (p.deleted !== '0') {
+            } else {
                 const np = this.transformPhilgoPostToSonubPost(p);
                 // console.log('np: ', np);
                 posts.push(np);
             }
-
         }
         return posts;
     }
