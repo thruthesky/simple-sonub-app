@@ -45,6 +45,7 @@ import { PostEditComponent } from './pages/post/post-edit/post-edit.component';
 import { FileDisplayComponent } from './components/file-display/file-display.component';
 import { CommentUserProfileComponent } from './components/comment/comment-user-profile/comment-user-profile.component';
 import { CommentHeaderComponent } from './components/comment/comment-header/comment-header.component';
+import { LaunchNavigator } from '@ionic-native/launch-navigator/ngx';
 
 
 @NgModule({
@@ -96,6 +97,7 @@ import { CommentHeaderComponent } from './components/comment/comment-header/comm
     StatusBar,
     SplashScreen,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    LaunchNavigator,
     AppService,
     AppSettings,
     AppLibrary
