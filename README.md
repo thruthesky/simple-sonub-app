@@ -223,3 +223,32 @@ https://stackoverflow.com/questions/26449512/how-to-create-a-signed-apk-file-usi
 keystore file: default.keystore
 alias: default
 password: asdf99
+
+## Checklist for publish to App Store
+
+### App information
+
+* Check if below are set properly and works fine.
+  * Name of the app in all langauges
+  * Write names
+  * Phone numbers.
+  * Contact page settings
+  * Map & navigation
+
+### Language Supports
+
+* What languages the app must support.
+
+#### Page
+
+* Does front page looks fine?
+* Does gallery or forum look fine?
+* Does menu look fine? with all languages?
+  * Toolbar menu title(name) looks fine?
+* Does sidebar menu looks fine?
+  * The title of sidebar looks fine?
+  * App has website, facebook on the sidebar menu?
+
+### Functions
+
+* Does the app needs login/logout?
