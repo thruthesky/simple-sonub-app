@@ -66,7 +66,7 @@ export class PostListComponent implements OnInit {
     // console.log('page no:', this.page_no);
 
     this.a.postList(this.forumSettings, this.page_no, this.limit).subscribe(res => {
-      console.log(res);
+      // console.log(res);
 
       if (!res.length || res.length < this.limit) {
         this.no_more_post = true;
