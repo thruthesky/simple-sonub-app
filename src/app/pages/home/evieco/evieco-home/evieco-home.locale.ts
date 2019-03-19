@@ -86,7 +86,12 @@ export const iconTexts = [
         ch: 'Microblading是一种纹身技术，其中使用由几根细针制成的小型手持工具向皮肤添加半永久性颜料，并且用于眉毛以在形状和颜色方面创建，增强或重塑它们的外观。',
         jp: 'マイクロブレードは、いくつかの小さな針でできた小さな手の道具を使って半永久的な色素を肌に加えたり、眉毛の上で形や色の点で外観を作り出したり、高めたり、形を変えたりするためのものです。'
     },
-    { en: 'This is fourth icon text.', ko: '네 번째 아이콘의 텍스트입니다.', ch: '这是第四个文本。', jp: 'これは最初の4番目のテキストです。' }
+    {
+        en: 'Hairline lowering is a surgical technique that allows an individual to have their frontal hairline advanced certain distances depending on variables such as pre-operative hairline height, scalp laxity, and patient preference.',
+        ko: '헤어 라인 강하는 수술 전 헤어 라인 높이, 두피의 느슨 함 및 환자 선호도와 같은 변수에 따라 개인이 정면의 헤어 라인을 특정 거리까지 전진시킬 수있는 수술 기법입니다.',
+        ch: '发际线降低是一种手术技术，允许个体根据诸如术前发际高度，头皮松弛和患者偏好等变量使其额发线前进一定距离。',
+        jp: '生え際を下げることは、手術前の生え際の高さ、頭皮の弛緩、および患者の好みなどの変数に応じて、個人の前頭生え際を一定の距離だけ前進させることを可能にする外科的技術である。'
+    }
 ];
 
 

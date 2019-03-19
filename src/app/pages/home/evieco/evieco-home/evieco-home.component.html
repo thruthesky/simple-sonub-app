@@ -1,8 +1,8 @@
 <ion-card>
-  <ion-card-subtitle>
+  <!-- <ion-card-subtitle>
     <div class="pt-3 px-3">{{ a.t(text.title.subtitle) }}</div>
-  </ion-card-subtitle>
-  <ion-card-title>
+  </ion-card-subtitle> -->
+  <ion-card-title class="pt-3">
     <h1 class="display-4 px-3 fs-lg">{{ a.t(text.title.title) }}</h1>
   </ion-card-title>
 
@@ -26,7 +26,7 @@
 
   <ng-container *ngFor=" let n of [ 0, 1, 2, 3 ] ">
     <div *ngIf=" showIconLineNo == n ">
-      <div class="ml-3 mb-2">{{ a.t( iconTexts[n] ) }}</div>
+      <div class="ml-3 mr-2 mb-2">{{ a.t( iconTexts[n] ) }}</div>
       <img src="/assets/apps/{{ a.env.domain }}/home/icon-line-image-{{n}}.jpg">
     </div>
   </ng-container>
