@@ -33,15 +33,13 @@ export const basicTexts = {
     comment: { en: 'Comment', ko: '코멘트', ch: '评论', jp: 'コメント' },
     edit: { en: 'Edit', ko: '수정', ch: '编辑', jp: '編集する' },
     like: { en: 'Like', ko: '찬성', ch: '喜欢', jp: '好き' },
+    title: { en: 'Title', ko: '제목', ch: '标题', jp: 'タイトル' },
     'phone number': { en: 'Phone Number', ko: '전화번호', ch: '电话号码', jp: '電話番号' },
     'no more post': { en: 'No more post ..', ko: '더 이상 게시물이 없습니다.', ch: '没有更多帖子..', jp: 'これ以上投稿はありません..' },
     'update post': { en: 'Update Post', ko: '글 수정', ch: '更新帖子', jp: '投稿を更新' },
     'new post': { en: 'New Post', ko: '글쓰기', ch: '最新帖子', jp: '新しい投稿' },
-    'title': { en: 'Title', ko: '제목', ch: '标题', jp: 'タイトル' },
 
-    // need check
-    gender: { en: 'Gender', ko: '성별', ch: '性别', jp: '性別' },
-    required: { en: 'Required : ', ko: '필수: ', ch: '需要: ', jp: '必須: ' },
+    read_more: { en: 'Read more', ko: '더 보기', ch: '阅读更多', jp: '続きを読む' },
 
     /** Error */
     email_in_use: {
@@ -56,7 +54,12 @@ export const basicTexts = {
         ch: '请输入评论或上传图片',
         jp: 'コメントを入力するか、画像をアップロードしてください'
     },
+    wrong_email: { en: 'User is not found by that email.', ko: '해당 이메일로 사용자를 찾을 수 없습니다.', ch: '该电子邮件未找到用户。', jp: 'そのEメールでユーザーが見つかりません。' },
+    invalid_email: { en: 'Invalid email address.', ko: '잘못된 이메일 주소입니다.', ch: '无效的邮件地址。', jp: '無効な電子メールアドレス。' },
+    email_too_short: { en: 'Email is too short.', ko: '이메일이 너무 짧습니다.', ch: '电子邮件太短了。', jp: '電子メールが短すぎます。' },
+    wrong_password: { en: 'Password does not match!', ko: '비밀번호가 일치하지 않습니다!', ch: '密码不匹配！', jp: 'パスワードが一致しません！' },
 
-    read_more: { en: 'Read more', ko: '더 보기', ch: '阅读更多', jp: '続きを読む' },
-
+    // need check
+    gender: { en: 'Gender', ko: '성별', ch: '性别', jp: '性別' },
+    required: { en: 'Required : ', ko: '필수: ', ch: '需要: ', jp: '必須: ' },
 };
