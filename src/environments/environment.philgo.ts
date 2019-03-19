@@ -13,12 +13,10 @@ const siteUrlKo = 'https://www.philgo.com';
 const siteUrlKoShort = 'www.philgo.com';
 const facebookUrl = 'https://web.facebook.com/thruthesky';
 
-texts.home.ko = '필고';
+texts.home.en = 'BizBook';
+texts.home.ko = '업소록';
 texts['freetalk'] = { ko: '자유토론', en: 'Discussion', ch: '讨论', jp: '討論' };
 texts['qna'] = { ko: '질문답변', en: 'QnA', ch: '问题', jp: '質問' };
-
-
-
 
 
 
@@ -202,21 +200,20 @@ export const environment: Environment = {
   sideMenu: [
     {
       when: 'logout',
-      title: texts['login'],
-      icon: 'log-in',
-      url: '/login',
-    },
-    {
-      when: 'logout',
       title: texts['register'],
       icon: 'person-add',
       url: '/register'
     },
     {
-      when: 'login',
-      title: texts['profile'],
-      icon: 'contact',
-      url: '/profile'
+      when: 'logout',
+      title: texts['login'],
+      icon: 'log-in',
+      url: '/login',
+    },
+    {
+      title: texts['setting'],
+      icon: 'settings',
+      url: '/setting',
     },
     {
       title: texts['website'],
@@ -224,17 +221,18 @@ export const environment: Environment = {
       url: siteUrlEn,
       openWindow: true // open the url in new window
     },
+    {
+      when: 'login',
+      title: texts['profile'],
+      icon: 'contact',
+      url: '/profile'
+    },
     // {
     //   title: texts['facebook'],
     //   icon: 'logo-facebook',
     //   url: facebookUrl,
     //   openWindow: true
     // },
-    {
-      title: texts['setting'],
-      icon: 'settings',
-      url: '/setting',
-    },
     {
       when: 'login',
       title: texts['logout'],

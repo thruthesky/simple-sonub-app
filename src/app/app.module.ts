@@ -46,6 +46,7 @@ import { FileDisplayComponent } from './components/file-display/file-display.com
 import { CommentUserProfileComponent } from './components/comment/comment-user-profile/comment-user-profile.component';
 import { CommentHeaderComponent } from './components/comment/comment-header/comment-header.component';
 import { LaunchNavigator } from '@ionic-native/launch-navigator/ngx';
+import { PhilgoHomeComponent } from './pages/home/philgo/philgo-home/philgo-home.component';
 
 
 @NgModule({
@@ -81,7 +82,8 @@ import { LaunchNavigator } from '@ionic-native/launch-navigator/ngx';
     HomePage,
     WorkHomeComponent,
     EviecoHomeComponent,
-    LasemaHomeComponent
+    LasemaHomeComponent,
+    PhilgoHomeComponent
   ],
   entryComponents: [],
   imports: [
