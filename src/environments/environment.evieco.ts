@@ -85,11 +85,6 @@ export const environment: Environment = {
           type: 'sonub',
           idx_category: '82'
         },
-        // {
-        //     title: texts['forum'],
-        //     icon: 'chatboxes',
-        //     url: '/forum'
-        // },
         {
           title: texts['contact'],
           icon: 'contact',
@@ -298,11 +293,6 @@ export const environment: Environment = {
           type: 'sonub',
           idx_category: '82'
         },
-        // {
-        //     title: texts['forum'],
-        //     icon: 'chatboxes',
-        //     url: '/forum'
-        // },
         {
           title: texts['contact'],
           icon: 'contact',
@@ -404,11 +394,6 @@ export const environment: Environment = {
           type: 'sonub',
           idx_category: '82'
         },
-        // {
-        //     title: texts['forum'],
-        //     icon: 'chatboxes',
-        //     url: '/forum'
-        // },
         {
           title: texts['contact'],
           icon: 'contact',
