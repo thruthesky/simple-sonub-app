@@ -53,9 +53,9 @@ export const environment: Environment = {
    */
   sites: {
     en: {
-      idx: '29', // Why `site.idx` is required? @see # site.idx
-      name: 'Main App - Developer App',
-      url: siteUrlEn, //
+      idx: '29', // Why `site.idx` is required? @see # site.idx, Used in 'sonub forum posting'
+      name: 'Main App - Developer App', // Use in sidemenu,
+      url: siteUrlEn, // Use in side menu.
       home: {
       },
       contact: {
@@ -495,7 +495,9 @@ export const environment: Environment = {
     lng: 120.981,
     title: {
       en: 'Evie & Co Microblading!',
-      ko: 'Even & Co 반영구화장'
+      ko: 'Even & Co 반영구화장',
+      ch: '',
+      jp: ''
     },
     snippet: {
       en: 'Please click [Get Directions] button to get here.\nTel: ' + phone,

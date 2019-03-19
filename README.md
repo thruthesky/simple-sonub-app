@@ -235,11 +235,17 @@ password: asdf99
   * Contact page settings
   * Map & navigation
 
-### Language Supports
+### Language Supports & Translation
 
 * What languages the app must support.
+* All translations are okay?
+  * Toolbar Menu
+  * Side Menu
+  * Front Page
+  * Contact
+  * Map
 
-#### Page - UI
+### Page - UI
 
 * Does front page looks fine?
 * Does gallery or forum look fine?
@@ -249,9 +255,24 @@ password: asdf99
   * The title of sidebar looks fine?
   * App has website, facebook on the sidebar menu?
 
+### Contents
+
+* front page content is good enough?
+
 ### Functions
 
 * Does the app needs login/logout?
+
+### Icon & Splashes
+
+* App icon is properly designed?
+* App splash is properly designed?
+
+### config.xml
+
+* Name in multi language supprot.
+* Version
+* Description
 
 ## Coding Guideline
 

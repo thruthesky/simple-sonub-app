@@ -485,7 +485,9 @@ export const environment: Environment = {
     lng: 120.981,
     title: {
       en: 'Evie & Co Microblading!',
-      ko: 'Even & Co 반영구화장'
+      ko: 'Even & Co 반영구화장',
+      ch: '',
+      jp: ''
     },
     snippet: {
       en: 'Please click [Get Directions] button to get here.\nTel: ' + phone,
