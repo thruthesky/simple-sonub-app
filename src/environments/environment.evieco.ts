@@ -4,11 +4,8 @@
 
 
 import { Environment } from 'src/app/services/interfaces';
-
-
 import { basicTexts } from 'src/app/locales/basic';
 const texts = basicTexts;
-
 
 const phone = '0956-871-2485';
 const siteUrlEn = 'https://en.evieco.shop';
@@ -16,7 +13,6 @@ const siteUrlEnShort = 'en.evieco.shop';
 const siteUrlKo = 'https://www.evieco.shop';
 const siteUrlKoShort = 'www.evieco.shop';
 const facebookUrl = 'https://www.facebook.com/Thankyoumadam';
-
 
 export const environment: Environment = {
   production: false,
@@ -160,8 +156,8 @@ export const environment: Environment = {
       ],
     },
     ko: {
-      name: 'Evie & Co 반영구 화장',
       idx: '21',
+      name: 'Evie & Co 반영구 화장',
       url: siteUrlKo,
       home: {
         title: 'Evie & Co (에비코) - 반영구 눈썹 화장'
@@ -278,12 +274,12 @@ export const environment: Environment = {
         name: 'Evie & Co',
         contacts: [
           {
-            label: texts['phone number'].ch,
+            label: texts['phone number'].en,
             text: phone,
             click_url: 'tel:' + phone
           },
           {
-            label: texts['website'].ch,
+            label: texts['website'].en,
             text: siteUrlEnShort,
             click_url: siteUrlEn
           }
@@ -343,7 +339,7 @@ export const environment: Environment = {
           url: '/profile'
         },
         {
-          title: texts['website'],
+          title: texts['website'].en,
           icon: 'home',
           url: siteUrlEn,
           openWindow: true // open the url in new window
@@ -373,7 +369,7 @@ export const environment: Environment = {
       ],
     },
     jp: {
-      idx: '82',
+      idx: '24',
       name: 'Evie & Co Microblading',
       url: siteUrlEn,
       home: {
@@ -384,12 +380,12 @@ export const environment: Environment = {
         name: 'Evie & Co',
         contacts: [
           {
-            label: texts['phone number'].jp,
+            label: texts['phone number'].en,
             text: phone,
             click_url: 'tel:' + phone
           },
           {
-            label: texts['website'].jp,
+            label: texts['website'].en,
             text: siteUrlEnShort,
             click_url: siteUrlEn
           }
@@ -449,7 +445,7 @@ export const environment: Environment = {
           url: '/profile'
         },
         {
-          title: texts['website'],
+          title: texts['website'].en,
           icon: 'home',
           url: siteUrlEn,
           openWindow: true // open the url in new window
