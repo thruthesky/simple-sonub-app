@@ -8,7 +8,7 @@ export const basicTexts = {
     setting: { en: 'Settings', ko: '설정', ch: '设置', jp: '設定' },
     facebook: { en: 'Facebook', ko: '페이스북', ch: 'Facebook', jp: 'Facebook' },
     website: { en: 'Web Site', ko: '홈페이지', ch: '网站', jp: 'Webサイト' },
-    gallery: { en: 'Gallery', ko: '갤러리', ch: '画廊', jp: 'ギャラリー' },
+    gallery: { en: 'Gallery', ko: '겔러리', ch: '画廊', jp: 'ギャラリー' },
     forum: { en: 'Forum', ko: '게시판', ch: '论坛', jp: 'フォーラム' },
     contact: { en: 'Contacts', ko: '연락처', ch: '联系', jp: '接触' },
     map: { en: 'Map', ko: '오시는길', ch: '地图', jp: '地図' },

@@ -82,6 +82,7 @@ export const environment: Environment = {
         },
         {
           title: texts['gallery'],
+          pageTitle: 'Work Gallery',
           icon: 'photos',
           url: '/gallery',
           type: 'philgo',
@@ -90,6 +91,7 @@ export const environment: Environment = {
         },
         {
           title: texts['forum'],
+          pageTitle: 'Work Forum',
           icon: 'chatboxes',
           url: '/forum',
           type: 'sonub',
@@ -97,11 +99,13 @@ export const environment: Environment = {
         },
         {
           title: texts['contact'],
+          pageTitle: 'Work - Contact',
           icon: 'contact',
           url: '/contact'
         },
         {
           title: texts['map'],
+          pageTitle: 'How to get there',
           icon: 'map',
           url: '/map'
         },
@@ -190,6 +194,7 @@ export const environment: Environment = {
         },
         {
           title: texts['gallery'],
+          pageTitle: 'Work 갤러리',
           icon: 'photos',
           url: '/gallery',
           type: 'philgo',
@@ -198,6 +203,7 @@ export const environment: Environment = {
         },
         {
           title: texts['forum'],
+          pageTitle: 'Work 게시판',
           icon: 'chatboxes',
           url: '/forum',
           type: 'sonub',
@@ -205,11 +211,13 @@ export const environment: Environment = {
         },
         {
           title: texts['contact'],
+          pageTitle: 'Work - 연락처',
           icon: 'contact',
           url: '/contact'
         },
         {
           title: texts['map'],
+          pageTitle: 'Work - 찾아오시는 길',
           icon: 'map',
           url: '/map'
         },
