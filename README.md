@@ -226,7 +226,7 @@ password: asdf99
 
 ## Checklist for publish to App Store
 
-### App information
+### App information - Environment
 
 * Check if below are set properly and works fine.
   * Name of the app in all langauges
@@ -239,7 +239,7 @@ password: asdf99
 
 * What languages the app must support.
 
-#### Page
+#### Page - UI
 
 * Does front page looks fine?
 * Does gallery or forum look fine?
