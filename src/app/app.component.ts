@@ -25,7 +25,7 @@ export class AppComponent {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      console.log('is cordova?: ', this.platform.is('cordova'));
+      // console.log('is cordova?: ', this.platform.is('cordova'));
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });

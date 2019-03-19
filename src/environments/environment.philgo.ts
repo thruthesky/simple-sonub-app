@@ -13,8 +13,10 @@ const siteUrlKo = 'https://www.philgo.com';
 const siteUrlKoShort = 'www.philgo.com';
 const facebookUrl = 'https://web.facebook.com/thruthesky';
 
-basicTexts.home.ko = '필고홈';
-basicTexts['freetalk'] = { ko: '자유토론', en: 'Discussion' };
+texts.home.ko = '필고';
+texts['freetalk'] = { ko: '자유토론', en: 'Discussion', ch: '讨论', jp: '討論' };
+texts['qna'] = { ko: '질문답변', en: 'QnA', ch: '问题', jp: '質問' };
+
 
 
 
@@ -81,91 +83,8 @@ export const environment: Environment = {
           }
         ]
       },
-      footerMenus: [
-        {
-          title: basicTexts.home,
-          icon: 'home',
-          url: '/home'
-        },
-        {
-          title: basicTexts['freetalk'],
-          icon: 'photos',
-          url: '/gallery',
-          type: 'philgo',
-          post_id: 'freetalk',
-          category: ''
-        },
-        {
-          title: { ko: '질문답변', en: 'QnA' },
-          icon: 'chatboxes',
-          url: '/forum',
-          type: 'sonub',
-          idx_category: '96',
-        },
-        {
-          title: texts['contact'],
-          icon: 'contact',
-          url: '/contact'
-        },
-        {
-          title: texts['map'],
-          icon: 'map',
-          url: '/map'
-        },
-        {
-          title: texts['menu'],
-          icon: 'menu',
-          openSideMenu: true // open side menu
-        }
-      ],
-      sideMenus: [
-        {
-          when: 'logout',
-          title: texts['login'],
-          icon: 'log-in',
-          url: '/login',
-        },
-        {
-          when: 'logout',
-          title: texts['register'],
-          icon: 'person-add',
-          url: '/register'
-        },
-        {
-          when: 'login',
-          title: texts['profile'],
-          icon: 'contact',
-          url: '/profile'
-        },
-        {
-          title: texts['website'],
-          icon: 'home',
-          url: siteUrlEn,
-          openWindow: true // open the url in new window
-        },
-        {
-          title: texts['facebook'],
-          icon: 'logo-facebook',
-          url: facebookUrl,
-          openWindow: true
-        },
-        {
-          title: texts['setting'],
-          icon: 'settings',
-          url: '/setting',
-        },
-        {
-          when: 'login',
-          title: texts['logout'],
-          icon: 'log-out',
-          url: '/logout',
-        },
-        {
-          title: texts['close'],
-          icon: 'close',
-          close: true // close side menu
-        }
-      ],
+      footerMenus: [],
+      sideMenus: [],
     },
     ko: {
       idx: '29',
@@ -190,90 +109,8 @@ export const environment: Environment = {
         ]
       },
       footerMenus: [
-        {
-          title: texts['home'],
-          icon: 'home',
-          url: '/home'
-        },
-        {
-          title: texts['gallery'],
-          icon: 'photos',
-          url: '/gallery',
-          type: 'philgo',
-          post_id: 'trash',
-          category: ''
-        },
-        {
-          title: texts['forum'],
-          icon: 'chatboxes',
-          url: '/forum',
-          type: 'sonub',
-          idx_category: '96',
-        },
-        {
-          title: texts['contact'],
-          icon: 'contact',
-          url: '/contact'
-        },
-        {
-          title: texts['map'],
-          icon: 'map',
-          url: '/map'
-        },
-        {
-          title: texts['menu'],
-          icon: 'menu',
-          openSideMenu: true // open side menu
-        }
       ],
-      sideMenus: [
-        {
-          when: 'logout',
-          title: texts['login'],
-          icon: 'log-in',
-          url: '/login',
-        },
-        {
-          when: 'logout',
-          title: texts['register'],
-          icon: 'person-add',
-          url: '/register',
-        },
-        {
-          when: 'login',
-          title: texts['profile'],
-          icon: 'contact',
-          url: '/profile'
-        },
-        {
-          title: texts['website'],
-          icon: 'home',
-          url: siteUrlKo,
-          openWindow: true // open the url in new window
-        },
-        {
-          title: texts['facebook'],
-          icon: 'logo-facebook',
-          url: facebookUrl,
-          openWindow: true
-        },
-        {
-          title: texts['setting'],
-          icon: 'settings',
-          url: '/setting',
-        },
-        {
-          when: 'login',
-          title: texts['logout'],
-          icon: 'log-out',
-          url: '/logout',
-        },
-        {
-          title: texts['close'],
-          icon: 'close',
-          close: true // close side menu
-        }
-      ],
+      sideMenus: [],
     },
     ch: {
       idx: '24',
@@ -297,91 +134,8 @@ export const environment: Environment = {
           }
         ]
       },
-      footerMenus: [
-        {
-          title: texts['home'],
-          icon: 'home',
-          url: '/home'
-        },
-        {
-          title: texts['gallery'],
-          icon: 'photos',
-          url: '/gallery',
-          type: 'philgo',
-          post_id: 'company_info',
-          category: '21'
-        },
-        {
-          title: texts['forum'],
-          icon: 'chatboxes',
-          url: '/forum',
-          type: 'sonub',
-          idx_category: '57',
-        },
-        {
-          title: texts['contact'],
-          icon: 'contact',
-          url: '/contact'
-        },
-        {
-          title: texts['map'],
-          icon: 'map',
-          url: '/map'
-        },
-        {
-          title: texts['menu'],
-          icon: 'menu',
-          openSideMenu: true // open side menu
-        }
-      ],
-      sideMenus: [
-        {
-          when: 'logout',
-          title: texts['login'],
-          icon: 'log-in',
-          url: '/login',
-        },
-        {
-          when: 'logout',
-          title: texts['register'],
-          icon: 'person-add',
-          url: '/register'
-        },
-        {
-          when: 'login',
-          title: texts['profile'],
-          icon: 'contact',
-          url: '/profile'
-        },
-        {
-          title: texts['website'],
-          icon: 'home',
-          url: siteUrlEn,
-          openWindow: true // open the url in new window
-        },
-        {
-          title: texts['facebook'],
-          icon: 'logo-facebook',
-          url: facebookUrl,
-          openWindow: true
-        },
-        {
-          title: texts['setting'],
-          icon: 'settings',
-          url: '/setting',
-        },
-        {
-          when: 'login',
-          title: texts['logout'],
-          icon: 'log-out',
-          url: '/logout',
-        },
-        {
-          title: texts['close'],
-          icon: 'close',
-          close: true // close side menu
-        }
-      ],
+      footerMenus: [],
+      sideMenus: [],
     },
     jp: {
       idx: '24',
@@ -405,94 +159,94 @@ export const environment: Environment = {
           }
         ]
       },
-      footerMenus: [
-        {
-          title: texts['home'],
-          icon: 'home',
-          url: '/home'
-        },
-        {
-          title: texts['gallery'],
-          icon: 'photos',
-          url: '/gallery',
-          type: 'philgo',
-          post_id: 'company_info',
-          category: '21'
-        },
-        {
-          title: texts['forum'],
-          icon: 'chatboxes',
-          url: '/forum',
-          type: 'sonub',
-          idx_category: '57',
-        },
-        {
-          title: texts['contact'],
-          icon: 'contact',
-          url: '/contact'
-        },
-        {
-          title: texts['map'],
-          icon: 'map',
-          url: '/map'
-        },
-        {
-          title: texts['menu'],
-          icon: 'menu',
-          openSideMenu: true // open side menu
-        }
-      ],
-      sideMenus: [
-        {
-          when: 'logout',
-          title: texts['login'],
-          icon: 'log-in',
-          url: '/login',
-        },
-        {
-          when: 'logout',
-          title: texts['register'],
-          icon: 'person-add',
-          url: '/register'
-        },
-        {
-          when: 'login',
-          title: texts['profile'],
-          icon: 'contact',
-          url: '/profile'
-        },
-        {
-          title: texts['website'],
-          icon: 'home',
-          url: siteUrlEn,
-          openWindow: true // open the url in new window
-        },
-        {
-          title: texts['facebook'],
-          icon: 'logo-facebook',
-          url: facebookUrl,
-          openWindow: true
-        },
-        {
-          title: texts['setting'],
-          icon: 'settings',
-          url: '/setting',
-        },
-        {
-          when: 'login',
-          title: texts['logout'],
-          icon: 'log-out',
-          url: '/logout',
-        },
-        {
-          title: texts['close'],
-          icon: 'close',
-          close: true // close side menu
-        }
-      ],
+      footerMenus: [],
+      sideMenus: [],
     },
   },
 
+  footerMenu: [
+    {
+      title: texts['home'],
+      icon: 'home',
+      url: '/home'
+    },
+    {
+      title: texts['freetalk'],
+      icon: 'photos',
+      url: '/forum',
+      type: 'philgo',
+      post_id: 'freetalk',
+      category: ''
+    },
+    {
+      title: texts['company_book'],
+      icon: 'book',
+      url: '/forum',
+      type: 'philgo',
+      post_id: 'freetalk',
+      category: ''
+    },
+    {
+      title: texts['qna'],
+      icon: 'chatboxes',
+      url: '/forum',
+      type: 'philgo',
+      post_id: 'qna',
+    },
+    {
+      title: texts['menu'],
+      icon: 'menu',
+      openSideMenu: true // open side menu
+    }
+  ],
+  sideMenu: [
+    {
+      when: 'logout',
+      title: texts['login'],
+      icon: 'log-in',
+      url: '/login',
+    },
+    {
+      when: 'logout',
+      title: texts['register'],
+      icon: 'person-add',
+      url: '/register'
+    },
+    {
+      when: 'login',
+      title: texts['profile'],
+      icon: 'contact',
+      url: '/profile'
+    },
+    {
+      title: texts['website'],
+      icon: 'home',
+      url: siteUrlEn,
+      openWindow: true // open the url in new window
+    },
+    // {
+    //   title: texts['facebook'],
+    //   icon: 'logo-facebook',
+    //   url: facebookUrl,
+    //   openWindow: true
+    // },
+    {
+      title: texts['setting'],
+      icon: 'settings',
+      url: '/setting',
+    },
+    {
+      when: 'login',
+      title: texts['logout'],
+      icon: 'log-out',
+      url: '/logout',
+    },
+    {
+      title: texts['close'],
+      icon: 'close',
+      close: true // close side menu
+    }
+  ],
   /**
   * Phone number to be appear on map.
   */

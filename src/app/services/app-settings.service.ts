@@ -29,19 +29,34 @@ export class AppSettings {
     get site(): AppSettingSite {
         const ln = this.lib.languageCode;
         const site = this.sites[ln];
-        if ( site ) {
+        if (site) {
             return site;
         } else {
             return this.sites['en'];
         }
     }
 
+    /**
+     * Returns footer menu for each language site.
+     * If it has a global footer mneu, it returns global footer menu.
+     */
     get footerMenus(): AppSettingFooterMenu[] {
         // console.log('footerMenus: ', this.site.footerMenus);
+
+        if (environment.footerMenu) {
+            return environment.footerMenu;
+        }
         return this.site.footerMenus;
     }
 
+    /**
+     * Returns sidemenu.
+     * If it has sidemenu, then it returns global sidemenu.
+     */
     get sideMenus(): AppSettingSideMenu[] {
+        if (environment.sideMenu) {
+            return environment.sideMenu;
+        }
         return this.site.sideMenus;
     }
 
@@ -52,9 +67,9 @@ export class AppSettings {
     get whenSideMenus(): AppSettingSideMenu[] {
         return this.sideMenus.filter(menu => {
             if (menu.when) {
-                if ( menu.when === 'login' && this.sp.isLoggedIn ) {
+                if (menu.when === 'login' && this.sp.isLoggedIn) {
                     return true;
-                } else if ( menu.when === 'logout' && !this.sp.isLoggedIn ) {
+                } else if (menu.when === 'logout' && !this.sp.isLoggedIn) {
                     return true;
                 } else {
                     return false;

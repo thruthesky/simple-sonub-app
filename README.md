@@ -64,19 +64,32 @@ We may need to give the user manual to our clients. So we have [Sonub App User M
 * You can set `domain` in environment which is not the Internet Domain.
   It is a domain to distinguish each app.
 
-#### Menus
+#### Footer menu
 
-* There are 6 menus only. You can hide some of the menus but don't try to add more. It will look urgly due to lack of space on app device with.
+* You can add as much as footer menus by adding menu item in the `environment`
+* But it should be less than or equal to 6 menus only. It will look urgly if you add more than 6 due to lack of space on app device with.
   * It must be simple to develop & maintain. So, keep it simple.
   * To hide menus, simple omit menus inside the environemnt.
 
-* 'home' page is for showing a customized front page.
-  * Do not put any dynamic content from server. So it can show content even if it's offline.
+* `home` page is for showing a customized front page.
+  * Avoid to put any dynamic content from server. So it can show content even if it's offline.
+    Or try to cache front page.
 
-* There are two forum menus.
+* There are two forum menus by default.
   * one is `gallery` for photo listing from a forum.
   * the other is `forum` for free discussion.
   * Try to hide `forum` menu to make it simple.
+  * You can add more forums.
+
+* Footer menu are set in each site settings of each environment.
+  * One environment can have `footerMenu` outside `sites` settings. That's called `global footer menu`.
+    If you set a global footer menu, all the footer menu in each settings will be ignored and will use the `global footer menu`.
+  * This is especially good when you have all the same footer menu for all the sites in one environment.
+    This works the same to sidemenu.
+
+#### Side menu
+
+* If you set `global side menu`, all the sidemenu settings will be ignored in the environment.
 
 #### First page
 

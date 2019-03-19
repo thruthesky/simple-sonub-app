@@ -106,6 +106,8 @@ export interface Environment {
     };
     firstPageRoute: 'home' | 'gallery' | 'forum' | 'contact' | 'map';
     sites: AppSettingSites;
+    sideMenu?: AppSettingSideMenu[];
+    footerMenu?: AppSettingFooterMenu[];
     map: AppSettingMap;
     header?: {
         home?: boolean;
