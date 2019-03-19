@@ -81,6 +81,12 @@
                 "with": "src/environments/environment.lasema.ts"
               }]
             },
+            "philgo": {
+              "fileReplacements": [{
+                "replace": "src/environments/environment.ts",
+                "with": "src/environments/environment.philgo.ts"
+              }]
+            },
             "ci": {
               "progress": false
             }
@@ -103,6 +109,9 @@
             },
             "lasema": {
               "browserTarget": "app:build:lasema"
+            },
+            "philgo": {
+              "browserTarget": "app:build:philgo"
             },
             "ci": {
               "progress": false
@@ -167,6 +176,9 @@
             },
             "lasema": {
               "browserTarget": "app:build:lasema"
+            },
+            "philgo": {
+              "browserTarget": "app:build:philgo"
             }
           }
         },
@@ -192,6 +204,10 @@
             "lasema": {
               "cordovaBuildTarget": "app:ionic-cordova-build:lasema",
               "devServerTarget": "app:serve:lasema"
+            },
+            "philgo": {
+              "cordovaBuildTarget": "app:ionic-cordova-build:philgo",
+              "devServerTarget": "app:serve:philgo"
             }
           }
         }

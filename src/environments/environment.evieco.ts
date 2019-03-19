@@ -15,7 +15,7 @@ const siteUrlEn = 'https://en.evieco.shop';
 const siteUrlEnShort = 'en.evieco.shop';
 const siteUrlKo = 'https://www.evieco.shop';
 const siteUrlKoShort = 'www.evieco.shop';
-const facebookUrl = 'https://web.facebook.com/thruthesky';
+const facebookUrl = 'https://www.facebook.com/Thankyoumadam';
 
 
 export const environment: Environment = {

@@ -6,12 +6,19 @@ import { basicTexts } from 'src/app/locales/basic';
 
 
 const texts = basicTexts;
-const phone = '0956-871-2485';
-const siteUrlEn = 'https://en.evieco.shop';
-const siteUrlEnShort = 'en.evieco.shop';
-const siteUrlKo = 'https://www.evieco.shop';
-const siteUrlKoShort = 'www.evieco.shop';
+const phone = '0917-467-8693';
+const siteUrlEn = 'https://www.philgo.com';
+const siteUrlEnShort = 'www.philgo.com';
+const siteUrlKo = 'https://www.philgo.com';
+const siteUrlKoShort = 'www.philgo.com';
 const facebookUrl = 'https://web.facebook.com/thruthesky';
+
+basicTexts.home.ko = '필고홈';
+basicTexts['freetalk'] = { ko: '자유토론', en: 'Discussion' };
+
+
+
+
 
 export const environment: Environment = {
   production: false,
@@ -28,12 +35,12 @@ export const environment: Environment = {
       fileServer: 'https://file.philgo.com/api.php' // remote server
     }
   },
-  domain: 'work',
+  domain: 'philgo',
   configXml: {
-    "id": "com.sonub.work",
+    "id": "com.sonub.philgo",
     "version": "0.0.8",
-    "name": { "en": "Work App", "ko": "작업 앱", "ch": "工作应用", "jp": "仕事用アプリ" },
-    "description": "This is Description for Work App"
+    "name": { "en": "Philgo", "ko": "필고", "ch": "Philgo", "jp": "Philgo" },
+    "description": "This is Philgo App"
   },
   header: {
     home: false,
@@ -53,14 +60,14 @@ export const environment: Environment = {
    */
   sites: {
     en: {
-      idx: '29', // Why `site.idx` is required? @see # site.idx
-      name: 'Main App - Developer App',
-      url: siteUrlEn, //
+      idx: '29',
+      name: 'Philgo',
+      url: siteUrlEn,
       home: {
       },
       contact: {
-        title: 'Web Developer',
-        name: 'Juana Leichelle',
+        title: 'No. 1 Korean Community',
+        name: 'Philgo',
         contacts: [
           {
             label: 'Phone Number',
@@ -76,20 +83,20 @@ export const environment: Environment = {
       },
       footerMenus: [
         {
-          title: texts['home'],
+          title: basicTexts.home,
           icon: 'home',
           url: '/home'
         },
         {
-          title: texts['gallery'],
+          title: basicTexts['freetalk'],
           icon: 'photos',
           url: '/gallery',
           type: 'philgo',
-          post_id: 'trash',
+          post_id: 'freetalk',
           category: ''
         },
         {
-          title: texts['forum'],
+          title: { ko: '질문답변', en: 'QnA' },
           icon: 'chatboxes',
           url: '/forum',
           type: 'sonub',

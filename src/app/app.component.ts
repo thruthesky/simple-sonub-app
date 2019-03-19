@@ -48,5 +48,8 @@ export class AppComponent {
         }
       }
     });
+
+
+    console.log('env: ', this.a.env);
   }
 }

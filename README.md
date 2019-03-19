@@ -252,3 +252,17 @@ password: asdf99
 ### Functions
 
 * Does the app needs login/logout?
+
+## Coding Guideline
+
+### How to create a new app
+
+* Copy `environment.work.ts` to new environment of the app.
+* Update `angular.json` for web & cordova.
+* Change the content of new environment
+* Run the app like `ionic s --configuration=xxxx`
+
+### site.idx
+
+* When a post is created in sonub.com forum, it must have `site.idx` to tell which site the post will belong to.
+  * This may not be used if the site only has philgo forums.
