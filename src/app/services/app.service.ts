@@ -416,18 +416,16 @@ export class AppService {
     async error(e: any) {
         let message = '';
         if (typeof e === 'object' && e['error_code']) { // sonub error only
-            if (e['error_code'] === 'email_in_use') {
-                message = this.t('email_in_use');
-            } else {
-                message = `Error: ${e['error_message']} (${e['error_code']})`;
-            }
+            message = this.t(e['error_code']);
+        } else if (typeof e === 'object' && e['message']) { // philgo??
+            message = e['message'];
         } else if (typeof e === 'string') { // error string
             message = e;
         } else {
             message = 'Error happended! But the error cannot be understood. What kind of error is it? see console.log';
             console.error(e);
         }
-        // console.log(typeof e, e);
+        console.log(typeof e, e);
         // alert(`code: ${e.error_code}. message: ${e.error_message}`);
 
         const toast = await this.toastController.create({
