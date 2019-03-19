@@ -27,7 +27,7 @@ export class MapComponent implements OnInit {
 
   constructor(
     public a: AppService,
-    private platform: Platform,
+    public platform: Platform,
     public launchNavigator: LaunchNavigator
   ) {
     this.destination = [a.settings.map.lat, a.settings.map.lng];
