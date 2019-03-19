@@ -1,16 +1,16 @@
 export const text = {
     title: {
         title: {
-            en: 'Evie & Co. Permanent makeup & Eyelash extension',
-            ko: '에비코 Evie&Co 반영구 화장',
+            en: 'Permanent Eyebrow Makeup',
+            ko: '반영구 눈썹 화장',
             ch: 'Evie＆Co。永久化妆和睫毛延长',
             jp: 'Evie＆Co.パーマネントメイクアップ＆まつげエクステ'
         },
         subtitle: {
-            en: 'Subtitle of home',
-            ko: '당신의 하루를 바꾸는',
-            ch: '家的副标题',
-            jp: '家の字幕'
+            en: 'Evie & Co Microblading',
+            ko: 'Evie & Co 에비코 반영구화장',
+            ch: 'Evie & Co Microblading',
+            jp: 'Evie & Co Microblading'
         },
         content: {
             en: `
@@ -31,10 +31,9 @@ export const text = {
         contentMore: {
 
             en: `
-            <div class="mt-3">The drama and movie show why all men and women make eyebrows.
-            There are many reasons for eyebrow makeup. If you do not find the best looking eyebrow that will suit your need, or if your eyebrows are thinner due to age, or if your eyebrows are shallow or empty from the beginning.
-            Eyebrow semi-permanent makeup is also called eyebrow tattoo, and once done, it will last for at least several years.</div>
-            <div class="mt-3">Evie & Co will treat your eyebrows with a semi-permanent eyebrow makeup by skilled Korean people and find the right eyebrow for your face type.</div>`,
+            <div class="mt-3">If you don't find the right eyebrows for your need, or if your eyebrows are thinner due to aging, or if your eyebrows are shallow or empty from the beginning,
+            microblading might be a good choice for you and once done, it will last for several years.</div>
+            <div class="mt-3">Miss. Ha Yeon in Evie & Co is one of the best microblading artist. She will find the best eyebrows for your face type.</div>`,
 
             ko: `
             <div class="mt-3">드라마나 영화를 보면 모든 남녀가 눈썹 화장을 하는 이유이기도 한데
@@ -212,7 +211,7 @@ export const cards = [
             jp: '0956 871 2485'
         },
         content: {
-            en: `Got my eyebrow tattoo and eyelash extension here with perm. Results were so gorgeous.
+            en: `Got my eyebrow tattoo and eyelash extension here in Evie & Co. Results were so gorgeous.
             Satisfied! Didn't ruined my natural lashes. They stayed intact while extensions start falling off after few months.
             Didn't left my lashes bald. Lol.<br /> - <i>shiki t</i>`,
 
