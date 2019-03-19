@@ -4,13 +4,15 @@
       <ion-back-button></ion-back-button>
     </ion-buttons>
     <ion-title>
-      {{ a.t( 'register' ) }}
+      {{ a.t( a.settings.site.name ) }}
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 
 <ion-content padding>
+
+  <ion-label>{{ a.t('fill to register') }}</ion-label>
 
   <form class="mb-4 pb-4" (ngSubmit)="onSubmit()">
 

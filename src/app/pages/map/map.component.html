@@ -6,17 +6,20 @@
     <ion-title>
       {{ a.t( 'map' ) }}
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)=" onClickDirections()">
+        <ion-icon name="navigate" mode="ios" slot="start"></ion-icon>
+        {{ a.t('get directions') }}
+      </ion-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
   <div #map_canvas id="map_canvas" style="height: 90%;">
 
-    <div class="d-flex float-right m-2">
-      <ion-button (click)=" onClickDirections()">
-        <ion-icon name="open"></ion-icon>
-        <span class="ml-1"> {{ a.t('get directions') }} </span>
-      </ion-button>
-    </div>
+    <!-- <div class="d-flex float-right m-2"> -->
+
+    <!-- </div> -->
   </div>
 </ion-content>

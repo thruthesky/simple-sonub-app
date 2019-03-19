@@ -58,6 +58,8 @@ export interface AppSettingMap {
     title: {
         en: string;
         ko: string;
+        ch: string;
+        jp: string;
     };
     snippet: {
         en: string;

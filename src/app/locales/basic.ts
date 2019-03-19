@@ -17,7 +17,7 @@ export const basicTexts = {
     'wait to find my position': { en: 'Please wait ...', ko: '내 위치를 찾습니다. 잠시만 기다려 주세요.', ch: '请耐心等待 ...', jp: 'お待ちください ...' },
 
     'write a comment': { en: 'Write a comment ...', ko: '코멘트 쓰기 ...', ch: '留个评论 ...', jp: 'コメントを書く ...' },
-    new_post: { en: 'New Post', ko: '글쓰기', ch: '最新帖子', jp: '新しい投稿' },
+
     email: { en: 'Email', ko: '이메일', ch: '电子邮件', jp: 'Eメール' },
     name: { en: 'Name', ko: '이름', ch: '名称', jp: '名' },
     password: { en: 'Password', ko: '비밀번호', ch: '密码', jp: 'パスワード' },
@@ -62,4 +62,16 @@ export const basicTexts = {
     // need check
     gender: { en: 'Gender', ko: '성별', ch: '性别', jp: '性別' },
     required: { en: 'Required : ', ko: '필수: ', ch: '需要: ', jp: '必須: ' },
+    'fill to register': {
+        en: 'Please fill in the form below to register',
+        ko: '회원 가입을 위해서 아래 항목을 입력해주세요.',
+        ch: '请填写下面的表格进行注册',
+        jp: '以下のフォームに記入して登録してください'
+    },
+    'fill to login': {
+        en: 'Please input email & password to login',
+        ko: '로그인을 위해서 이메일과 비밀번호를 입력 해 주세요.',
+        ch: '请输入电子邮件和密码登录',
+        jp: 'メールアドレスとパスワードを入力してログインしてください'
+    }
 };
