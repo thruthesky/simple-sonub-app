@@ -68,10 +68,10 @@ export const imageTextTitles = [
 
 export const iconTexts = [
     {
-        en: 'Eyelash perm or eyelash permanent wave, and can also refer to permanent relaxer that straightens the hair is a cosmetics procedure performed to flip up eyelashes using hair perming technology.',
-        ko: '속눈썹 파마 또는 속눈썹 영구 파, 머리카락을 곧게 펴는 영구적 인 완화제는 헤어 퍼머 기술을 사용하여 속눈썹을 뒤집어서 수행하는 화장품 절차입니다.',
-        ch: '睫毛烫发或睫毛永久性波浪，也可以指使头发拉直的永久性松弛剂是使用头发烫发技术翻转睫毛的化妆品程序。',
-        jp: 'まつげのパーマやまつげのパーマネントウェーブ、そしてまた髪をまっすぐにするパーマネントリラクサーを指すことができますヘアパーマ技術を使用してまつげを裏返しにするために行われる化粧品の手順です。'
+        en: 'Eyelash perm or eyelash permanent wave is a cosmetics procedure performed to flip up eyelashes using hair perming technology.',
+        ko: '속눈썹 파마 또는 속눈썹 영구 파는 헤어 퍼머넌트 기술을 사용하여 속눈썹을 뒤집을 때 수행되는 화장품 절차입니다.',
+        ch: '睫毛烫发或睫毛烫发是一种化妆品程序，用于使用烫发技术翻转睫毛。',
+        jp: 'まつげパーマまたはまつげパーマネントウェーブは、ヘアパーマ技術を使用してまつげをひっくり返すために行われる化粧品手順です。'
     },
     {
         en: 'Eyelash extensions are used to enhance the length, curliness, fullness, and thickness of natural eyelashes.',
@@ -86,10 +86,10 @@ export const iconTexts = [
         jp: 'マイクロブレードは、いくつかの小さな針でできた小さな手の道具を使って半永久的な色素を肌に加えたり、眉毛の上で形や色の点で外観を作り出したり、高めたり、形を変えたりするためのものです。'
     },
     {
-        en: 'Hairline lowering is a surgical technique that allows an individual to have their frontal hairline advanced certain distances depending on variables such as pre-operative hairline height, scalp laxity, and patient preference.',
-        ko: '헤어 라인 강하는 수술 전 헤어 라인 높이, 두피의 느슨 함 및 환자 선호도와 같은 변수에 따라 개인이 정면의 헤어 라인을 특정 거리까지 전진시킬 수있는 수술 기법입니다.',
-        ch: '发际线降低是一种手术技术，允许个体根据诸如术前发际高度，头皮松弛和患者偏好等变量使其额发线前进一定距离。',
-        jp: '生え際を下げることは、手術前の生え際の高さ、頭皮の弛緩、および患者の好みなどの変数に応じて、個人の前頭生え際を一定の距離だけ前進させることを可能にする外科的技術である。'
+        en: 'Hairline lowering is a surgical technique that allows an individual to have their frontal hairline to be moved or advanced to a certain distance on the forehead.',
+        ko: '헤어 라인 강하는 개인이 자신의 정면 헤어 라인을 이마의 특정 거리로 이동 또는 전진시킬 수있는 외과 기술입니다.',
+        ch: '发际线降低是一种手术技术，允许个体使其额部发际线在前额上移动或前进一定距离。',
+        jp: '生え際を下げることは、個人が自分の前側の生え際を額上で一定の距離まで動かすかまたは進めることを可能にする外科的技術である。'
     }
 ];
 
