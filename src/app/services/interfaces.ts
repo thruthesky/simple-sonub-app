@@ -8,7 +8,8 @@ export interface AppSettingForum {
 }
 
 export interface AppSettingFooterMenu extends AppSettingForum {
-    title: any;
+    title: any;             // title that apears under the toolbar menu icon
+    pageTitle?: string;      // page title when the menu opened.
     icon: string;
     url?: string;
     openSideMenu?: boolean;

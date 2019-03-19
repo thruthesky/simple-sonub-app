@@ -39,7 +39,7 @@ export const basicTexts = {
     'update post': { en: 'Update Post', ko: '글 수정', ch: '更新帖子', jp: '投稿を更新' },
     'new post': { en: 'New Post', ko: '글쓰기', ch: '最新帖子', jp: '新しい投稿' },
 
-    read_more: { en: 'Read more', ko: '더 보기', ch: '阅读更多', jp: '続きを読む' },
+    'read more': { en: 'Read more', ko: '더 보기', ch: '阅读更多', jp: '続きを読む' },
 
     /** Error */
     email_in_use: {

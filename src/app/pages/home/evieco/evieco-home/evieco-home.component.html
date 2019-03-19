@@ -39,7 +39,7 @@
 <ion-card *ngFor=" let n of [ 0, 1, 2 ] ">
   <ion-img src="/assets/apps/{{ a.env.domain }}/home/card-{{ n }}.jpg"></ion-img>
   <ion-card-header>
-    <!-- <ion-card-subtitle>{{ a.t( cards[n].subtitle ) }}</ion-card-subtitle> -->
+    <ion-card-subtitle *ngIf=" cards[n].subtitle ">{{ a.t( cards[n].subtitle ) }}</ion-card-subtitle>
     <ion-card-title>{{ a.t( cards[n].title ) }}</ion-card-title>
   </ion-card-header>
 

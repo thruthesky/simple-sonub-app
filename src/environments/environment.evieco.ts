@@ -7,6 +7,10 @@ import { Environment } from 'src/app/services/interfaces';
 import { basicTexts } from 'src/app/locales/basic';
 const texts = basicTexts;
 
+// texts.gallery.en = 'Evie & Co - Gallery';
+// texts.gallery.ko = 'Evie & Co 갤러리';
+
+
 const phone = '0956-871-2485';
 const siteUrlEn = 'https://en.evieco.shop';
 const siteUrlEnShort = 'en.evieco.shop';
@@ -80,6 +84,7 @@ export const environment: Environment = {
         },
         {
           title: texts['gallery'],
+          pageTitle: 'Evie & Co - Gallery',
           icon: 'photos',
           url: '/gallery',
           type: 'sonub',
@@ -87,11 +92,13 @@ export const environment: Environment = {
         },
         {
           title: texts['contact'],
+          pageTitle: 'Evie & Co - Contacts',
           icon: 'contact',
           url: '/contact'
         },
         {
           title: texts['map'],
+          pageTitle: 'How to get Evie&Co',
           icon: 'map',
           url: '/map'
         },
@@ -181,6 +188,7 @@ export const environment: Environment = {
         },
         {
           title: texts['gallery'],
+          pageTitle: 'Evie & Co 갤러리',
           icon: 'photos',
           url: '/gallery',
           type: 'philgo',
@@ -194,11 +202,13 @@ export const environment: Environment = {
         // },
         {
           title: texts['contact'],
+          pageTitle: 'Evie & Co 연락처',
           icon: 'contact',
           url: '/contact'
         },
         {
           title: texts['map'],
+          pageTitle: 'Evie & Co 찾아가는 길',
           icon: 'map',
           url: '/map'
         },

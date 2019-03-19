@@ -85,11 +85,6 @@ export const environment: Environment = {
           type: 'sonub',
           idx_category: '82'
         },
-        // {
-        //     title: texts['forum'],
-        //     icon: 'chatboxes',
-        //     url: '/forum'
-        // },
         {
           title: texts['contact'],
           icon: 'contact',
@@ -264,13 +259,13 @@ export const environment: Environment = {
     },
     ch: {
       idx: '24',
-      name: 'Evie & Co Microblading',
+      name: 'Evie & Co 永久眉毛化妆',
       url: siteUrlEn,
       home: {
-        title: 'Evie & Co - Best Permanent Eyebrows Makeup Service'
+        title: 'Evie & Co - 最好的永久眉毛化妆服务'
       },
       contact: {
-        title: 'Permanent Eyebrows Makeup',
+        title: '永久眉毛化妆',
         name: 'Evie & Co',
         contacts: [
           {
@@ -298,11 +293,6 @@ export const environment: Environment = {
           type: 'sonub',
           idx_category: '82'
         },
-        // {
-        //     title: texts['forum'],
-        //     icon: 'chatboxes',
-        //     url: '/forum'
-        // },
         {
           title: texts['contact'],
           icon: 'contact',
@@ -370,13 +360,13 @@ export const environment: Environment = {
     },
     jp: {
       idx: '24',
-      name: 'Evie & Co Microblading',
+      name: 'Evie & Co マイクロブレード',
       url: siteUrlEn,
       home: {
-        title: 'Evie & Co - Best Permanent Eyebrows Makeup Service'
+        title: 'Evie & Co - 最高の永久眉毛メイクサービス'
       },
       contact: {
-        title: 'Permanent Eyebrows Makeup',
+        title: '永久眉メイク',
         name: 'Evie & Co',
         contacts: [
           {
@@ -404,11 +394,6 @@ export const environment: Environment = {
           type: 'sonub',
           idx_category: '82'
         },
-        // {
-        //     title: texts['forum'],
-        //     icon: 'chatboxes',
-        //     url: '/forum'
-        // },
         {
           title: texts['contact'],
           icon: 'contact',
@@ -486,8 +471,8 @@ export const environment: Environment = {
     title: {
       en: 'Evie & Co Microblading!',
       ko: 'Even & Co 반영구화장',
-      ch: '',
-      jp: ''
+      ch: 'Evie & Co 永久眉毛化妆',
+      jp: 'Evie & Co マイクロブレード'
     },
     snippet: {
       en: 'Please click [Get Directions] button to get here.\nTel: ' + phone,

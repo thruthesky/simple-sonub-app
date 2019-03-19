@@ -8,6 +8,8 @@ import {
   GoogleMapsAnimation
 } from '@ionic-native/google-maps';
 import { LaunchNavigator, LaunchNavigatorOptions } from '@ionic-native/launch-navigator/ngx';
+import { AppSettingFooterMenu } from 'src/app/services/interfaces';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-map',
@@ -24,8 +26,12 @@ export class MapComponent implements OnInit {
   options: LaunchNavigatorOptions = {};
   installedNavigationApps: Array<string> = [];
 
+  forumIndex: string;
+  forumSetting: AppSettingFooterMenu;
+  title = '...';
 
   constructor(
+    public activatedRoute: ActivatedRoute,
     public a: AppService,
     public platform: Platform,
     public launchNavigator: LaunchNavigator
@@ -40,6 +46,19 @@ export class MapComponent implements OnInit {
       this.loadMap();
     }, 300); // timeout is necessary here.
   }
+
+
+  ionViewDidEnter() {
+    this.title = this.a.t('map');
+    this.activatedRoute.queryParamMap.subscribe(params => {
+      this.forumIndex = params.get('i');
+      this.forumSetting = this.a.forumSetting(params.get('i'));
+      if (this.forumSetting.pageTitle) {
+        this.title = this.forumSetting.pageTitle;
+      }
+    });
+  }
+
 
   initApps() {
     /**

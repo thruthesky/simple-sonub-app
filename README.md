@@ -149,6 +149,50 @@ We may need to give the user manual to our clients. So we have [Sonub App User M
 * Consider to remove header toolbar for front page.
   * Front page is a customised by each domain.
 
+#### Change page title
+
+* The page title of `gallery` & `forum` page could be changed by setting `pageTitle` on the footerMenu in the environemnt.
+  * This should be applicable to all pages.
+
+```` ts
+// Set `pageTitle` on the footer mneu in the environment.
+footerMenus: [
+  {
+    title: texts['gallery'],
+    pageTitle: 'Evie & Co 갤러리',
+    // ...
+  },
+]
+````
+
+```` ts
+// Set default text
+constructor() {
+  this.title = this.a.t('gallery');
+}
+````
+
+```` ts
+// Get menu name from `environment`
+ionViewDidEnter() {
+  this.activatedRoute.queryParamMap.subscribe(params => {
+    this.forumIndex = params.get('i');
+    this.forumSetting = this.a.forumSetting(params.get('i'));
+    if (this.forumSetting.pageTitle) {
+      this.title = this.forumSetting.pageTitle;
+    }
+  });
+}
+````
+
+```` html
+<!-- display pageTitle from environment -->
+<ion-title>
+  {{ title }}
+</ion-title>
+````
+
+
 #### Home page customisation
 
 * If you want to show home page ( you can omit it by setting menu on app settings )
