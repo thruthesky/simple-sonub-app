@@ -9,8 +9,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <div class="offset-bottom-minus65px">
+<ion-content class="offset-bottom-minus65px">
+  <div>
     <app-work-home *ngIf=" a.env.domain == 'work' "></app-work-home>
     <app-lasema-home *ngIf=" a.env.domain == 'lasema' "></app-lasema-home>
     <app-evieco-home *ngIf=" a.env.domain == 'evieco' "></app-evieco-home>
