@@ -3,7 +3,7 @@ import { PopoverController } from '@ionic/angular';
 import { PopupMenuComponent } from 'src/app/components/popup-menu/popup-menu.component';
 
 @Injectable()
-export class PopupService {
+export class PopupMenuService {
 
     constructor(
         private popoverController: PopoverController

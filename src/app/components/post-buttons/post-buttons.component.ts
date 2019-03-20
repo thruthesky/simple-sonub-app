@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Post, Comment } from 'modules/ng-simplest/simplest.interface';
 import { AppService } from 'src/app/services/app.service';
 import { AppSettingForum } from 'src/app/services/interfaces';
-import { PopupService } from 'src/app/services/popup.service';
+import { PopupMenuService } from 'src/app/services/popup-menu.service';
 
 @Component({
     selector: 'app-post-buttons',
@@ -17,7 +17,7 @@ export class PostButtonsComponent implements OnInit {
     @Input() parent: Post & Comment;
     constructor(
         public a: AppService,
-        public popup: PopupService
+        public popupMenu: PopupMenuService
     ) {
     }
 
@@ -61,7 +61,7 @@ export class PostButtonsComponent implements OnInit {
     }
 
     async onDelete() {
-        const confirm = await this.popup.open('confirm', this.a.t('confirm delete'));
+        const confirm = await this.popupMenu.open('confirm', this.a.t('confirm delete'));
         if (confirm === 'yes') {
             return this.a.delete(this.parent, this.forumSettings).subscribe(res => {
                 this.commitDelete();
@@ -86,8 +86,8 @@ export class PostButtonsComponent implements OnInit {
         this.a.success(`${this.a.t('deleted')}!`);
     }
 
-    async openPopUpMenu(context: string) {
-        const popup = await this.popup.open(context);
+    async openPopupMenu(context: string) {
+        const popup = await this.popupMenu.open(context);
 
         if (popup === 'delete') {
             return this.onDelete();
