@@ -86,10 +86,10 @@ export const iconTexts = [
         jp: 'マイクロブレードは、いくつかの小さな針でできた小さな手の道具を使って半永久的な色素を肌に加えたり、眉毛の上で形や色の点で外観を作り出したり、高めたり、形を変えたりするためのものです。'
     },
     {
-        en: 'Hairline lowering is a surgical technique that allows an individual to have their frontal hairline to be moved or advanced to a certain distance on the forehead.',
-        ko: '헤어 라인 강하는 개인이 자신의 정면 헤어 라인을 이마의 특정 거리로 이동 또는 전진시킬 수있는 외과 기술입니다.',
-        ch: '发际线降低是一种手术技术，允许个体使其额部发际线在前额上移动或前进一定距离。',
-        jp: '生え際を下げることは、個人が自分の前側の生え際を額上で一定の距離まで動かすかまたは進めることを可能にする外科的技術である。'
+        en: 'Hairline lowering is a surgical technique that allows an individual to have their frontal hairline to be moved or advanced to a certain distance on their forehead.',
+        ko: '헤어 라인 강하는 개인이 자신의 전두부 헤어 라인을 이마의 특정 거리로 이동 또는 전진시킬 수있는 수술 기법입니다.',
+        ch: '发际线降低是一种手术技术，允许个体使其额发线在其额头上移动或前进一定距离。',
+        jp: '生え際を下げることは、個人が自分の前頭生え際を自分の額の上で一定の距離まで動かしたり進めたりすることを可能にする外科的技術です。'
     }
 ];
 
