@@ -50,17 +50,24 @@ export class PostListComponent implements OnInit {
     this.activatedRoute.queryParamMap.subscribe(params => {
       this.forumIndex = params.get('i');
       this.forumSettings = this.a.forumSetting(params.get('i'));
+      // console.log('forum settings: ', this.forumSettings);
+      this.page_no = 0;
+      this.posts = [];
+      this.no_more_post = false;
       this.loadPage();
     });
   }
 
   loadPage(event?: any) {
 
+    // console.log('loadPage: ', event);
+
     if (this.no_more_post) {
       return;
     }
 
-    this.page_no += 1;
+    this.page_no++;
+    // console.log('page_no: ', this.page_no);
 
     // console.log('event:', event);
     // console.log('page no:', this.page_no);
