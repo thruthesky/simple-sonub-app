@@ -74,5 +74,13 @@ export const basicTexts = {
         ko: '로그인을 위해서 이메일과 비밀번호를 입력 해 주세요.',
         ch: '请输入电子邮件和密码登录',
         jp: 'メールアドレスとパスワードを入力してログインしてください'
-    }
+    },
+    'confirm delete': {
+        en: 'Are you sure you want to delete this?',
+        ko: '이 항목을 정말로 삭제 하시겠습니까?',
+        ch: '你确定要删除这个吗？',
+        jp: '削除してよろしいですか？'
+    },
+    yes: { en: 'Yes', ko: '예', ch: '是', jp: 'はい' },
+    no: { en: 'No', ko: '아니', ch: '没有', jp: 'いいえ' }
 };

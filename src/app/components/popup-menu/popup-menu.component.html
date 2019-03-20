@@ -1,12 +1,27 @@
-<ion-button expand="full" fill="clear" (click)=" dismiss('update') ">
-    <ion-icon name="create"></ion-icon>
-    <span class="ml-1"> {{ a.t('edit') }} </span>
-</ion-button>
-<ion-button expand="full" fill="clear" (click)=" dismiss('delete') ">
-    <ion-icon name="trash"></ion-icon>
-    <span class="ml-1"> {{ a.t('delete') }} </span>
-</ion-button>
-<ion-button expand="full" fill="clear" (click)=" dismiss('close') ">
-    <ion-icon name="close"></ion-icon>
-    <span class="ml-1"> {{ a.t('close') }} </span>
-</ion-button>
+<ng-container *ngIf="context === 'menu'; else confirm">
+    <ion-button expand="full" fill="clear" (click)=" dismiss('update') ">
+        <ion-icon name="create"></ion-icon>
+        <span class="ml-1"> {{ a.t('edit') }} </span>
+    </ion-button>
+    <ion-button expand="full" fill="clear" (click)=" dismiss('delete') ">
+        <ion-icon name="trash"></ion-icon>
+        <span class="ml-1"> {{ a.t('delete') }} </span>
+    </ion-button>
+    <ion-button expand="full" fill="clear" (click)=" dismiss('close') ">
+        <ion-icon name="close"></ion-icon>
+        <span class="ml-1"> {{ a.t('close') }} </span>
+    </ion-button>
+</ng-container>
+
+<ng-template #confirm>
+    <p class="p-2 text-center"> {{ message }} </p>
+
+    <ion-button expand="full" fill="clear" (click)=" dismiss('yes') ">
+        <ion-icon name="checkmark-circle"></ion-icon>
+        <span class="ml-1"> {{ a.t('yes') }} </span>
+    </ion-button>
+    <ion-button expand="full" fill="clear" (click)=" dismiss('no') ">
+        <ion-icon name="close-circle"></ion-icon>
+        <span class="ml-1"> {{ a.t('no') }} </span>
+    </ion-button>
+</ng-template>

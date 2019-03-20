@@ -62,21 +62,20 @@ export class PostButtonsComponent implements OnInit {
     }
 
 
-    onDelete() {
 
-        this.a.delete(this.parent, this.forumSettings).subscribe(res => {
-            this.commitDelete();
-            if (this.isPost) {
-                return this.a.success('Post Deleted!');
-            } else {
-                this.a.success('Comment Deleted!');
-            }
-        }, e => this.a.error(e));
+    async onDelete() {
+        const confirm = await this.openPopupMenu('confirm', this.a.t('confirm delete'));
+        if (confirm === 'yes') {
+            return this.a.delete(this.parent, this.forumSettings).subscribe(res => {
+                this.commitDelete();
+            }, e => this.a.error(e));
+        } else {
+            return;
+        }
     }
 
     commitDelete() {
         const content_deleted = `( ${this.a.t('deleted')} )`;
-
         this.parent.content = content_deleted;
         this.parent['safe_content'] = content_deleted;
         this.parent.content_stripped = content_deleted;
@@ -85,26 +84,43 @@ export class PostButtonsComponent implements OnInit {
 
         if (this.isPost) {
             this.parent.title = content_deleted;
+            return this.a.success('Post Deleted!');
+        } else {
+            this.a.success('Comment Deleted!');
         }
     }
 
-    async openPopupMenu(ev: any): Promise<any> {
+    async openpopup(context: string) {
+        const popup = await this.openPopupMenu(context);
+
+        if (popup === 'delete') {
+            return this.onDelete();
+        } else if (popup === 'update') {
+            return this.onUpdate();
+        } else {
+            // console.log(ret.data); dismissed with no action
+        }
+    }
+
+    /**
+     * Open popup menu
+     *
+     * @param context 'menu' | 'confirm'
+     * @param mssg message string
+     */
+    async openPopupMenu(context: string, mssg?: string): Promise<any> {
         const popover = await this.popoverController.create({
             component: PopupMenuComponent,
-            event: ev,
-            componentProps: { context: 'menu' },
-            translucent: true
-        });
-        popover.onDidDismiss().then(ret => {
-            if (ret.data === 'delete') {
-                this.onDelete();
-            } else if (ret.data === 'update') {
-                this.onUpdate();
-            } else {
-                // console.log(ret.data); dismissed with no action
+            translucent: true,
+            componentProps: {
+                context: context,
+                message: mssg
             }
         });
-        return await popover.present();
+        popover.present();
+        return await popover.onDidDismiss().then(ret => {
+            return ret.data;
+        });
     }
 
     /**

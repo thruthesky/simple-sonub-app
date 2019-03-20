@@ -49,16 +49,17 @@ export class PostListComponent implements OnInit {
     this.activatedRoute.queryParamMap.subscribe(params => {
       this.forumIndex = params.get('i');
       this.forumSettings = this.a.forumSetting(params.get('i'));
+      this.reset();
       this.loadPage();
     });
   }
 
   loadPage(event?: any) {
-
     if (this.no_more_post) {
       return;
     }
-    this.page_no += 1;
+
+    this.page_no++;
     this.a.postList(this.forumSettings, this.page_no, this.limit).subscribe(res => {
       if (!res.length || res.length < this.limit) {
         this.no_more_post = true;
@@ -80,6 +81,12 @@ export class PostListComponent implements OnInit {
       post.view = true;
     }
     this.posts.push(post);
+  }
+
+  reset() {
+    this.page_no = 0;
+    this.posts = [];
+    this.no_more_post = false;
   }
 
 }
