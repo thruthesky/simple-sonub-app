@@ -108,6 +108,10 @@
 
 .offset-bottom-minus65px {
     --offset-bottom: -65px !important;
+
+    @media all and (max-width: 403px) {
+        --offset-bottom: -80px !important;
+    }
 }
 
 .error-toast {
