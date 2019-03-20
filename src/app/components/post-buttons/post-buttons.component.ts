@@ -42,7 +42,7 @@ export class PostButtonsComponent implements OnInit {
                 this.parent.good = res.good;
             }, e => this.a.error(e));
         } else {
-            this.a.error( this.a.t('login first') );
+            this.a.error(this.a.t('login first'));
         }
     }
 
@@ -63,6 +63,7 @@ export class PostButtonsComponent implements OnInit {
 
 
     onDelete() {
+
         this.a.delete(this.parent, this.forumSettings).subscribe(res => {
             this.commitDelete();
             if (this.isPost) {
@@ -91,6 +92,7 @@ export class PostButtonsComponent implements OnInit {
         const popover = await this.popoverController.create({
             component: PopupMenuComponent,
             event: ev,
+            componentProps: { context: 'menu' },
             translucent: true
         });
         popover.onDidDismiss().then(ret => {

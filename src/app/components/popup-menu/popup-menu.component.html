@@ -1,22 +1,12 @@
-<ion-content>
-    <ion-grid>
-        <ion-row>
-            <ion-button expand="full" fill="clear" (click)=" dismiss('update') ">
-                <ion-icon name="create"></ion-icon>
-                <span class="ml-1"> {{ a.t('edit') }} </span>
-            </ion-button>
-        </ion-row>
-        <ion-row>
-            <ion-button expand="full" fill="clear" (click)=" dismiss('delete') ">
-                <ion-icon name="trash"></ion-icon>
-                <span class="ml-1"> {{ a.t('delete') }} </span>
-            </ion-button>
-        </ion-row>
-        <ion-row>
-            <ion-button expand="full" fill="clear" (click)=" dismiss('close') ">
-                <ion-icon name="close"></ion-icon>
-                <span class="ml-1"> {{ a.t('close') }} </span>
-            </ion-button>
-        </ion-row>
-    </ion-grid>
-</ion-content>
+<ion-button expand="full" fill="clear" (click)=" dismiss('update') ">
+    <ion-icon name="create"></ion-icon>
+    <span class="ml-1"> {{ a.t('edit') }} </span>
+</ion-button>
+<ion-button expand="full" fill="clear" (click)=" dismiss('delete') ">
+    <ion-icon name="trash"></ion-icon>
+    <span class="ml-1"> {{ a.t('delete') }} </span>
+</ion-button>
+<ion-button expand="full" fill="clear" (click)=" dismiss('close') ">
+    <ion-icon name="close"></ion-icon>
+    <span class="ml-1"> {{ a.t('close') }} </span>
+</ion-button>

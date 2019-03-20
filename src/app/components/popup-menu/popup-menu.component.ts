@@ -11,6 +11,7 @@ export class PopupMenuComponent implements OnInit, OnDestroy {
 
 
     message = '';
+    context = '';
 
     constructor(
         private popoverController: PopoverController,
@@ -20,10 +21,14 @@ export class PopupMenuComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.message = this.navParams.data.message;
+        this.context = this.navParams.data.context;
+
+        console.log(this.message, this.context);
     }
 
     ngOnDestroy() {
         this.message = '';
+        this.context = '';
     }
 
     async dismiss(action: string) {

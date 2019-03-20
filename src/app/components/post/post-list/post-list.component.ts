@@ -29,9 +29,9 @@ export class PostListComponent implements OnInit {
   forumSettings: AppSettingForum;
   forumIndex: string;
 
-  page_no = 0;
-  limit = 10;
-  no_more_post = false;
+  page_no: number;
+  limit: number;
+  no_more_post: boolean;
   posts: Posts = [];
 
   @ViewChild(IonInfiniteScroll) infiniteScroll: IonInfiniteScroll;
@@ -46,7 +46,6 @@ export class PostListComponent implements OnInit {
   }
 
   doInit() {
-    // console.log('PostListComponent::ionViewDidEnter()');
     this.activatedRoute.queryParamMap.subscribe(params => {
       this.forumIndex = params.get('i');
       this.forumSettings = this.a.forumSetting(params.get('i'));
@@ -59,15 +58,8 @@ export class PostListComponent implements OnInit {
     if (this.no_more_post) {
       return;
     }
-
     this.page_no += 1;
-
-    // console.log('event:', event);
-    // console.log('page no:', this.page_no);
-
     this.a.postList(this.forumSettings, this.page_no, this.limit).subscribe(res => {
-      // console.log(res);
-
       if (!res.length || res.length < this.limit) {
         this.no_more_post = true;
       }
@@ -81,7 +73,6 @@ export class PostListComponent implements OnInit {
   }
 
   delayDisplay(post: Post) {
-    // console.log(post);
     post['commentInUpdate'] = null;
     post['replyTo'] = post.idx;
     post['safe_content'] = this.a.safeHtml(post.content);
