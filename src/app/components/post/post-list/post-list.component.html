@@ -14,17 +14,16 @@
 
   </ion-card>
 
-  <!-- default height trigger '15%' -->
-  <div class=" fs-lighter gray text-center " *ngIf=" no_more_post ">
-    <p> {{a.t('no more post')}} </p>
+  <div class="my-1 fs-lighter gray text-center " *ngIf=" no_more_post ">
+    {{a.t('no more post')}}
   </div>
-
-  <ion-infinite-scroll class=" mt-1 pb-4 " *ngIf=" !no_more_post " threshold=" 30% " (ionInfinite)="loadPage($event)">
-    <ion-infinite-scroll-content loadingSpinner="bubbles">
-    </ion-infinite-scroll-content>
-  </ion-infinite-scroll>
-
 </ng-container>
+
+<!-- default height trigger '15%' -->
+<ion-infinite-scroll class=" mt-1 " *ngIf=" !no_more_post " threshold=" 300px " (ionInfinite)="loadPage($event)">
+  <ion-infinite-scroll-content loadingSpinner="bubbles">
+  </ion-infinite-scroll-content>
+</ion-infinite-scroll>
 
 <ng-template #skeleton>
   <ion-card class="ion-padding" *ngFor="let n of [ 0, 1, 2, 3, 4, 5 ]">
