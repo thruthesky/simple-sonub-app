@@ -1,32 +1,30 @@
-<ion-content class="articles">
-  <ng-container *ngIf="posts.length; else skeleton">
-    <ion-card [class.pb-3]=" post.view && !a.isLoggedIn " class="post" *ngFor="let post of posts">
+<ng-container *ngIf="posts.length; else skeleton">
+  <ion-card [class.pb-3]=" post.view && !a.isLoggedIn " *ngFor="let post of posts">
 
-      <app-post-header [post]=" post "></app-post-header>
+    <app-post-header [post]=" post "></app-post-header>
 
-      <ng-container *ngIf=" post.view ">
-        <app-post-content [post]=" post "></app-post-content>
-        <app-post-buttons [root]=" post " [parent]=" post " [forumIndex]=" forumIndex " [forumSettings]=" forumSettings "
-          *ngIf=" a.isLoggedIn "></app-post-buttons>
-        <app-comment-list [post]=" post " [comments]=" post.comments " [forumSettings]=" forumSettings " *ngIf=" post.comments && post.comments.length "></app-comment-list>
-        <app-comment-box [root]=" post " [parent]=" post " *ngIf=" ( !post['replyTo'] || post['replyTo'] === post.idx ) && !post['commentInUpdate'] && a.isLoggedIn "
-          [forumSettings]=" forumSettings "></app-comment-box>
-      </ng-container>
+    <ng-container *ngIf=" post.view ">
+      <app-post-content [post]=" post "></app-post-content>
+      <app-post-buttons [root]=" post " [parent]=" post " [forumIndex]=" forumIndex " [forumSettings]=" forumSettings "
+        *ngIf=" a.isLoggedIn "></app-post-buttons>
+      <app-comment-list [post]=" post " [comments]=" post.comments " [forumSettings]=" forumSettings " *ngIf=" post.comments && post.comments.length "></app-comment-list>
+      <app-comment-box [root]=" post " [parent]=" post " *ngIf=" ( !post['replyTo'] || post['replyTo'] === post.idx ) && !post['commentInUpdate'] && a.isLoggedIn "
+        [forumSettings]=" forumSettings "></app-comment-box>
+    </ng-container>
 
-    </ion-card>
+  </ion-card>
 
-    <!-- default height trigger '15%' -->
-    <div class=" fs-lighter gray pb-5 text-center " *ngIf=" no_more_post ">
-      <p> {{a.t('no more post')}} </p>
-    </div>
+  <!-- default height trigger '15%' -->
+  <div class=" fs-lighter gray text-center " *ngIf=" no_more_post ">
+    <p> {{a.t('no more post')}} </p>
+  </div>
 
-    <ion-infinite-scroll class=" mt-1 pb-4 " *ngIf=" !no_more_post " threshold=" 30% " (ionInfinite)="loadPage($event)">
-      <ion-infinite-scroll-content loadingSpinner="bubbles">
-      </ion-infinite-scroll-content>
-    </ion-infinite-scroll>
+  <ion-infinite-scroll class=" mt-1 pb-4 " *ngIf=" !no_more_post " threshold=" 30% " (ionInfinite)="loadPage($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 
-  </ng-container>
-</ion-content>
+</ng-container>
 
 <ng-template #skeleton>
   <ion-card class="ion-padding" *ngFor="let n of [ 0, 1, 2, 3, 4, 5 ]">
