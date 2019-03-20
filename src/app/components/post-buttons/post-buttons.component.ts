@@ -1,9 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Post, Comment } from 'modules/ng-simplest/simplest.interface';
 import { AppService } from 'src/app/services/app.service';
-import { PopoverController } from '@ionic/angular';
-import { PopupMenuComponent } from '../popup-menu/popup-menu.component';
 import { AppSettingForum } from 'src/app/services/interfaces';
+import { PopupService } from 'src/app/services/popup.service';
 
 @Component({
     selector: 'app-post-buttons',
@@ -18,7 +17,7 @@ export class PostButtonsComponent implements OnInit {
     @Input() parent: Post & Comment;
     constructor(
         public a: AppService,
-        private popoverController: PopoverController
+        public popup: PopupService
     ) {
     }
 
@@ -61,10 +60,8 @@ export class PostButtonsComponent implements OnInit {
         }
     }
 
-
-
     async onDelete() {
-        const confirm = await this.openPopupMenu('confirm', this.a.t('confirm delete'));
+        const confirm = await this.popup.open('confirm', this.a.t('confirm delete'));
         if (confirm === 'yes') {
             return this.a.delete(this.parent, this.forumSettings).subscribe(res => {
                 this.commitDelete();
@@ -84,44 +81,24 @@ export class PostButtonsComponent implements OnInit {
 
         if (this.isPost) {
             this.parent.title = content_deleted;
-            return this.a.success('Post Deleted!');
-        } else {
-            this.a.success('Comment Deleted!');
         }
+
+        this.a.success(`${content_deleted}!`);
     }
 
-    async openpopup(context: string) {
-        const popup = await this.openPopupMenu(context);
+    async openPopUpMenu(context: string) {
+        const popup = await this.popup.open(context);
 
         if (popup === 'delete') {
             return this.onDelete();
         } else if (popup === 'update') {
             return this.onUpdate();
         } else {
+            return;
             // console.log(ret.data); dismissed with no action
         }
     }
 
-    /**
-     * Open popup menu
-     *
-     * @param context 'menu' | 'confirm'
-     * @param mssg message string
-     */
-    async openPopupMenu(context: string, mssg?: string): Promise<any> {
-        const popover = await this.popoverController.create({
-            component: PopupMenuComponent,
-            translucent: true,
-            componentProps: {
-                context: context,
-                message: mssg
-            }
-        });
-        popover.present();
-        return await popover.onDidDismiss().then(ret => {
-            return ret.data;
-        });
-    }
 
     /**
      * return if post or comment belongs to the current logged user

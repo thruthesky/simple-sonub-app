@@ -22,8 +22,6 @@ export class PopupMenuComponent implements OnInit, OnDestroy {
     ngOnInit() {
         this.message = this.navParams.data.message;
         this.context = this.navParams.data.context;
-
-        console.log(this.message, this.context);
     }
 
     ngOnDestroy() {

@@ -47,6 +47,7 @@ import { CommentUserProfileComponent } from './components/comment/comment-user-p
 import { CommentHeaderComponent } from './components/comment/comment-header/comment-header.component';
 import { LaunchNavigator } from '@ionic-native/launch-navigator/ngx';
 import { PhilgoHomeComponent } from './pages/home/philgo/philgo-home/philgo-home.component';
+import { PopupService } from './services/popup.service';
 
 
 @NgModule({
@@ -102,7 +103,8 @@ import { PhilgoHomeComponent } from './pages/home/philgo/philgo-home/philgo-home
     LaunchNavigator,
     AppService,
     AppSettings,
-    AppLibrary
+    AppLibrary,
+    PopupService
   ],
   bootstrap: [AppComponent]
 })
