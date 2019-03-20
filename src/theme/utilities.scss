@@ -25,6 +25,7 @@
 .top-10rem {
     top: 10rem;
 }
+
 .top-12rem {
     top: 12rem;
 }
@@ -37,19 +38,18 @@
     right: 0;
 }
 
-.border-radius-50 {
-    border-radius: 50%;
-}
-
 .w-64px {
     width: 64px;
 }
+
 .w-100px {
     width: 100px;
 }
+
 .w-128px {
     width: 128px;
 }
+
 .h-90 {
     height: 90% !important;
 }
@@ -106,7 +106,28 @@
     border-radius: 50%;
 }
 
+.offset-bottom-minus65px {
+    --offset-bottom: -65px !important;
+}
 
-.mb-6 {
-    margin-bottom: 5em;
+.error-toast {
+    --background: red;
+    --button-color: white;
+}
+
+.success-toast {
+    --background: green;
+    --button-color: white;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.icon-line image-text {
+    img {
+        border-radius: 50%;
+    }
 }

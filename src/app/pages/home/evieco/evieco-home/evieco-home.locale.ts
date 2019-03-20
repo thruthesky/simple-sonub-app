@@ -68,10 +68,11 @@ export const imageTextTitles = [
 
 export const iconTexts = [
     {
-        en: 'Eyelash perm or eyelash permanent wave, and can also refer to permanent relaxer that straightens the hair is a cosmetics procedure performed to flip up eyelashes using hair perming technology.',
+        en: 'Eyelash perm or eyelash permanent wave is a cosmetics procedure performed to flip up eyelashes using hair perming technology.',
         ko: '남자는 눈썹만 잘 다음어도 미남이라는 소리를 듣습니다. 그 만큼 눈썹이 얼굴 생김새와 인상에 큰 영향을 미친다는 것인데 남자 눈썹 화장의 기본은 눈썹을 풍부하고 힘있게 만들어주는 것입니다.',
         ch: '睫毛烫发或睫毛永久性波浪，也可以指使头发拉直的永久性松弛剂是使用头发烫发技术翻转睫毛的化妆品程序。',
         jp: 'まつげのパーマやまつげのパーマネントウェーブ、そしてまた髪をまっすぐにするパーマネントリラクサーを指すことができますヘアパーマ技術を使用してまつげを裏返しにするために行われる化粧品の手順です。'
+
     },
     {
         en: 'Eyelash extensions are used to enhance the length, curliness, fullness, and thickness of natural eyelashes.',
@@ -86,13 +87,14 @@ export const iconTexts = [
         jp: 'マイクロブレードは、いくつかの小さな針でできた小さな手の道具を使って半永久的な色素を肌に加えたり、眉毛の上で形や色の点で外観を作り出したり、高めたり、形を変えたりするためのものです。'
     },
     {
-        en: 'Hairline lowering is a surgical technique that allows an individual to have their frontal hairline advanced certain distances depending on variables such as pre-operative hairline height, scalp laxity, and patient preference.',
+        en: 'Hairline lowering is a surgical technique that allows an individual to have their frontal hairline to be moved or advanced to a certain distance on their forehead.',
         ko: `
         아름다운 얼굴형을 갖추기 위한 필수 요건 중 하나가 헤어라인이 있습니다.
         이마와 머리의 경계로 얼굴의 인상과 크기를 좌우하기 때문에 헤어라인 교정을 하면 얼굴 이미지를 호감있고 동안으로 바꿀 수 있습니다.
         `,
         ch: '发际线降低是一种手术技术，允许个体根据诸如术前发际高度，头皮松弛和患者偏好等变量使其额发线前进一定距离。',
         jp: '生え際を下げることは、手術前の生え際の高さ、頭皮の弛緩、および患者の好みなどの変数に応じて、個人の前頭生え際を一定の距離だけ前進させることを可能にする外科的技術である。'
+
     }
 ];
 

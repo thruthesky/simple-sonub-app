@@ -10,11 +10,11 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content class="offset-bottom-minus65px" padding>
 
-  <ion-label>{{ a.t('fill to register') }}</ion-label>
+  <ion-label *ngIf=" !a.sp.isLoggedIn  ">{{ a.t('fill to register') }}</ion-label>
 
-  <form class="mb-4 pb-4" (ngSubmit)="onSubmit()">
+  <form (ngSubmit)="onSubmit()">
 
     <ion-item>
       <ion-label position="floating">{{ a.t('email') }}</ion-label>
