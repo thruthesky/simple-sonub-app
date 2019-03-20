@@ -62,6 +62,7 @@ export const basicTexts = {
     // need check
     gender: { en: 'Gender', ko: '성별', ch: '性别', jp: '性別' },
     required: { en: 'Required : ', ko: '필수: ', ch: '需要: ', jp: '必須: ' },
+    content: { en: 'Content', ko: '함유량', ch: '内容', jp: 'コンテンツ' },
     'fill to register': {
         en: 'Please fill in the form below to register',
         ko: '회원 가입을 위해서 아래 항목을 입력해주세요.',
