@@ -83,7 +83,7 @@ export class PostButtonsComponent implements OnInit {
             this.parent.title = content_deleted;
         }
 
-        this.a.success(`${content_deleted}!`);
+        this.a.success(`${this.a.t('deleted')}!`);
     }
 
     async openPopUpMenu(context: string) {
